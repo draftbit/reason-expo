@@ -4,6 +4,8 @@ These are unoffical `reasonml` bindings to the `expo` JS SDK.
 
 ## Getting started
 
+**See test-app** for a working expo example.
+
 Great that you want to use Reason with Expo/ReactNative! To get everything
 running are just a couple of steps.  Let's assume that you already
 have a React Native project. Otherwise follow the ReactNative
