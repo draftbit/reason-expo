@@ -19,6 +19,12 @@ open BsReactNative;
 /* }; */
 let () = ignore(BsExpo.Brightness.setBrightness(1.0));
 
+let () =
+  ignore(
+    BsExpo.Permissions.get(BsExpo.Permissions.Camera)
+    |> Js.Promise.then_(result => Js.log(result) |> Js.Promise.resolve)
+  );
+
 /* |> Js.Promise.then_(() => Js.Promise.resolve()) */
 /* , 500) */
 let app = () =>

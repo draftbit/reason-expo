@@ -4,7 +4,7 @@
     "react-jsx": 2
   },
   "bsc-flags": ["-bs-super-errors"],
-  "bs-dependencies": ["bs-expo", "bs-react-native", "reason-react"],
+  "bs-dependencies": ["bs-react-native", "reason-react", "bs-expo"],
   "sources": [
     {
       "dir": "re"
