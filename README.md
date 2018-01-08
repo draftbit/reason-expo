@@ -47,7 +47,9 @@ yarn add bs-platform reason-react bs-react-native bs-expo
 5. Now you can build all your (so far nonexsisting) Reason in two modes:
   - `yarn run build` performs a single build
   - `yarn run watch` enters the watch mode
+
 6. Now we come to the fun stuff! Create a new file `re/app.re` and make it look like this:
+
 ```reason
 open BsReactNative;
 
@@ -56,23 +58,12 @@ let app = () =>
     <Text value="Reason is awesome!" />
   </View>;
 ```
+
 and start the watcher with `yarn run watch` if you haven't done it yet.
 
-7. We are nearly done! We now have to adopt the `index.ios.js` / `index.android.js` to look like this
+7. We are nearly done! We now have to adapt `App.js`
+
 ```js
 import { app } from "./lib/js/re/app.js";
-import React from "react";
-import {
-  AppRegistry
-} from 'react-native';
-
-AppRegistry.registerComponent('MyAwesomeProject', () => app);
-```
-**Note:** Make sure that the first argument to `AppRegistry.registerComponent` is **your** correct project name.
-
-If you are using `react-native-scripts`, then you will need to modify `App.js` to be like this
-```js
-import { app } from "./lib/js/re/app.js";
-
 export default app;
 ```
