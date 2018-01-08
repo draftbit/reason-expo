@@ -69,3 +69,8 @@ and start the watcher with `yarn run watch` if you haven't done it yet.
 import { app } from "./lib/js/re/app.js";
 export default app;
 ```
+
+## Helping out
+
+Lots of easy to finish tasks, just do `yarn start` and you'll see all
+the compiler errors to fix.

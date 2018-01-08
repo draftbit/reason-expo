@@ -17,6 +17,7 @@ let _to_string =
   | Notifications => location
   | Camera => camera;
 
+/* TODO: Wrap with Js.Result */
 type permission_result = {
   .
   "expires": string,
