@@ -1,0 +1,27 @@
+{
+  "name": "bs-expo",
+  "bsc-flags": ["-bs-super-errors"],
+  "reason": { "react-jsx": 2 },
+  "refmt": 3,
+  "bs-dependencies": ["reason-react", "bs-react-native"],
+  "namespace": true,
+  "package-specs": [
+    {
+      "module": "commonjs"
+    }
+  ],
+  "sources": [
+    {
+      "dir": "src",
+      "subdirs": [
+        {
+          "dir": "components"
+        },
+        {
+          "dir": "private",
+          "public": []
+        }
+      ]
+    }
+  ]
+}

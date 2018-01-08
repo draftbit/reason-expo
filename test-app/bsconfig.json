@@ -1,0 +1,19 @@
+{
+  "name": "test-app",
+  "reason": {
+    "react-jsx": 2
+  },
+  "bsc-flags": ["-bs-super-errors"],
+  "bs-dependencies": ["bs-expo", "bs-react-native", "reason-react"],
+  "package-specs": [
+    {
+      "module": "commonjs"
+    }
+  ],
+  "sources": [
+    {
+      "dir": "re"
+    }
+  ],
+  "refmt": 3
+}
