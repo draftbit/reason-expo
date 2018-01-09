@@ -3,16 +3,14 @@
 
 var Expo                = require("expo");
 var ReasonReact         = require("reason-react/lib/js/src/ReasonReact.js");
-var Permissions$BsExpo  = require("bs-expo/lib/js/src/permissions.js");
+var FileSystem$BsExpo   = require("bs-expo/lib/js/src/fileSystem.js");
 var Text$BsReactNative  = require("bs-react-native/lib/js/src/components/text.js");
 var View$BsReactNative  = require("bs-react-native/lib/js/src/components/view.js");
 var Style$BsReactNative = require("bs-react-native/lib/js/src/style.js");
 
-Expo.Brightness.setBrightnessAsync(1.0);
+console.log("Hell");
 
-Permissions$BsExpo.get(/* Camera */2).then((function (result) {
-        return Promise.resolve((console.log(result), /* () */0));
-      }));
+console.log(Expo.FileSystem.cacheDirectory);
 
 function app() {
   return ReasonReact.element(/* None */0, /* None */0, View$BsReactNative.make(/* None */0, /* None */0, /* None */0, /* None */0, /* None */0, /* None */0, /* None */0, /* None */0, /* None */0, /* Some */[Style$BsReactNative.style(/* :: */[

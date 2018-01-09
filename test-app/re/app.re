@@ -17,14 +17,26 @@ open BsReactNative;
 /*   let g = BsExpo.Audio.createSound(); */
 /*   (); */
 /* }; */
-let () = ignore(BsExpo.Brightness.setBrightness(1.0));
+/* let () = ignore(BsExpo.Brightness.setBrightness(0.01)); */
+/* let () = */
+/*   ignore( */
+/*     BsExpo.Permissions.get(BsExpo.Permissions.Camera) */
+/*     |> Js.Promise.then_(result => Js.log(result) |> Js.Promise.resolve) */
+/*   ); */
+let () = Js.log("Hell");
 
-let () =
-  ignore(
-    BsExpo.Permissions.get(BsExpo.Permissions.Camera)
-    |> Js.Promise.then_(result => Js.log(result) |> Js.Promise.resolve)
-  );
+/* let () = { */
+/*   let g = BsExpo.Audio.createSound(); */
+/*   g##playAsync() |> ignore; */
+/* }; */
+let () = {
+  let gb = BsExpo.FileSystem.cacheDirectory |> Js.log;
+  let g = BsExpo.FileSystem.getInfo;
+  ();
+};
 
+/* BsExpo.FileSystem.getInfo(BsExpo.FileSystem.documentDirectory) */
+/* |> Js.Promise.then_(result => Js.log(result) |> Js.Promise.resolve); */
 /* |> Js.Promise.then_(() => Js.Promise.resolve()) */
 /* , 500) */
 let app = () =>

@@ -10,7 +10,7 @@
     "expo": "^24.0.0",
     "react": "16.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
-    "bs-expo": "file:../",
+    "bs-expo": "^0.0.2",
     "bs-platform": "^2.1.0",
     "bs-react-native": "^0.5.0",
     "reason-react": "^0.3.0"
