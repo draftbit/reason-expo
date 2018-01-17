@@ -1,7 +1,7 @@
-[@bs.module "expo"] [@bs.scope "FileSystem"] [@bs.val]
+[@bs.val] [@bs.module "expo"] [@bs.scope "FileSystem"]
 external documentDirectory : string = "";
 
-[@bs.module "expo"] [@bs.scope "FileSystem"] [@bs.val]
+[@bs.val] [@bs.module "expo"] [@bs.scope "FileSystem"]
 external cacheDirectory : string = "";
 
 type fileInfo = {
@@ -16,7 +16,7 @@ type fileInfo = {
 
 type opt = {. "md5": Js.Undefined.t(Js.boolean)};
 
-[@bs.module "expo"] [@bs.scope "FileSystem"] [@bs.val]
+[@bs.val] [@bs.module "expo"] [@bs.scope "FileSystem"]
 external getInfoImpl : (string, opt) => Js.Promise.t(fileInfo) =
   "getInfoAsync";
 

@@ -905,8 +905,9 @@ braces@^1.8.2:
     preserve "^0.2.0"
     repeat-element "^1.1.2"
 
-"bs-expo@file:..":
-  version "0.0.1"
+bs-expo@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/bs-expo/-/bs-expo-0.0.2.tgz#15b6078f20e8e19f4738b28909966a4c2064a88c"
   dependencies:
     bs-react-native "^0.5.0"
 
