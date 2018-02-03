@@ -1,6 +1,6 @@
 {
   "name": "bs-expo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
@@ -15,10 +15,10 @@
   },
   "devDependencies": {
     "bs-platform": "^2.1.0",
-    "reason-react": "^0.3.1"
+    "reason-react": "^0.3.2"
   },
   "peerDependencies": {
-    "expo": "^24.0.0",
+    "expo": "^25.0.0",
     "react-native": "^0.46.0",
     "reason-react": "^0.3.1"
   },

@@ -11,10 +11,6 @@
       "subdirs": [
         {
           "dir": "components"
-        },
-        {
-          "dir": "private",
-          "public": []
         }
       ]
     }
