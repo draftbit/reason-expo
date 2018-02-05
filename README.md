@@ -74,3 +74,14 @@ export default app;
 
 Lots of easy to finish tasks, just do `yarn start` and you'll see all
 the compiler errors to fix.
+
+## Loading Fonts
+
+You will probably need to [load custom fonts](https://docs.expo.io/versions/latest/guides/using-custom-fonts.html#loading-the-font-in-your-app) and also [wait for them to load](https://docs.expo.io/versions/latest/guides/using-custom-fonts.html#waiting-for-the-font-to-load-before-rendering) before using them. You can do this using `BsExpo.Font.loadAll`:
+
+```js
+let fontsPromise = BsExpo.Font.loadAll([
+  ("MyFont", "path/to/MyFont.ttf"),
+  ("MyOtherFont", "path/to/MyOtherFont.otf"),
+]);
+```
