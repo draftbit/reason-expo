@@ -3,11 +3,15 @@ external app_loading : ReasonReact.reactClass = "AppLoading";
 
 let make =
     (
-      ~startAsync: unit => Js.Promise.t(unit),
-      ~onError: unit => unit,
-      ~onFinish: unit => unit
+      ~startAsync: option(unit => Js.Promise.t('a))=?,
+      ~onError: option('a => unit)=?,
+      ~onFinish: option(unit => unit)=?,
     ) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=app_loading,
-    ~props={"startAsync": startAsync, "onError": onError, "onFinish": onFinish}
+    ~props={
+      "startAsync": Js.Nullable.fromOption(startAsync),
+      "onError": Js.Nullable.fromOption(onError),
+      "onFinish": Js.Nullable.fromOption(onFinish),
+    },
   );
