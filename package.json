@@ -5,16 +5,10 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean-build": "bsb -clean-world -make-world",
-    "prepare": "install-self-peers -- --ignore-scripts"
+    "install-peers": "install-self-peers -- --ignore-scripts"
   },
   "license": "MIT",
-  "keywords": [
-    "reason",
-    "reasonml",
-    "bucklescript",
-    "react-native",
-    "expo"
-  ],
+  "keywords": ["reason", "reasonml", "bucklescript", "react-native", "expo"],
   "author": "",
   "repository": {
     "type": "git",
