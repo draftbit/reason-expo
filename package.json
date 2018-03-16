@@ -4,10 +4,17 @@
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
-    "clean-build": "bsb -clean-world -make-world"
+    "clean-build": "bsb -clean-world -make-world",
+    "dev:install-peer-dependcies": "node -e \"const peers = Object.entries(require('./package.json').peerDependencies || {}).map(d => d.join('@')).join(' '); if (peers.length) process.stdout.write('yarn add -P --no-lockfile ' + String(peers));\" | sh"
   },
   "license": "MIT",
-  "keywords": ["reason", "reasonml", "bucklescript", "react-native", "expo"],
+  "keywords": [
+    "reason",
+    "reasonml",
+    "bucklescript",
+    "react-native",
+    "expo"
+  ],
   "author": "",
   "repository": {
     "type": "git",
@@ -17,9 +24,9 @@
     "bs-platform": "^2.2.2"
   },
   "peerDependencies": {
+    "bs-react-native": "^0.5.0",
     "expo": "^25.0.0",
     "react-native": "expo/react-native#sdk-25",
-    "reason-react": "^0.3.4",
-    "bs-react-native": "^0.5.0"
+    "reason-react": "^0.3.4"
   }
 }
