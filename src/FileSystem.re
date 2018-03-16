@@ -1,8 +1,8 @@
 [@bs.val] [@bs.module "expo"] [@bs.scope "FileSystem"]
-external documentDirectory : string = "";
+external documentDirectory : string = "documentDirectory";
 
 [@bs.val] [@bs.module "expo"] [@bs.scope "FileSystem"]
-external cacheDirectory : string = "";
+external cacheDirectory : string = "cacheDirectory";
 
 type fileInfo = {
   .
@@ -11,14 +11,15 @@ type fileInfo = {
   "size": Js.Undefined.t(int),
   "modificationTime": Js.Undefined.t(int),
   "md5": Js.Undefined.t(string),
-  "isDirectory": Js.Undefined.t(Js.boolean)
+  "isDirectory": Js.Undefined.t(Js.boolean),
 };
 
-type opt = {. "md5": Js.Undefined.t(Js.boolean)};
+type options = {
+  .
+  "md5": Js.Undefined.t(Js.boolean),
+  "size": Js.Undefined.t(Js.boolean),
+};
 
-[@bs.val] [@bs.module "expo"] [@bs.scope "FileSystem"]
-external getInfoImpl : (string, opt) => Js.Promise.t(fileInfo) =
+[@bs.module "expo"] [@bs.scope "FileSystem"]
+external getInfoAsync : (string, options) => Js.Promise.t(fileInfo) =
   "getInfoAsync";
-
-let getInfo = (~opt: opt=Obj.magic(Js.Dict.empty()), fileUri) =>
-  getInfoImpl(fileUri, opt);
