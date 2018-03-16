@@ -5,7 +5,7 @@ type bar_code_read =
   {
     .
     "type": string,
-    "data": string
+    "data": string,
   } =>
   unit;
 
@@ -27,15 +27,19 @@ type bar_code_t =
   | Code138;
 
 let make =
-    (~onBarCodeRead: option(bar_code_read)=?, ~type_="back", ~torchMode="off") =>
+    (
+      ~onBarCodeRead: option(bar_code_read)=?,
+      ~type_="back",
+      ~torchMode="off",
+    ) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=bar_code_scanner,
     ~props=
       Js.Undefined.(
         {
-          "onBarCodeRead": from_opt(onBarCodeRead),
+          "onBarCodeRead": fromOption(onBarCodeRead),
           "type": type_,
-          "torchMode": torchMode
+          "torchMode": torchMode,
         }
-      )
+      ),
   );
