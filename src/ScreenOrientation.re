@@ -9,28 +9,18 @@ type t =
   | LandscapeRight;
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
-external all : string = "ALL";
-
-[@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
-external all_but_upside_down : string = "ALL_BUT_UPSIDE_DOWN";
-
-[@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
-external portrait : string = "PORTRAIT";
-
-[@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
-external portrait_up : string = "PORTRAIT_UP";
-
-[@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
-external portrait_down : string = "PORTRAIT_DOWN";
-
-[@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
-external landscape : string = "LANDSCAPE";
-
-[@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
-external landscape_left : string = "LANDSCAPE_LEFT";
-
-[@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
-external landscape_right : string = "LANDSCAPE_RIGHT";
+external orientation : {
+  .
+  "_ALL": string,
+  "_ALL_BUT_UPSIDE_DOWN": string,
+  "_PORTRAIT": string,
+  "_PORTRAIT_UP": string,
+  "_PORTRAIT_DOWN": string,
+  "_LANDSCAPE": string,
+  "_LANDSCAPE_LEFT": string,
+  "_LANDSCAPE_RIGHT": string,
+} =
+  "Orientation";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
 external _allow : string => unit = "allow";
@@ -38,14 +28,14 @@ external _allow : string => unit = "allow";
 let allow = orient =>
   (
     switch (orient) {
-    | All => all
-    | AllButUpsideDown => all_but_upside_down
-    | Portrait => portrait
-    | PortraitUp => portrait_up
-    | PortraitDown => portrait_down
-    | Landscape => landscape
-    | LandscapeLeft => landscape_left
-    | LandscapeRight => landscape_right
+    | All => orientation##_ALL
+    | AllButUpsideDown => orientation##_ALL_BUT_UPSIDE_DOWN
+    | Portrait => orientation##_PORTRAIT
+    | PortraitUp => orientation##_PORTRAIT_UP
+    | PortraitDown => orientation##_PORTRAIT_DOWN
+    | Landscape => orientation##_LANDSCAPE
+    | LandscapeLeft => orientation##_LANDSCAPE_LEFT
+    | LandscapeRight => orientation##_LANDSCAPE_RIGHT
     }
   )
   |> _allow;
