@@ -7,8 +7,20 @@
   "bs-dependencies": ["bs-react-native", "reason-react", "bs-expo"],
   "sources": [
     {
-      "dir": "re"
+      "dir": "re",
+      "subdirs": true
     }
   ],
+  "package-specs": [
+    {
+      "module": "commonjs",
+      "in-source": true
+    }
+  ],
+  "suffix": ".bs.js",
+  "namespace": true,
+  "warnings": {
+    "error": "+5"
+  },
   "refmt": 3
 }
