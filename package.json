@@ -5,7 +5,7 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean-build": "bsb -clean-world -make-world",
-    "dev:install-peer-dependcies": "node -e \"const peers = Object.entries(require('./package.json').peerDependencies || {}).map(d => d.join('@')).join(' '); if (peers.length) process.stdout.write('yarn add -P --no-lockfile ' + String(peers));\" | sh"
+    "prepare": "install-self-peers -- --ignore-scripts"
   },
   "license": "MIT",
   "keywords": [
@@ -21,6 +21,7 @@
     "url": "https://github.com/fxfactorial/bs-expo.git"
   },
   "devDependencies": {
+    "@team-griffin/install-self-peers": "^1.1.1",
     "bs-platform": "^2.2.2"
   },
   "peerDependencies": {
