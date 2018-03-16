@@ -4,25 +4,30 @@
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
-    "clean-build": "bsb -clean-world -make-world"
+    "clean-build": "bsb -clean-world -make-world",
+    "prepare": "install-self-peers -- --ignore-scripts"
   },
   "license": "MIT",
-  "keywords": ["reason", "reasonml", "bucklescript", "react-native", "expo"],
+  "keywords": [
+    "reason",
+    "reasonml",
+    "bucklescript",
+    "react-native",
+    "expo"
+  ],
   "author": "",
   "repository": {
     "type": "git",
     "url": "https://github.com/fxfactorial/bs-expo.git"
   },
   "devDependencies": {
-    "bs-platform": "^2.1.0",
-    "reason-react": "^0.3.2"
+    "@team-griffin/install-self-peers": "^1.1.1",
+    "bs-platform": "^2.2.2"
   },
   "peerDependencies": {
+    "bs-react-native": "^0.5.0",
     "expo": "^25.0.0",
-    "react-native": "^0.46.0",
-    "reason-react": "^0.3.1"
-  },
-  "dependencies": {
-    "bs-react-native": "^0.5.0"
+    "react-native": "expo/react-native#sdk-25",
+    "reason-react": "^0.3.4"
   }
 }
