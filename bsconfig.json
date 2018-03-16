@@ -5,14 +5,11 @@
   "refmt": 3,
   "bs-dependencies": ["reason-react", "bs-react-native"],
   "namespace": true,
-  "sources": [
-    {
-      "dir": "src",
-      "subdirs": [
-        {
-          "dir": "components"
-        }
-      ]
-    }
-  ]
+  "sources": {
+    "dir": "src",
+    "subdirs": true
+  },
+  "warnings": {
+    "error": "+5"
+  }
 }

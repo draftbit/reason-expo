@@ -2,24 +2,56 @@ type t =
   | Notifications
   | Location
   | Camera
-  | Audio_recording
+  | AudioRecording
   | Contacts
-  | Camera_roll;
+  | CameraRoll
+  | UserFacingNotifications
+  | SystemBrightness
+  | Calendar
+  | Reminders;
 
 [@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
-external location : _ = "LOCATION";
+external location : string = "LOCATION";
 
 [@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
-external camera : _ = "CAMERA";
+external camera : string = "CAMERA";
 
 [@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
-external notification : _ = "NOTIFICATIONS";
+external cameraRoll : string = "CAMERA_ROLL";
+
+[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+external contacts : string = "CONTACTS";
+
+[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+external userFacingNotifications : string = "USER_FACING_NOTIFICATIONS";
+
+[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+external notification : string = "NOTIFICATIONS";
+
+[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+external audioRecording : string = "AUDIO_RECORDING";
+
+[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+external systemBrightness : string = "SYSTEM_BRIGHTNESS";
+
+[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+external calendar : string = "CALENDAR";
+
+[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+external reminders : string = "REMINDERS";
 
 let _to_string =
   fun
   | Notifications => notification
   | Location => location
-  | Camera => camera;
+  | Camera => camera
+  | AudioRecording => audioRecording
+  | UserFacingNotifications => userFacingNotifications
+  | Contacts => contacts
+  | CameraRoll => cameraRoll
+  | SystemBrightness => systemBrightness
+  | Calendar => calendar
+  | Reminders => reminders;
 
 type permissionDetailsLocationIOS = {scope: [ | `whenInUse | `always]};
 
@@ -29,7 +61,7 @@ type permissionResponse = {
   expires: string,
   status: string,
   ios: option(permissionDetailsLocationIOS),
-  android: option(permissionDetailsLocationAndroid)
+  android: option(permissionDetailsLocationAndroid),
 };
 
 [@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
@@ -47,11 +79,11 @@ let get = permission => {
              expires: r##expires,
              status: r##status,
              ios:
-               switch (Js.Undefined.to_opt(r##ios)) {
+               switch (Js.Undefined.toOption(r##ios)) {
                | None => None
                | Some(s) =>
                  let r =
-                   switch s##scope {
+                   switch (s##scope) {
                    | "whenInUse" => `whenInUse
                    | "always" => `always
                    | _ => missingKey(s##scope)
@@ -59,19 +91,19 @@ let get = permission => {
                  Some({scope: r});
                },
              android:
-               switch (Js.Undefined.to_opt(r##android)) {
+               switch (Js.Undefined.toOption(r##android)) {
                | None => None
                | Some(s) =>
                  let r =
-                   switch s##scope {
+                   switch (s##scope) {
                    | "fine" => `fine
                    | "coarse" => `coarse
                    | "none" => `none
                    | _ => missingKey(s##scope)
                    };
                  Some({scope: r});
-               }
-           })
+               },
+           }),
          )
        )
     |> catch(oops => resolve(Js.Result.Error(Helpers.errorToString(oops))))
