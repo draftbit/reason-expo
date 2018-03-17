@@ -1,45 +1,44 @@
-[@bs.module "expo"]
-external bar_code_scanner : ReasonReact.reactClass = "BarCodeScanner";
-
-type bar_code_read =
-  {
-    .
-    "type": string,
-    "data": string,
-  } =>
-  unit;
-
-/* Todo, redo this with ppx_deriving and then add ppx-flags in bsconfig */
-type facing =
+type cameraType =
   | Front
   | Back;
 
-type torch_mode =
+type torchMode =
   | On
   | Off;
 
-type bar_code_t =
-  | Aztec
-  | Codabar
-  | Code39
-  | Code93
-  | Code128
-  | Code138;
+[@bs.module "expo"] external js : ReasonReact.reactClass = "BarCodeScanner";
 
 let make =
     (
-      ~onBarCodeRead: option(bar_code_read)=?,
-      ~type_="back",
-      ~torchMode="off",
+      ~onBarCodeRead:
+         {
+           .
+           "type": string,
+           "data": string,
+         } =>
+         unit,
+      ~type_: cameraType,
+      ~torchMode: torchMode,
+      ~barCodeTypes: array(string),
+      ~style: option(BsReactNative.Style.t),
+      children,
     ) =>
   ReasonReact.wrapJsForReason(
-    ~reactClass=bar_code_scanner,
-    ~props=
-      Js.Undefined.(
-        {
-          "onBarCodeRead": fromOption(onBarCodeRead),
-          "type": type_,
-          "torchMode": torchMode,
-        }
-      ),
+    ~reactClass=js,
+    ~props={
+      "onBarCodeRead": onBarCodeRead,
+      "type":
+        switch (type_) {
+        | Front => "front"
+        | Back => "back"
+        },
+      "torchMode":
+        switch (torchMode) {
+        | On => "on"
+        | Off => "off"
+        },
+      "barCodeTypes": barCodeTypes,
+      "style": Js.Nullable.fromOption(style),
+    },
+    children,
   );
