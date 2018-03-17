@@ -1,23 +1,10 @@
-[@bs.module "expo"] [@bs.scope "Font"] [@bs.val]
-external _load : (string, Js.Nullable.t(string)) => Js.Promise.t(unit) =
-  "loadAsync";
-
-let load = (name, path) => {
-  Js.log("[Deprecated] Please use loadAll instead");
-  _load(name, path)
-};
-
-type fontModule;
-
-[@bs.val]
-external require : (string) => fontModule = "";
+open BsReactNative;
 
 [@bs.module "expo"] [@bs.scope "Font"] [@bs.val]
-external loadDict : (Js.Dict.t(fontModule)) => Js.Promise.t(unit) =
+external loadDict : Js.Dict.t(Packager.required) => Js.Promise.t(unit) =
   "loadAsync";
 
-let loadAll = (fonts) =>
-  List.map(((name,path)) => (name, require(path)), fonts)
+let loadAll = fonts =>
+  List.map(((name, font: Packager.required)) => (name, font), fonts)
   |> Js.Dict.fromList
-  |> loadDict
-;
+  |> loadDict;

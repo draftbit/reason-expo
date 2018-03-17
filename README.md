@@ -85,9 +85,9 @@ the compiler errors to fix.
 
 You will probably need to [load custom fonts](https://docs.expo.io/versions/latest/guides/using-custom-fonts.html#loading-the-font-in-your-app) and also [wait for them to load](https://docs.expo.io/versions/latest/guides/using-custom-fonts.html#waiting-for-the-font-to-load-before-rendering) before using them. You can do this using `BsExpo.Font.loadAll`:
 
-```js
+```reason
 let fontsPromise = BsExpo.Font.loadAll([
-  ("MyFont", "path/to/MyFont.ttf"),
-  ("MyOtherFont", "path/to/MyOtherFont.otf"),
+  ("MyFont",  BsReactNative.Packager.require("path/to/MyFont.ttf")),
+  ("MyOtherFont", BsReactNative.Packager.require("path/to/MyOtherFont.otf")),
 ]);
 ```
