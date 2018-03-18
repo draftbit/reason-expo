@@ -1,7 +1,7 @@
-[@bs.val] [@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo"] [@bs.scope "FileSystem"]
 external documentDirectory : string = "documentDirectory";
 
-[@bs.val] [@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo"] [@bs.scope "FileSystem"]
 external cacheDirectory : string = "cacheDirectory";
 
 type fileInfo = {

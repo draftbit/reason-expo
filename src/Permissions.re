@@ -10,34 +10,34 @@ type t =
   | Calendar
   | Reminders;
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external location : string = "LOCATION";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external camera : string = "CAMERA";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external cameraRoll : string = "CAMERA_ROLL";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external contacts : string = "CONTACTS";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external userFacingNotifications : string = "USER_FACING_NOTIFICATIONS";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external notification : string = "NOTIFICATIONS";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external audioRecording : string = "AUDIO_RECORDING";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external systemBrightness : string = "SYSTEM_BRIGHTNESS";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external calendar : string = "CALENDAR";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Permissions"]
 external reminders : string = "REMINDERS";
 
 let toString = p =>

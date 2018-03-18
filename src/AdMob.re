@@ -7,8 +7,7 @@ module Banner = {
     | Leaderboard
     | SmartBannerPortrait
     | SmartBannerLandscape;
-  [@bs.module "expo"] [@bs.val]
-  external js : ReasonReact.reactClass = "AdMobBanner";
+  [@bs.module "expo"] external js : ReasonReact.reactClass = "AdMobBanner";
   let make =
       (
         ~bannerSize=Banner,
@@ -54,8 +53,7 @@ module PublisherBanner = {
     | Leaderboard
     | SmartBannerPortrait
     | SmartBannerLandscape;
-  [@bs.module "expo"] [@bs.val]
-  external js : ReasonReact.reactClass = "PublisherBanner";
+  [@bs.module "expo"] external js : ReasonReact.reactClass = "PublisherBanner";
   let make =
       (
         ~bannerSize=Banner,
@@ -96,25 +94,25 @@ module PublisherBanner = {
 };
 
 module Interstitial = {
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"] [@bs.val]
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
   external setAdUnitID : 'a => unit = "setAdUnitID";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"] [@bs.val]
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
   external setTestDeviceID : 'a => unit = "setTestDeviceID";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"] [@bs.val]
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
   external requestAd : ('a => unit) => unit = "requestAd";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"] [@bs.val]
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
   external showAd : ('a => unit) => unit = "showAd";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"] [@bs.val]
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
   external isReady : (Js.boolean => unit) => unit = "isReady";
 };
 
 module Rewarded = {
-  [@bs.module "expo"] [@bs.scope "AdMobRewarded"] [@bs.val]
+  [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
   external setAdUnitID : 'a => unit = "setAdUnitID";
-  [@bs.module "expo"] [@bs.scope "AdMobRewarded"] [@bs.val]
+  [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
   external setTestDeviceID : 'a => unit = "setTestDeviceID";
-  [@bs.module "expo"] [@bs.scope "AdMobRewarded"] [@bs.val]
+  [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
   external requestAd : ('a => unit) => unit = "requestAd";
-  [@bs.module "expo"] [@bs.scope "AdMobRewarded"] [@bs.val]
+  [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
   external showAd : ('a => unit) => unit = "showAd";
 };
