@@ -12,6 +12,12 @@
 
 ---
 
+<div align="center">
+
+[![NPM version badge](https://img.shields.io/npm/v/reason-expo.svg)](https://www.npmjs.com/package/reason-expo)
+
+</div>
+
 ## Getting started
 
 Let's assume that you already
