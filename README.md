@@ -27,6 +27,6 @@ These bindings are targeted to Expo SDK 25. There are some components and APIs m
 
 ## Contributing
 
-Check out the missing APIs you want to implement [here](./STATUS.md). Then, fork and run `yarn install-peers && yarn start` and start hacking away!
+Check out the missing API[s] you want to implement [here](./STATUS.md). Next, fork this repo, clone it onto your machine, install dev dependencies with `yarn install::dev`, start the compiler with `yarn start`, and start hacking away!
 
 _Credit: This project is based on the work started in [`bs-expo`](https://github.com/fxfactorial/bs-expo/)._
