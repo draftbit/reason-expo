@@ -10,3 +10,4 @@ yarn-error.log
 .ninja_log
 .bsb.lock
 **/**/*.bs.js
+.watchmanconfig
