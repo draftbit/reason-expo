@@ -1,6 +1,6 @@
 # Status
 
-## APIs
+## APIs (as of sdk25)
 
 * [x] Accelerometer
 * [x] AdMob
