@@ -71,7 +71,7 @@ have an Expo project set up. If not, [get Expo running](https://expo.io/learn) a
 
 ## Disclaimer
 
-There are some components and APIs missing. You can find an overview of the implemented components and APIs [here](./STATUS.md). Contributions of Components and APIs are very welcome! The bindings are targeted to Expo SDK 25.
+These bindings are targeted to Expo SDK 25. There are some components and APIs missing/in-development. You can find an overview of the completed components and APIs [here](./STATUS.md). Contributing new Components and APIs are extremely encouraged!
 
 ## Helping out
 
