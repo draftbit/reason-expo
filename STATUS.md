@@ -14,7 +14,7 @@
 * [x] BarCodeScanner
 * [ ] BlurView
 * [ ] Branch
-* [ ] Brightness
+* [x] Brightness
 * [ ] Calendar
 * [ ] Camera
 * [x] Constants
