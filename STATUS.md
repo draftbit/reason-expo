@@ -17,7 +17,7 @@
 * [ ] Brightness
 * [ ] Calendar
 * [ ] Camera
-* [ ] Constants
+* [x] Constants
 * [x] Contacts
 * [ ] DeviceMotion
 * [ ] DocumentPicker
