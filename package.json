@@ -1,5 +1,6 @@
 {
   "name": "reason-expo",
+  "description": "ReasonML bindings for Expo",
   "version": "25.0.0-0",
   "scripts": {
     "build": "bsb -make-world",
@@ -8,13 +9,8 @@
     "install::dev": "yarn install && install-self-peers -- --ignore-scripts"
   },
   "license": "MIT",
-  "keywords": [
-    "reason",
-    "reasonml",
-    "bucklescript",
-    "react-native",
-    "expo"
-  ],
+  "keywords": ["reason", "reasonml", "bucklescript", "react-native", "expo"],
+  "homepage": "https://github.com/fiber-god/reason-expo.git",
   "author": "Juwan Wheatley",
   "repository": {
     "type": "git",
@@ -24,6 +20,7 @@
     "@team-griffin/install-self-peers": "^1.1.1",
     "bs-platform": "^2.2.2"
   },
+  "bugs": "https://github.com/fiber-god/reason-expo/issues",
   "peerDependencies": {
     "bs-react-native": "^0.5.0",
     "expo": "^25.0.0",
