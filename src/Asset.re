@@ -10,8 +10,8 @@ type asset = {
   [@bs.meth] "downloadAsync": unit => Js.Promise.t(unit),
 };
 
-[@bs.module "expo"] [@bs.scope "Asset"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Asset"]
 external loadAsync : 'a => Js.Promise.t(unit) = "loadAsync";
 
-[@bs.module "expo"] [@bs.scope "Asset"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Asset"]
 external fromModule : BsReactNative.Packager.required => asset = "fromModule";

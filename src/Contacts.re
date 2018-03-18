@@ -1,11 +1,11 @@
-type contacts_params = {
+type contactsParams = {
   .
   "fields": array(string),
   "pageSize": int,
   "pageOffset": int,
 };
 
-type contacts_pagination_result = {
+type contactsPaginationResult = {
   .
   "data": {
     .
@@ -26,9 +26,9 @@ type contacts_pagination_result = {
   "total": int,
 };
 
-[@bs.module "expo"] [@bs.scope "Contacts"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Contacts"]
 external getContactsAsync :
-  contacts_params => Js.Promise.t(contacts_pagination_result) =
+  contactsParams => Js.Promise.t(contactsPaginationResult) =
   "getContactsAsync";
 
 type contacts_by_id_param = {
@@ -37,7 +37,7 @@ type contacts_by_id_param = {
   "fields": array(string),
 };
 
-[@bs.module "expo"] [@bs.scope "Contacts"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "Contacts"]
 external getContactByIdAsync :
-  contacts_by_id_param => Js.Promise.t(contacts_pagination_result) =
+  contacts_by_id_param => Js.Promise.t(contactsPaginationResult) =
   "getContactByIdAsync";

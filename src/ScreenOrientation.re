@@ -8,7 +8,7 @@ type t =
   | LandscapeLeft
   | LandscapeRight;
 
-[@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external orientation : {
   .
   "_ALL": string,
@@ -22,7 +22,7 @@ external orientation : {
 } =
   "Orientation";
 
-[@bs.module "expo"] [@bs.scope "ScreenOrientation"] [@bs.val]
+[@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external _allow : string => unit = "allow";
 
 let allow = orient =>
