@@ -1,6 +1,6 @@
 {
   "name": "reason-expo",
-  "version": "0.0.0",
+  "version": "25.0.0-0",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
@@ -8,7 +8,13 @@
     "install-peers": "install-self-peers -- --ignore-scripts"
   },
   "license": "MIT",
-  "keywords": ["reason", "reasonml", "bucklescript", "react-native", "expo"],
+  "keywords": [
+    "reason",
+    "reasonml",
+    "bucklescript",
+    "react-native",
+    "expo"
+  ],
   "author": "Juwan Wheatley",
   "repository": {
     "type": "git",
