@@ -40,8 +40,8 @@ external calendar : string = "CALENDAR";
 [@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
 external reminders : string = "REMINDERS";
 
-let _to_string =
-  fun
+let toString = p =>
+  switch (p) {
   | Notifications => notification
   | Location => location
   | Camera => camera
@@ -51,61 +51,15 @@ let _to_string =
   | CameraRoll => cameraRoll
   | SystemBrightness => systemBrightness
   | Calendar => calendar
-  | Reminders => reminders;
+  | Reminders => reminders
+  };
 
-type permissionDetailsLocationIOS = {scope: [ | `whenInUse | `always]};
+[@bs.module "expo"] [@bs.scope "Permissions"]
+external _get : string => Js.Promise.t('b) = "getAsync";
 
-type permissionDetailsLocationAndroid = {scope: [ | `fine | `coarse | `none]};
+let getAsync = permission => _get(toString(permission));
 
-type permissionResponse = {
-  expires: string,
-  status: string,
-  ios: option(permissionDetailsLocationIOS),
-  android: option(permissionDetailsLocationAndroid),
-};
+[@bs.module "expo"] [@bs.scope "Permissions"]
+external _ask : string => Js.Promise.t('b) = "askAsync";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] [@bs.val]
-external _get : 'a => Js.Promise.t('b) = "getAsync";
-
-let get = permission => {
-  let perm = permission |> _to_string;
-  let missingKey = v =>
-    raise(Helpers.MissingFieldShouldExist("scope", {j|Error: $v|j}));
-  Js.Promise.(
-    _get(perm)
-    |> then_(r =>
-         resolve(
-           Js.Result.Ok({
-             expires: r##expires,
-             status: r##status,
-             ios:
-               switch (Js.Undefined.toOption(r##ios)) {
-               | None => None
-               | Some(s) =>
-                 let r =
-                   switch (s##scope) {
-                   | "whenInUse" => `whenInUse
-                   | "always" => `always
-                   | _ => missingKey(s##scope)
-                   };
-                 Some({scope: r});
-               },
-             android:
-               switch (Js.Undefined.toOption(r##android)) {
-               | None => None
-               | Some(s) =>
-                 let r =
-                   switch (s##scope) {
-                   | "fine" => `fine
-                   | "coarse" => `coarse
-                   | "none" => `none
-                   | _ => missingKey(s##scope)
-                   };
-                 Some({scope: r});
-               },
-           }),
-         )
-       )
-    |> catch(oops => resolve(Js.Result.Error(Helpers.errorToString(oops))))
-  );
-};
+let askAsync = permission => _ask(toString(permission));

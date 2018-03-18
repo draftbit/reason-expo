@@ -45,7 +45,7 @@
 * [ ] Notifications
 * [ ] Payments
 * [ ] Pedometer
-* [ ] Permissions
+* [x] Permissions
 * [ ] registerRootComponent
 * [x] ScreenOrientation
 * [x] SecureStore
