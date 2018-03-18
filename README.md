@@ -1,22 +1,17 @@
-# bs-expo
+# `reason-expo`
 
-These are unoffical `reasonml` bindings to the `expo` JS SDK.
+ReasonML bindings for Expo
 
 ## Getting started
 
-**See test-app** for a working expo example.
+Let's assume that you already
+have an Expo project set up. If not, [get Expo running](https://expo.io/learn) and then come back after finished. We'll be happily waiting ☺️
 
-Great that you want to use Reason with Expo/ReactNative! To get everything
-running are just a couple of steps. Let's assume that you already
-have a React Native project. Otherwise follow the ReactNative
-[instructions](http://facebook.github.io/react-native/docs/getting-started.html)
-until you have your app running.
-
-1.  Install [Bucklescript](https://github.com/bloomberg/bucklescript) (the Reason -> JS compiler), [Reason-React](https://github.com/reasonml/reason-react) and `bs-react-native`:
+1.  Install [Bucklescript](https://github.com/BuckleScript/bucklescript) (the Reason -> JS compiler), [Reason-React](https://github.com/reasonml/reason-react) and [`bs-react-native`]:
 
     ```sh
     # substitute yarn with npm if you prefer
-    yarn add bs-platform reason-react bs-react-native bs-expo
+    yarn add bs-platform reason-react bs-react-native reason-expo
     ```
 
 1.  Create a `re` folder (there will be your Reason code)
@@ -29,7 +24,7 @@ until you have your app running.
         "react-jsx": 2
       },
       "bsc-flags": ["-bs-super-errors"],
-      "bs-dependencies": ["bs-react-native", "reason-react", "bs-expo"],
+      "bs-dependencies": ["bs-react-native", "reason-react", "reason-expo"],
       "sources": [
         {
           "dir": "re"
@@ -85,10 +80,10 @@ the compiler errors to fix.
 
 ## Loading Fonts
 
-You will probably need to [load custom fonts](https://docs.expo.io/versions/latest/guides/using-custom-fonts.html#loading-the-font-in-your-app) and also [wait for them to load](https://docs.expo.io/versions/latest/guides/using-custom-fonts.html#waiting-for-the-font-to-load-before-rendering) before using them. You can do this using `BsExpo.Font.loadAll`:
+You will probably need to [load custom fonts](https://docs.expo.io/versions/latest/guides/using-custom-fonts.html#loading-the-font-in-your-app) and also [wait for them to load](https://docs.expo.io/versions/latest/guides/using-custom-fonts.html#waiting-for-the-font-to-load-before-rendering) before using them. You can do this using `ReasonExpo.Font.loadAll`:
 
 ```reason
-let fontsPromise = BsExpo.Font.loadAll([
+let fontsPromise = ReasonExpo.Font.loadAll([
   ("MyFont",  BsReactNative.Packager.require("path/to/MyFont.ttf")),
   ("MyOtherFont", BsReactNative.Packager.require("path/to/MyOtherFont.otf")),
 ]);

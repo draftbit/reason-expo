@@ -1,5 +1,5 @@
 {
-  "name": "bs-expo",
+  "name": "reason-expo",
   "bsc-flags": ["-bs-super-errors"],
   "reason": { "react-jsx": 2 },
   "refmt": 3,
@@ -9,6 +9,13 @@
     "dir": "src",
     "subdirs": true
   },
+  "suffix": ".bs.js",
+  "package-specs": [
+    {
+      "module": "commonjs",
+      "in-source": true
+    }
+  ],
   "warnings": {
     "error": "+5"
   }

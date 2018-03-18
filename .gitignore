@@ -8,6 +8,5 @@ npm-debug.log
 .tern-port
 yarn-error.log
 .ninja_log
-test-app/lib
 .bsb.lock
 **/**/*.bs.js
