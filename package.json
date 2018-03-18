@@ -1,6 +1,6 @@
 {
-  "name": "bs-expo",
-  "version": "0.0.3",
+  "name": "reason-expo",
+  "version": "0.0.0",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
@@ -9,10 +9,10 @@
   },
   "license": "MIT",
   "keywords": ["reason", "reasonml", "bucklescript", "react-native", "expo"],
-  "author": "",
+  "author": "Juwan Wheatley",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fxfactorial/bs-expo.git"
+    "url": "https://github.com/fiber-god/reason-expo.git"
   },
   "devDependencies": {
     "@team-griffin/install-self-peers": "^1.1.1",
