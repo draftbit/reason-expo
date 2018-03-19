@@ -35,7 +35,7 @@
 * [ ] ImagePicker
 * [ ] ImageManipulator
 * [ ] IntentLauncherAndroid
-* [ ] KeepAwake
+* [x] KeepAwake
 * [x] LinearGradient
 * [ ] Location
 * [ ] Lottie
