@@ -16,6 +16,7 @@ module Banner = {
         ~adViewWillDismissScreen: option(unit => unit)=?,
         ~adViewDidDismissScreen: option(unit => unit)=?,
         ~adViewWillLeaveApplication: option(unit => unit)=?,
+        children,
       ) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -41,6 +42,7 @@ module Banner = {
         "adViewWillLeaveApplication":
           Js.Nullable.fromOption(adViewWillLeaveApplication),
       },
+      children,
     );
 };
 
@@ -63,6 +65,7 @@ module PublisherBanner = {
         ~adViewDidDismissScreen: option(unit => unit)=?,
         ~adViewWillLeaveApplication: option(unit => unit)=?,
         ~admobDispatchAppEvent: option('a => unit)=?,
+        children,
       ) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -90,6 +93,7 @@ module PublisherBanner = {
         "admobDispatchAppEvent":
           Js.Nullable.fromOption(admobDispatchAppEvent),
       },
+      children,
     );
 };
 
