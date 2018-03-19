@@ -966,9 +966,9 @@ braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-bs-platform@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-2.2.2.tgz#95ff37719771bbf310e8376fedd1148865c0da19"
+bs-platform@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-2.2.3.tgz#d905ae10a5f3621e6a739041dfa0b58483a2174f"
 
 bs-react-native@^0.5.0:
   version "0.5.0"
