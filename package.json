@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@team-griffin/install-self-peers": "^1.1.1",
-    "bs-platform": "^2.2.2"
+    "bs-platform": "^2.2.3"
   },
   "bugs": "https://github.com/fiber-god/reason-expo/issues",
   "peerDependencies": {
