@@ -20,8 +20,7 @@
 
 ## Getting started
 
-Let's assume that you already
-have an Expo project set up. If not, [get Expo running](https://expo.io/learn) and then come back after finished. We'll be happily waiting ☺️
+Let's assume that you already have an Expo project set up. If not, [get Expo running](https://expo.io/learn) and then come back when finished. We'll be happily waiting ☺️
 
 Next, follow [this guide](https://medium.com/@peterpme/your-first-reasonml-pr-into-an-existing-react-native-codebase-a490b4a79649) by [Peter Piekarczyk](https://twitter.com/peterpme) on getting ReasonML set up in a React Native app.
 
@@ -29,10 +28,10 @@ Once completed, `yarn add reason-expo`, and add `"reason-expo"` to your `bs-depe
 
 ## Disclaimer
 
-These bindings are targeted to Expo SDK 25. There are some components and APIs missing/in-development. You can find an overview of the completed APIs [here](./STATUS.md). Contributing new Components and APIs are extremely encouraged!
+These bindings are targeted to Expo SDK 25. There are some APIs missing/in-development. You can find an overview of the completed APIs [here](./STATUS.md). Contributing new API bindings is extremely encouraged!
 
 ## Contributing
 
-Check out the missing API[s] you want to implement [here](./STATUS.md). Next, fork this repo, clone it onto your machine, install dev dependencies with `yarn install::dev`, start the compiler with `yarn start`, and start hacking away!
+Find the missing API[s] that you want to implement [here](./STATUS.md). Next, fork this repo, clone it onto your machine, install dev dependencies with `yarn install::dev`, start the compiler with `yarn start`, and start hacking away!
 
 _Credit: This project is based on the work started in [`bs-expo`](https://github.com/fxfactorial/bs-expo/)._
