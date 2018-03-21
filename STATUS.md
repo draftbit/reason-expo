@@ -12,7 +12,7 @@
 * [ ] AuthSession
 * [ ] AV
 * [x] BarCodeScanner
-* [ ] BlurView
+* [x] BlurView
 * [ ] Branch
 * [x] Brightness
 * [ ] Calendar
