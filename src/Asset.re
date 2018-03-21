@@ -1,4 +1,4 @@
-type asset = {
+type t = {
   .
   "name": string,
   "_type": string,
@@ -14,4 +14,4 @@ type asset = {
 external loadAsync : 'a => Js.Promise.t(unit) = "loadAsync";
 
 [@bs.module "expo"] [@bs.scope "Asset"]
-external fromModule : BsReactNative.Packager.required => asset = "fromModule";
+external fromModule : BsReactNative.Packager.required => t = "fromModule";
