@@ -56,4 +56,4 @@
 * [ ] takeSnapshotAsync
 * [ ] Util
 * [ ] Video
-* [ ] WebBrowser
+* [x] WebBrowser
