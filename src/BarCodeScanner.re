@@ -20,7 +20,7 @@ let make =
       ~type_: cameraType,
       ~torchMode: torchMode,
       ~barCodeTypes: array(string),
-      ~style: option(BsReactNative.Style.t),
+      ~style: option(BsReactNative.Style.t)=?,
       children,
     ) =>
   ReasonReact.wrapJsForReason(
