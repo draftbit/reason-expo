@@ -42,7 +42,7 @@
 * [ ] Magnetometer
 * [ ] MailComposer
 * [ ] MapView
-* [ ] Notifications
+* [x] Notifications
 * [ ] Payments
 * [ ] Pedometer
 * [x] Permissions
