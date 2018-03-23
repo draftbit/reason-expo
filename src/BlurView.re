@@ -5,13 +5,7 @@ type tint =
   | Default
   | Dark;
 
-let make =
-    (
-      ~tint: tint=Default,
-      ~intensity: int,
-      ~style: option(BsReactNative.Style.t)=?,
-      children,
-    ) =>
+let make = (~tint: tint=Default, ~intensity: int, ~style=?, children) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=js,
     ~props={
