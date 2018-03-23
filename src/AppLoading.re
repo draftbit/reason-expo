@@ -10,9 +10,9 @@ let make =
   ReasonReact.wrapJsForReason(
     ~reactClass=js,
     ~props={
-      "startAsync": Js.Nullable.fromOption(startAsync),
-      "onError": Js.Nullable.fromOption(onError),
-      "onFinish": Js.Nullable.fromOption(onFinish),
+      "startAsync": Js.Undefined.fromOption(startAsync),
+      "onError": Js.Undefined.fromOption(onError),
+      "onFinish": Js.Undefined.fromOption(onFinish),
     },
     children,
   );
