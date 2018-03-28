@@ -8,7 +8,7 @@
 * [x] AppLoading
 * [x] Asset
 * [ ] Audio
-* [ ] AuthSession
+* [x] AuthSession
 * [ ] AV
 * [x] BarCodeScanner
 * [x] BlurView
