@@ -6,7 +6,6 @@
 * [x] AdMob
 * [x] Amplitude
 * [x] AppLoading
-* [ ] Art
 * [x] Asset
 * [ ] Audio
 * [ ] AuthSession
