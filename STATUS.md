@@ -1,6 +1,6 @@
 # Status
 
-## APIs (as of sdk25)
+## APIs (as of sdk26)
 
 * [x] Accelerometer
 * [x] AdMob
@@ -37,6 +37,7 @@
 * [x] KeepAwake
 * [x] LinearGradient
 * [ ] Location
+* [ ] Localization
 * [ ] Lottie
 * [ ] Magnetometer
 * [ ] MailComposer
@@ -45,6 +46,7 @@
 * [ ] Payments
 * [ ] Pedometer
 * [x] Permissions
+* [ ] Print
 * [ ] registerRootComponent
 * [x] ScreenOrientation
 * [x] SecureStore
@@ -53,6 +55,7 @@
 * [ ] SQLite
 * [ ] Svg
 * [ ] takeSnapshotAsync
+* [ ] Updates
 * [ ] Util
 * [ ] Video
 * [x] WebBrowser
