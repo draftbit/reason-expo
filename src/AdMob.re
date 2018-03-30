@@ -103,11 +103,11 @@ module Interstitial = {
   [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
   external setTestDeviceID : 'a => unit = "setTestDeviceID";
   [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
-  external requestAd : ('a => unit) => unit = "requestAd";
+  external requestAdAsync : ('a => unit) => unit = "requestAdAsync";
   [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
-  external showAd : ('a => unit) => unit = "showAd";
+  external showAdAsync : ('a => unit) => unit = "showAdAsync";
   [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
-  external isReady : (Js.boolean => unit) => unit = "isReady";
+  external isReadyAsync : (Js.boolean => unit) => unit = "isReadyAsync";
 };
 
 module Rewarded = {
@@ -116,7 +116,7 @@ module Rewarded = {
   [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
   external setTestDeviceID : 'a => unit = "setTestDeviceID";
   [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
-  external requestAd : ('a => unit) => unit = "requestAd";
+  external requestAdAsync : ('a => unit) => unit = "requestAdAsync";
   [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
-  external showAd : ('a => unit) => unit = "showAd";
+  external showAdAsync : ('a => unit) => unit = "showAdAsync";
 };
