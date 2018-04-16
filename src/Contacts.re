@@ -21,8 +21,8 @@ type contactsPaginationResult = {
     "imageAvailable": string,
     "previousLastName": Js.Undefined.t(string),
   },
-  "hasNextPage": Js.boolean,
-  "hasPreviousPage": Js.boolean,
+  "hasNextPage": bool,
+  "hasPreviousPage": bool,
   "total": int,
 };
 

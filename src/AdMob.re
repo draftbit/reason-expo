@@ -107,7 +107,7 @@ module Interstitial = {
   [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
   external showAdAsync : ('a => unit) => unit = "showAdAsync";
   [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
-  external isReadyAsync : (Js.boolean => unit) => unit = "isReadyAsync";
+  external isReadyAsync : (bool => unit) => unit = "isReadyAsync";
 };
 
 module Rewarded = {

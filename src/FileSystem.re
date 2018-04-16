@@ -6,18 +6,18 @@ external cacheDirectory : string = "cacheDirectory";
 
 type fileInfo = {
   .
-  "exists": Js.boolean,
+  "exists": bool,
   "uri": Js.Undefined.t(string),
   "size": Js.Undefined.t(int),
   "modificationTime": Js.Undefined.t(int),
   "md5": Js.Undefined.t(string),
-  "isDirectory": Js.Undefined.t(Js.boolean),
+  "isDirectory": Js.Undefined.t(bool),
 };
 
 type options = {
   .
-  "md5": Js.Undefined.t(Js.boolean),
-  "size": Js.Undefined.t(Js.boolean),
+  "md5": Js.Undefined.t(bool),
+  "size": Js.Undefined.t(bool),
 };
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]

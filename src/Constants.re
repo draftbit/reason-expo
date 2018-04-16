@@ -18,7 +18,7 @@ external getWebViewUserAgentAsync : unit => Js.Promise.t(string) =
   "getWebViewUserAgentAsync";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external isDevice : Js.boolean = "isDevice";
+external isDevice : bool = "isDevice";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
 external platform : {

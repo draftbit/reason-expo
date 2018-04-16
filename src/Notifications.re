@@ -7,7 +7,7 @@ external addListener :
       .
       "origin": string,
       "data": Js.t({..}),
-      "remote": Js.boolean,
+      "remote": bool,
     } =>
     unit
   ) =>
