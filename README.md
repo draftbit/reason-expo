@@ -28,10 +28,10 @@ Once completed, `yarn add reason-expo`, and add `"reason-expo"` to your `bs-depe
 
 ## Disclaimer
 
-These bindings are targeted to Expo SDK 25. There are some APIs missing/in-development. You can find an overview of the completed APIs [here](./STATUS.md). Contributing new API bindings is extremely encouraged!
+These bindings are targeted to Expo SDK 27. There are some APIs missing/in-development. Compare this repo to the APIs listed in [Expo's Docs](https://docs.expo.io) to see what's missing. Contributing new API bindings is extremely encouraged!
 
 ## Contributing
 
-Find the missing API[s] that you want to implement [here](./STATUS.md). Next, fork this repo, clone it onto your machine, install dev dependencies with `yarn install::dev`, start the compiler with `yarn start`, and start hacking away!
+Find the missing API[s] that you want to bind to in [Expo's Docs](https://docs.expo.io). Next, fork this repo, clone it onto your machine, install dev dependencies with `yarn install::dev`, start the compiler with `yarn start`, and start hacking away!
 
 _Credit: This project is based on the work started in [`bs-expo`](https://github.com/fxfactorial/bs-expo/)._
