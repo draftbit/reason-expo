@@ -10,12 +10,54 @@ module MapView = {
   };
 
   [@bs.deriving abstract]
-  type edge = {
+  type latlng = {
+    latitude: float,
+    longitude: float,
+  };
+
+  [@bs.deriving abstract]
+  type location = {
+    latitude: float,
+    longitude: float,
+    altitude: float,
+    timestamp: float,
+    accuracy: float,
+    altitudeAccuracy: float,
+    speed: float,
+  };
+
+  [@bs.deriving abstract]
+  type point = {
+    x: float,
+    y: float,
+  };
+
+  [@bs.deriving abstract]
+  type edgePadding = {
     top: float,
     right: float,
     bottom: float,
     left: float,
   };
+
+  [@bs.deriving abstract]
+  type edgeInsets = {
+    top: float,
+    right: float,
+    bottom: float,
+    left: float,
+  };
+
+  [@bs.deriving abstract]
+  type marker = {
+    id: string,
+    coordinate: latlng,
+    title: string,
+    description: string,
+  };
+
+  [@bs.deriving abstract]
+  type kmlContainer = {markers: array(marker)};
 
   type mapType =
     | Standard
@@ -52,7 +94,7 @@ module MapView = {
         ~provider: option(string)=?,
         ~region: option(region)=?,
         ~initialRegion: option(region)=?,
-        ~mapPadding: option(edge)=?,
+        ~mapPadding: option(edgePadding)=?,
         ~paddingAdjustmentBehavior=Automatic,
         ~liteMode: option(bool)=?,
         ~mapType=Standard,
@@ -81,8 +123,82 @@ module MapView = {
         ~loadingIndicatorColor: option(string)=?,
         ~loadingBackgroundColor: option(string)=?,
         ~moveOnMarkerPress: option(bool)=?,
-        ~legalLabelInsets: option(edge)=?,
+        ~legalLabelInsets: option(edgeInsets)=?,
         ~kmlSrc: option(string)=?,
+        ~onMapReady: option(unit => unit)=?,
+        ~onKmlReady: option(kmlContainer => unit)=?,
+        ~onRegionChange: option(region => unit)=?,
+        ~onRegionChangeComplete: option(region => unit)=?,
+        ~onUserLocationChange: option({. "coordinate": location} => unit)=?,
+        ~onPress:
+           option(
+             {
+               .
+               "coordinate": latlng,
+               "position": point,
+             } =>
+             unit,
+           )=?,
+        ~onPanDrag:
+           option(
+             {
+               .
+               "coordinate": latlng,
+               "position": point,
+             } =>
+             unit,
+           )=?,
+        ~onPoiClick:
+           option(
+             {
+               .
+               "coordinate": latlng,
+               "position": point,
+               "placeId": string,
+               "name": string,
+             } =>
+             unit,
+           )=?,
+        ~onLongPress:
+           option(
+             {
+               .
+               "coordinate": latlng,
+               "position": point,
+             } =>
+             unit,
+           )=?,
+        ~onMarkerPress: option(unit => unit)=?,
+        ~onMarkerSelect: option(unit => unit)=?,
+        ~onMarkerDeselect: option(unit => unit)=?,
+        ~onCalloutPress: option(unit => unit)=?,
+        ~onMarkerDragStart:
+           option(
+             {
+               .
+               "coordinate": latlng,
+               "position": point,
+             } =>
+             unit,
+           )=?,
+        ~onMarkerDrag:
+           option(
+             {
+               .
+               "coordinate": latlng,
+               "position": point,
+             } =>
+             unit,
+           )=?,
+        ~onMarkerDragEnd:
+           option(
+             {
+               .
+               "coordinate": latlng,
+               "position": point,
+             } =>
+             unit,
+           )=?,
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -128,6 +244,22 @@ module MapView = {
             "moveOnMarkerPress": fromOption(moveOnMarkerPress),
             "legalLabelInsets": fromOption(legalLabelInsets),
             "kmlSrc": fromOption(kmlSrc),
+            "onMapReady": fromOption(onMapReady),
+            "onKmlReady": fromOption(onKmlReady),
+            "onRegionChange": fromOption(onRegionChange),
+            "onRegionChangeComplete": fromOption(onRegionChangeComplete),
+            "onUserLocationChange": fromOption(onUserLocationChange),
+            "onPress": fromOption(onPress),
+            "onPanDrag": fromOption(onPanDrag),
+            "onPoiClick": fromOption(onPoiClick),
+            "onLongPress": fromOption(onLongPress),
+            "onMarkerPress": fromOption(onMarkerPress),
+            "onMarkerSelect": fromOption(onMarkerSelect),
+            "onMarkerDeselect": fromOption(onMarkerDeselect),
+            "onCalloutPress": fromOption(onCalloutPress),
+            "onMarkerDragStart": fromOption(onMarkerDragStart),
+            "onMarkerDrag": fromOption(onMarkerDrag),
+            "onMarkerDragEnd": fromOption(onMarkerDragEnd),
           }
         ),
       children,
