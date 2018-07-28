@@ -89,6 +89,187 @@ module MapView = {
 
   type customMapStyle;
 
+  module Marker = {
+    [@bs.module "expo"] [@bs.scope "MapView"]
+    external marker : ReasonReact.reactClass = "Marker";
+
+    let make = children =>
+      ReasonReact.wrapJsForReason(
+        ~reactClass=marker,
+        ~props=Js.Obj.empty(),
+        children,
+      );
+  };
+
+  module Overlay = {
+    [@bs.module "expo"] [@bs.scope "MapView"]
+    external overlay : ReasonReact.reactClass = "Overlay";
+
+    let make =
+        (
+          ~image: option({. uri: string})=?,
+          ~bounds: option(array(latlng))=?,
+          children,
+        ) =>
+      ReasonReact.wrapJsForReason(
+        ~reactClass=overlay,
+        ~props=
+          Js.Nullable.(
+            {"image": fromOption(image), "bounds": fromOption(bounds)}
+          ),
+        children,
+      );
+  };
+
+  module Callout = {
+    [@bs.module "expo"] [@bs.scope "MapView"]
+    external callout : ReasonReact.reactClass = "Callout";
+
+    let make =
+        (
+          ~tooltip: option(bool)=?,
+          ~onPress: option(unit => unit)=?,
+          children,
+        ) =>
+      ReasonReact.wrapJsForReason(
+        ~reactClass=callout,
+        ~props=
+          Js.Nullable.(
+            {"tooltip": fromOption(tooltip), "onPress": fromOption(onPress)}
+          ),
+        children,
+      );
+  };
+
+  module Polygon = {
+    [@bs.module "expo"] [@bs.scope "MapView"]
+    external polygon : ReasonReact.reactClass = "Polygon";
+    let make =
+        (
+          ~coordinates: option(array(latlng))=?,
+          ~holes: option(array(array(latlng)))=?,
+          ~strokeWidth: option(float)=?,
+          ~strokeColor: option(string)=?,
+          ~fillColor: option(string)=?,
+          ~lineCap: option(string)=?,
+          ~lineJoin: option(array(latlng))=?,
+          ~miterLimit: option(float)=?,
+          ~geodesic: option(bool)=?,
+          ~lineDashPhase: option(float)=?,
+          ~lineDashPattern: option(array(float))=?,
+          ~tappable: option(bool)=?,
+          ~onPress: option(unit => unit)=?,
+          children,
+        ) =>
+      ReasonReact.wrapJsForReason(
+        ~reactClass=polygon,
+        ~props=
+          Js.Nullable.(
+            {
+              "holes": fromOption(holes),
+              "coordinates": fromOption(coordinates),
+              "strokeWidth": fromOption(strokeWidth),
+              "strokeColor": fromOption(strokeColor),
+              "fillColor": fromOption(fillColor),
+              "lineCap": fromOption(lineCap),
+              "lineJoin": fromOption(lineJoin),
+              "miterLimit": fromOption(miterLimit),
+              "geodesic": fromOption(geodesic),
+              "lineDashPhase": fromOption(lineDashPhase),
+              "lineDashPattern": fromOption(lineDashPattern),
+              "tappable": fromOption(tappable),
+              "onPress": fromOption(onPress),
+            }
+          ),
+        children,
+      );
+  };
+
+  module Polyline = {
+    [@bs.module "expo"] [@bs.scope "MapView"]
+    external polyline : ReasonReact.reactClass = "Polyline";
+    let make =
+        (
+          ~coordinates: option(array(latlng))=?,
+          ~strokeColors: option(array(string))=?,
+          ~strokeWidth: option(float)=?,
+          ~strokeColor: option(string)=?,
+          ~fillColor: option(string)=?,
+          ~lineCap: option(string)=?,
+          ~lineJoin: option(array(latlng))=?,
+          ~miterLimit: option(float)=?,
+          ~geodesic: option(bool)=?,
+          ~lineDashPhase: option(float)=?,
+          ~lineDashPattern: option(array(float))=?,
+          ~onPress: option(unit => unit)=?,
+          children,
+        ) =>
+      ReasonReact.wrapJsForReason(
+        ~reactClass=polyline,
+        ~props=
+          Js.Nullable.(
+            {
+              "coordinates": fromOption(coordinates),
+              "strokeWidth": fromOption(strokeWidth),
+              "strokeColor": fromOption(strokeColor),
+              "strokeColors": fromOption(strokeColors),
+              "fillColor": fromOption(fillColor),
+              "lineCap": fromOption(lineCap),
+              "lineJoin": fromOption(lineJoin),
+              "miterLimit": fromOption(miterLimit),
+              "geodesic": fromOption(geodesic),
+              "lineDashPhase": fromOption(lineDashPhase),
+              "lineDashPattern": fromOption(lineDashPattern),
+              "onPress": fromOption(onPress),
+            }
+          ),
+        children,
+      );
+  };
+
+  module Circle = {
+    [@bs.module "expo"] [@bs.scope "MapView"]
+    external circle : ReasonReact.reactClass = "Circle";
+
+    let make =
+        (
+          ~center: option(latlng)=?,
+          ~radius: option(float)=?,
+          ~zIndex: option(float)=?,
+          ~strokeWidth: option(float)=?,
+          ~strokeColor: option(string)=?,
+          ~fillColor: option(string)=?,
+          ~lineCap: option(string)=?,
+          ~lineJoin: option(array(latlng))=?,
+          ~miterLimit: option(float)=?,
+          ~geodesic: option(bool)=?,
+          ~lineDashPhase: option(float)=?,
+          ~lineDashPattern: option(array(float))=?,
+          children,
+        ) =>
+      ReasonReact.wrapJsForReason(
+        ~reactClass=circle,
+        ~props=
+          Js.Nullable.(
+            {
+              "radius": fromOption(radius),
+              "zIndex": fromOption(zIndex),
+              "strokeWidth": fromOption(strokeWidth),
+              "strokeColor": fromOption(strokeColor),
+              "center": fromOption(center),
+              "fillColor": fromOption(fillColor),
+              "lineCap": fromOption(lineCap),
+              "lineJoin": fromOption(lineJoin),
+              "miterLimit": fromOption(miterLimit),
+              "geodesic": fromOption(geodesic),
+              "lineDashPhase": fromOption(lineDashPhase),
+              "lineDashPattern": fromOption(lineDashPattern),
+            }
+          ),
+        children,
+      );
+  };
+
   let make =
       (
         ~provider: option(string)=?,
