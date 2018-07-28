@@ -29,7 +29,7 @@
   "bugs": "https://github.com/fiber-god/reason-expo/issues",
   "peerDependencies": {
     "bs-react-native": "^0.8.0",
-    "expo": "^28.0.0",
+    "expo": "^29.0.0",
     "reason-react": "^0.3.4"
   }
 }
