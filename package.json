@@ -30,6 +30,6 @@
   "peerDependencies": {
     "bs-react-native": "^0.8.0",
     "expo": "^29.0.0",
-    "reason-react": "^0.3.4"
+    "reason-react": "^0.4.2"
   }
 }
