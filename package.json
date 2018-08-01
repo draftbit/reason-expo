@@ -1,7 +1,7 @@
 {
   "name": "reason-expo",
   "description": "ReasonML bindings for Expo",
-  "version": "28.0.0",
+  "version": "29.0.0",
   "scripts": {
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
