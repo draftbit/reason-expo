@@ -28,7 +28,7 @@ Once completed, `yarn add reason-expo`, and add `"reason-expo"` to your `bs-depe
 
 ## Disclaimer
 
-These bindings are targeted to Expo SDK 27. There are some APIs missing/in-development. Compare this repo to the APIs listed in [Expo's Docs](https://docs.expo.io) to see what's missing. Contributing new API bindings is extremely encouraged!
+These bindings are targeted to Expo SDK 29. There are some APIs missing/in-development. Compare this repo to the APIs listed in [Expo's Docs](https://docs.expo.io) to see what's missing. Contributing new API bindings is extremely encouraged!
 
 ## Contributing
 
