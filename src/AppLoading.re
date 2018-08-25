@@ -1,18 +1,27 @@
 [@bs.module "expo"] external js : ReasonReact.reactClass = "AppLoading";
 
+[@bs.deriving abstract]
+type jsProps = {
+  [@bs.optional]
+  startAsync: unit => Js.Promise.t(unit),
+  [@bs.optional]
+  onError: string => unit,
+  [@bs.optional]
+  onFinish: unit => unit,
+  [@bs.optional]
+  autoHideSplash: bool,
+};
+
 let make =
     (
-      ~startAsync: option(unit => Js.Promise.t('a))=?,
-      ~onError: option('a => unit)=?,
-      ~onFinish: option(unit => unit)=?,
+      ~startAsync=() => Js.Promise.resolve(),
+      ~onError=_error => (),
+      ~onFinish=() => (),
+      ~autoHideSplash=true,
       children,
     ) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=js,
-    ~props={
-      "startAsync": Js.Undefined.fromOption(startAsync),
-      "onError": Js.Undefined.fromOption(onError),
-      "onFinish": Js.Undefined.fromOption(onFinish),
-    },
+    ~props=jsProps(~startAsync, ~onError, ~onFinish, ~autoHideSplash, ()),
     children,
   );
