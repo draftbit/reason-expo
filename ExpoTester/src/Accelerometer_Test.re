@@ -1,6 +1,6 @@
 open ReasonExpo;
 
-[@bs.val] external setTimeout : (unit => unit, int) => float = "setTimeout";
+[@bs.val] external setTimeout: (unit => unit, int) => float = "setTimeout";
 
 let log = m => Js.log3("Accelerometer:", m, "\n");
 
@@ -43,5 +43,6 @@ let testModule = () => {
       Accelerometer.removeAllListeners();
     },
     1000,
-  );
+  )
+  |> ignore;
 };

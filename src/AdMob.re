@@ -1,122 +1,88 @@
-module Banner = {
-  type bannerSize =
-    | Banner
-    | LargeBanner
-    | MediumRectangle
-    | FullBanner
-    | Leaderboard
-    | SmartBannerPortrait
-    | SmartBannerLandscape;
+type bannerSize =
+  | Banner
+  | LargeBanner
+  | MediumRectangle
+  | FullBanner
+  | Leaderboard
+  | SmartBannerPortrait
+  | SmartBannerLandscape;
+
+module AdMobBanner = {
   [@bs.module "expo"] external js : ReasonReact.reactClass = "AdMobBanner";
+  [@bs.deriving abstract]
+  type jsProps = {
+    [@bs.optional]
+    bannerSize: string,
+    [@bs.optional]
+    onAdViewDidReceiveAd: unit => unit,
+    [@bs.optional]
+    onDidFailToReceiveAdWithError: string => unit,
+    [@bs.optional]
+    onAdViewWillPresentScreen: unit => unit,
+    [@bs.optional]
+    onAdViewWillDismissScreen: unit => unit,
+    [@bs.optional]
+    onAdViewDidDismissScreen: unit => unit,
+    [@bs.optional]
+    onAdViewWillLeaveApplication: unit => unit,
+  };
   let make =
       (
         ~bannerSize=Banner,
-        ~didFailToReceiveAdWithError: option('a => unit)=?,
-        ~adViewWillPresentScreen: option(unit => unit)=?,
-        ~adViewWillDismissScreen: option(unit => unit)=?,
-        ~adViewDidDismissScreen: option(unit => unit)=?,
-        ~adViewWillLeaveApplication: option(unit => unit)=?,
+        ~onAdViewDidReceiveAd=() => (),
+        ~onDidFailToReceiveAdWithError=_e => (),
+        ~onAdViewWillPresentScreen=() => (),
+        ~onAdViewWillDismissScreen=() => (),
+        ~onAdViewDidDismissScreen=() => (),
+        ~onAdViewWillLeaveApplication=() => (),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
-      ~props={
-        "bannerSize":
-          switch (bannerSize) {
-          | Banner => "banner"
-          | LargeBanner => "largeBanner"
-          | MediumRectangle => "mediumRectangle"
-          | FullBanner => "fullBanner"
-          | Leaderboard => "leaderboard"
-          | SmartBannerPortrait => "smartBannerPortrait"
-          | SmartBannerLandscape => "smartBannerLandscape"
-          },
-        "didFailToReceiveAdWithError":
-          Js.Nullable.fromOption(didFailToReceiveAdWithError),
-        "adViewWillPresentScreen":
-          Js.Nullable.fromOption(adViewWillPresentScreen),
-        "adViewWillDismissScreen":
-          Js.Nullable.fromOption(adViewWillDismissScreen),
-        "adViewDidDismissScreen":
-          Js.Nullable.fromOption(adViewDidDismissScreen),
-        "adViewWillLeaveApplication":
-          Js.Nullable.fromOption(adViewWillLeaveApplication),
-      },
+      ~props=
+        jsProps(
+          ~bannerSize=
+            switch (bannerSize) {
+            | Banner => "banner"
+            | LargeBanner => "largeBanner"
+            | MediumRectangle => "mediumRectangle"
+            | FullBanner => "fullBanner"
+            | Leaderboard => "leaderboard"
+            | SmartBannerPortrait => "smartBannerPortrait"
+            | SmartBannerLandscape => "smartBannerLandscape"
+            },
+          ~onAdViewDidReceiveAd,
+          ~onDidFailToReceiveAdWithError,
+          ~onAdViewWillPresentScreen,
+          ~onAdViewWillDismissScreen,
+          ~onAdViewDidDismissScreen,
+          ~onAdViewWillLeaveApplication,
+          (),
+        ),
       children,
     );
 };
 
-module PublisherBanner = {
-  type bannerSize =
-    | Banner
-    | LargeBanner
-    | MediumRectangle
-    | FullBanner
-    | Leaderboard
-    | SmartBannerPortrait
-    | SmartBannerLandscape;
-  [@bs.module "expo"] external js : ReasonReact.reactClass = "PublisherBanner";
-  let make =
-      (
-        ~bannerSize=Banner,
-        ~didFailToReceiveAdWithError: option('a => unit)=?,
-        ~adViewWillPresentScreen: option(unit => unit)=?,
-        ~adViewWillDismissScreen: option(unit => unit)=?,
-        ~adViewDidDismissScreen: option(unit => unit)=?,
-        ~adViewWillLeaveApplication: option(unit => unit)=?,
-        ~admobDispatchAppEvent: option('a => unit)=?,
-        children,
-      ) =>
-    ReasonReact.wrapJsForReason(
-      ~reactClass=js,
-      ~props={
-        "bannerSize":
-          switch (bannerSize) {
-          | Banner => "banner"
-          | LargeBanner => "largeBanner"
-          | MediumRectangle => "mediumRectangle"
-          | FullBanner => "fullBanner"
-          | Leaderboard => "leaderboard"
-          | SmartBannerPortrait => "smartBannerPortrait"
-          | SmartBannerLandscape => "smartBannerLandscape"
-          },
-        "didFailToReceiveAdWithError":
-          Js.Nullable.fromOption(didFailToReceiveAdWithError),
-        "adViewWillPresentScreen":
-          Js.Nullable.fromOption(adViewWillPresentScreen),
-        "adViewWillDismissScreen":
-          Js.Nullable.fromOption(adViewWillDismissScreen),
-        "adViewDidDismissScreen":
-          Js.Nullable.fromOption(adViewDidDismissScreen),
-        "adViewWillLeaveApplication":
-          Js.Nullable.fromOption(adViewWillLeaveApplication),
-        "admobDispatchAppEvent":
-          Js.Nullable.fromOption(admobDispatchAppEvent),
-      },
-      children,
-    );
+module AdMobInterstitial = {
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  external setAdUnitID : string => unit = "setAdUnitID";
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  external setTestDeviceID : string => unit = "setTestDeviceID";
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  external requestAdAsync : unit => Js.Promise.t(unit) = "requestAdAsync";
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  external showAdAsync : unit => Js.Promise.t(unit) = "showAdAsync";
+  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  external getIsReadyAsync : unit => Js.Promise.t(bool) = "getIsReadyAsync";
 };
 
-module Interstitial = {
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
-  external setAdUnitID : 'a => unit = "setAdUnitID";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
-  external setTestDeviceID : 'a => unit = "setTestDeviceID";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
-  external requestAdAsync : ('a => unit) => unit = "requestAdAsync";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
-  external showAdAsync : ('a => unit) => unit = "showAdAsync";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
-  external isReadyAsync : (bool => unit) => unit = "isReadyAsync";
-};
-
-module Rewarded = {
+module AdMobRewarded = {
   [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
-  external setAdUnitID : 'a => unit = "setAdUnitID";
+  external setAdUnitID : string => unit = "setAdUnitID";
   [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
-  external setTestDeviceID : 'a => unit = "setTestDeviceID";
+  external setTestDeviceID : string => unit = "setTestDeviceID";
   [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
-  external requestAdAsync : ('a => unit) => unit = "requestAdAsync";
+  external requestAdAsync : unit => Js.Promise.t(unit) = "requestAdAsync";
   [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
-  external showAdAsync : ('a => unit) => unit = "showAdAsync";
+  external showAdAsync : unit => Js.Promise.t(unit) = "showAdAsync";
 };
