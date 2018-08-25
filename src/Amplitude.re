@@ -5,7 +5,7 @@ external initialize : string => unit = "initialize";
 external setUserId : string => unit = "setUserId";
 
 [@bs.module "expo"] [@bs.scope "Amplitude"]
-external setUserProperties : Js.t({..}) => unit = "setUserProperties";
+external setUserProperties : 'a => unit = "setUserProperties";
 
 [@bs.module "expo"] [@bs.scope "Amplitude"]
 external clearUserProperties : unit => unit = "clearUserProperties";
@@ -14,7 +14,7 @@ external clearUserProperties : unit => unit = "clearUserProperties";
 external logEvent : string => unit = "logEvent";
 
 [@bs.module "expo"] [@bs.scope "Amplitude"]
-external logEventWithProperties : (string, Js.t({..})) => unit =
+external logEventWithProperties : (string, 'a) => unit =
   "logEventWithProperties";
 
 [@bs.module "expo"] [@bs.scope "Amplitude"]
