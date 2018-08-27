@@ -5,18 +5,32 @@ type tint =
   | Default
   | Dark;
 
-let make = (~tint: tint=Default, ~intensity: int, ~style=?, children) =>
+[@bs.deriving abstract]
+type props = {
+  tint: string,
+  intensity: int,
+  style: BsReactNative.Style.t,
+};
+
+let make =
+    (
+      ~tint: tint=Default,
+      ~intensity=50,
+      ~style=BsReactNative.Style.style([]),
+      children,
+    ) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=js,
-    ~props={
-      "tint":
-        switch (tint) {
-        | Default => "default"
-        | Light => "light"
-        | Dark => "dark"
-        },
-      "intensity": intensity,
-      "style": Js.Undefined.fromOption(style),
-    },
+    ~props=
+      props(
+        ~tint=
+          switch (tint) {
+          | Default => "default"
+          | Light => "light"
+          | Dark => "dark"
+          },
+        ~intensity,
+        ~style,
+      ),
     children,
   );
