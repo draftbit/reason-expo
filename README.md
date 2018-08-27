@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Reason Expo Match" src="./reason-expo.png" width="256">
+  <img alt="Reason Expo Logo" src="./reason-expo.png" width="256">
 </p>
 
 <h3 align="center" style="font-weight:600">
