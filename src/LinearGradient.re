@@ -1,25 +1,26 @@
 [@bs.module "expo"] external js : ReasonReact.reactClass = "LinearGradient";
 
+[@bs.deriving abstract]
+type props = {
+  colors: array(string),
+  start: array(float),
+  [@bs.as "end"]
+  end_: array(float),
+  locations: array(float),
+  style: BsReactNative.Style.t,
+};
+
 let make =
     (
-      ~colors: array(string),
-      ~start=?,
-      ~end_=?,
-      ~locations=?,
-      ~style=?,
+      ~colors,
+      ~start=[|0.0, 0.0|],
+      ~end_=[|1.0, 1.0|],
+      ~locations=[|0.0, 1.0|],
+      ~style=BsReactNative.Style.style([]),
       children,
     ) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=js,
-    ~props=
-      Js.Undefined.(
-        {
-          "colors": colors,
-          "locations": fromOption(locations),
-          "start": fromOption(start),
-          "end": fromOption(end_),
-          "style": fromOption(style),
-        }
-      ),
+    ~props=props(~colors, ~start, ~end_, ~locations, ~style),
     children,
   );
