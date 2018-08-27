@@ -1,7 +1,7 @@
 [@bs.module "expo"] external js : ReasonReact.reactClass = "AppLoading";
 
 [@bs.deriving abstract]
-type jsProps = {
+type props = {
   [@bs.optional]
   startAsync: unit => Js.Promise.t(unit),
   [@bs.optional]
@@ -22,6 +22,6 @@ let make =
     ) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=js,
-    ~props=jsProps(~startAsync, ~onError, ~onFinish, ~autoHideSplash, ()),
+    ~props=props(~startAsync, ~onError, ~onFinish, ~autoHideSplash, ()),
     children,
   );

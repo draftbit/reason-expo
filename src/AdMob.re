@@ -10,7 +10,7 @@ type bannerSize =
 module AdMobBanner = {
   [@bs.module "expo"] external js : ReasonReact.reactClass = "AdMobBanner";
   [@bs.deriving abstract]
-  type jsProps = {
+  type props = {
     [@bs.optional]
     bannerSize: string,
     [@bs.optional]
@@ -40,7 +40,7 @@ module AdMobBanner = {
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
       ~props=
-        jsProps(
+        props(
           ~bannerSize=
             switch (bannerSize) {
             | Banner => "banner"
