@@ -1,22 +1,19 @@
+[@bs.deriving abstract]
+type result = {
+  [@bs.as "type"]
+  _type: string,
+};
+
 [@bs.module "expo"] [@bs.scope "WebBrowser"]
-external openBrowserAsync : string => Js.Promise.t({. "type": string}) =
+external openBrowserAsync : string => Js.Promise.t(result) =
   "openBrowserAsync";
 
 [@bs.module "expo"] [@bs.scope "WebBrowser"]
-external _openAuthSessionAsync : string => Js.Promise.t({. "type": string}) =
+external _openAuthSessionAsync : (string, string) => Js.Promise.t(result) =
   "openAuthSessionAsync";
 
-[@bs.module "expo"] [@bs.scope "WebBrowser"]
-external _openAuthSessionAsyncWithRedirectUrl :
-  (string, string) => Js.Promise.t({. "type": string}) =
-  "openAuthSessionAsync";
-
-let openAuthSessionAsync = (~url: string, ~redirectUrl: option(string)=?, ()) =>
-  switch (redirectUrl) {
-  | Some(s) => _openAuthSessionAsyncWithRedirectUrl(url, s)
-  | None => _openAuthSessionAsync(url)
-  };
+let openAuthSessionAsync = (~url, ~redirectUrl=Constants.linkingUrl, ()) =>
+  _openAuthSessionAsync(url, redirectUrl);
 
 [@bs.module "expo"] [@bs.scope "WebBrowser"]
-external dismissBrowser : unit => Js.Promise.t({. "type": string}) =
-  "dismissBrowser";
+external dismissBrowser : unit => Js.Promise.t(result) = "dismissBrowser";
