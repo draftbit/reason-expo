@@ -21,7 +21,7 @@ type coordsAndTimestamp = {
 };
 
 [@bs.deriving abstract]
-type getProviderStatusAsyncOptions = {
+type getCurrentPositionAsyncOptions = {
   enableHighAccuracy: bool,
   maximumAge: int,
 };
