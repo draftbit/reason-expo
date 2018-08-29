@@ -8,19 +8,28 @@ type t =
   | LandscapeLeft
   | LandscapeRight;
 
+[@bs.deriving abstract]
+type orientation = {
+  [@bs.as "ALL"]
+  all: string,
+  [@bs.as "ALL_BUT_UPSIDE_DOWN"]
+  allButUpsideDown: string,
+  [@bs.as "PORTRAIT"]
+  portrait: string,
+  [@bs.as "PORTRAIT_UP"]
+  portraitUp: string,
+  [@bs.as "PORTRAIT_DOWN"]
+  portraitDown: string,
+  [@bs.as "LANDSCAPE"]
+  landscape: string,
+  [@bs.as "LANDSCAPE_LEFT"]
+  landscapeLeft: string,
+  [@bs.as "LANDSCAPE_RIGHT"]
+  landscapeRight: string,
+};
+
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external orientation : {
-  .
-  "_ALL": string,
-  "_ALL_BUT_UPSIDE_DOWN": string,
-  "_PORTRAIT": string,
-  "_PORTRAIT_UP": string,
-  "_PORTRAIT_DOWN": string,
-  "_LANDSCAPE": string,
-  "_LANDSCAPE_LEFT": string,
-  "_LANDSCAPE_RIGHT": string,
-} =
-  "Orientation";
+external orientation : orientation = "Orientation";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external _allow : string => unit = "allow";
@@ -28,14 +37,14 @@ external _allow : string => unit = "allow";
 let allow = orient =>
   (
     switch (orient) {
-    | All => orientation##_ALL
-    | AllButUpsideDown => orientation##_ALL_BUT_UPSIDE_DOWN
-    | Portrait => orientation##_PORTRAIT
-    | PortraitUp => orientation##_PORTRAIT_UP
-    | PortraitDown => orientation##_PORTRAIT_DOWN
-    | Landscape => orientation##_LANDSCAPE
-    | LandscapeLeft => orientation##_LANDSCAPE_LEFT
-    | LandscapeRight => orientation##_LANDSCAPE_RIGHT
+    | All => allGet(orientation)
+    | AllButUpsideDown => allButUpsideDownGet(orientation)
+    | Portrait => portraitGet(orientation)
+    | PortraitUp => portraitUpGet(orientation)
+    | PortraitDown => portraitDownGet(orientation)
+    | Landscape => landscapeGet(orientation)
+    | LandscapeLeft => landscapeLeftGet(orientation)
+    | LandscapeRight => landscapeRightGet(orientation)
     }
   )
   |> _allow;
