@@ -20,37 +20,58 @@ external afterFirstUnlockThisDeviceOnly : int =
 [@bs.scope "SecureStore"] [@bs.module "expo"]
 external alwaysThisDeviceOnly : int = "ALWAYS_THIS_DEVICE_ONLY";
 
+[@bs.deriving abstract]
+type setItemAsyncOptions = {
+  keychainService: string,
+  keychainAccessible: int,
+};
+
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external setItemAsyncWithOptions :
-  (
-    string,
-    string,
-    {
-      .
-      keychainService: string,
-      keychainAccessible: int,
-    }
-  ) =>
-  Js.Promise.t(unit) =
+external _setItemAsyncWithOptions :
+  (string, string, setItemAsyncOptions) => Js.Promise.t(unit) =
   "setItemAsync";
 
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external setItemAsync : (string, string) => Js.Promise.t(unit) =
+external _setItemAsync : (string, string) => Js.Promise.t(unit) =
   "setItemAsync";
 
+let setItemAsync = (~key, ~value, ~options=?, ()) =>
+  switch (options) {
+  | Some(o) => _setItemAsyncWithOptions(key, value, o)
+  | None => _setItemAsync(key, value)
+  };
+
+[@bs.deriving abstract]
+type getItemAsyncOptions = {keychainService: string};
+
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external getItemAsyncWithOptions :
-  (string, {. keychainService: string}) => Js.Promise.t(Js.nullable(string)) =
+external _getItemAsyncWithOptions :
+  (string, getItemAsyncOptions) => Js.Promise.t(Js.nullable(string)) =
   "getItemAsync";
 
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external getItemAsync : string => Js.Promise.t(Js.nullable(string)) =
+external _getItemAsync : string => Js.Promise.t(Js.nullable(string)) =
   "getItemAsync";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
-external deleteItemAsync : string => Js.Promise.t(unit) = "deleteItemAsync";
+let getItemAsync = (~key, ~options=?, ()) =>
+  switch (options) {
+  | Some(o) => _getItemAsyncWithOptions(key, o)
+  | None => _getItemAsync(key)
+  };
+
+[@bs.deriving abstract]
+type deleteItemAsyncOptions = {keychainService: string};
 
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external deleteItemAsyncWithOptions :
-  (string, {. keychainService: string}) => Js.Promise.t(unit) =
+external _deleteItemAsync : string => Js.Promise.t(unit) = "deleteItemAsync";
+
+[@bs.scope "SecureStore"] [@bs.module "expo"]
+external _deleteItemAsyncWithOptions :
+  (string, deleteItemAsyncOptions) => Js.Promise.t(unit) =
   "deleteItemAsync";
+
+let deleteItemAsync = (~key, ~options=?, ()) =>
+  switch (options) {
+  | Some(o) => _deleteItemAsyncWithOptions(key, o)
+  | None => _deleteItemAsync(key)
+  };
