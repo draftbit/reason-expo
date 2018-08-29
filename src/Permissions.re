@@ -8,6 +8,7 @@ type t =
   | UserFacingNotifications
   | SystemBrightness
   | Calendar
+  | SMS
   | Reminders;
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
@@ -17,10 +18,21 @@ external location : string = "LOCATION";
 external camera : string = "CAMERA";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external cameraRoll : string = "CAMERA_ROLL";
+external audioRecording : string = "AUDIO_RECORDING";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
 external contacts : string = "CONTACTS";
+
+[@bs.module "expo"] [@bs.scope "Permissions"]
+external cameraRoll : string = "CAMERA_ROLL";
+
+[@bs.module "expo"] [@bs.scope "Permissions"]
+external calendar : string = "CALENDAR";
+
+[@bs.module "expo"] [@bs.scope "Permissions"]
+external reminders : string = "REMINDERS";
+
+[@bs.module "expo"] [@bs.scope "Permissions"] external sms : string = "SMS";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
 external userFacingNotifications : string = "USER_FACING_NOTIFICATIONS";
@@ -29,16 +41,7 @@ external userFacingNotifications : string = "USER_FACING_NOTIFICATIONS";
 external notification : string = "NOTIFICATIONS";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external audioRecording : string = "AUDIO_RECORDING";
-
-[@bs.module "expo"] [@bs.scope "Permissions"]
 external systemBrightness : string = "SYSTEM_BRIGHTNESS";
-
-[@bs.module "expo"] [@bs.scope "Permissions"]
-external calendar : string = "CALENDAR";
-
-[@bs.module "expo"] [@bs.scope "Permissions"]
-external reminders : string = "REMINDERS";
 
 let toString = p =>
   switch (p) {
@@ -52,6 +55,7 @@ let toString = p =>
   | SystemBrightness => systemBrightness
   | Calendar => calendar
   | Reminders => reminders
+  | SMS => sms
   };
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
