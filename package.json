@@ -6,7 +6,8 @@
     "build": "bsb -make-world",
     "start": "bsb -make-world -w",
     "clean-build": "bsb -clean-world -make-world",
-    "install::dev": "yarn install && install-self-peers -- --ignore-scripts"
+    "install::dev": "yarn install && install-self-peers -- --ignore-scripts",
+    "pub": "npx np --yolo"
   },
   "license": "MIT",
   "keywords": [
