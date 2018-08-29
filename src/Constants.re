@@ -11,6 +11,9 @@ external installationId : string = "installationId";
 external deviceId : string = "deviceId";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
+external linkingUrl : string = "linkingUrl";
+
+[@bs.module "expo"] [@bs.scope "Constants"]
 external deviceName : string = "deviceName";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
