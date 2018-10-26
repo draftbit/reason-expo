@@ -352,3 +352,58 @@ module ClipPath = {
   let make = (~id, children) =>
     ReasonReact.wrapJsForReason(~reactClass=js, ~props=props(~id), children);
 };
+
+module LinearGradient = {
+  external js : ReasonReact.reactClass = "LinearGradient";
+  [@bs.deriving abstract]
+  type props = {
+    id: string,
+    x1: string,
+    y1: string,
+    x2: string,
+    y2: string,
+  };
+  let make = (~id, ~x1, ~y1, ~x2, ~y2, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~id, ~x1, ~y1, ~x2, ~y2),
+      children,
+    );
+};
+
+module RadialGradient = {
+  external js : ReasonReact.reactClass = "RadialGradient";
+  [@bs.deriving abstract]
+  type props = {
+    id: string,
+    cx: string,
+    cy: string,
+    rx: string,
+    ry: string,
+    fx: string,
+    fy: string,
+    gradientUnits: string,
+  };
+  let make = (~id, ~cx, ~cy, ~rx, ~ry, ~fx, ~fy, ~gradientUnits, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~id, ~cx, ~cy, ~rx, ~ry, ~fx, ~fy, ~gradientUnits),
+      children,
+    );
+};
+
+module Stop = {
+  external js : ReasonReact.reactClass = "Stop";
+  [@bs.deriving abstract]
+  type props = {
+    offset: string,
+    stopColor: string,
+    stopOpacity: string,
+  };
+  let make = (~offset, ~stopColor, ~stopOpacity, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~offset, ~stopColor, ~stopOpacity),
+      children,
+    );
+};
