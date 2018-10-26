@@ -89,3 +89,37 @@ module Line = {
       children,
     );
 };
+
+module Polygon = {
+  external js : ReasonReact.reactClass = "Polygon";
+  [@bs.deriving abstract]
+  type props = {
+    points: string,
+    fill: string,
+    stroke: string,
+    strokeWidth: string,
+  };
+  let make = (~points, ~fill, ~stroke, ~strokeWidth, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~points, ~fill, ~stroke, ~strokeWidth),
+      children,
+    );
+};
+
+module Polyline = {
+  external js : ReasonReact.reactClass = "Polyline";
+  [@bs.deriving abstract]
+  type props = {
+    points: string,
+    fill: string,
+    stroke: string,
+    strokeWidth: string,
+  };
+  let make = (~points, ~fill, ~stroke, ~strokeWidth, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~points, ~fill, ~stroke, ~strokeWidth),
+      children,
+    );
+};
