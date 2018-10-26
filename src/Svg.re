@@ -229,3 +229,33 @@ module TSpan = {
       children,
     );
 };
+
+module TextPath = {
+  external js : ReasonReact.reactClass = "TextPath";
+  [@bs.deriving abstract]
+  type props = {
+    href: string,
+    startOffset: string,
+  };
+  let make = (~href, ~startOffset, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~href, ~startOffset),
+      children,
+    );
+};
+
+module G = {
+  external js : ReasonReact.reactClass = "G";
+  [@bs.deriving abstract]
+  type props = {
+    rotation: string,
+    origin: string,
+  };
+  let make = (~rotation, ~origin, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~rotation, ~origin),
+      children,
+    );
+};
