@@ -275,3 +275,55 @@ module Use = {
       children,
     );
 };
+
+module Defs = {
+  external js : ReasonReact.reactClass = "Defs";
+  let make = children =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=Js.Obj.empty(),
+      children,
+    );
+};
+
+module Image = {
+  external js : ReasonReact.reactClass = "Image";
+  [@bs.deriving abstract]
+  type props = {
+    x: string,
+    y: string,
+    width: string,
+    height: string,
+    preserveAspectRatio: string,
+    opacity: string,
+    href: string,
+    clipPath: string,
+  };
+  let make =
+      (
+        ~x,
+        ~y,
+        ~width,
+        ~height,
+        ~preserveAspectRatio,
+        ~opacity,
+        ~href,
+        ~clipPath,
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=
+        props(
+          ~x,
+          ~y,
+          ~width,
+          ~height,
+          ~preserveAspectRatio,
+          ~opacity,
+          ~href,
+          ~clipPath,
+        ),
+      children,
+    );
+};
