@@ -123,3 +123,19 @@ module Polyline = {
       children,
     );
 };
+
+module Path = {
+  external js : ReasonReact.reactClass = "Path";
+  [@bs.deriving abstract]
+  type props = {
+    d: string,
+    fill: string,
+    stroke: string,
+  };
+  let make = (~d, ~fill, ~stroke, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~d, ~fill, ~stroke),
+      children,
+    );
+};
