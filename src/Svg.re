@@ -446,3 +446,24 @@ module Mask = {
       children,
     );
 };
+
+module Pattern = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
+  external js : ReasonReact.reactClass = "Pattern";
+  [@bs.deriving abstract]
+  type props = {
+    id: string,
+    x: string,
+    y: string,
+    height: string,
+    width: string,
+    viewBox: string,
+    patternUnits: string,
+  };
+  let make = (~id, ~x, ~y, ~height, ~width, ~patternUnits, ~viewBox, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~id, ~x, ~y, ~height, ~width, ~patternUnits, ~viewBox),
+      children,
+    );
+};
