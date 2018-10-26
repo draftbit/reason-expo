@@ -139,3 +139,45 @@ module Path = {
       children,
     );
 };
+
+module Text = {
+  external js : ReasonReact.reactClass = "Text";
+  [@bs.deriving abstract]
+  type props = {
+    x: string,
+    y: string,
+    fontSize: string,
+    fontWeight: string,
+    textAnchor: string,
+    fill: string,
+    stroke: string,
+    strokeWidth: string,
+  };
+  let make =
+      (
+        ~x,
+        ~y,
+        ~fontSize,
+        ~fontWeight,
+        ~textAnchor,
+        ~fill,
+        ~stroke,
+        ~strokeWidth,
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=
+        props(
+          ~x,
+          ~y,
+          ~fontSize,
+          ~fontWeight,
+          ~textAnchor,
+          ~fill,
+          ~stroke,
+          ~strokeWidth,
+        ),
+      children,
+    );
+};
