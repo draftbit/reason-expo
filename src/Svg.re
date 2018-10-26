@@ -407,3 +407,22 @@ module Stop = {
       children,
     );
 };
+
+module Mask = {
+  external js : ReasonReact.reactClass = "Mask";
+  [@bs.deriving abstract]
+  type props = {
+    id: string,
+    x: string,
+    y: string,
+    height: string,
+    width: string,
+    maskUnits: string,
+  };
+  let make = (~id, ~x, ~y, ~height, ~width, ~maskUnits, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~id, ~x, ~y, ~height, ~width, ~maskUnits),
+      children,
+    );
+};
