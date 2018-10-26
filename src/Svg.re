@@ -259,3 +259,19 @@ module G = {
       children,
     );
 };
+
+module Use = {
+  external js : ReasonReact.reactClass = "Use";
+  [@bs.deriving abstract]
+  type props = {
+    href: string,
+    x: string,
+    y: string,
+  };
+  let make = (~href, ~x, ~y, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~href, ~x, ~y),
+      children,
+    );
+};
