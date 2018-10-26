@@ -181,3 +181,51 @@ module Text = {
       children,
     );
 };
+
+module TSpan = {
+  external js : ReasonReact.reactClass = "TSpan";
+  [@bs.deriving abstract]
+  type props = {
+    x: string,
+    y: string,
+    dx: string,
+    dy: string,
+    fontSize: string,
+    fontWeight: string,
+    textAnchor: string,
+    fill: string,
+    stroke: string,
+    strokeWidth: string,
+  };
+  let make =
+      (
+        ~x,
+        ~y,
+        ~dx,
+        ~dy,
+        ~fontSize,
+        ~fontWeight,
+        ~textAnchor,
+        ~fill,
+        ~stroke,
+        ~strokeWidth,
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=
+        props(
+          ~x,
+          ~y,
+          ~dx,
+          ~dy,
+          ~fontSize,
+          ~fontWeight,
+          ~textAnchor,
+          ~fill,
+          ~stroke,
+          ~strokeWidth,
+        ),
+      children,
+    );
+};
