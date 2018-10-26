@@ -15,6 +15,7 @@ let make = (~height, ~width, children) =>
   );
 
 module Rect = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Rect";
   [@bs.deriving abstract]
   type props = {
@@ -35,6 +36,7 @@ module Rect = {
 };
 
 module Circle = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Circle";
   [@bs.deriving abstract]
   type props = {
@@ -52,6 +54,7 @@ module Circle = {
 };
 
 module Ellipse = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Ellipse";
   [@bs.deriving abstract]
   type props = {
@@ -72,6 +75,7 @@ module Ellipse = {
 };
 
 module Line = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Line";
   [@bs.deriving abstract]
   type props = {
@@ -91,6 +95,7 @@ module Line = {
 };
 
 module Polygon = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Polygon";
   [@bs.deriving abstract]
   type props = {
@@ -108,6 +113,7 @@ module Polygon = {
 };
 
 module Polyline = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Polyline";
   [@bs.deriving abstract]
   type props = {
@@ -125,6 +131,7 @@ module Polyline = {
 };
 
 module Path = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Path";
   [@bs.deriving abstract]
   type props = {
@@ -141,6 +148,7 @@ module Path = {
 };
 
 module Text = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Text";
   [@bs.deriving abstract]
   type props = {
@@ -183,6 +191,7 @@ module Text = {
 };
 
 module TSpan = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "TSpan";
   [@bs.deriving abstract]
   type props = {
@@ -231,6 +240,7 @@ module TSpan = {
 };
 
 module TextPath = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "TextPath";
   [@bs.deriving abstract]
   type props = {
@@ -246,6 +256,7 @@ module TextPath = {
 };
 
 module G = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "G";
   [@bs.deriving abstract]
   type props = {
@@ -261,6 +272,7 @@ module G = {
 };
 
 module Use = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Use";
   [@bs.deriving abstract]
   type props = {
@@ -277,6 +289,7 @@ module Use = {
 };
 
 module Symbol = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Symbol";
   [@bs.deriving abstract]
   type props = {
@@ -294,6 +307,7 @@ module Symbol = {
 };
 
 module Defs = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Defs";
   let make = children =>
     ReasonReact.wrapJsForReason(
@@ -304,6 +318,7 @@ module Defs = {
 };
 
 module Image = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Image";
   [@bs.deriving abstract]
   type props = {
@@ -346,6 +361,7 @@ module Image = {
 };
 
 module ClipPath = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "ClipPath";
   [@bs.deriving abstract]
   type props = {id: string};
@@ -354,6 +370,7 @@ module ClipPath = {
 };
 
 module LinearGradient = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "LinearGradient";
   [@bs.deriving abstract]
   type props = {
@@ -372,6 +389,7 @@ module LinearGradient = {
 };
 
 module RadialGradient = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "RadialGradient";
   [@bs.deriving abstract]
   type props = {
@@ -393,6 +411,7 @@ module RadialGradient = {
 };
 
 module Stop = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Stop";
   [@bs.deriving abstract]
   type props = {
@@ -409,6 +428,7 @@ module Stop = {
 };
 
 module Mask = {
+  [@bs.module "expo"] [@bs.scope "Svg"]
   external js : ReasonReact.reactClass = "Mask";
   [@bs.deriving abstract]
   type props = {
