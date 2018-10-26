@@ -70,3 +70,22 @@ module Ellipse = {
       children,
     );
 };
+
+module Line = {
+  external js : ReasonReact.reactClass = "Line";
+  [@bs.deriving abstract]
+  type props = {
+    x1: string,
+    y1: string,
+    x2: string,
+    y2: string,
+    stroke: string,
+    strokeWidth: string,
+  };
+  let make = (~x1, ~y1, ~x2, ~y2, ~stroke, ~strokeWidth, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~x1, ~y1, ~x2, ~y2, ~stroke, ~strokeWidth),
+      children,
+    );
+};
