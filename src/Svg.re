@@ -276,6 +276,23 @@ module Use = {
     );
 };
 
+module Symbol = {
+  external js : ReasonReact.reactClass = "Symbol";
+  [@bs.deriving abstract]
+  type props = {
+    id: string,
+    viewBox: string,
+    width: string,
+    height: string,
+  };
+  let make = (~id, ~viewBox, ~width, ~height, children) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props=props(~id, ~viewBox, ~width, ~height),
+      children,
+    );
+};
+
 module Defs = {
   external js : ReasonReact.reactClass = "Defs";
   let make = children =>
@@ -326,4 +343,12 @@ module Image = {
         ),
       children,
     );
+};
+
+module ClipPath = {
+  external js : ReasonReact.reactClass = "ClipPath";
+  [@bs.deriving abstract]
+  type props = {id: string};
+  let make = (~id, children) =>
+    ReasonReact.wrapJsForReason(~reactClass=js, ~props=props(~id), children);
 };
