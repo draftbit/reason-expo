@@ -14,6 +14,22 @@ type resizeMode =
   | CONTAIN
   | STRETCH;
 
+module Source = {
+  type t = [
+    | `URI(string)
+    | `Required(BsReactNative.Packager.required)
+    | `NullSource
+  ];
+  type rawSourceJS;
+  external rawSourceJS : 'a => rawSourceJS = "%identity";
+  let encodeSource = (src: t) =>
+    switch (src) {
+    | `URI(uri) => Some(rawSourceJS({"uri": uri}))
+    | `Required(package) => Some(rawSourceJS(package))
+    | `NullSource => None
+    };
+};
+
 [@bs.deriving abstract]
 type playbackStatus = {
   isLoaded: bool,
@@ -68,25 +84,26 @@ type onFullscreenUpdateParam = {
 
 let make =
     (
-      ~source: 'sourceType, /* Escape to allow for Dict, Packager.required, and Asset source type */
-      ~posterSource: 'posterSourceType=?, /* Escape to allow for Dict and Packager.required posterSource type */
+      ~source=`NullSource,
+      ~posterSource=`NullSource,
       ~rate: option(string)=?,
-      ~isMuted: bool=false,
-      ~useNativeControls: bool=false,
-      ~resizeMode: resizeMode=COVER,
-      ~isLooping: bool=false,
-      ~shouldPlay: bool=false,
+      ~isMuted=false,
+      ~useNativeControls=false,
+      ~resizeMode=COVER,
+      ~isLooping=false,
+      ~shouldPlay=false,
       ~onPlaybackStatusUpdate: playbackStatus => unit=_ps => (),
       ~onReadyForDisplay: onReadyForDisplayParam => unit=_p => (),
       ~onFullscreenUpdate: onFullscreenUpdateParam => unit=_p => (),
-      ~style: BsReactNative.Style.t=BsReactNative.Style.style([]),
+      ~style=BsReactNative.Style.style([]),
       children,
     ) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=js,
     ~props={
-      "source": source,
-      "posterSource": Js.Nullable.fromOption(posterSource),
+      "source": Js.Nullable.fromOption(Source.encodeSource(source)),
+      "posterSource":
+        Js.Nullable.fromOption(Source.encodeSource(posterSource)),
       "rate": Js.Nullable.fromOption(rate),
       "isMuted": isMuted,
       "useNativeControls": useNativeControls,
