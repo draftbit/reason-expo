@@ -18,6 +18,7 @@ module Source = {
   type t = [
     | `URI(string)
     | `Required(BsReactNative.Packager.required)
+    | `Asset(Asset.t)
     | `NullSource
   ];
   type rawSourceJS;
@@ -26,6 +27,7 @@ module Source = {
     switch (src) {
     | `URI(uri) => Some(rawSourceJS({"uri": uri}))
     | `Required(package) => Some(rawSourceJS(package))
+    | `Asset(asset) => Some(rawSourceJS(asset))
     | `NullSource => None
     };
 };
