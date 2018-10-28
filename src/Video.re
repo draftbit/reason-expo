@@ -94,9 +94,9 @@ let make =
       ~resizeMode=COVER,
       ~isLooping=false,
       ~shouldPlay=false,
-      ~onPlaybackStatusUpdate: playbackStatus => unit=_ps => (),
-      ~onReadyForDisplay: onReadyForDisplayParam => unit=_p => (),
-      ~onFullscreenUpdate: onFullscreenUpdateParam => unit=_p => (),
+      ~onPlaybackStatusUpdate: playbackStatus => unit=(_) => (),
+      ~onReadyForDisplay: onReadyForDisplayParam => unit=(_) => (),
+      ~onFullscreenUpdate: onFullscreenUpdateParam => unit=(_) => (),
       ~style=BsReactNative.Style.style([]),
       children,
     ) =>
