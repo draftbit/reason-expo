@@ -25,10 +25,10 @@ module Source = {
   external rawSourceJS : 'a => rawSourceJS = "%identity";
   let encodeSource = (src: t) =>
     switch (src) {
-    | `URI(uri) => Some(rawSourceJS({"uri": uri}))
-    | `Required(package) => Some(rawSourceJS(package))
-    | `Asset(asset) => Some(rawSourceJS(asset))
-    | `NullSource => None
+    | `URI(uri) => rawSourceJS({"uri": uri})
+    | `Required(package) => rawSourceJS(package)
+    | `Asset(asset) => rawSourceJS(asset)
+    | `NullSource => rawSourceJS(Js.null)
     };
 };
 
@@ -103,9 +103,8 @@ let make =
   ReasonReact.wrapJsForReason(
     ~reactClass=js,
     ~props={
-      "source": Js.Nullable.fromOption(Source.encodeSource(source)),
-      "posterSource":
-        Js.Nullable.fromOption(Source.encodeSource(posterSource)),
+      "source": Source.encodeSource(source),
+      "posterSource": Source.encodeSource(posterSource),
       "rate": Js.Nullable.fromOption(rate),
       "isMuted": isMuted,
       "useNativeControls": useNativeControls,
