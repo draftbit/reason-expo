@@ -1,0 +1,22 @@
+{
+  "name": "empty-project-template",
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject",
+    "build": "bsb -make-world -clean-world",
+    "watch": "bsb -make-world -clean-world -w"
+  },
+  "dependencies": {
+    "bs-platform": "^4.0.7",
+    "bs-react-native": "^0.10.0",
+    "expo": "^30.0.1",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "reason-expo": "^30.2.0",
+    "reason-react": "^0.5.3"
+  }
+}
