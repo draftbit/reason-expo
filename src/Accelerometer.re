@@ -1,7 +1,7 @@
 [@bs.deriving abstract]
 type eventSubscription;
 
-[@bs.send] external remove : (eventSubscription, unit) => unit = "remove";
+[@bs.send] external remove: (eventSubscription, unit) => unit = "remove";
 
 [@bs.deriving abstract]
 type location = {
@@ -11,10 +11,10 @@ type location = {
 };
 
 [@bs.module "expo"] [@bs.scope "Accelerometer"]
-external addListener : (location => unit) => eventSubscription = "addListener";
+external addListener: (location => unit) => eventSubscription = "addListener";
 
 [@bs.module "expo"] [@bs.scope "Accelerometer"]
-external removeAllListeners : unit => unit = "removeAllListeners";
+external removeAllListeners: unit => unit = "removeAllListeners";
 
 [@bs.module "expo"] [@bs.scope "Accelerometer"]
-external setUpdateInterval : int => unit = "setUpdateInterval";
+external setUpdateInterval: int => unit = "setUpdateInterval";

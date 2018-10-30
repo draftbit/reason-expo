@@ -1,7 +1,7 @@
 [@bs.deriving abstract]
 type eventSubscription;
 
-[@bs.send] external remove : (eventSubscription, unit) => unit = "remove";
+[@bs.send] external remove: (eventSubscription, unit) => unit = "remove";
 
 [@bs.deriving abstract]
 type coords = {
@@ -27,7 +27,7 @@ type getCurrentPositionAsyncOptions = {
 };
 
 [@bs.module "expo"] [@bs.scope "Location"]
-external getCurrentPositionAsync :
+external getCurrentPositionAsync:
   getCurrentPositionAsyncOptions => coordsAndTimestamp =
   "getCurrentPositionAsync";
 
@@ -39,7 +39,7 @@ type watchPositionAsyncOptions = {
 };
 
 [@bs.module "expo"] [@bs.scope "Location"]
-external watchPositionAsync :
+external watchPositionAsync:
   (watchPositionAsyncOptions, coordsAndTimestamp => unit) => eventSubscription =
   "watchPositionAsync";
 
@@ -52,7 +52,7 @@ type getProviderStatusAsyncResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "Location"]
-external getProviderStatusAsync : unit => getProviderStatusAsyncResult =
+external getProviderStatusAsync: unit => getProviderStatusAsyncResult =
   "getProviderStatusAsync";
 
 [@bs.deriving abstract]
@@ -63,7 +63,7 @@ type getHeadingAsyncResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "Location"]
-external getHeadingAsync : unit => getHeadingAsyncResult = "getHeadingAsync";
+external getHeadingAsync: unit => getHeadingAsyncResult = "getHeadingAsync";
 
 [@bs.deriving abstract]
 type watchHeadingAsyncResult = {
@@ -73,7 +73,7 @@ type watchHeadingAsyncResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "Location"]
-external watchHeadingAsync :
+external watchHeadingAsync:
   (watchHeadingAsyncResult => unit) => eventSubscription =
   "watchHeadingAsync";
 
@@ -86,7 +86,7 @@ type geocodeAsyncResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "Location"]
-external geocodeAsync : string => geocodeAsyncResult = "geocodeAsync";
+external geocodeAsync: string => geocodeAsyncResult = "geocodeAsync";
 
 [@bs.deriving abstract]
 type reverseGeocodeAsyncOptions = {
@@ -105,9 +105,9 @@ type reverseGeocodeAsyncResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "Location"]
-external reverseGeocodeAsync :
+external reverseGeocodeAsync:
   reverseGeocodeAsyncOptions => reverseGeocodeAsyncResult =
   "reverseGeocodeAsync";
 
 [@bs.module "expo"] [@bs.scope "Location"]
-external setApiKey : string => unit = "setApiKey";
+external setApiKey: string => unit = "setApiKey";

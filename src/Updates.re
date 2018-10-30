@@ -22,25 +22,25 @@ type event('manifestType) = {
 [@bs.deriving abstract]
 type eventSubscription;
 
-[@bs.send] external remove : (eventSubscription, unit) => unit = "remove";
+[@bs.send] external remove: (eventSubscription, unit) => unit = "remove";
 
 [@bs.module "expo"] [@bs.scope "Updates"]
-external reload : unit => unit = "reload";
+external reload: unit => unit = "reload";
 
 [@bs.module "expo"] [@bs.scope "Updates"]
-external reloadFromCache : unit => unit = "reloadFromCache";
+external reloadFromCache: unit => unit = "reloadFromCache";
 
 [@bs.module "expo"] [@bs.scope "Updates"]
-external checkForUpdateAsync :
+external checkForUpdateAsync:
   unit => Js.Promise.t(updateCheckResult('manifestType)) =
   "checkForUpdateAsync";
 
 [@bs.module "expo"] [@bs.scope "Updates"]
-external fetchUpdateAsync :
+external fetchUpdateAsync:
   (event('manifestType) => unit) =>
   Js.Promise.t(updateFetchResult('manifestType)) =
   "fetchUpdateAsync";
 
 [@bs.module "expo"] [@bs.scope "Updates"]
-external addListener : (event('manifestType) => unit) => eventSubscription =
+external addListener: (event('manifestType) => unit) => eventSubscription =
   "addListener";

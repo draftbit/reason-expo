@@ -1,26 +1,26 @@
 [@bs.module "expo"] [@bs.scope ("Haptic", "NotificationTypes")]
-external _success : string = "Success";
+external _success: string = "Success";
 
 [@bs.module "expo"] [@bs.scope ("Haptic", "NotificationTypes")]
-external _warning : string = "Warning";
+external _warning: string = "Warning";
 
 [@bs.module "expo"] [@bs.scope ("Haptic", "NotificationTypes")]
-external _error : string = "Error";
+external _error: string = "Error";
 
 [@bs.module "expo"] [@bs.scope ("Haptic", "ImpactStyles")]
-external _light : string = "Light";
+external _light: string = "Light";
 
 [@bs.module "expo"] [@bs.scope ("Haptic", "ImpactStyles")]
-external _medium : string = "Medium";
+external _medium: string = "Medium";
 
 [@bs.module "expo"] [@bs.scope ("Haptic", "ImpactStyles")]
-external _heavy : string = "Heavy";
+external _heavy: string = "Heavy";
 
 [@bs.module "expo"] [@bs.scope "Haptic"]
-external selection : unit => unit = "selection";
+external selection: unit => unit = "selection";
 
 [@bs.module "expo"] [@bs.scope "Haptic"]
-external _notification : string => unit = "notification";
+external _notification: string => unit = "notification";
 
 type notificationTypes =
   | Success
@@ -33,7 +33,7 @@ type impactStyles =
   | Heavy;
 
 [@bs.module "expo"] [@bs.scope "Haptic"]
-external _impact : string => unit = "impact";
+external _impact: string => unit = "impact";
 
 let notification = notificationType =>
   switch (notificationType) {

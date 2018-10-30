@@ -1,65 +1,72 @@
 module Constants = {
   type t;
+
   module Type = {
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "Type")]
-    external front : t = "front";
+    external front: t = "front";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "Type")]
-    external back : t = "back";
+    external back: t = "back";
   };
+
   module FlashMode = {
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "FlashMode")]
-    external on : t = "on";
+    external on: t = "on";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "FlashMode")]
-    external off : t = "off";
+    external off: t = "off";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "FlashMode")]
-    external auto : t = "auto";
+    external auto: t = "auto";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "FlashMode")]
-    external torch : t = "torch";
+    external torch: t = "torch";
   };
+
   module AutoFocus = {
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "AutoFocus")]
-    external on : t = "on";
+    external on: t = "on";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "AutoFocus")]
-    external off : t = "off";
+    external off: t = "off";
   };
+
   module WhiteBalance = {
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
-    external auto : t = "auto";
+    external auto: t = "auto";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
-    external sunny : t = "sunny";
+    external sunny: t = "sunny";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
-    external cloudy : t = "cloudy";
+    external cloudy: t = "cloudy";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
-    external shadow : t = "shadow";
+    external shadow: t = "shadow";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
-    external fluorescent : t = "fluorescent";
+    external fluorescent: t = "fluorescent";
     [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
-    external incandescent : t = "incandescent";
+    external incandescent: t = "incandescent";
   };
+
   module FaceDetection = {
     module Mode = {
       [@bs.module "expo"]
       [@bs.scope ("Camera", "Constants", "FaceDetection", "Mode")]
-      external fast : t = "fast";
+      external fast: t = "fast";
       [@bs.module "expo"]
       [@bs.scope ("Camera", "Constants", "FaceDetection", "Mode")]
-      external accurate : t = "accurate";
+      external accurate: t = "accurate";
     };
+
     module Landmarks = {
       [@bs.module "expo"]
       [@bs.scope ("Camera", "Constants", "FaceDetection", "Landmarks")]
-      external all : t = "all";
+      external all: t = "all";
       [@bs.module "expo"]
       [@bs.scope ("Camera", "Constants", "FaceDetection", "Landmarks")]
-      external none : t = "none";
+      external none: t = "none";
     };
+
     module Classifications = {
       [@bs.module "expo"]
       [@bs.scope ("Camera", "Constants", "FaceDetection", "Classifications")]
-      external all : t = "all";
+      external all: t = "all";
       [@bs.module "expo"]
       [@bs.scope ("Camera", "Constants", "FaceDetection", "Classifications")]
-      external none : t = "none";
+      external none: t = "none";
     };
   };
 };
@@ -171,7 +178,7 @@ type faceDetectionClassifications =
   | All
   | None;
 
-[@bs.module "expo"] external js : ReasonReact.reactClass = "Camera";
+[@bs.module "expo"] external js: ReasonReact.reactClass = "Camera";
 
 let make =
     (

@@ -1,4 +1,4 @@
-[@bs.module "expo"] external mapView : ReasonReact.reactClass = "MapView";
+[@bs.module "expo"] external mapView: ReasonReact.reactClass = "MapView";
 
 [@bs.deriving abstract]
 type region = {
@@ -90,7 +90,8 @@ type customMapStyle;
 
 module Marker = {
   [@bs.module "expo"] [@bs.scope "MapView"]
-  external marker : ReasonReact.reactClass = "Marker";
+  external marker: ReasonReact.reactClass = "Marker";
+
   let make = children =>
     ReasonReact.wrapJsForReason(
       ~reactClass=marker,
@@ -101,7 +102,8 @@ module Marker = {
 
 module Overlay = {
   [@bs.module "expo"] [@bs.scope "MapView"]
-  external overlay : ReasonReact.reactClass = "Overlay";
+  external overlay: ReasonReact.reactClass = "Overlay";
+
   let make =
       (
         ~image: option({. uri: string})=?,
@@ -110,32 +112,34 @@ module Overlay = {
       ) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=overlay,
-      ~props=
-        Js.Nullable.(
-          {"image": fromOption(image), "bounds": fromOption(bounds)}
-        ),
+      ~props={
+        open Js.Nullable;
+        {"image": fromOption(image), "bounds": fromOption(bounds)};
+      },
       children,
     );
 };
 
 module Callout = {
   [@bs.module "expo"] [@bs.scope "MapView"]
-  external callout : ReasonReact.reactClass = "Callout";
+  external callout: ReasonReact.reactClass = "Callout";
+
   let make =
       (~tooltip: option(bool)=?, ~onPress: option(unit => unit)=?, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=callout,
-      ~props=
-        Js.Nullable.(
-          {"tooltip": fromOption(tooltip), "onPress": fromOption(onPress)}
-        ),
+      ~props={
+        open Js.Nullable;
+        {"tooltip": fromOption(tooltip), "onPress": fromOption(onPress)};
+      },
       children,
     );
 };
 
 module Polygon = {
   [@bs.module "expo"] [@bs.scope "MapView"]
-  external polygon : ReasonReact.reactClass = "Polygon";
+  external polygon: ReasonReact.reactClass = "Polygon";
+
   let make =
       (
         ~coordinates: option(array(latlng))=?,
@@ -155,31 +159,32 @@ module Polygon = {
       ) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=polygon,
-      ~props=
-        Js.Nullable.(
-          {
-            "holes": fromOption(holes),
-            "coordinates": fromOption(coordinates),
-            "strokeWidth": fromOption(strokeWidth),
-            "strokeColor": fromOption(strokeColor),
-            "fillColor": fromOption(fillColor),
-            "lineCap": fromOption(lineCap),
-            "lineJoin": fromOption(lineJoin),
-            "miterLimit": fromOption(miterLimit),
-            "geodesic": fromOption(geodesic),
-            "lineDashPhase": fromOption(lineDashPhase),
-            "lineDashPattern": fromOption(lineDashPattern),
-            "tappable": fromOption(tappable),
-            "onPress": fromOption(onPress),
-          }
-        ),
+      ~props={
+        open Js.Nullable;
+        {
+          "holes": fromOption(holes),
+          "coordinates": fromOption(coordinates),
+          "strokeWidth": fromOption(strokeWidth),
+          "strokeColor": fromOption(strokeColor),
+          "fillColor": fromOption(fillColor),
+          "lineCap": fromOption(lineCap),
+          "lineJoin": fromOption(lineJoin),
+          "miterLimit": fromOption(miterLimit),
+          "geodesic": fromOption(geodesic),
+          "lineDashPhase": fromOption(lineDashPhase),
+          "lineDashPattern": fromOption(lineDashPattern),
+          "tappable": fromOption(tappable),
+          "onPress": fromOption(onPress),
+        };
+      },
       children,
     );
 };
 
 module Polyline = {
   [@bs.module "expo"] [@bs.scope "MapView"]
-  external polyline : ReasonReact.reactClass = "Polyline";
+  external polyline: ReasonReact.reactClass = "Polyline";
+
   let make =
       (
         ~coordinates: option(array(latlng))=?,
@@ -198,30 +203,31 @@ module Polyline = {
       ) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=polyline,
-      ~props=
-        Js.Nullable.(
-          {
-            "coordinates": fromOption(coordinates),
-            "strokeWidth": fromOption(strokeWidth),
-            "strokeColor": fromOption(strokeColor),
-            "strokeColors": fromOption(strokeColors),
-            "fillColor": fromOption(fillColor),
-            "lineCap": fromOption(lineCap),
-            "lineJoin": fromOption(lineJoin),
-            "miterLimit": fromOption(miterLimit),
-            "geodesic": fromOption(geodesic),
-            "lineDashPhase": fromOption(lineDashPhase),
-            "lineDashPattern": fromOption(lineDashPattern),
-            "onPress": fromOption(onPress),
-          }
-        ),
+      ~props={
+        open Js.Nullable;
+        {
+          "coordinates": fromOption(coordinates),
+          "strokeWidth": fromOption(strokeWidth),
+          "strokeColor": fromOption(strokeColor),
+          "strokeColors": fromOption(strokeColors),
+          "fillColor": fromOption(fillColor),
+          "lineCap": fromOption(lineCap),
+          "lineJoin": fromOption(lineJoin),
+          "miterLimit": fromOption(miterLimit),
+          "geodesic": fromOption(geodesic),
+          "lineDashPhase": fromOption(lineDashPhase),
+          "lineDashPattern": fromOption(lineDashPattern),
+          "onPress": fromOption(onPress),
+        };
+      },
       children,
     );
 };
 
 module Circle = {
   [@bs.module "expo"] [@bs.scope "MapView"]
-  external circle : ReasonReact.reactClass = "Circle";
+  external circle: ReasonReact.reactClass = "Circle";
+
   let make =
       (
         ~center: option(latlng)=?,
@@ -240,23 +246,23 @@ module Circle = {
       ) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=circle,
-      ~props=
-        Js.Nullable.(
-          {
-            "radius": fromOption(radius),
-            "zIndex": fromOption(zIndex),
-            "strokeWidth": fromOption(strokeWidth),
-            "strokeColor": fromOption(strokeColor),
-            "center": fromOption(center),
-            "fillColor": fromOption(fillColor),
-            "lineCap": fromOption(lineCap),
-            "lineJoin": fromOption(lineJoin),
-            "miterLimit": fromOption(miterLimit),
-            "geodesic": fromOption(geodesic),
-            "lineDashPhase": fromOption(lineDashPhase),
-            "lineDashPattern": fromOption(lineDashPattern),
-          }
-        ),
+      ~props={
+        open Js.Nullable;
+        {
+          "radius": fromOption(radius),
+          "zIndex": fromOption(zIndex),
+          "strokeWidth": fromOption(strokeWidth),
+          "strokeColor": fromOption(strokeColor),
+          "center": fromOption(center),
+          "fillColor": fromOption(fillColor),
+          "lineCap": fromOption(lineCap),
+          "lineJoin": fromOption(lineJoin),
+          "miterLimit": fromOption(miterLimit),
+          "geodesic": fromOption(geodesic),
+          "lineDashPhase": fromOption(lineDashPhase),
+          "lineDashPattern": fromOption(lineDashPattern),
+        };
+      },
       children,
     );
 };
@@ -375,62 +381,62 @@ let make =
     ) =>
   ReasonReact.wrapJsForReason(
     ~reactClass=mapView,
-    ~props=
-      Js.Nullable.(
-        {
-          "provider": fromOption(provider),
-          "region": fromOption(region),
-          "initialRegion": fromOption(initialRegion),
-          "mapPadding": fromOption(mapPadding),
-          "paddingAdjustmentBehavior":
-            fromPaddingAdjustmentBehaviorToString(paddingAdjustmentBehavior),
-          "liteMode": fromOption(liteMode),
-          "mapType": fromMapTypeToString(mapType),
-          "customMapStyle": fromOption(customMapStyle),
-          "showsUserLocation": fromOption(showsUserLocation),
-          "userLocationAnnotationTitle":
-            fromOption(userLocationAnnotationTitle),
-          "followsUserLocation": fromOption(followsUserLocation),
-          "showsMyLocationButton": fromOption(showsMyLocationButton),
-          "showsPointsOfInterest": fromOption(showsPointsOfInterest),
-          "showsCompass": fromOption(showsCompass),
-          "showsScale": fromOption(showsScale),
-          "showsBuildings": fromOption(showsBuildings),
-          "showsTraffic": fromOption(showsTraffic),
-          "showsIndoors": fromOption(showsIndoors),
-          "showsIndoorLevelPicker": fromOption(showsIndoorLevelPicker),
-          "zoomEnabled": fromOption(zoomEnabled),
-          "zoomControlEnabled": fromOption(zoomControlEnabled),
-          "minZoomLevel": fromOption(minZoomLevel),
-          "maxZoomLevel": fromOption(maxZoomLevel),
-          "rotateEnabled": fromOption(rotateEnabled),
-          "scrollEnabled": fromOption(scrollEnabled),
-          "pitchEnabled": fromOption(pitchEnabled),
-          "toolbarEnabled": fromOption(toolbarEnabled),
-          "cacheEnabled": fromOption(cacheEnabled),
-          "loadingEnabled": fromOption(loadingEnabled),
-          "loadingIndicatorColor": fromOption(loadingIndicatorColor),
-          "loadingBackgroundColor": fromOption(loadingBackgroundColor),
-          "moveOnMarkerPress": fromOption(moveOnMarkerPress),
-          "legalLabelInsets": fromOption(legalLabelInsets),
-          "kmlSrc": fromOption(kmlSrc),
-          "onMapReady": fromOption(onMapReady),
-          "onKmlReady": fromOption(onKmlReady),
-          "onRegionChange": fromOption(onRegionChange),
-          "onRegionChangeComplete": fromOption(onRegionChangeComplete),
-          "onUserLocationChange": fromOption(onUserLocationChange),
-          "onPress": fromOption(onPress),
-          "onPanDrag": fromOption(onPanDrag),
-          "onPoiClick": fromOption(onPoiClick),
-          "onLongPress": fromOption(onLongPress),
-          "onMarkerPress": fromOption(onMarkerPress),
-          "onMarkerSelect": fromOption(onMarkerSelect),
-          "onMarkerDeselect": fromOption(onMarkerDeselect),
-          "onCalloutPress": fromOption(onCalloutPress),
-          "onMarkerDragStart": fromOption(onMarkerDragStart),
-          "onMarkerDrag": fromOption(onMarkerDrag),
-          "onMarkerDragEnd": fromOption(onMarkerDragEnd),
-        }
-      ),
+    ~props={
+      open Js.Nullable;
+      {
+        "provider": fromOption(provider),
+        "region": fromOption(region),
+        "initialRegion": fromOption(initialRegion),
+        "mapPadding": fromOption(mapPadding),
+        "paddingAdjustmentBehavior":
+          fromPaddingAdjustmentBehaviorToString(paddingAdjustmentBehavior),
+        "liteMode": fromOption(liteMode),
+        "mapType": fromMapTypeToString(mapType),
+        "customMapStyle": fromOption(customMapStyle),
+        "showsUserLocation": fromOption(showsUserLocation),
+        "userLocationAnnotationTitle":
+          fromOption(userLocationAnnotationTitle),
+        "followsUserLocation": fromOption(followsUserLocation),
+        "showsMyLocationButton": fromOption(showsMyLocationButton),
+        "showsPointsOfInterest": fromOption(showsPointsOfInterest),
+        "showsCompass": fromOption(showsCompass),
+        "showsScale": fromOption(showsScale),
+        "showsBuildings": fromOption(showsBuildings),
+        "showsTraffic": fromOption(showsTraffic),
+        "showsIndoors": fromOption(showsIndoors),
+        "showsIndoorLevelPicker": fromOption(showsIndoorLevelPicker),
+        "zoomEnabled": fromOption(zoomEnabled),
+        "zoomControlEnabled": fromOption(zoomControlEnabled),
+        "minZoomLevel": fromOption(minZoomLevel),
+        "maxZoomLevel": fromOption(maxZoomLevel),
+        "rotateEnabled": fromOption(rotateEnabled),
+        "scrollEnabled": fromOption(scrollEnabled),
+        "pitchEnabled": fromOption(pitchEnabled),
+        "toolbarEnabled": fromOption(toolbarEnabled),
+        "cacheEnabled": fromOption(cacheEnabled),
+        "loadingEnabled": fromOption(loadingEnabled),
+        "loadingIndicatorColor": fromOption(loadingIndicatorColor),
+        "loadingBackgroundColor": fromOption(loadingBackgroundColor),
+        "moveOnMarkerPress": fromOption(moveOnMarkerPress),
+        "legalLabelInsets": fromOption(legalLabelInsets),
+        "kmlSrc": fromOption(kmlSrc),
+        "onMapReady": fromOption(onMapReady),
+        "onKmlReady": fromOption(onKmlReady),
+        "onRegionChange": fromOption(onRegionChange),
+        "onRegionChangeComplete": fromOption(onRegionChangeComplete),
+        "onUserLocationChange": fromOption(onUserLocationChange),
+        "onPress": fromOption(onPress),
+        "onPanDrag": fromOption(onPanDrag),
+        "onPoiClick": fromOption(onPoiClick),
+        "onLongPress": fromOption(onLongPress),
+        "onMarkerPress": fromOption(onMarkerPress),
+        "onMarkerSelect": fromOption(onMarkerSelect),
+        "onMarkerDeselect": fromOption(onMarkerDeselect),
+        "onCalloutPress": fromOption(onCalloutPress),
+        "onMarkerDragStart": fromOption(onMarkerDragStart),
+        "onMarkerDrag": fromOption(onMarkerDrag),
+        "onMarkerDragEnd": fromOption(onMarkerDragEnd),
+      };
+    },
     children,
   );

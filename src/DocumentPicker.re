@@ -18,5 +18,5 @@ type result = {
 };
 
 [@bs.module "expo"] [@bs.scope "DocumentPicker"]
-external getDocumentAsync : options => Js.Promise.t(result) =
+external getDocumentAsync: options => Js.Promise.t(result) =
   "getDocumentAsync";

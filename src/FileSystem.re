@@ -1,8 +1,8 @@
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external documentDirectory : string = "documentDirectory";
+external documentDirectory: string = "documentDirectory";
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external cacheDirectory : string = "cacheDirectory";
+external cacheDirectory: string = "cacheDirectory";
 
 [@bs.deriving abstract]
 type fileInfo = {
@@ -28,16 +28,15 @@ type getInfoAsyncOptions = {
 };
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external getInfoAsync :
-  (string, getInfoAsyncOptions) => Js.Promise.t(fileInfo) =
+external getInfoAsync: (string, getInfoAsyncOptions) => Js.Promise.t(fileInfo) =
   "getInfoAsync";
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external readAsStringAsync : string => Js.Promise.t(string) =
+external readAsStringAsync: string => Js.Promise.t(string) =
   "readAsStringAsync";
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external writeAsStringAsync : (string, string) => Js.Promise.t(unit) =
+external writeAsStringAsync: (string, string) => Js.Promise.t(unit) =
   "writeAsStringAsync";
 
 [@bs.deriving abstract]
@@ -47,7 +46,7 @@ type deleteAsyncOptions = {
 };
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external deleteAsync : (string, deleteAsyncOptions) => Js.Promise.t(unit) =
+external deleteAsync: (string, deleteAsyncOptions) => Js.Promise.t(unit) =
   "deleteAsync";
 
 [@bs.deriving abstract]
@@ -58,7 +57,7 @@ type moveAsyncOptions = {
 };
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external moveAsync : (string, moveAsyncOptions) => Js.Promise.t(unit) =
+external moveAsync: (string, moveAsyncOptions) => Js.Promise.t(unit) =
   "moveAsync";
 
 [@bs.deriving abstract]
@@ -69,19 +68,19 @@ type copyAsyncOptions = {
 };
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external copyAsync : (string, copyAsyncOptions) => Js.Promise.t(unit) =
+external copyAsync: (string, copyAsyncOptions) => Js.Promise.t(unit) =
   "copyAsync";
 
 [@bs.deriving abstract]
 type makeDirectoryAsyncOptions = {intermediates: bool};
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external makeDirectoryAsync :
+external makeDirectoryAsync:
   (string, makeDirectoryAsyncOptions) => Js.Promise.t(unit) =
   "makeDirectoryAsync";
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external readDirectoryAsync : string => Js.Promise.t(array(string)) =
+external readDirectoryAsync: string => Js.Promise.t(array(string)) =
   "readDirectoryAsync";
 
 [@bs.deriving abstract]
@@ -96,7 +95,7 @@ type downloadAsyncResult('headersType) = {
 };
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external downloadAsync :
+external downloadAsync:
   (string, string, downloadAsyncOptions) =>
   Js.Promise.t(downloadAsyncResult('headersType)) =
   "downloadAsync";
@@ -112,7 +111,7 @@ module DownloadResumable = {
     md5: string,
   };
   [@bs.send]
-  external downloadAsync :
+  external downloadAsync:
     (t, unit) => Js.Promise.t(downloadAsyncResult('headersType)) =
     "downloadAsync";
   [@bs.deriving abstract]
@@ -123,7 +122,7 @@ module DownloadResumable = {
     resumeData: string,
   };
   [@bs.send]
-  external pauseAsync : (t, unit) => Js.Promise.t(pauseAsyncResult) =
+  external pauseAsync: (t, unit) => Js.Promise.t(pauseAsyncResult) =
     "pauseAsync";
   [@bs.deriving abstract]
   type resumeAsyncResult('headersType) = {
@@ -134,7 +133,7 @@ module DownloadResumable = {
     md5: string,
   };
   [@bs.send]
-  external resumeAsync :
+  external resumeAsync:
     (t, unit) => Js.Promise.t(resumeAsyncResult('headersType)) =
     "resumeAsync";
   [@bs.deriving abstract]
@@ -145,7 +144,7 @@ module DownloadResumable = {
     resumeData: string,
   };
   [@bs.send]
-  external savable : (t, unit) => Js.Promise.t(savableResult) = "savable";
+  external savable: (t, unit) => Js.Promise.t(savableResult) = "savable";
 };
 
 [@bs.deriving abstract]
@@ -169,7 +168,7 @@ type createDownloadResumableResult('headersType) = {
 };
 
 [@bs.module "expo"] [@bs.scope "FileSystem"]
-external createDownloadResumable :
+external createDownloadResumable:
   (
     string,
     string,

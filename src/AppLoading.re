@@ -1,4 +1,4 @@
-[@bs.module "expo"] external js : ReasonReact.reactClass = "AppLoading";
+[@bs.module "expo"] external js: ReasonReact.reactClass = "AppLoading";
 
 [@bs.deriving abstract]
 type props = {

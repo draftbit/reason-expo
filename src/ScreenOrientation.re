@@ -29,10 +29,10 @@ type orientation = {
 };
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external orientation : orientation = "Orientation";
+external orientation: orientation = "Orientation";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external _allow : string => unit = "allow";
+external _allow: string => unit = "allow";
 
 let allow = orient =>
   (

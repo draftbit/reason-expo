@@ -11,12 +11,12 @@ type t = {
 };
 
 [@bs.send]
-external downloadAsync : (t, unit) => Js.Promise.t(unit) = "downloadAsync";
+external downloadAsync: (t, unit) => Js.Promise.t(unit) = "downloadAsync";
 
 [@bs.module "expo"] [@bs.scope "Asset"]
-external loadAsync :
+external loadAsync:
   array(BsReactNative.Packager.required) => Js.Promise.t(unit) =
   "loadAsync";
 
 [@bs.module "expo"] [@bs.scope "Asset"]
-external fromModule : BsReactNative.Packager.required => t = "fromModule";
+external fromModule: BsReactNative.Packager.required => t = "fromModule";

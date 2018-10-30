@@ -41,5 +41,5 @@ type manipulateResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "ImageManipulator"]
-external manipulate : (string, array(action), saveOptions) => manipulateResult =
+external manipulate: (string, array(action), saveOptions) => manipulateResult =
   "manipulate";

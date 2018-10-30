@@ -15,6 +15,6 @@ type profileInformation('profileInformationType) = 'profileInformationType;
 type logInAsyncResult('logInAsyncResultType) = 'logInAsyncResultType;
 
 [@bs.module "expo"] [@bs.scope "Google"]
-external logInAsync :
+external logInAsync:
   logInAsyncOptions => Js.Promise.t(logInAsyncResult('logInAsyncResultType)) =
   "logInAsync";

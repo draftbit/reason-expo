@@ -1,30 +1,30 @@
 [@bs.module "expo"] [@bs.scope "Constants"]
-external appOwnership : string = "appOwnership";
+external appOwnership: string = "appOwnership";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external expoVersion : string = "expoVersion";
+external expoVersion: string = "expoVersion";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external installationId : string = "installationId";
+external installationId: string = "installationId";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external deviceId : string = "deviceId";
+external deviceId: string = "deviceId";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external linkingUrl : string = "linkingUrl";
+external linkingUrl: string = "linkingUrl";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external deviceName : string = "deviceName";
+external deviceName: string = "deviceName";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external deviceYearClass : int = "deviceYearClass";
+external deviceYearClass: int = "deviceYearClass";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external getWebViewUserAgentAsync : unit => Js.Promise.t(string) =
+external getWebViewUserAgentAsync: unit => Js.Promise.t(string) =
   "getWebViewUserAgentAsync";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external isDevice : bool = "isDevice";
+external isDevice: bool = "isDevice";
 
 [@bs.deriving abstract]
 type platformAndroid = {versionCode: int};
@@ -45,16 +45,16 @@ type platform = {
 };
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external platform : platform = "platform";
+external platform: platform = "platform";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external sessionId : string = "sessionId";
+external sessionId: string = "sessionId";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external statusBarHeight : int = "statusBarHeight";
+external statusBarHeight: int = "statusBarHeight";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external systemFonts : array(string) = "systemFonts";
+external systemFonts: array(string) = "systemFonts";
 
 [@bs.module "expo"] [@bs.scope "Constants"]
-external manifest : Js.t({..}) = "manifest";
+external manifest: Js.t({..}) = "manifest";

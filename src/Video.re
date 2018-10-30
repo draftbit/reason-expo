@@ -1,13 +1,13 @@
-[@bs.module "expo"] external js : ReasonReact.reactClass = "Video";
+[@bs.module "expo"] external js: ReasonReact.reactClass = "Video";
 
 [@bs.module "expo"] [@bs.scope "Video"]
-external resize_mode_stretch : ReasonReact.reactClass = "RESIZE_MODE_STRETCH";
+external resize_mode_stretch: ReasonReact.reactClass = "RESIZE_MODE_STRETCH";
 
 [@bs.module "expo"] [@bs.scope "Video"]
-external resize_mode_contain : ReasonReact.reactClass = "RESIZE_MODE_CONTAIN";
+external resize_mode_contain: ReasonReact.reactClass = "RESIZE_MODE_CONTAIN";
 
 [@bs.module "expo"] [@bs.scope "Video"]
-external resize_mode_cover : ReasonReact.reactClass = "RESIZE_MODE_COVER";
+external resize_mode_cover: ReasonReact.reactClass = "RESIZE_MODE_COVER";
 
 type resizeMode =
   | COVER
@@ -21,8 +21,10 @@ module Source = {
     | `Asset(Asset.t)
     | `NullSource
   ];
+
   type rawSourceJS;
-  external rawSourceJS : 'a => rawSourceJS = "%identity";
+  external rawSourceJS: 'a => rawSourceJS = "%identity";
+
   let encodeSource = (src: t) =>
     switch (src) {
     | `URI(uri) => rawSourceJS({"uri": uri})
@@ -94,9 +96,9 @@ let make =
       ~resizeMode=COVER,
       ~isLooping=false,
       ~shouldPlay=false,
-      ~onPlaybackStatusUpdate: playbackStatus => unit=(_) => (),
-      ~onReadyForDisplay: onReadyForDisplayParam => unit=(_) => (),
-      ~onFullscreenUpdate: onFullscreenUpdateParam => unit=(_) => (),
+      ~onPlaybackStatusUpdate: playbackStatus => unit=_ => (),
+      ~onReadyForDisplay: onReadyForDisplayParam => unit=_ => (),
+      ~onFullscreenUpdate: onFullscreenUpdateParam => unit=_ => (),
       ~style=BsReactNative.Style.style([]),
       children,
     ) =>
