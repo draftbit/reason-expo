@@ -1,29 +1,34 @@
-[@bs.scope "SecureStore"] [@bs.module "expo"]
-external whenUnlocked: int = "WHEN_UNLOCKED";
+type keychainAccessibilityType;
 
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external afterFirstUnlock: int = "AFTER_FIRST_UNLOCK";
-
-[@bs.scope "SecureStore"] [@bs.module "expo"] external always: int = "ALWAYS";
+external whenUnlocked: keychainAccessibilityType = "WHEN_UNLOCKED";
 
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external whenUnlockedThisDeviceOnly: int = "WHEN_UNLOCKED_THIS_DEVICE_ONLY";
+external afterFirstUnlock: keychainAccessibilityType = "AFTER_FIRST_UNLOCK";
 
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external whenPasscodeSetThisDeviceOnly: int =
+external always: keychainAccessibilityType = "ALWAYS";
+
+[@bs.scope "SecureStore"] [@bs.module "expo"]
+external whenUnlockedThisDeviceOnly: keychainAccessibilityType =
+  "WHEN_UNLOCKED_THIS_DEVICE_ONLY";
+
+[@bs.scope "SecureStore"] [@bs.module "expo"]
+external whenPasscodeSetThisDeviceOnly: keychainAccessibilityType =
   "WHEN_PASSCODE_SET_THIS_DEVICE_ONLY";
 
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external afterFirstUnlockThisDeviceOnly: int =
+external afterFirstUnlockThisDeviceOnly: keychainAccessibilityType =
   "AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY";
 
 [@bs.scope "SecureStore"] [@bs.module "expo"]
-external alwaysThisDeviceOnly: int = "ALWAYS_THIS_DEVICE_ONLY";
+external alwaysThisDeviceOnly: keychainAccessibilityType =
+  "ALWAYS_THIS_DEVICE_ONLY";
 
 [@bs.deriving abstract]
 type setItemAsyncOptions = {
   keychainService: string,
-  keychainAccessible: int,
+  keychainAccessible: keychainAccessibilityType,
 };
 
 [@bs.scope "SecureStore"] [@bs.module "expo"]
