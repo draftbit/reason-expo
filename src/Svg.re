@@ -1,5 +1,5 @@
 [@bs.module "expo"] [@bs.scope "Svg"]
-external js : ReasonReact.reactClass = "default";
+external js: ReasonReact.reactClass = "default";
 
 [@bs.deriving abstract]
 type props = {
@@ -16,7 +16,8 @@ let make = (~height, ~width, children) =>
 
 module Rect = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Rect";
+  external js: ReasonReact.reactClass = "Rect";
+
   [@bs.deriving abstract]
   type props = {
     x: string,
@@ -27,6 +28,7 @@ module Rect = {
     strokeWidth: string,
     stroke: string,
   };
+
   let make = (~x, ~y, ~width, ~height, ~fill, ~strokeWidth, ~stroke, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -37,7 +39,8 @@ module Rect = {
 
 module Circle = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Circle";
+  external js: ReasonReact.reactClass = "Circle";
+
   [@bs.deriving abstract]
   type props = {
     cx: string,
@@ -45,6 +48,7 @@ module Circle = {
     r: string,
     fill: string,
   };
+
   let make = (~cx: string, ~cy: string, ~r: string, ~fill: string, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -55,7 +59,8 @@ module Circle = {
 
 module Ellipse = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Ellipse";
+  external js: ReasonReact.reactClass = "Ellipse";
+
   [@bs.deriving abstract]
   type props = {
     cx: string,
@@ -66,6 +71,7 @@ module Ellipse = {
     strokeWidth: string,
     fill: string,
   };
+
   let make = (~cx, ~cy, ~rx, ~ry, ~fill, ~stroke, ~strokeWidth, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -76,7 +82,8 @@ module Ellipse = {
 
 module Line = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Line";
+  external js: ReasonReact.reactClass = "Line";
+
   [@bs.deriving abstract]
   type props = {
     x1: string,
@@ -86,6 +93,7 @@ module Line = {
     stroke: string,
     strokeWidth: string,
   };
+
   let make = (~x1, ~y1, ~x2, ~y2, ~stroke, ~strokeWidth, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -96,7 +104,8 @@ module Line = {
 
 module Polygon = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Polygon";
+  external js: ReasonReact.reactClass = "Polygon";
+
   [@bs.deriving abstract]
   type props = {
     points: string,
@@ -104,6 +113,7 @@ module Polygon = {
     stroke: string,
     strokeWidth: string,
   };
+
   let make = (~points, ~fill, ~stroke, ~strokeWidth, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -114,7 +124,8 @@ module Polygon = {
 
 module Polyline = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Polyline";
+  external js: ReasonReact.reactClass = "Polyline";
+
   [@bs.deriving abstract]
   type props = {
     points: string,
@@ -122,6 +133,7 @@ module Polyline = {
     stroke: string,
     strokeWidth: string,
   };
+
   let make = (~points, ~fill, ~stroke, ~strokeWidth, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -132,13 +144,15 @@ module Polyline = {
 
 module Path = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Path";
+  external js: ReasonReact.reactClass = "Path";
+
   [@bs.deriving abstract]
   type props = {
     d: string,
     fill: string,
     stroke: string,
   };
+
   let make = (~d, ~fill, ~stroke, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -149,7 +163,8 @@ module Path = {
 
 module Text = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Text";
+  external js: ReasonReact.reactClass = "Text";
+
   [@bs.deriving abstract]
   type props = {
     x: string,
@@ -161,6 +176,7 @@ module Text = {
     stroke: string,
     strokeWidth: string,
   };
+
   let make =
       (
         ~x,
@@ -192,7 +208,8 @@ module Text = {
 
 module TSpan = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "TSpan";
+  external js: ReasonReact.reactClass = "TSpan";
+
   [@bs.deriving abstract]
   type props = {
     x: string,
@@ -206,6 +223,7 @@ module TSpan = {
     stroke: string,
     strokeWidth: string,
   };
+
   let make =
       (
         ~x,
@@ -241,12 +259,14 @@ module TSpan = {
 
 module TextPath = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "TextPath";
+  external js: ReasonReact.reactClass = "TextPath";
+
   [@bs.deriving abstract]
   type props = {
     href: string,
     startOffset: string,
   };
+
   let make = (~href, ~startOffset, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -257,12 +277,14 @@ module TextPath = {
 
 module G = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "G";
+  external js: ReasonReact.reactClass = "G";
+
   [@bs.deriving abstract]
   type props = {
     rotation: string,
     origin: string,
   };
+
   let make = (~rotation, ~origin, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -273,13 +295,15 @@ module G = {
 
 module Use = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Use";
+  external js: ReasonReact.reactClass = "Use";
+
   [@bs.deriving abstract]
   type props = {
     href: string,
     x: string,
     y: string,
   };
+
   let make = (~href, ~x, ~y, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -290,7 +314,8 @@ module Use = {
 
 module Symbol = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Symbol";
+  external js: ReasonReact.reactClass = "Symbol";
+
   [@bs.deriving abstract]
   type props = {
     id: string,
@@ -298,6 +323,7 @@ module Symbol = {
     width: string,
     height: string,
   };
+
   let make = (~id, ~viewBox, ~width, ~height, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -308,7 +334,8 @@ module Symbol = {
 
 module Defs = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Defs";
+  external js: ReasonReact.reactClass = "Defs";
+
   let make = children =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -319,7 +346,8 @@ module Defs = {
 
 module Image = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Image";
+  external js: ReasonReact.reactClass = "Image";
+
   [@bs.deriving abstract]
   type props = {
     x: string,
@@ -331,6 +359,7 @@ module Image = {
     href: string,
     clipPath: string,
   };
+
   let make =
       (
         ~x,
@@ -362,16 +391,19 @@ module Image = {
 
 module ClipPath = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "ClipPath";
+  external js: ReasonReact.reactClass = "ClipPath";
+
   [@bs.deriving abstract]
   type props = {id: string};
+
   let make = (~id, children) =>
     ReasonReact.wrapJsForReason(~reactClass=js, ~props=props(~id), children);
 };
 
 module LinearGradient = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "LinearGradient";
+  external js: ReasonReact.reactClass = "LinearGradient";
+
   [@bs.deriving abstract]
   type props = {
     id: string,
@@ -380,6 +412,7 @@ module LinearGradient = {
     x2: string,
     y2: string,
   };
+
   let make = (~id, ~x1, ~y1, ~x2, ~y2, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -390,7 +423,8 @@ module LinearGradient = {
 
 module RadialGradient = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "RadialGradient";
+  external js: ReasonReact.reactClass = "RadialGradient";
+
   [@bs.deriving abstract]
   type props = {
     id: string,
@@ -402,6 +436,7 @@ module RadialGradient = {
     fy: string,
     gradientUnits: string,
   };
+
   let make = (~id, ~cx, ~cy, ~rx, ~ry, ~fx, ~fy, ~gradientUnits, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -412,13 +447,15 @@ module RadialGradient = {
 
 module Stop = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Stop";
+  external js: ReasonReact.reactClass = "Stop";
+
   [@bs.deriving abstract]
   type props = {
     offset: string,
     stopColor: string,
     stopOpacity: string,
   };
+
   let make = (~offset, ~stopColor, ~stopOpacity, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -429,7 +466,8 @@ module Stop = {
 
 module Mask = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Mask";
+  external js: ReasonReact.reactClass = "Mask";
+
   [@bs.deriving abstract]
   type props = {
     id: string,
@@ -439,6 +477,7 @@ module Mask = {
     width: string,
     maskUnits: string,
   };
+
   let make = (~id, ~x, ~y, ~height, ~width, ~maskUnits, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,
@@ -449,7 +488,8 @@ module Mask = {
 
 module Pattern = {
   [@bs.module "expo"] [@bs.scope "Svg"]
-  external js : ReasonReact.reactClass = "Pattern";
+  external js: ReasonReact.reactClass = "Pattern";
+
   [@bs.deriving abstract]
   type props = {
     id: string,
@@ -460,6 +500,7 @@ module Pattern = {
     viewBox: string,
     patternUnits: string,
   };
+
   let make = (~id, ~x, ~y, ~height, ~width, ~patternUnits, ~viewBox, children) =>
     ReasonReact.wrapJsForReason(
       ~reactClass=js,

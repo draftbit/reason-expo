@@ -1,3 +1,15 @@
+/*
+ Usage:
+
+ [@bs.deriving abstract]
+ type paramsType = {token: string};
+
+ [@bs.deriving abstract]
+ type eventType = {code: string};
+
+ let x: Js.Promise.t(result(paramsType, eventType)) = startAsync(options(~authUrl="", ()));
+ */
+
 [@bs.deriving abstract]
 type options = {
   authUrl: string,
@@ -18,22 +30,11 @@ type result('paramType, 'eventType) = {
 };
 
 [@bs.module "expo"] [@bs.scope "AuthSession"]
-external startAsync : options => Js.Promise.t(result('paramType, 'eventType)) =
+external startAsync: options => Js.Promise.t(result('paramType, 'eventType)) =
   "startAsync";
 
 [@bs.module "expo"] [@bs.scope "AuthSession"]
-external dismiss : unit => unit = "dismiss";
+external dismiss: unit => unit = "dismiss";
 
 [@bs.module "expo"] [@bs.scope "AuthSession"]
-external getRedirectUrl : unit => string = "getRedirectUrl";
-/*
- Usage:
-
- [@bs.deriving abstract]
- type paramsType = {token: string};
-
- [@bs.deriving abstract]
- type eventType = {code: string};
-
- let x: Js.Promise.t(result(paramsType, eventType)) = startAsync(options(~authUrl="", ()));
- */
+external getRedirectUrl: unit => string = "getRedirectUrl";

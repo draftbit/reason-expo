@@ -1,5 +1,5 @@
 [@bs.module "expo"] [@bs.scope "Font"]
-external _loadDict :
+external _loadDict:
   Js.Dict.t(BsReactNative.Packager.required) => Js.Promise.t(unit) =
   "loadAsync";
 

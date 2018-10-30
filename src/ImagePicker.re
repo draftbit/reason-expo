@@ -1,10 +1,10 @@
 module MediaTypeOptions = {
   [@bs.module "expo"] [@bs.scope ("ImagePicker", "MediaTypeOptions")]
-  external images : string = "Images";
+  external images: string = "Images";
   [@bs.module "expo"] [@bs.scope ("ImagePicker", "MediaTypeOptions")]
-  external videos : string = "Videos";
+  external videos: string = "Videos";
   [@bs.module "expo"] [@bs.scope ("ImagePicker", "MediaTypeOptions")]
-  external all : string = "all";
+  external all: string = "all";
 };
 
 [@bs.deriving abstract]
@@ -37,7 +37,7 @@ type launchImageLibraryAsyncResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "ImagePicker"]
-external launchImageLibraryAsync :
+external launchImageLibraryAsync:
   launchImageLibraryAsyncOptions => launchImageLibraryAsyncResult =
   "launchImageLibraryAsync";
 
@@ -68,6 +68,5 @@ type launchCameraAsyncResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "ImagePicker"]
-external launchCameraAsync :
-  launchCameraAsyncOptions => launchCameraAsyncResult =
+external launchCameraAsync: launchCameraAsyncOptions => launchCameraAsyncResult =
   "launchCameraAsync";

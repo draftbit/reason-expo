@@ -1,9 +1,11 @@
 module Orientation = {
   type t = string;
+
   [@bs.module "expo"] [@bs.scope ("Print", "Orientation")]
-  external portrait : t = "portrait";
+  external portrait: t = "portrait";
+
   [@bs.module "expo"] [@bs.scope ("Print", "Orientation")]
-  external landscape : t = "landscape";
+  external landscape: t = "landscape";
 };
 
 [@bs.deriving abstract]
@@ -17,7 +19,7 @@ type printAsyncOptions = {
 };
 
 [@bs.module "expo"] [@bs.scope "Print"]
-external printAsync : printAsyncOptions => Js.Promise.t(unit) = "printAsync";
+external printAsync: printAsyncOptions => Js.Promise.t(unit) = "printAsync";
 
 [@bs.deriving abstract]
 type printToFileAsyncOptions = {
@@ -36,7 +38,7 @@ type printToFileAsyncResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "Print"]
-external printToFileAsync :
+external printToFileAsync:
   printToFileAsyncOptions => Js.Promise.t(printToFileAsyncResult) =
   "printToFileAsync";
 
@@ -47,5 +49,5 @@ type selectPrinterAsyncResult = {
 };
 
 [@bs.module "expo"] [@bs.scope "Print"]
-external selectPrinterAsync : unit => Js.Promise.t(unit) =
+external selectPrinterAsync: unit => Js.Promise.t(unit) =
   "selectPrinterAsync";

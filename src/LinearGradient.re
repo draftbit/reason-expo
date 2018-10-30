@@ -1,4 +1,4 @@
-[@bs.module "expo"] external js : ReasonReact.reactClass = "LinearGradient";
+[@bs.module "expo"] external js: ReasonReact.reactClass = "LinearGradient";
 
 [@bs.deriving abstract]
 type props = {

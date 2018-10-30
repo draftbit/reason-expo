@@ -15,6 +15,6 @@ type options = {
 };
 
 [@bs.module "expo"] [@bs.scope "Facebook"]
-external logInWithReadPermissionsAsync :
+external logInWithReadPermissionsAsync:
   (string, options) => Js.Promise.t(result) =
   "logInWithReadPermissionsAsync";

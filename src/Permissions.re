@@ -12,36 +12,36 @@ type t =
   | Reminders;
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external location : string = "LOCATION";
+external location: string = "LOCATION";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external camera : string = "CAMERA";
+external camera: string = "CAMERA";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external audioRecording : string = "AUDIO_RECORDING";
+external audioRecording: string = "AUDIO_RECORDING";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external contacts : string = "CONTACTS";
+external contacts: string = "CONTACTS";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external cameraRoll : string = "CAMERA_ROLL";
+external cameraRoll: string = "CAMERA_ROLL";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external calendar : string = "CALENDAR";
+external calendar: string = "CALENDAR";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external reminders : string = "REMINDERS";
+external reminders: string = "REMINDERS";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] external sms : string = "SMS";
-
-[@bs.module "expo"] [@bs.scope "Permissions"]
-external userFacingNotifications : string = "USER_FACING_NOTIFICATIONS";
+[@bs.module "expo"] [@bs.scope "Permissions"] external sms: string = "SMS";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external notification : string = "NOTIFICATIONS";
+external userFacingNotifications: string = "USER_FACING_NOTIFICATIONS";
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external systemBrightness : string = "SYSTEM_BRIGHTNESS";
+external notification: string = "NOTIFICATIONS";
+
+[@bs.module "expo"] [@bs.scope "Permissions"]
+external systemBrightness: string = "SYSTEM_BRIGHTNESS";
 
 let toString = p =>
   switch (p) {
@@ -59,11 +59,11 @@ let toString = p =>
   };
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external _get : string => Js.Promise.t('b) = "getAsync";
+external _get: string => Js.Promise.t('b) = "getAsync";
 
 let getAsync = permission => _get(toString(permission));
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
-external _ask : string => Js.Promise.t('b) = "askAsync";
+external _ask: string => Js.Promise.t('b) = "askAsync";
 
 let askAsync = permission => _ask(toString(permission));
