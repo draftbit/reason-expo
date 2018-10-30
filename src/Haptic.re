@@ -22,18 +22,18 @@ external selection: unit => unit = "selection";
 [@bs.module "expo"] [@bs.scope "Haptic"]
 external _notification: string => unit = "notification";
 
-type notificationTypes =
+[@bs.module "expo"] [@bs.scope "Haptic"]
+external _impact: string => unit = "impact";
+
+type notificationType =
   | Success
   | Warning
   | Error;
 
-type impactStyles =
+type impactStyle =
   | Light
   | Medium
   | Heavy;
-
-[@bs.module "expo"] [@bs.scope "Haptic"]
-external _impact: string => unit = "impact";
 
 let notification = notificationType =>
   switch (notificationType) {
