@@ -102,6 +102,7 @@ external downloadAsync:
 
 module DownloadResumable = {
   type t = {.};
+
   [@bs.deriving abstract]
   type downloadAsyncResult('headersType) = {
     uri: string,
@@ -110,10 +111,12 @@ module DownloadResumable = {
     [@bs.optional]
     md5: string,
   };
+
   [@bs.send]
   external downloadAsync:
     (t, unit) => Js.Promise.t(downloadAsyncResult('headersType)) =
     "downloadAsync";
+
   [@bs.deriving abstract]
   type pauseAsyncResult = {
     uri: string,
@@ -121,9 +124,11 @@ module DownloadResumable = {
     options: {. md5: bool},
     resumeData: string,
   };
+
   [@bs.send]
   external pauseAsync: (t, unit) => Js.Promise.t(pauseAsyncResult) =
     "pauseAsync";
+
   [@bs.deriving abstract]
   type resumeAsyncResult('headersType) = {
     uri: string,
@@ -132,10 +137,12 @@ module DownloadResumable = {
     [@bs.optional]
     md5: string,
   };
+
   [@bs.send]
   external resumeAsync:
     (t, unit) => Js.Promise.t(resumeAsyncResult('headersType)) =
     "resumeAsync";
+
   [@bs.deriving abstract]
   type savableResult = {
     uri: string,
@@ -143,6 +150,7 @@ module DownloadResumable = {
     options: {. md5: bool},
     resumeData: string,
   };
+
   [@bs.send]
   external savable: (t, unit) => Js.Promise.t(savableResult) = "savable";
 };
