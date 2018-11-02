@@ -38,3 +38,62 @@ type audioMode = {
 
 [@bs.module "expo"] [@bs.scope "Audio"]
 external setAudioModeAsync: audioMode => Js.Promise.t(unit) = "";
+
+module Source = {
+  type t = [
+    | `URI(string)
+    | `Required(BsReactNative.Packager.required)
+    | `Asset(Asset.t)
+    | `NullSource
+  ];
+
+  type rawSourceJS;
+  external rawSourceJS: 'a => rawSourceJS = "%identity";
+
+  let encodeSource = (src: t) =>
+    switch (src) {
+    | `URI(uri) => rawSourceJS({"uri": uri})
+    | `Required(package) => rawSourceJS(package)
+    | `Asset(asset) => rawSourceJS(asset)
+    | `NullSource => rawSourceJS(Js.null)
+    };
+};
+
+module Sound = {
+  class type _sound =
+    [@bs]
+    {
+      pub unloadAsync: unit => Js.Promise.t(unit);
+      pub getStatusAsync: unit => Js.Promise.t(unit);
+      pub setOnPlaybackStatusUpdate: ('a => unit) => unit;
+      pub setStatusAsync: 'a => Js.Promise.t(unit);
+      pub playAsync: unit => Js.Promise.t(unit);
+      pub replayAsync: unit => Js.Promise.t(unit);
+      pub pauseAsync: unit => Js.Promise.t(unit);
+      pub stopAsync: unit => Js.Promise.t(unit);
+      pub setPositionAsync: int => Js.Promise.t(unit);
+      pub setRateAsync: (float, bool) => Js.Promise.t(unit);
+      pub setVolumeAsync: float => Js.Promise.t(unit);
+      pub setIsMutedAsync: bool => Js.Promise.t(unit);
+      pub setIsLoopingAsync: bool => Js.Promise.t(unit);
+      pub setProgressUpdateIntervalAsync: int => Js.Promise.t(unit);
+    };
+
+  type t = Js.t(_sound);
+
+  [@bs.new] [@bs.module "expo"] [@bs.scope "Audio"]
+  external make: unit => t = "Sound";
+
+  [@bs.module "expo"] [@bs.scope ("Audio", "Sound")]
+  external _create:
+    (Source.rawSourceJS, 'a, 'a => unit, bool) => Js.Promise.t(t) =
+    "create";
+
+  let create = (source, initialStatus, onPlaybackStatusUpdate, downloadFirst) =>
+    _create(
+      Source.encodeSource(source),
+      initialStatus,
+      onPlaybackStatusUpdate,
+      downloadFirst,
+    );
+};
