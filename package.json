@@ -25,12 +25,12 @@
   },
   "devDependencies": {
     "@team-griffin/install-self-peers": "^1.1.1",
-    "bs-platform": "^4.0.0"
+    "bs-platform": "^4.0.7"
   },
   "bugs": "https://github.com/fiber-god/reason-expo/issues",
   "peerDependencies": {
-    "bs-react-native": "^0.8.0",
-    "expo": "^30.0.0",
-    "reason-react": "^0.4.2"
+    "bs-react-native": "^0.10.0",
+    "expo": "^31.0.0",
+    "reason-react": "^0.5.3"
   }
 }
