@@ -8,4 +8,4 @@ type t =
   | LandscapeLeft
   | LandscapeRight;
 
-let allow: t => unit;
+let allowAsync: t => Js.Promise.t(unit);

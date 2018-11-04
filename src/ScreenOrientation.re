@@ -32,9 +32,9 @@ type orientation = {
 external orientation: orientation = "Orientation";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external _allow: string => unit = "allow";
+external _allowAsync: string => Js.Promise.t(unit) = "allowAsync";
 
-let allow = orient =>
+let allowAsync = orient =>
   (
     switch (orient) {
     | All => allGet(orientation)
@@ -47,4 +47,4 @@ let allow = orient =>
     | LandscapeRight => landscapeRightGet(orientation)
     }
   )
-  |> _allow;
+  |> _allowAsync;
