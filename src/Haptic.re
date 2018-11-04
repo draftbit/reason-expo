@@ -1,19 +1,19 @@
-[@bs.module "expo"] [@bs.scope ("Haptic", "NotificationTypes")]
+[@bs.module "expo"] [@bs.scope ("Haptic", "NotificationFeedbackType")]
 external _success: string = "Success";
 
-[@bs.module "expo"] [@bs.scope ("Haptic", "NotificationTypes")]
+[@bs.module "expo"] [@bs.scope ("Haptic", "NotificationFeedbackType")]
 external _warning: string = "Warning";
 
-[@bs.module "expo"] [@bs.scope ("Haptic", "NotificationTypes")]
+[@bs.module "expo"] [@bs.scope ("Haptic", "NotificationFeedbackType")]
 external _error: string = "Error";
 
-[@bs.module "expo"] [@bs.scope ("Haptic", "ImpactStyles")]
+[@bs.module "expo"] [@bs.scope ("Haptic", "ImpactFeedbackStyle")]
 external _light: string = "Light";
 
-[@bs.module "expo"] [@bs.scope ("Haptic", "ImpactStyles")]
+[@bs.module "expo"] [@bs.scope ("Haptic", "ImpactFeedbackStyle")]
 external _medium: string = "Medium";
 
-[@bs.module "expo"] [@bs.scope ("Haptic", "ImpactStyles")]
+[@bs.module "expo"] [@bs.scope ("Haptic", "ImpactFeedbackStyle")]
 external _heavy: string = "Heavy";
 
 [@bs.module "expo"] [@bs.scope "Haptic"]
