@@ -25,8 +25,7 @@ Download the ReasonExpo template included in this repo by running the commands b
 ```
 git clone https://github.com/FiberJW/reason-expo.git
 mv reason-expo/template . && rm -rf reason-expo
-cd template && yarn
-yarn build && yarn start
+cd template && yarn && yarn start
 ```
 
 Already have an existing Expo Project?
