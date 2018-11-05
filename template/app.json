@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "template",
+    "name": "new-template",
     "description": "A basic ReasonExpo app.",
-    "slug": "template",
+    "slug": "new-template",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": ["ios", "android"],
