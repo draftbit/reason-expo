@@ -85,12 +85,13 @@ module Sound = {
   external make: unit => t = "Sound";
 
   [@bs.module "expo"] [@bs.scope ("Audio", "Sound")]
-  external _create:
+  external _createAsync:
     (Source.rawSourceJS, 'a, 'a => unit, bool) => Js.Promise.t(t) =
-    "create";
+    "createAsync";
 
-  let create = (source, initialStatus, onPlaybackStatusUpdate, downloadFirst) =>
-    _create(
+  let createAsync =
+      (source, initialStatus, onPlaybackStatusUpdate, downloadFirst) =>
+    _createAsync(
       Source.encodeSource(source),
       initialStatus,
       onPlaybackStatusUpdate,
