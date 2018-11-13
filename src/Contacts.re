@@ -91,12 +91,12 @@ module Fields = {
   [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
   external nonGregorianBirthday: t = "NonGregorianBirthday";
 
-  [@deprecated "Use `Fields.image`"]
+  [@deprecated "Use `Fields.image` instead."]
   [@bs.module "expo"]
   [@bs.scope ("Contacts", "Fields")]
   external thumbnail: t = "Thumbnail";
 
-  [@deprecated "Use `Fields.maidenName`"]
+  [@deprecated "Use `Fields.maidenName` instead."]
   [@bs.module "expo"]
   [@bs.scope ("Contacts", "Fields")]
   external previousLastName: t = "PreviousLastName";
@@ -115,7 +115,7 @@ module FormTypes = {
   external default: t = "Default";
 };
 
-module ContactType = {
+module ContactTypes = {
   type t = string;
 
   [@bs.module "expo"] [@bs.scope ("Contacts", "ContactTypes")]
@@ -171,39 +171,6 @@ module CalendarFormats = {
 };
 
 [@bs.deriving abstract]
-type contact = {id: string};
-
-[@bs.deriving abstract]
-type group = {id: string};
-
-[@bs.deriving abstract]
-type container = {id: string};
-
-[@bs.deriving abstract]
-type date = {id: string};
-
-[@bs.deriving abstract]
-type relationship = {id: string};
-
-[@bs.deriving abstract]
-type email = {id: string};
-
-[@bs.deriving abstract]
-type phoneNumber = {id: string};
-
-[@bs.deriving abstract]
-type address = {id: string};
-
-[@bs.deriving abstract]
-type socialProfile = {id: string};
-
-[@bs.deriving abstract]
-type instantMessageAddress = {id: string};
-
-[@bs.deriving abstract]
-type urlAddress = {id: string};
-
-[@bs.deriving abstract]
 type image = {
   uri: string,
   width: int,
@@ -212,16 +179,231 @@ type image = {
 };
 
 [@bs.deriving abstract]
-type formOptions = {message: string};
+type date = {
+  day: int,
+  month: int,
+  year: int,
+  format: CalendarFormats.t,
+  id: string,
+  label: string,
+};
 
 [@bs.deriving abstract]
-type contactQuery = {id: string};
+type relationship = {
+  name: string,
+  id: string,
+  label: string,
+};
 
 [@bs.deriving abstract]
-type groupQuery = {groupId: string};
+type email = {
+  email: string,
+  isPrimary: bool,
+  id: string,
+  label: string,
+};
 
 [@bs.deriving abstract]
-type containerQuery = {groupId: string};
+type phoneNumber = {
+  number: string,
+  isPrimary: bool,
+  digits: string,
+  countryCode: string,
+  id: string,
+  label: string,
+};
 
 [@bs.deriving abstract]
-type contactResponse = {data: array(contact)};
+type address = {
+  street: string,
+  city: string,
+  country: string,
+  region: string,
+  neneighborhood: string,
+  postalCode: string,
+  poBox: string,
+  isoCountryCode: string,
+  id: string,
+  label: string,
+};
+
+[@bs.deriving abstract]
+type group = {
+  id: string,
+  name: string,
+};
+
+[@bs.deriving abstract]
+type container = {
+  id: string,
+  name: string,
+};
+
+[@bs.deriving abstract]
+type socialProfile = {
+  service: string,
+  username: string,
+  localizedProfile: string,
+  url: string,
+  userId: string,
+  id: string,
+  label: string,
+};
+
+[@bs.deriving abstract]
+type instantMessageAddress = {
+  service: string,
+  username: string,
+  localizedService: string,
+  id: string,
+  label: string,
+};
+
+[@bs.deriving abstract]
+type urlAddress = {
+  url: string,
+  id: string,
+  label: string,
+};
+
+[@bs.deriving abstract]
+type formOptions = {
+  displayedPropertyKeys: array(Fields.t),
+  message: string,
+  alternateName: string,
+  cancelButtonTitle: string,
+  groupId: string,
+  allowsEditing: bool,
+  allowsActions: bool,
+  shouldShowLinkedContacts: bool,
+  isNew: bool,
+  preventAnimation: bool,
+};
+
+[@bs.deriving abstract]
+type contactQuery = {
+  fields: array(Fields.t),
+  pageSize: int,
+  pageOffset: int,
+  id: string,
+  sort: SortTypes.t,
+  name: string,
+  groupId: string,
+  containerId: string,
+  rawContacts: bool,
+};
+
+[@bs.deriving abstract]
+type groupQuery = {
+  groupName: string,
+  groupId: string,
+  containerId: string,
+};
+
+[@bs.deriving abstract]
+type containerQuery = {
+  contactId: string,
+  groupId: string,
+  containerId: string,
+};
+
+[@bs.deriving abstract]
+type contact = {
+  id: string,
+  name: string,
+  firstName: string,
+  middleName: string,
+  lastName: string,
+  maidenName: string,
+  namePrefix: string,
+  nameSuffix: string,
+  nickname: string,
+  phoneticFirstName: string,
+  phoneticMiddleName: string,
+  phoneticLastName: string,
+  company: string,
+  jobTitle: string,
+  department: string,
+  note: string,
+  imageAvailable: bool,
+  image,
+  rawImage: image,
+  contactType: ContactTypes.t,
+  birthday: date,
+  dates: array(date),
+  relationships: array(relationship),
+  emails: array(email),
+  phoneNumbers: array(phoneNumber),
+  addresses: array(address),
+  instantMessageAddresses: array(instantMessageAddress),
+  urlAddresses: array(urlAddress),
+  nonGregorianBirthday: date,
+  socialProfiles: array(socialProfile),
+};
+
+[@bs.deriving abstract]
+type contactResponse = {
+  data: array(contact),
+  hasNextPage: bool,
+  hasPreviousPage: bool,
+};
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external getContactsAsync: contactQuery => Js.Promise.t(contactResponse) = "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external getContactByIdAsync:
+  (string, array(Fields.t)) => Js.Promise.t(contact) =
+  "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external addContactAsync: (contact, string) => Js.Promise.t(string) = "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external updateContactAsync: contact => Js.Promise.t(string) = "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external removeContactAsync: string => Js.Promise.t(unit) = "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external writeContactToFileAsync: contactQuery => Js.Promise.t(string) = "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external presentFormAsync:
+  (string, contact, formOptions) => Js.Promise.t(unit) =
+  "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external addExistingGroupToContainerAsync:
+  (string, string) => Js.Promise.t(unit) =
+  "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external createGroupAsync:
+  (string, Js.Nullable.t(string)) => Js.Promise.t(string) =
+  "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external updateGroupNameAsync: (string, string) => Js.Promise.t(unit) = "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external removeGroupAsync: string => Js.Promise.t(unit) = "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external addExistingContactToGroupAsync:
+  (string, string) => Js.Promise.t(unit) =
+  "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external removeContactFromGroupAsync: (string, string) => Js.Promise.t(unit) =
+  "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external getGroupsAsync: groupQuery => Js.Promise.t(array(group)) = "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external getDefaultContainerIdAsync: unit => Js.Promise.t(string) = "";
+
+[@bs.module "expo"] [@bs.scope "Contacts"]
+external getContainersAsync: containerQuery => Js.Promise.t(array(container)) =
+  "";
