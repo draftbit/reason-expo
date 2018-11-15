@@ -150,3 +150,297 @@ module DrawerLayout = {
       children,
     );
 };
+
+module PanGestureHandler = {
+  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  external js: ReasonReact.reactClass = "PanGestureHandler";
+
+  let make =
+      (
+        ~enabled: bool=true,
+        ~shouldCancelWhenOutside: bool=true,
+        ~simultaneousHandlers: option(array(ReasonReact.reactRef))=?,
+        ~waitFor: option(array(ReasonReact.reactRef))=?,
+        ~hitSlop:
+           option({
+             .
+             left: float,
+             right: float,
+             top: float,
+             bottom: float,
+             width: float,
+             height: float,
+           })=?,
+        ~onGestureEvent: 'a => unit=_ => (),
+        ~onHandlerStateChange: 'a => unit=_ => (),
+        ~minDist: option(float)=?,
+        ~minPointers: option(int)=?,
+        ~maxPointers: option(int)=?,
+        ~activeOffsetX: option((float, float))=?,
+        ~activeOffsetY: option((float, float))=?,
+        ~failOffsetY: option((float, float))=?,
+        ~failOffsetX: option((float, float))=?,
+        ~style=BsReactNative.Style.style([]),
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props={
+        "enabled": enabled,
+        "shouldCancelWhenOutside": shouldCancelWhenOutside,
+        "simultaneousHandlers": Js.Undefined.fromOption(simultaneousHandlers),
+        "waitFor": Js.Undefined.fromOption(waitFor),
+        "hitSlop": Js.Undefined.fromOption(hitSlop),
+        "onGestureEvent": onGestureEvent,
+        "onHandlerStateChange": onHandlerStateChange,
+        "minDist": Js.Undefined.fromOption(minDist),
+        "minPointers": Js.Undefined.fromOption(minPointers),
+        "maxPointers": Js.Undefined.fromOption(maxPointers),
+        "activeOffsetX": Js.Undefined.fromOption(activeOffsetX),
+        "activeOffsetY": Js.Undefined.fromOption(activeOffsetY),
+        "failOffsetY": Js.Undefined.fromOption(failOffsetY),
+        "failOffsetX": Js.Undefined.fromOption(failOffsetX),
+        "style": style,
+      },
+      children,
+    );
+};
+
+module TapGestureHandler = {
+  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  external js: ReasonReact.reactClass = "TapGestureHandler";
+
+  let make =
+      (
+        ~enabled: bool=true,
+        ~shouldCancelWhenOutside: bool=true,
+        ~simultaneousHandlers: option(array(ReasonReact.reactRef))=?,
+        ~waitFor: option(array(ReasonReact.reactRef))=?,
+        ~hitSlop:
+           option({
+             .
+             left: float,
+             right: float,
+             top: float,
+             bottom: float,
+             width: float,
+             height: float,
+           })=?,
+        ~onGestureEvent: 'a => unit=_ => (),
+        ~onHandlerStateChange: 'a => unit=_ => (),
+        ~minPointers: option(int)=?,
+        ~maxDurationMs: option(float)=?,
+        ~maxDelayMs: option(float)=?,
+        ~numberOfTaps: option(int)=?,
+        ~maxDeltaX: option(float)=?,
+        ~maxDeltaY: option(float)=?,
+        ~maxDist: option(float)=?,
+        ~style=BsReactNative.Style.style([]),
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props={
+        "enabled": enabled,
+        "shouldCancelWhenOutside": shouldCancelWhenOutside,
+        "simultaneousHandlers": Js.Undefined.fromOption(simultaneousHandlers),
+        "waitFor": Js.Undefined.fromOption(waitFor),
+        "hitSlop": Js.Undefined.fromOption(hitSlop),
+        "onGestureEvent": onGestureEvent,
+        "onHandlerStateChange": onHandlerStateChange,
+        "minPointers": Js.Undefined.fromOption(minPointers),
+        "maxDurationMs": Js.Undefined.fromOption(maxDurationMs),
+        "maxDelayMs": Js.Undefined.fromOption(maxDelayMs),
+        "numberOfTaps": Js.Undefined.fromOption(numberOfTaps),
+        "maxDeltaX": Js.Undefined.fromOption(maxDeltaX),
+        "maxDeltaY": Js.Undefined.fromOption(maxDeltaY),
+        "maxDist": Js.Undefined.fromOption(maxDist),
+        "style": style,
+      },
+      children,
+    );
+};
+
+module LongPressGestureHandler = {
+  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  external js: ReasonReact.reactClass = "LongPressGestureHandler";
+
+  let make =
+      (
+        ~enabled: bool=true,
+        ~shouldCancelWhenOutside: bool=true,
+        ~simultaneousHandlers: option(array(ReasonReact.reactRef))=?,
+        ~waitFor: option(array(ReasonReact.reactRef))=?,
+        ~hitSlop:
+           option({
+             .
+             left: float,
+             right: float,
+             top: float,
+             bottom: float,
+             width: float,
+             height: float,
+           })=?,
+        ~onGestureEvent: 'a => unit=_ => (),
+        ~onHandlerStateChange: 'a => unit=_ => (),
+        ~minDurationMs: option(float)=?,
+        ~maxDist: option(float)=?,
+        ~style=BsReactNative.Style.style([]),
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props={
+        "enabled": enabled,
+        "shouldCancelWhenOutside": shouldCancelWhenOutside,
+        "simultaneousHandlers": Js.Undefined.fromOption(simultaneousHandlers),
+        "waitFor": Js.Undefined.fromOption(waitFor),
+        "hitSlop": Js.Undefined.fromOption(hitSlop),
+        "onGestureEvent": onGestureEvent,
+        "onHandlerStateChange": onHandlerStateChange,
+        "minDurationMs": minDurationMs,
+        "maxDist": maxDist,
+        "style": style,
+      },
+      children,
+    );
+};
+
+module RotationGestureHandler = {
+  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  external js: ReasonReact.reactClass = "RotationGestureHandler";
+
+  let make =
+      (
+        ~enabled: bool=true,
+        ~shouldCancelWhenOutside: bool=true,
+        ~simultaneousHandlers: option(array(ReasonReact.reactRef))=?,
+        ~waitFor: option(array(ReasonReact.reactRef))=?,
+        ~hitSlop:
+           option({
+             .
+             left: float,
+             right: float,
+             top: float,
+             bottom: float,
+             width: float,
+             height: float,
+           })=?,
+        ~onGestureEvent: 'a => unit=_ => (),
+        ~onHandlerStateChange: 'a => unit=_ => (),
+        ~style=BsReactNative.Style.style([]),
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props={
+        "enabled": enabled,
+        "shouldCancelWhenOutside": shouldCancelWhenOutside,
+        "simultaneousHandlers": Js.Undefined.fromOption(simultaneousHandlers),
+        "waitFor": Js.Undefined.fromOption(waitFor),
+        "hitSlop": Js.Undefined.fromOption(hitSlop),
+        "onGestureEvent": onGestureEvent,
+        "onHandlerStateChange": onHandlerStateChange,
+        "style": style,
+      },
+      children,
+    );
+};
+
+module Directions = {
+  type t;
+  [@bs.module "expo"] [@bs.scope ("GestureHandler", "Directions")]
+  external left: t = "LEFT";
+  [@bs.module "expo"] [@bs.scope ("GestureHandler", "Directions")]
+  external right: t = "RIGHT";
+  [@bs.module "expo"] [@bs.scope ("GestureHandler", "Directions")]
+  external down: t = "DOWN";
+  [@bs.module "expo"] [@bs.scope ("GestureHandler", "Directions")]
+  external up: t = "UP";
+};
+
+module FlingGestureHandler = {
+  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  external js: ReasonReact.reactClass = "FlingGestureHandler";
+
+  let make =
+      (
+        ~enabled: bool=true,
+        ~shouldCancelWhenOutside: bool=true,
+        ~simultaneousHandlers: option(array(ReasonReact.reactRef))=?,
+        ~waitFor: option(array(ReasonReact.reactRef))=?,
+        ~hitSlop:
+           option({
+             .
+             left: float,
+             right: float,
+             top: float,
+             bottom: float,
+             width: float,
+             height: float,
+           })=?,
+        ~onGestureEvent: 'a => unit=_ => (),
+        ~onHandlerStateChange: 'a => unit=_ => (),
+        ~direction: option(Directions.t)=?,
+        ~numberOfPointers: option(int)=?,
+        ~style=BsReactNative.Style.style([]),
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props={
+        "enabled": enabled,
+        "shouldCancelWhenOutside": shouldCancelWhenOutside,
+        "simultaneousHandlers": Js.Undefined.fromOption(simultaneousHandlers),
+        "waitFor": Js.Undefined.fromOption(waitFor),
+        "hitSlop": Js.Undefined.fromOption(hitSlop),
+        "onGestureEvent": onGestureEvent,
+        "onHandlerStateChange": onHandlerStateChange,
+        "direction": Js.Undefined.fromOption(direction),
+        "numberOfPointers": Js.Undefined.fromOption(numberOfPointers),
+        "style": style,
+      },
+      children,
+    );
+};
+
+module PinchGestureHandler = {
+  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  external js: ReasonReact.reactClass = "PinchGestureHandler";
+
+  let make =
+      (
+        ~enabled: bool=true,
+        ~shouldCancelWhenOutside: bool=true,
+        ~simultaneousHandlers: option(array(ReasonReact.reactRef))=?,
+        ~waitFor: option(array(ReasonReact.reactRef))=?,
+        ~hitSlop:
+           option({
+             .
+             left: float,
+             right: float,
+             top: float,
+             bottom: float,
+             width: float,
+             height: float,
+           })=?,
+        ~onGestureEvent: 'a => unit=_ => (),
+        ~onHandlerStateChange: 'a => unit=_ => (),
+        ~style=BsReactNative.Style.style([]),
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props={
+        "enabled": enabled,
+        "shouldCancelWhenOutside": shouldCancelWhenOutside,
+        "simultaneousHandlers": Js.Undefined.fromOption(simultaneousHandlers),
+        "waitFor": Js.Undefined.fromOption(waitFor),
+        "hitSlop": Js.Undefined.fromOption(hitSlop),
+        "onGestureEvent": onGestureEvent,
+        "onHandlerStateChange": onHandlerStateChange,
+        "style": style,
+      },
+      children,
+    );
+};
