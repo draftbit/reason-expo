@@ -119,3 +119,34 @@ module Swipeable = {
       children,
     );
 };
+
+module DrawerLayout = {
+  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  external js: ReasonReact.reactClass = "DrawerLayout";
+
+  let make =
+      (
+        ~drawerType: string="front",
+        ~edgeWidth: option(float)=?,
+        ~hideStatusBar: option(bool)=?,
+        ~statusBarAnimation: string="slide",
+        ~overlayColor: string="black",
+        ~renderNavigationView:
+           BsReactNative.Animated.Value.t => ReasonReact.reactElement=_ => ReasonReact.null,
+        ~style=BsReactNative.Style.style([]),
+        children,
+      ) =>
+    ReasonReact.wrapJsForReason(
+      ~reactClass=js,
+      ~props={
+        "drawerType": drawerType,
+        "edgeWidth": Js.Undefined.fromOption(edgeWidth),
+        "hideStatusBar": Js.Undefined.fromOption(hideStatusBar),
+        "statusBarAnimation": statusBarAnimation,
+        "overlayColor": overlayColor,
+        "renderNavigationView": renderNavigationView,
+        "style": style,
+      },
+      children,
+    );
+};
