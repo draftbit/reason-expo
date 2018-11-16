@@ -4488,10 +4488,10 @@ readable-stream@^2.0.1, readable-stream@^2.0.6, readable-stream@^2.1.5, readable
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
 
-reason-expo@^31.0.0:
-  version "31.0.0"
-  resolved "https://registry.yarnpkg.com/reason-expo/-/reason-expo-31.0.0.tgz#8dc5c3c3273275064e4c6a5f5eeaf87a93ac246d"
-  integrity sha512-agsVlp14qdEtywqeSeBanWgKt9GnXzX2DGlFBq3BADMF6lYE7xNT0XJJ+xHo36yhLZtEnHXQ77euDElIkrWPtQ==
+reason-expo@^31.1.0:
+  version "31.1.0"
+  resolved "https://registry.yarnpkg.com/reason-expo/-/reason-expo-31.1.0.tgz#0d2f303433e22475e1c4dc5f5ba0847c4b1367e2"
+  integrity sha512-ZXOGxBDYuoPDp0c8CRh5cnoFH9rfusfwnzm4ueQLwqYWuJoEw7bXaTxT/LyCsXGRCO/mN7CfJWGVcHcxtgw9sw==
 
 reason-react@^0.5.3:
   version "0.5.3"
