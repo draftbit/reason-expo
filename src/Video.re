@@ -96,6 +96,7 @@ let make =
       ~resizeMode=COVER,
       ~isLooping=false,
       ~shouldPlay=false,
+      ~volume=1.0,
       ~onPlaybackStatusUpdate: playbackStatus => unit=_ => (),
       ~onReadyForDisplay: onReadyForDisplayParam => unit=_ => (),
       ~onFullscreenUpdate: onFullscreenUpdateParam => unit=_ => (),
@@ -111,6 +112,7 @@ let make =
       "isMuted": isMuted,
       "useNativeControls": useNativeControls,
       "onPlaybackStatusUpdate": onPlaybackStatusUpdate,
+      "volume": volume,
       "onReadyForDisplay": onReadyForDisplay,
       "onFullscreenUpdate": onFullscreenUpdate,
       "resizeMode":
