@@ -34,12 +34,8 @@ Follow [this guide](https://medium.com/@peterpme/your-first-reasonml-pr-into-an-
 
 Once completed, `yarn add reason-expo`, and add `"reason-expo"` to your `bs-dependencies` array in `bsconfig.json`. Now get coding!
 
-## Disclaimer
-
-There are some APIs missing/in-development. Compare this repo to the APIs listed in [Expo's Docs](https://docs.expo.io) to see what's missing. Contributing new API bindings is extremely encouraged!
-
 ## Contributing
 
-Find the missing API[s] that you want to bind to in [Expo's Docs](https://docs.expo.io). Next, fork this repo, clone it onto your machine, install dev dependencies with `yarn install::dev`, start the compiler with `yarn start`, and start hacking away!
+Fork this repo, clone it onto your machine, install dev dependencies with `yarn install::dev`, start the compiler with `yarn start`, and start hacking away!
 
 _Credit: This project is based on the work started in [`bs-expo`](https://github.com/fxfactorial/bs-expo/)._
