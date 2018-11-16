@@ -17,7 +17,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
     "bs-platform": "^4.0.7",
     "bs-react-native": "^0.10.0",
-    "reason-expo": "^31.0.0",
+    "reason-expo": "^31.1.0",
     "reason-react": "^0.5.3"
   },
   "devDependencies": {
