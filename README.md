@@ -23,8 +23,8 @@
 Download the ReasonExpo template included in this repo by running the commands below in the terminal.
 
 ```
-git clone https://github.com/FiberJW/reason-expo.git
-mv reason-expo/template . && rm -rf reason-expo
+git clone https://github.com/FiberJW/reason-expo.git reason-expo-temp
+mv reason-expo-temp/template . && rm -rf reason-expo-temp
 cd template && yarn && yarn start
 ```
 
@@ -32,7 +32,7 @@ Already have an existing Expo Project?
 
 Follow [this guide](https://medium.com/@peterpme/your-first-reasonml-pr-into-an-existing-react-native-codebase-a490b4a79649) by [Peter Piekarczyk](https://twitter.com/peterpme) on getting ReasonML set up in an existing React Native app.
 
-Once completed, `yarn add reason-expo`, and add `"reason-expo"` to your `bs-dependencies` array in `bsconfig.json`. Now get coding!
+Once completed, `yarn add reason-expo-temp`, and add `"reason-expo"` to your `bs-dependencies` array in `bsconfig.json`. Now get coding!
 
 ## Contributing
 
