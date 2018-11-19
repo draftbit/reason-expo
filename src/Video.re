@@ -90,7 +90,7 @@ let make =
     (
       ~source=`NullSource,
       ~posterSource=`NullSource,
-      ~rate: option(string)=?,
+      ~rate: option(float)=?,
       ~isMuted=false,
       ~useNativeControls=false,
       ~resizeMode=COVER,
