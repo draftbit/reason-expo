@@ -93,6 +93,7 @@ let make =
       ~rate: option(float)=?,
       ~isMuted=false,
       ~useNativeControls=false,
+      ~usePoster=false,
       ~resizeMode=COVER,
       ~isLooping=false,
       ~shouldPlay=false,
@@ -100,6 +101,9 @@ let make =
       ~onPlaybackStatusUpdate: playbackStatus => unit=_ => (),
       ~onReadyForDisplay: onReadyForDisplayParam => unit=_ => (),
       ~onFullscreenUpdate: onFullscreenUpdateParam => unit=_ => (),
+      ~onLoadStart: unit => unit=() => (),
+      ~onLoad: playbackStatus => unit=_ => (),
+      ~onError: string => unit=_ => (),
       ~style=BsReactNative.Style.style([]),
       children,
     ) =>
@@ -111,10 +115,14 @@ let make =
       "rate": Js.Nullable.fromOption(rate),
       "isMuted": isMuted,
       "useNativeControls": useNativeControls,
+      "usePoster": usePoster,
       "onPlaybackStatusUpdate": onPlaybackStatusUpdate,
       "volume": volume,
       "onReadyForDisplay": onReadyForDisplay,
       "onFullscreenUpdate": onFullscreenUpdate,
+      "onLoadStart": onLoadStart,
+      "onLoad": onLoad,
+      "onError": onError,
       "resizeMode":
         switch (resizeMode) {
         | COVER => resize_mode_cover
