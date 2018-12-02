@@ -30,7 +30,7 @@ Already have an existing Expo Project?
 
 Follow [this guide](https://medium.com/@peterpme/your-first-reasonml-pr-into-an-existing-react-native-codebase-a490b4a79649) by [Peter Piekarczyk](https://twitter.com/peterpme) on getting ReasonML set up in an existing React Native app.
 
-Once completed, `yarn add reason-expo-temp`, and add `"reason-expo"` to your `bs-dependencies` array in `bsconfig.json`. Now get coding!
+Once completed, `yarn add reason-expo`, and add `"reason-expo"` to your `bs-dependencies` array in `bsconfig.json`. Now get coding!
 
 ## Contributing
 
