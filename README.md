@@ -20,10 +20,10 @@
 
 ## Getting started
 
-Download the ReasonExpo template included in this repo by running the commands below in the terminal.
+Use the Expo CLI to bootstrap a project with the ReasonExpo template.
 
 ```
-curl https://raw.githubusercontent.com/FiberJW/reason-expo/master/install-template.sh | bash -s <PROJECT_NAME>
+expo init <PROJECT_NAME> --template expo-template-reason
 ```
 
 Already have an existing Expo Project?
