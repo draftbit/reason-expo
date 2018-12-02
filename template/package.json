@@ -8,7 +8,7 @@
   },
   "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "main": "node_modules/expo/AppEntry.js",
-  "version": "31.0.0",
+  "version": "31.0.1",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -19,11 +19,11 @@
     "postinstall": "yarn build"
   },
   "dependencies": {
+    "bs-platform": "^4.0.7",
+    "bs-react-native": "^0.10.0",
     "expo": "^31.0.2",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
-    "bs-platform": "^4.0.7",
-    "bs-react-native": "^0.10.0",
     "reason-expo": "^31.1.0",
     "reason-react": "^0.5.3"
   },
