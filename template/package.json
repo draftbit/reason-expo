@@ -1,5 +1,12 @@
 {
   "name": "expo-template-reason",
+  "homepage": "https://github.com/fiberjw/reason-expo.git",
+  "author": "Juwan Wheatley",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fiberjw/reason-expo.git"
+  },
+  "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "main": "node_modules/expo/AppEntry.js",
   "version": "31.0.0",
   "scripts": {
