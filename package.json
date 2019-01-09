@@ -30,7 +30,7 @@
   "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "peerDependencies": {
     "bs-react-native": "^0.10.0",
-    "expo": "^31.0.0",
+    "expo": "^32.0.0",
     "reason-react": "^0.5.3"
   }
 }
