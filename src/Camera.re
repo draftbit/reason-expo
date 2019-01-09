@@ -178,6 +178,12 @@ type faceDetectionClassifications =
   | All
   | None;
 
+[@bs.deriving abstract]
+type barCodeScannerSettings = {
+  barCodeTypes: array(string),
+  useCamera2Api: bool,
+};
+
 [@bs.module "expo"] external js: ReasonReact.reactClass = "Camera";
 
 let make =
@@ -195,14 +201,14 @@ let make =
       ~faceDetectionLandmarks: faceDetectionLandmarks,
       ~faceDetectionClassifications: faceDetectionClassifications,
       ~onMountError: {. "message": string} => unit,
-      ~onBarCodeRead:
+      ~onBarCodeScanned:
          {
            .
            "type": string,
            "data": string,
          } =>
          unit,
-      ~barCodeTypes: array(string),
+      ~barCodeScannerSettings=?,
       ~style=?,
       children,
     ) =>
@@ -256,8 +262,9 @@ let make =
         | None => Constants.FaceDetection.Classifications.none
         },
       "onMountError": onMountError,
-      "onBarCodeRead": onBarCodeRead,
-      "barCodeTypes": barCodeTypes,
+      "onBarCodeScanned": onBarCodeScanned,
+      "barCodeScannerSettings":
+        Js.Nullable.fromOption(barCodeScannerSettings),
       "style": Js.Undefined.fromOption(style),
     },
     children,

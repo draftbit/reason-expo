@@ -9,29 +9,35 @@ type torchMode =
 [@bs.module "expo"] external js: ReasonReact.reactClass = "BarCodeScanner";
 
 [@bs.deriving abstract]
-type barCodeReadResult = {
+type onBarCodeScannedResult = {
   [@bs.as "type"]
   _type: string,
   data: string,
 };
 
 [@bs.deriving abstract]
+type barCodeScannerSettings = {
+  barCodeTypes: array(string),
+  useCamera2Api: bool,
+};
+
+[@bs.deriving abstract]
 type props = {
-  onBarCodeRead: barCodeReadResult => unit,
+  onBarCodeScanned: onBarCodeScannedResult => unit,
   [@bs.as "type"]
   _type: string,
   torchMode: string,
   [@bs.optional]
-  barCodeTypes: Js.Nullable.t(array(string)),
+  barCodeScannerSettings: Js.Nullable.t(barCodeScannerSettings),
   style: BsReactNative.Style.t,
 };
 
 let make =
     (
-      ~onBarCodeRead,
+      ~onBarCodeScanned,
       ~type_=Back,
       ~torchMode=Off,
-      ~barCodeTypes=?,
+      ~barCodeScannerSettings=?,
       ~style=BsReactNative.Style.style([]),
       children,
     ) =>
@@ -39,7 +45,7 @@ let make =
     ~reactClass=js,
     ~props=
       props(
-        ~onBarCodeRead,
+        ~onBarCodeScanned,
         ~_type=
           switch (type_) {
           | Front => "front"
@@ -50,7 +56,8 @@ let make =
           | On => "on"
           | Off => "off"
           },
-        ~barCodeTypes=Js.Nullable.fromOption(barCodeTypes),
+        ~barCodeScannerSettings=
+          Js.Nullable.fromOption(barCodeScannerSettings),
         ~style,
       ),
     children,
