@@ -8,7 +8,6 @@ type t =
   | UserFacingNotifications
   | SystemBrightness
   | Calendar
-  | SMS
   | Reminders;
 
 let getAsync: t => Js.Promise.t('a);
