@@ -62,3 +62,49 @@ external getDevicePushTokenAsync:
     "data": string,
   }) =
   "getDevicePushTokenAsync";
+
+[@bs.module "expo"] [@bs.scope "Notifications"]
+external createCategoryAsync:
+  (
+    string,
+    array({
+      .
+      actionId: string,
+      buttonTitle: string,
+      textInput:
+        Js.Undefined.t({
+          .
+          submitButtonTitle: string,
+          placeholder: string,
+        }),
+      isDestructive: bool,
+      isAuthenticationRequired: bool,
+    })
+  ) =>
+  Js.Promise.t(unit) =
+  "";
+
+[@bs.module "expo"] [@bs.scope "Notifications"]
+external deleteCategoryAsync: string => Js.Promise.t(unit) = "";
+
+[@bs.deriving abstract]
+type channelAndroid = {
+  name: string,
+  [@bs.optional]
+  description: string,
+  [@bs.optional]
+  sound: bool,
+  [@bs.optional]
+  priority: string,
+  [@bs.optional]
+  vibrate: array(int),
+  [@bs.optional]
+  badge: bool,
+};
+
+[@bs.module "expo"] [@bs.scope "Notifications"]
+external createChannelAndroidAsync:
+  (string, channelAndroid) => Js.Promise.t(unit) =
+  "";
+[@bs.module "expo"] [@bs.scope "Notifications"]
+external deleteChannelAndroidAsync: string => Js.Promise.t(unit) = "";
