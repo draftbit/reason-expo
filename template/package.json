@@ -21,10 +21,10 @@
   "dependencies": {
     "bs-platform": "^4.0.7",
     "bs-react-native": "^0.10.0",
-    "expo": "^31.0.2",
+    "expo": "^32.0.0",
     "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
-    "reason-expo": "^31.1.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "reason-expo": "^32.0.0",
     "reason-react": "^0.5.3"
   },
   "devDependencies": {
