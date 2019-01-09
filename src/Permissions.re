@@ -8,7 +8,6 @@ type t =
   | UserFacingNotifications
   | SystemBrightness
   | Calendar
-  | SMS
   | Reminders;
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
@@ -32,8 +31,6 @@ external calendar: string = "CALENDAR";
 [@bs.module "expo"] [@bs.scope "Permissions"]
 external reminders: string = "REMINDERS";
 
-[@bs.module "expo"] [@bs.scope "Permissions"] external sms: string = "SMS";
-
 [@bs.module "expo"] [@bs.scope "Permissions"]
 external userFacingNotifications: string = "USER_FACING_NOTIFICATIONS";
 
@@ -55,7 +52,6 @@ let toString = p =>
   | SystemBrightness => systemBrightness
   | Calendar => calendar
   | Reminders => reminders
-  | SMS => sms
   };
 
 [@bs.module "expo"] [@bs.scope "Permissions"]
