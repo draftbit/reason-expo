@@ -2103,6 +2103,10 @@ react@>=16.8.1:
     prop-types "^15.6.2"
     scheduler "^0.13.6"
 
+"reason-react-native-monorepo@https://github.com/reasonml-community/reason-react-native":
+  version "0.0.0"
+  resolved "https://github.com/reasonml-community/reason-react-native#08fe6c2542b17117c53f00aad94057090eb91ee0"
+
 reason-react@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/reason-react/-/reason-react-0.7.0.tgz#46a975c321e81cd51310d7b1a02418ca7667b0d6"

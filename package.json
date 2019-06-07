@@ -31,6 +31,7 @@
   "peerDependencies": {
     "bs-react-native": "^0.10.0",
     "expo": "^33.0.0",
-    "reason-react": "^0.7.0"
+    "reason-react": "^0.7.0",
+    "reason-react-native-monorepo": "https://github.com/reasonml-community/reason-react-native"
   }
 }

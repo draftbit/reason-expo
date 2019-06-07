@@ -4,7 +4,11 @@
     "react-jsx": 3
   },
   "bsc-flags": ["-bs-super-errors"],
-  "bs-dependencies": ["bs-react-native", "reason-react", "reason-expo"],
+  "bs-dependencies": [
+    "reason-react-native-monorepo/bs-react-native-jsx3-compat",
+    "reason-react",
+    "reason-expo"
+  ],
   "sources": [
     {
       "dir": "src"
@@ -15,5 +19,8 @@
   "package-specs": {
     "module": "commonjs",
     "in-source": true
+  },
+  "js-post-build": {
+    "cmd": "./node_modules/reason-react-native-monorepo/git-monorepo-usage-trick"
   }
 }

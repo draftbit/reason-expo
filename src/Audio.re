@@ -42,7 +42,7 @@ external setAudioModeAsync: audioMode => Js.Promise.t(unit) = "";
 module Source = {
   type t = [
     | `URI(string)
-    | `Required(BsReactNative.Packager.required)
+    | `Required(ReactNative.Packager.required)
     | `Asset(Asset.t)
     | `NullSource
   ];

@@ -3,7 +3,10 @@
   "bsc-flags": ["-bs-super-errors"],
   "reason": { "react-jsx": 3 },
   "refmt": 3,
-  "bs-dependencies": ["reason-react", "bs-react-native"],
+  "bs-dependencies": [
+    "reason-react",
+    "reason-react-native-monorepo/reason-react-native"
+  ],
   "namespace": true,
   "sources": {
     "dir": "src",
@@ -18,5 +21,8 @@
   ],
   "warnings": {
     "error": "+5"
+  },
+  "js-post-build": {
+    "cmd": "./node_modules/reason-react-native-monorepo/git-monorepo-usage-trick"
   }
 }

@@ -29,7 +29,7 @@ type props = {
   torchMode: string,
   [@bs.optional]
   barCodeScannerSettings: Js.Nullable.t(barCodeScannerSettings),
-  style: BsReactNative.Style.t,
+  style: ReactNative.Style.t,
 };
 
 let make =
@@ -38,7 +38,7 @@ let make =
       ~type_=Back,
       ~torchMode=Off,
       ~barCodeScannerSettings=?,
-      ~style=BsReactNative.Style.style([]),
+      ~style=ReactNative.Style.style(),
       children,
     ) =>
   ReasonReact.wrapJsForReason(

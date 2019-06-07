@@ -17,7 +17,7 @@ type resizeMode =
 module Source = {
   type t = [
     | `URI(string)
-    | `Required(BsReactNative.Packager.required)
+    | `Required(ReactNative.Packager.required)
     | `Asset(Asset.t)
     | `NullSource
   ];
@@ -104,7 +104,7 @@ let make =
       ~onLoadStart: unit => unit=() => (),
       ~onLoad: playbackStatus => unit=_ => (),
       ~onError: string => unit=_ => (),
-      ~style=BsReactNative.Style.style([]),
+      ~style=ReactNative.Style.style(),
       children,
     ) =>
   ReasonReact.wrapJsForReason(

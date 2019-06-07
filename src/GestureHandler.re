@@ -6,7 +6,7 @@ module BaseButton = {
       (
         ~onActiveStateChange: bool => unit=_ => (),
         ~onPress: unit => unit=() => (),
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -30,7 +30,7 @@ module BorderlessButton = {
         ~onPress: unit => unit=() => (),
         ~borderless: bool=true,
         ~activeOpacity: option(float)=?,
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -56,7 +56,7 @@ module RectButton = {
         ~onPress: unit => unit=() => (),
         ~underlayColor: option(string)=?,
         ~activeOpacity: option(float)=?,
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -90,12 +90,12 @@ module Swipeable = {
         ~onSwipeableWillOpen: unit => unit=() => (),
         ~onSwipeableWillClose: unit => unit=() => (),
         ~renderLeftActions:
-           (BsReactNative.Animated.Value.t, BsReactNative.Animated.Value.t) =>
+           (ReactNative.Animated.Value.t, ReactNative.Animated.Value.t) =>
            ReasonReact.reactElement=(_, _) => ReasonReact.null,
         ~renderRightActions:
-           (BsReactNative.Animated.Value.t, BsReactNative.Animated.Value.t) =>
+           (ReactNative.Animated.Value.t, ReactNative.Animated.Value.t) =>
            ReasonReact.reactElement=(_, _) => ReasonReact.null,
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -132,8 +132,9 @@ module DrawerLayout = {
         ~statusBarAnimation: string="slide",
         ~overlayColor: string="black",
         ~renderNavigationView:
-           BsReactNative.Animated.Value.t => ReasonReact.reactElement=_ => ReasonReact.null,
-        ~style=BsReactNative.Style.style([]),
+           ReactNative.Animated.Value.t => ReasonReact.reactElement=_ =>
+                                                                    ReasonReact.null,
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -180,7 +181,7 @@ module PanGestureHandler = {
         ~activeOffsetY: option((float, float))=?,
         ~failOffsetY: option((float, float))=?,
         ~failOffsetX: option((float, float))=?,
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -235,7 +236,7 @@ module TapGestureHandler = {
         ~maxDeltaX: option(float)=?,
         ~maxDeltaY: option(float)=?,
         ~maxDist: option(float)=?,
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -285,7 +286,7 @@ module LongPressGestureHandler = {
         ~onHandlerStateChange: 'a => unit=_ => (),
         ~minDurationMs: option(float)=?,
         ~maxDist: option(float)=?,
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -328,7 +329,7 @@ module RotationGestureHandler = {
            })=?,
         ~onGestureEvent: 'a => unit=_ => (),
         ~onHandlerStateChange: 'a => unit=_ => (),
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -383,7 +384,7 @@ module FlingGestureHandler = {
         ~onHandlerStateChange: 'a => unit=_ => (),
         ~direction: option(Directions.t)=?,
         ~numberOfPointers: option(int)=?,
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
@@ -426,7 +427,7 @@ module PinchGestureHandler = {
            })=?,
         ~onGestureEvent: 'a => unit=_ => (),
         ~onHandlerStateChange: 'a => unit=_ => (),
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(

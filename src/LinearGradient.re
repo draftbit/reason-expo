@@ -7,7 +7,7 @@ type props = {
   [@bs.as "end"]
   end_: array(float),
   locations: array(float),
-  style: BsReactNative.Style.t,
+  style: ReactNative.Style.t,
 };
 
 let make =
@@ -16,7 +16,7 @@ let make =
       ~start=[|0.0, 0.0|],
       ~end_=[|1.0, 1.0|],
       ~locations=[|0.0, 1.0|],
-      ~style=BsReactNative.Style.style([]),
+      ~style=ReactNative.Style.style(),
       children,
     ) =>
   ReasonReact.wrapJsForReason(

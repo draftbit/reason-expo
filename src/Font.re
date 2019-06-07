@@ -1,11 +1,11 @@
 [@bs.module "expo"] [@bs.scope "Font"]
 external _loadDict:
-  Js.Dict.t(BsReactNative.Packager.required) => Js.Promise.t(unit) =
+  Js.Dict.t(ReactNative.Packager.required) => Js.Promise.t(unit) =
   "loadAsync";
 
 let loadAsync = fonts =>
   List.map(
-    ((name, font: BsReactNative.Packager.required)) => (name, font),
+    ((name, font: ReactNative.Packager.required)) => (name, font),
     fonts,
   )
   |> Js.Dict.fromList

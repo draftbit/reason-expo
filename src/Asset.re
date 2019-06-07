@@ -15,8 +15,8 @@ external downloadAsync: (t, unit) => Js.Promise.t(unit) = "downloadAsync";
 
 [@bs.module "expo"] [@bs.scope "Asset"]
 external loadAsync:
-  array(BsReactNative.Packager.required) => Js.Promise.t(unit) =
+  array(ReactNative.Packager.required) => Js.Promise.t(unit) =
   "loadAsync";
 
 [@bs.module "expo"] [@bs.scope "Asset"]
-external fromModule: BsReactNative.Packager.required => t = "fromModule";
+external fromModule: ReactNative.Packager.required => t = "fromModule";

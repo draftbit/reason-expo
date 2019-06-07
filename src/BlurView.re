@@ -9,14 +9,14 @@ type tint =
 type props = {
   tint: string,
   intensity: int,
-  style: BsReactNative.Style.t,
+  style: ReactNative.Style.t,
 };
 
 let make =
     (
       ~tint: tint=Default,
       ~intensity=50,
-      ~style=BsReactNative.Style.style([]),
+      ~style=ReactNative.Style.style(),
       children,
     ) =>
   ReasonReact.wrapJsForReason(

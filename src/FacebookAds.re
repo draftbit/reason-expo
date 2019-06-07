@@ -99,7 +99,7 @@ module BannerAd = {
         ~type_: string,
         ~onPress: unit => unit=() => (),
         ~onError: Js.Exn.t => unit=_ => (),
-        ~style=BsReactNative.Style.style([]),
+        ~style=ReactNative.Style.style(),
         children,
       ) =>
     ReasonReact.wrapJsForReason(
