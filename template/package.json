@@ -8,7 +8,7 @@
   },
   "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "main": "node_modules/expo/AppEntry.js",
-  "version": "32.0.0",
+  "version": "33.0.0",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
