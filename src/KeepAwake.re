@@ -1,14 +1,8 @@
 [@bs.module "expo"] [@bs.scope "KeepAwake"]
-external activate: unit => unit = "activate";
+external useKeepAwake: Js.Nullable.t(string) => unit = "";
 
 [@bs.module "expo"] [@bs.scope "KeepAwake"]
-external deactivate: unit => unit = "deactivate";
+external activateKeepAwake: Js.Nullable.t(string) => unit = "";
 
-[@bs.module "expo"] external js: ReasonReact.reactClass = "KeepAwake";
-
-let make = children =>
-  ReasonReact.wrapJsForReason(
-    ~reactClass=js,
-    ~props=Js.Obj.empty(),
-    children,
-  );
+[@bs.module "expo"] [@bs.scope "KeepAwake"]
+external deactivateKeepAwake: Js.Nullable.t(string) => unit = "";
