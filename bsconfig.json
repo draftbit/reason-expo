@@ -1,7 +1,7 @@
 {
   "name": "reason-expo",
   "bsc-flags": ["-bs-super-errors"],
-  "reason": { "react-jsx": 3 },
+  "reason": { "react-jsx": 2 },
   "refmt": 3,
   "bs-dependencies": ["reason-react", "bs-react-native"],
   "namespace": true,
@@ -12,7 +12,7 @@
   "suffix": ".bs.js",
   "package-specs": [
     {
-      "module": "commonjs",
+      "module": "es6",
       "in-source": true
     }
   ],
