@@ -24,7 +24,7 @@
     "expo": "^33.0.0",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "reason-expo": "^33.0.0",
+    "reason-expo": "../",
     "reason-react": "^0.7.0"
   },
   "devDependencies": {

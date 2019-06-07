@@ -1,7 +1,7 @@
 {
   "name": "my-reason-expo-app",
   "reason": {
-    "react-jsx": 3
+    "react-jsx": 2
   },
   "bsc-flags": ["-bs-super-errors"],
   "bs-dependencies": ["bs-react-native", "reason-react", "reason-expo"],
@@ -13,7 +13,7 @@
   "suffix": ".bs.js",
   "refmt": 3,
   "package-specs": {
-    "module": "commonjs",
+    "module": "es6",
     "in-source": true
   }
 }
