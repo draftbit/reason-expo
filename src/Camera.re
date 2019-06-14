@@ -43,29 +43,27 @@ module Constants = {
 
   module FaceDetection = {
     module Mode = {
-      [@bs.module "expo"]
-      [@bs.scope ("Camera", "Constants", "FaceDetection", "Mode")]
+      [@bs.module "expo"] [@bs.scope ("FaceDetector", "Constants", "Mode")]
       external fast: t = "fast";
-      [@bs.module "expo"]
-      [@bs.scope ("Camera", "Constants", "FaceDetection", "Mode")]
+      [@bs.module "expo"] [@bs.scope ("FaceDetector", "Constants", "Mode")]
       external accurate: t = "accurate";
     };
 
     module Landmarks = {
       [@bs.module "expo"]
-      [@bs.scope ("Camera", "Constants", "FaceDetection", "Landmarks")]
+      [@bs.scope ("FaceDetector", "Constants", "Landmarks")]
       external all: t = "all";
       [@bs.module "expo"]
-      [@bs.scope ("Camera", "Constants", "FaceDetection", "Landmarks")]
+      [@bs.scope ("FaceDetector", "Constants", "Landmarks")]
       external none: t = "none";
     };
 
     module Classifications = {
       [@bs.module "expo"]
-      [@bs.scope ("Camera", "Constants", "FaceDetection", "Classifications")]
+      [@bs.scope ("FaceDetector", "Constants", "Classifications")]
       external all: t = "all";
       [@bs.module "expo"]
-      [@bs.scope ("Camera", "Constants", "FaceDetection", "Classifications")]
+      [@bs.scope ("FaceDetector", "Constants", "Classifications")]
       external none: t = "none";
     };
   };
