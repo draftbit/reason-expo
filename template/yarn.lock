@@ -1334,16 +1334,6 @@ bs-platform@^5.0.4:
   resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-5.0.4.tgz#d406ef43c12d1b19d8546884d8b5b4e0fb709372"
   integrity sha512-rXM+ztN8wYXQ4ojfFGylvPOf8GRLOvM94QJsMMV9VpsLChKCjesWMNybTZvpoyNsESu2nC5q+C9soG+BPhuUFQ==
 
-bs-react-native-jsx3-compat@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/bs-react-native-jsx3-compat/-/bs-react-native-jsx3-compat-0.11.1.tgz#643699594056e14dc61a719d0741b9c94d0c08fe"
-  integrity sha512-/+2DaxWBlRwjGP7luqn3hPWwcgabCm3uzRay6ly/md0JCSb/xsF4KgsS6VMHx0rZsndT81AfidlKb4rRQEaKUg==
-
-bs-react-native@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/bs-react-native/-/bs-react-native-0.11.1.tgz#1e0ec167cc6a73d64106b9165361b9a2e1a796ce"
-  integrity sha512-gjuZERFsOLCr3FwXnhsjbAd0AXT89gS+fpIDRkO0XFiQvnUxYNkXiTDzJfeYGAam0lrrxtKB+9l+bVHHh5Awiw==
-
 bser@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/bser/-/bser-2.0.0.tgz#9ac78d3ed5d915804fd87acb158bc797147a1719"
@@ -4616,11 +4606,6 @@ reason-expo@^33.1.0:
   version "33.1.0"
   resolved "https://registry.yarnpkg.com/reason-expo/-/reason-expo-33.1.0.tgz#e2d93140ed4e914b4ef2bd688bc0c347f66b8121"
   integrity sha512-4kexs4Pdic2MJthqGYrtJWosG/X6+Z4bAUibL3vuYiOJ25yIE49z6e9+r2Xp3CFKzlTqSDCImdHqEkZVi8oCYA==
-
-reason-react-compat@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/reason-react-compat/-/reason-react-compat-0.4.0.tgz#9c6705f9bd67e7ff7219355f3a95fd67442b578d"
-  integrity sha512-Bwwgb6AHusLiRhdd0aupFAuMYaG3gnwR6iHYYlj9gfLD6Uxp53dtJIhS2ZMTEpCSU1JE2X0k7x3rru1IRdx9FQ==
 
 reason-react-native@^0.60.0:
   version "0.60.0"
