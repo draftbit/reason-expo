@@ -1,22 +1,19 @@
-open BsReactNative;
+open ReactNative;
 
-let component = ReasonReact.statelessComponent("App");
+let styles =
+  Style.(
+    StyleSheet.create({
+      "root":
+        viewStyle(~flex=1., ~justifyContent=`center, ~alignItems=`center, ()),
+      "text": textStyle(~color="white", ()),
+      "gradient": viewStyle(~padding=12.->dp, ~borderRadius=12., ()),
+    })
+  );
 
-let make = _children => {
-  ...component,
-  render: _self =>
-    <View
-      style=Style.(
-        style([flex(1.), justifyContent(Center), alignItems(Center)])
-      )>
-      <ReasonExpo.LinearGradient
-        colors=[|"#DD4B39", "#C62C19"|]
-        style=Style.(style([padding(Pt(12.)), borderRadius(12.)]))>
-        <Text style=Style.(style([color(String("white"))]))>
-          {ReasonReact.string("To get started, edit App.re")}
-        </Text>
-      </ReasonExpo.LinearGradient>
-    </View>,
-};
-
-let default = ReasonReact.wrapReasonForJs(~component, _jsProps => make([||]));
+[@react.component]
+let make = () =>
+  <View style=styles##root>
+    <Text style=styles##text>
+      {ReasonReact.string("To get started, edit App.re")}
+    </Text>
+  </View>;

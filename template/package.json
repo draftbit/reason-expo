@@ -20,12 +20,13 @@
   },
   "dependencies": {
     "bs-platform": "^5.0.4",
-    "bs-react-native": "^0.10.0",
     "expo": "^33.0.0",
     "react": "16.8.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react-native":
+      "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "reason-expo": "^33.1.0",
-    "reason-react": "^0.7.0"
+    "reason-react": "https://github.com/reasonml/reason-react.git#835b90c",
+    "reason-react-native": "^0.60.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0"
