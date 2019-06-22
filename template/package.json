@@ -22,6 +22,7 @@
     "bs-platform": "^5.0.4",
     "bs-react-native": "^0.10.0",
     "expo": "^33.0.0",
+    "expo-linear-gradient": "^5.0.1",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "reason-expo": "^33.1.0",
