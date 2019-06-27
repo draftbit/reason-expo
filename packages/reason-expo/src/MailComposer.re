@@ -12,6 +12,6 @@ type composeAsyncOptions = {
 [@bs.deriving abstract]
 type composeAsyncResult = {status: string};
 
-[@bs.module "expo"] [@bs.scope "MailComposer"]
+[@bs.module "expo-mail-composer"]
 external composeAsync: composeAsyncOptions => Js.Promise.t(composeAsyncResult) =
   "composeAsync";

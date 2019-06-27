@@ -1,27 +1,27 @@
 type keychainAccessibilityType;
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external whenUnlocked: keychainAccessibilityType = "WHEN_UNLOCKED";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external afterFirstUnlock: keychainAccessibilityType = "AFTER_FIRST_UNLOCK";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external always: keychainAccessibilityType = "ALWAYS";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external whenUnlockedThisDeviceOnly: keychainAccessibilityType =
   "WHEN_UNLOCKED_THIS_DEVICE_ONLY";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external whenPasscodeSetThisDeviceOnly: keychainAccessibilityType =
   "WHEN_PASSCODE_SET_THIS_DEVICE_ONLY";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external afterFirstUnlockThisDeviceOnly: keychainAccessibilityType =
   "AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external alwaysThisDeviceOnly: keychainAccessibilityType =
   "ALWAYS_THIS_DEVICE_ONLY";
 
@@ -31,12 +31,12 @@ type setItemAsyncOptions = {
   keychainAccessible: keychainAccessibilityType,
 };
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external _setItemAsyncWithOptions:
   (string, string, setItemAsyncOptions) => Js.Promise.t(unit) =
   "setItemAsync";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external _setItemAsync: (string, string) => Js.Promise.t(unit) =
   "setItemAsync";
 
@@ -49,12 +49,12 @@ let setItemAsync = (~key, ~value, ~options=?, ()) =>
 [@bs.deriving abstract]
 type getItemAsyncOptions = {keychainService: string};
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external _getItemAsyncWithOptions:
   (string, getItemAsyncOptions) => Js.Promise.t(Js.nullable(string)) =
   "getItemAsync";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external _getItemAsync: string => Js.Promise.t(Js.nullable(string)) =
   "getItemAsync";
 
@@ -67,10 +67,10 @@ let getItemAsync = (~key, ~options=?, ()) =>
 [@bs.deriving abstract]
 type deleteItemAsyncOptions = {keychainService: string};
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external _deleteItemAsync: string => Js.Promise.t(unit) = "deleteItemAsync";
 
-[@bs.scope "SecureStore"] [@bs.module "expo"]
+[@bs.module "expo-secure-store"]
 external _deleteItemAsyncWithOptions:
   (string, deleteItemAsyncOptions) => Js.Promise.t(unit) =
   "deleteItemAsync";

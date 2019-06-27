@@ -18,7 +18,7 @@ type openBrowserAsyncOptions = {
   package: string,
 };
 
-[@bs.module "expo"] [@bs.scope "WebBrowser"]
+[@bs.module "expo-web-browser"]
 external openBrowserAsync: string => Js.Promise.t(openBrowserAsyncResult) =
   "openBrowserAsync";
 
@@ -28,7 +28,7 @@ type openAuthSessionAsyncResult = {
   _type: string,
 };
 
-[@bs.module "expo"] [@bs.scope "WebBrowser"]
+[@bs.module "expo-web-browser"]
 external _openAuthSessionAsync:
   (string, string) => Js.Promise.t(openAuthSessionAsyncResult) =
   "openAuthSessionAsync";
@@ -39,14 +39,14 @@ let openAuthSessionAsync = (~url, ~redirectUrl=Constants.linkingUrl, ()) =>
 [@bs.deriving abstract]
 type warmUpAsyncResult = {package: string};
 
-[@bs.module "expo"] [@bs.scope "WebBrowser"]
+[@bs.module "expo-web-browser"]
 external warmUpAsync: string => Js.Promise.t(warmUpAsyncResult) =
   "warmUpAsync";
 
 [@bs.deriving abstract]
 type mayInitWithUrlAsyncResult = {package: string};
 
-[@bs.module "expo"] [@bs.scope "WebBrowser"]
+[@bs.module "expo-web-browser"]
 external mayInitWithUrlAsync:
   (string, string) => Js.Promise.t(mayInitWithUrlAsyncResult) =
   "mayInitWithUrlAsync";
@@ -54,7 +54,7 @@ external mayInitWithUrlAsync:
 [@bs.deriving abstract]
 type coolDownAsyncResult = {package: string};
 
-[@bs.module "expo"] [@bs.scope "WebBrowser"]
+[@bs.module "expo-web-browser"]
 external coolDownAsync: string => Js.Promise.t(coolDownAsyncResult) =
   "coolDownAsync";
 
@@ -64,7 +64,7 @@ type dismissBrowserResult = {
   _type: string,
 };
 
-[@bs.module "expo"] [@bs.scope "WebBrowser"]
+[@bs.module "expo-web-browser"]
 external dismissBrowser: unit => Js.Promise.t(dismissBrowserResult) =
   "dismissBrowser";
 
@@ -78,7 +78,7 @@ type getCustomTabsSupportingBrowsersResult = {
   preferredBrowserPackage: string,
 };
 
-[@bs.module "expo"] [@bs.scope "WebBrowser"]
+[@bs.module "expo-web-browser"]
 external getCustomTabsSupportingBrowsers:
   unit => Js.Promise.t(getCustomTabsSupportingBrowsersResult) =
   "getCustomTabsSupportingBrowsers";

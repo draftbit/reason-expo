@@ -84,5 +84,5 @@ module Database = {
     "transaction";
 };
 
-[@bs.module "expo"] [@bs.scope "SQLite"]
+[@bs.module "expo-sqlite"] [@bs.scope "SQLite"]
 external openDatabase: string => Database.t = "openDatabase";

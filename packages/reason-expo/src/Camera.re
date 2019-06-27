@@ -2,67 +2,81 @@ module Constants = {
   type t;
 
   module Type = {
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "Type")]
+    [@bs.module "expo-camera"] [@bs.scope ("Camera", "Constants", "Type")]
     external front: t = "front";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "Type")]
+    [@bs.module "expo-camera"] [@bs.scope ("Camera", "Constants", "Type")]
     external back: t = "back";
   };
 
   module FlashMode = {
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "FlashMode")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "FlashMode")]
     external on: t = "on";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "FlashMode")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "FlashMode")]
     external off: t = "off";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "FlashMode")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "FlashMode")]
     external auto: t = "auto";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "FlashMode")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "FlashMode")]
     external torch: t = "torch";
   };
 
   module AutoFocus = {
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "AutoFocus")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "AutoFocus")]
     external on: t = "on";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "AutoFocus")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "AutoFocus")]
     external off: t = "off";
   };
 
   module WhiteBalance = {
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "WhiteBalance")]
     external auto: t = "auto";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "WhiteBalance")]
     external sunny: t = "sunny";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "WhiteBalance")]
     external cloudy: t = "cloudy";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "WhiteBalance")]
     external shadow: t = "shadow";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "WhiteBalance")]
     external fluorescent: t = "fluorescent";
-    [@bs.module "expo"] [@bs.scope ("Camera", "Constants", "WhiteBalance")]
+    [@bs.module "expo-camera"]
+    [@bs.scope ("Camera", "Constants", "WhiteBalance")]
     external incandescent: t = "incandescent";
   };
 
   module FaceDetection = {
     module Mode = {
-      [@bs.module "expo"] [@bs.scope ("FaceDetector", "Constants", "Mode")]
+      [@bs.module "expo-camera"]
+      [@bs.scope ("FaceDetector", "Constants", "Mode")]
       external fast: t = "fast";
-      [@bs.module "expo"] [@bs.scope ("FaceDetector", "Constants", "Mode")]
+      [@bs.module "expo-camera"]
+      [@bs.scope ("FaceDetector", "Constants", "Mode")]
       external accurate: t = "accurate";
     };
 
     module Landmarks = {
-      [@bs.module "expo"]
+      [@bs.module "expo-camera"]
       [@bs.scope ("FaceDetector", "Constants", "Landmarks")]
       external all: t = "all";
-      [@bs.module "expo"]
+      [@bs.module "expo-camera"]
       [@bs.scope ("FaceDetector", "Constants", "Landmarks")]
       external none: t = "none";
     };
 
     module Classifications = {
-      [@bs.module "expo"]
+      [@bs.module "expo-camera"]
       [@bs.scope ("FaceDetector", "Constants", "Classifications")]
       external all: t = "all";
-      [@bs.module "expo"]
+      [@bs.module "expo-camera"]
       [@bs.scope ("FaceDetector", "Constants", "Classifications")]
       external none: t = "none";
     };
@@ -182,7 +196,7 @@ type barCodeScannerSettings = {
   useCamera2Api: bool,
 };
 
-[@bs.module "expo"] external js: ReasonReact.reactClass = "Camera";
+[@bs.module "expo-camera"] external js: ReasonReact.reactClass = "Camera";
 
 let make =
     (

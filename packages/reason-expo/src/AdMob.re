@@ -8,7 +8,8 @@ type bannerSize =
   | SmartBannerLandscape;
 
 module AdMobBanner = {
-  [@bs.module "expo"] external js: ReasonReact.reactClass = "AdMobBanner";
+  [@bs.module "expo-ads-admob"]
+  external js: ReasonReact.reactClass = "AdMobBanner";
 
   [@bs.deriving abstract]
   type props = {
@@ -66,25 +67,25 @@ module AdMobBanner = {
 };
 
 module AdMobInterstitial = {
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  [@bs.module "expo-ads-admob"] [@bs.scope "AdMobInterstitial"]
   external setAdUnitID: string => unit = "setAdUnitID";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  [@bs.module "expo-ads-admob"] [@bs.scope "AdMobInterstitial"]
   external setTestDeviceID: string => unit = "setTestDeviceID";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  [@bs.module "expo-ads-admob"] [@bs.scope "AdMobInterstitial"]
   external requestAdAsync: unit => Js.Promise.t(unit) = "requestAdAsync";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  [@bs.module "expo-ads-admob"] [@bs.scope "AdMobInterstitial"]
   external showAdAsync: unit => Js.Promise.t(unit) = "showAdAsync";
-  [@bs.module "expo"] [@bs.scope "AdMobInterstitial"]
+  [@bs.module "expo-ads-admob"] [@bs.scope "AdMobInterstitial"]
   external getIsReadyAsync: unit => Js.Promise.t(bool) = "getIsReadyAsync";
 };
 
 module AdMobRewarded = {
-  [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
+  [@bs.module "expo-ads-admob"] [@bs.scope "AdMobRewarded"]
   external setAdUnitID: string => unit = "setAdUnitID";
-  [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
+  [@bs.module "expo-ads-admob"] [@bs.scope "AdMobRewarded"]
   external setTestDeviceID: string => unit = "setTestDeviceID";
-  [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
+  [@bs.module "expo-ads-admob"] [@bs.scope "AdMobRewarded"]
   external requestAdAsync: unit => Js.Promise.t(unit) = "requestAdAsync";
-  [@bs.module "expo"] [@bs.scope "AdMobRewarded"]
+  [@bs.module "expo-ads-admob"] [@bs.scope "AdMobRewarded"]
   external showAdAsync: unit => Js.Promise.t(unit) = "showAdAsync";
 };

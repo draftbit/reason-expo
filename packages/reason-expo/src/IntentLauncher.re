@@ -7,6 +7,6 @@ type intentResult('extras) = {
   extra: 'extras,
 };
 
-[@bs.module "expo"] [@bs.scope "IntentLauncher"]
+[@bs.module "expo-intent-launcher"]
 external startActivityAsync: (string, 'a) => intentResult('extras) =
   "startActivityAsync";

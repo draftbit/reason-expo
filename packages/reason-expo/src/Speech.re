@@ -9,16 +9,14 @@ type speakOptions('errorObj) = {
   onError: 'errorObj => unit,
 };
 
-[@bs.module "expo"] [@bs.scope "Speech"]
+[@bs.module "expo-speech"]
 external speak: (string, speakOptions('a)) => unit = "speak";
 
-[@bs.module "expo"] [@bs.scope "Speech"] external stop: unit => unit = "stop";
+[@bs.module "expo-speech"] external stop: unit => unit = "stop";
 
-[@bs.module "expo"] [@bs.scope "Speech"]
-external pause: unit => unit = "pause";
+[@bs.module "expo-speech"] external pause: unit => unit = "pause";
 
-[@bs.module "expo"] [@bs.scope "Speech"]
-external resume: unit => unit = "resume";
+[@bs.module "expo-speech"] external resume: unit => unit = "resume";
 
-[@bs.module "expo"] [@bs.scope "Speech"]
+[@bs.module "expo-speech"]
 external isSpeakingAsync: unit => Js.Promise.t(bool) = "isSpeakingAsync";

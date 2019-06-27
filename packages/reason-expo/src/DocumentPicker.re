@@ -17,6 +17,6 @@ type result = {
   size: int,
 };
 
-[@bs.module "expo"] [@bs.scope "DocumentPicker"]
+[@bs.module "expo-document-picker"]
 external getDocumentAsync: options => Js.Promise.t(result) =
   "getDocumentAsync";

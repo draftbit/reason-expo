@@ -1,4 +1,5 @@
-[@bs.module "expo"] external mapView: ReasonReact.reactClass = "MapView";
+[@bs.module "react-native-maps"]
+external mapView: ReasonReact.reactClass = "default";
 
 [@bs.deriving abstract]
 type region = {
@@ -89,7 +90,7 @@ let fromPaddingAdjustmentBehaviorToString =
 type customMapStyle;
 
 module Marker = {
-  [@bs.module "expo"] [@bs.scope "MapView"]
+  [@bs.module "react-native-maps"]
   external marker: ReasonReact.reactClass = "Marker";
 
   let make = children =>
@@ -101,7 +102,7 @@ module Marker = {
 };
 
 module Overlay = {
-  [@bs.module "expo"] [@bs.scope "MapView"]
+  [@bs.module "react-native-maps"]
   external overlay: ReasonReact.reactClass = "Overlay";
 
   let make =
@@ -113,15 +114,17 @@ module Overlay = {
     ReasonReact.wrapJsForReason(
       ~reactClass=overlay,
       ~props={
-        open Js.Nullable;
-        {"image": fromOption(image), "bounds": fromOption(bounds)};
+        Js.Nullable.{
+          "image": fromOption(image),
+          "bounds": fromOption(bounds),
+        };
       },
       children,
     );
 };
 
 module Callout = {
-  [@bs.module "expo"] [@bs.scope "MapView"]
+  [@bs.module "react-native-maps"]
   external callout: ReasonReact.reactClass = "Callout";
 
   let make =
@@ -129,15 +132,17 @@ module Callout = {
     ReasonReact.wrapJsForReason(
       ~reactClass=callout,
       ~props={
-        open Js.Nullable;
-        {"tooltip": fromOption(tooltip), "onPress": fromOption(onPress)};
+        Js.Nullable.{
+          "tooltip": fromOption(tooltip),
+          "onPress": fromOption(onPress),
+        };
       },
       children,
     );
 };
 
 module Polygon = {
-  [@bs.module "expo"] [@bs.scope "MapView"]
+  [@bs.module "react-native-maps"]
   external polygon: ReasonReact.reactClass = "Polygon";
 
   let make =
@@ -160,8 +165,7 @@ module Polygon = {
     ReasonReact.wrapJsForReason(
       ~reactClass=polygon,
       ~props={
-        open Js.Nullable;
-        {
+        Js.Nullable.{
           "holes": fromOption(holes),
           "coordinates": fromOption(coordinates),
           "strokeWidth": fromOption(strokeWidth),
@@ -182,7 +186,7 @@ module Polygon = {
 };
 
 module Polyline = {
-  [@bs.module "expo"] [@bs.scope "MapView"]
+  [@bs.module "react-native-maps"]
   external polyline: ReasonReact.reactClass = "Polyline";
 
   let make =
@@ -204,8 +208,7 @@ module Polyline = {
     ReasonReact.wrapJsForReason(
       ~reactClass=polyline,
       ~props={
-        open Js.Nullable;
-        {
+        Js.Nullable.{
           "coordinates": fromOption(coordinates),
           "strokeWidth": fromOption(strokeWidth),
           "strokeColor": fromOption(strokeColor),
@@ -225,7 +228,7 @@ module Polyline = {
 };
 
 module Circle = {
-  [@bs.module "expo"] [@bs.scope "MapView"]
+  [@bs.module "react-native-maps"]
   external circle: ReasonReact.reactClass = "Circle";
 
   let make =
@@ -247,8 +250,7 @@ module Circle = {
     ReasonReact.wrapJsForReason(
       ~reactClass=circle,
       ~props={
-        open Js.Nullable;
-        {
+        Js.Nullable.{
           "radius": fromOption(radius),
           "zIndex": fromOption(zIndex),
           "strokeWidth": fromOption(strokeWidth),
@@ -382,8 +384,7 @@ let make =
   ReasonReact.wrapJsForReason(
     ~reactClass=mapView,
     ~props={
-      open Js.Nullable;
-      {
+      Js.Nullable.{
         "provider": fromOption(provider),
         "region": fromOption(region),
         "initialRegion": fromOption(initialRegion),
