@@ -9,43 +9,43 @@ module NativeAdsManager = {
 
   type t = Js.t(_adsManager);
 
-  [@bs.new] [@bs.module "expo"] [@bs.scope "FacebookAds"]
+  [@bs.new] [@bs.module "expo-ads-facebook"]
   external make: (string, int) => t = "NativeAdsManager";
 };
 
 module InterstitialAdManager = {
-  [@bs.module "expo"] [@bs.scope ("FacebookAds", "InterstitialAdManager")]
+  [@bs.module "expo-ads-facebook"] [@bs.scope "InterstitialAdManager"]
   external showAd: string => Js.Promise.t(unit) = "";
 };
 
 module AdSettings = {
-  [@bs.module "expo"] [@bs.scope ("FacebookAds", "AdSettings")]
+  [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
   external currentDeviceHash: string = "";
 
-  [@bs.module "expo"] [@bs.scope ("FacebookAds", "AdSettings")]
+  [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
   external addTestDevice: string => unit = "";
 
-  [@bs.module "expo"] [@bs.scope ("FacebookAds", "AdSettings")]
+  [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
   external clearTestDevices: unit => unit = "";
 
-  [@bs.module "expo"] [@bs.scope ("FacebookAds", "AdSettings")]
+  [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
   external setLogLevel: string => unit = "";
 
-  [@bs.module "expo"] [@bs.scope ("FacebookAds", "AdSettings")]
+  [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
   external setIsChildDirected: bool => unit = "";
 
-  [@bs.module "expo"] [@bs.scope ("FacebookAds", "AdSettings")]
+  [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
   external setMediationService: string => unit = "";
 
-  [@bs.module "expo"] [@bs.scope ("FacebookAds", "AdSettings")]
+  [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
   external setUrlPrefix: string => unit = "";
 };
 
-[@bs.module "expo"] [@bs.scope "FacebookAds"]
+[@bs.module "expo-ads-facebook"]
 external withNativeAd: ReasonReact.reactClass => ReasonReact.reactClass = "";
 
 module AdMediaView = {
-  [@bs.module "expo"] [@bs.scope "FacebookAds"]
+  [@bs.module "expo-ads-facebook"]
   external js: ReasonReact.reactClass = "AdMediaView";
 
   let make = children =>
@@ -57,7 +57,7 @@ module AdMediaView = {
 };
 
 module AdIconView = {
-  [@bs.module "expo"] [@bs.scope "FacebookAds"]
+  [@bs.module "expo-ads-facebook"]
   external js: ReasonReact.reactClass = "AdIconView";
 
   let make = children =>
@@ -69,7 +69,7 @@ module AdIconView = {
 };
 
 module AdTriggerView = {
-  [@bs.module "expo"] [@bs.scope "FacebookAds"]
+  [@bs.module "expo-ads-facebook"]
   external js: ReasonReact.reactClass = "AdTriggerView";
 
   let make =
@@ -90,7 +90,7 @@ module AdTriggerView = {
 };
 
 module BannerAd = {
-  [@bs.module "expo"] [@bs.scope "FacebookAds"]
+  [@bs.module "expo-ads-facebook"]
   external js: ReasonReact.reactClass = "BannerAd";
 
   let make =

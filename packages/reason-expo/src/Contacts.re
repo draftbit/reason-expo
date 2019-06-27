@@ -1,172 +1,169 @@
 module Fields = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
-  external id: t = "ID";
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"] external id: t = "ID";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
-  external name: t = "Name";
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"] external name: t = "Name";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external firstName: t = "FirstName";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external middleName: t = "MiddleName";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external lastName: t = "LastName";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external namePrefix: t = "NamePrefix";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external nameSuffix: t = "NameSuffix";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external phoneticFirstName: t = "PhoneticFirstName";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external phoneticMiddleName: t = "PhoneticMiddleName";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external phoneticLastName: t = "PhoneticLastName";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external birthday: t = "Birthday";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external emails: t = "Emails";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external phoneNumbers: t = "PhoneNumbers";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external addresses: t = "Addresses";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external instantMessageAddresses: t = "InstantMessageAddresses";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external urlAddresses: t = "UrlAddresses";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external company: t = "Company";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external jobTitle: t = "JobTitle";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external department: t = "Department";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external imageAvailable: t = "ImageAvailable";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external image: t = "Image";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
-  external note: t = "Note";
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"] external note: t = "Note";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external dates: t = "Dates";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external relationships: t = "Relationships";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external nickname: t = "Nickname";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external rawImage: t = "RawImage";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external maidenName: t = "MaidenName";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external contactType: t = "ContactType";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external socialProfiles: t = "SocialProfiles";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"] [@bs.scope "Fields"]
   external nonGregorianBirthday: t = "NonGregorianBirthday";
 
   [@deprecated "Use `Fields.image` instead."]
-  [@bs.module "expo"]
-  [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"]
+  [@bs.scope "Fields"]
   external thumbnail: t = "Thumbnail";
 
   [@deprecated "Use `Fields.maidenName` instead."]
-  [@bs.module "expo"]
-  [@bs.scope ("Contacts", "Fields")]
+  [@bs.module "expo-contacts"]
+  [@bs.scope "Fields"]
   external previousLastName: t = "PreviousLastName";
 };
 
 module FormTypes = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "FormTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "FormTypes"]
   external new_: t = "New";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "FormTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "FormTypes"]
   external unknown: t = "Unknown";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "FormTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "FormTypes"]
   external default: t = "Default";
 };
 
 module ContactTypes = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "ContactTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "ContactTypes"]
   external person: t = "Person";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "ContactTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "ContactTypes"]
   external company: t = "Company";
 };
 
 module SortTypes = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "SortTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "SortTypes"]
   external firstName: t = "FirstName";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "SortTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "SortTypes"]
   external lastName: t = "LastName";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "SortTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "SortTypes"]
   external userDefault: t = "UserDefault";
 };
 
 module ContainerTypes = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "ContainerTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "ContainerTypes"]
   external local: t = "Local";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "ContainerTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "ContainerTypes"]
   external exchange: t = "Exchange";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "ContainerTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "ContainerTypes"]
   external cardDAV: t = "CardDAV";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "ContainerTypes")]
+  [@bs.module "expo-contacts"] [@bs.scope "ContainerTypes"]
   external unassigned: t = "Unassigned";
 };
 
 module CalendarFormats = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "CalendarFormats")]
+  [@bs.module "expo-contacts"] [@bs.scope "CalendarFormats"]
   external gregorian: t = "Gregorian";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "CalendarFormats")]
+  [@bs.module "expo-contacts"] [@bs.scope "CalendarFormats"]
   external chinese: t = "Chinese";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "CalendarFormats")]
+  [@bs.module "expo-contacts"] [@bs.scope "CalendarFormats"]
   external hebrew: t = "Hebrew";
 
-  [@bs.module "expo"] [@bs.scope ("Contacts", "CalendarFormats")]
+  [@bs.module "expo-contacts"] [@bs.scope "CalendarFormats"]
   external islamic: t = "Islamic";
 };
 
@@ -348,62 +345,62 @@ type contactResponse = {
   hasPreviousPage: bool,
 };
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external getContactsAsync: contactQuery => Js.Promise.t(contactResponse) = "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external getContactByIdAsync:
   (string, array(Fields.t)) => Js.Promise.t(contact) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external addContactAsync: (contact, string) => Js.Promise.t(string) = "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external updateContactAsync: contact => Js.Promise.t(string) = "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external removeContactAsync: string => Js.Promise.t(unit) = "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external writeContactToFileAsync: contactQuery => Js.Promise.t(string) = "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external presentFormAsync:
   (string, contact, formOptions) => Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external addExistingGroupToContainerAsync:
   (string, string) => Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external createGroupAsync:
   (string, Js.Nullable.t(string)) => Js.Promise.t(string) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external updateGroupNameAsync: (string, string) => Js.Promise.t(unit) = "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external removeGroupAsync: string => Js.Promise.t(unit) = "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external addExistingContactToGroupAsync:
   (string, string) => Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external removeContactFromGroupAsync: (string, string) => Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external getGroupsAsync: groupQuery => Js.Promise.t(array(group)) = "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external getDefaultContainerIdAsync: unit => Js.Promise.t(string) = "";
 
-[@bs.module "expo"] [@bs.scope "Contacts"]
+[@bs.module "expo-contacts"]
 external getContainersAsync: containerQuery => Js.Promise.t(array(container)) =
   "";

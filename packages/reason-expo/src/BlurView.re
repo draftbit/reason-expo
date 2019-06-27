@@ -1,4 +1,4 @@
-[@bs.module "expo"] external js: ReasonReact.reactClass = "BlurView";
+[@bs.module "expo-blur"] external js: ReasonReact.reactClass = "BlurView";
 
 type tint =
   | Light

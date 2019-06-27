@@ -6,5 +6,5 @@ type shareAsyncOptions = {
   uti: string,
 };
 
-[@bs.module "expo"] [@bs.scope "Sharing"]
+[@bs.module "expo-sharing"]
 external shareAsync: (string, shareAsyncOptions) => Js.Promise.t(unit) = "";

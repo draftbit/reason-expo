@@ -1,27 +1,27 @@
-[@bs.module "expo"] [@bs.scope "Audio"]
+[@bs.module "expo-av"] [@bs.scope "Audio"]
 external setIsEnabledAsync: bool => Js.Promise.t(unit) = "";
 
 module InterruptionMode = {
   module IOS = {
     type t;
 
-    [@bs.module "expo"] [@bs.scope "Audio"]
+    [@bs.module "expo-av"] [@bs.scope "Audio"]
     external mixWithOthers: t = "INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS";
 
-    [@bs.module "expo"] [@bs.scope "Audio"]
+    [@bs.module "expo-av"] [@bs.scope "Audio"]
     external doNotMix: t = "INTERRUPTION_MODE_IOS_DO_NOT_MIX";
 
-    [@bs.module "expo"] [@bs.scope "Audio"]
+    [@bs.module "expo-av"] [@bs.scope "Audio"]
     external duckOthers: t = "INTERRUPTION_MODE_IOS_DUCK_OTHERS";
   };
 
   module Android = {
     type t;
 
-    [@bs.module "expo"] [@bs.scope "Audio"]
+    [@bs.module "expo-av"] [@bs.scope "Audio"]
     external doNotMix: t = "INTERRUPTION_MODE_ANDROID_DO_NOT_MIX";
 
-    [@bs.module "expo"] [@bs.scope "Audio"]
+    [@bs.module "expo-av"] [@bs.scope "Audio"]
     external duckOthers: t = "INTERRUPTION_MODE_ANDROID_DUCK_OTHERS";
   };
 };
@@ -36,7 +36,7 @@ type audioMode = {
   playThroughEarpieceAndroid: bool,
 };
 
-[@bs.module "expo"] [@bs.scope "Audio"]
+[@bs.module "expo-av"] [@bs.scope "Audio"]
 external setAudioModeAsync: audioMode => Js.Promise.t(unit) = "";
 
 module Source = {
@@ -81,10 +81,10 @@ module Sound = {
 
   type t = Js.t(_sound);
 
-  [@bs.new] [@bs.module "expo"] [@bs.scope "Audio"]
+  [@bs.new] [@bs.module "expo-av"] [@bs.scope "Audio"]
   external make: unit => t = "Sound";
 
-  [@bs.module "expo"] [@bs.scope ("Audio", "Sound")]
+  [@bs.module "expo-av"] [@bs.scope ("Audio", "Sound")]
   external _createAsync:
     (Source.rawSourceJS, 'a, 'a => unit, bool) => Js.Promise.t(t) =
     "createAsync";
@@ -130,6 +130,6 @@ module Recording = {
 
   type t = Js.t(_recording);
 
-  [@bs.new] [@bs.module "expo"] [@bs.scope "Audio"]
+  [@bs.new] [@bs.module "expo-av"] [@bs.scope "Audio"]
   external make: unit => t = "Recording";
 };

@@ -1,10 +1,10 @@
-[@bs.module "expo"] [@bs.scope "GLView"]
+[@bs.module "expo-gl"] [@bs.scope "GLView"]
 external createContextAsync: unit => Js.Promise.t('a) = "";
 
-[@bs.module "expo"] [@bs.scope "GLView"]
+[@bs.module "expo-gl"] [@bs.scope "GLView"]
 external destroyContextAsync: 'a => Js.Promise.t(bool) = "";
 
-[@bs.module "expo"] [@bs.scope "GLView"]
+[@bs.module "expo-gl"] [@bs.scope "GLView"]
 external takeSnapshotAsync:
   (
     'a,
@@ -32,7 +32,7 @@ external takeSnapshotAsync:
   }) =
   "";
 
-[@bs.module "expo"] external _view: ReasonReact.reactClass = "GLView";
+[@bs.module "expo-gl"] external _view: ReasonReact.reactClass = "GLView";
 
 let make =
     (~onContextCreate: 'a => unit=_ => (), ~msaaSamples: float=4.0, children) =>

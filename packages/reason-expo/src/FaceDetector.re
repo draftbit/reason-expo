@@ -2,32 +2,32 @@ module Constants = {
   module Mode = {
     type t;
 
-    [@bs.module "expo"] [@bs.scope ("FaceDetector", "Constants", "Mode")]
+    [@bs.module "expo-face-detector"] [@bs.scope ("Constants", "Mode")]
     external fast: t = "";
 
-    [@bs.module "expo"] [@bs.scope ("FaceDetector", "Constants", "Mode")]
+    [@bs.module "expo-face-detector"] [@bs.scope ("Constants", "Mode")]
     external accurate: t = "";
   };
 
   module Landmarks = {
     type t;
 
-    [@bs.module "expo"] [@bs.scope ("FaceDetector", "Constants", "Landmarks")]
+    [@bs.module "expo-face-detector"] [@bs.scope ("Constants", "Landmarks")]
     external all: t = "";
 
-    [@bs.module "expo"] [@bs.scope ("FaceDetector", "Constants", "Landmarks")]
+    [@bs.module "expo-face-detector"] [@bs.scope ("Constants", "Landmarks")]
     external none: t = "";
   };
 
   module Classifications = {
     type t;
 
-    [@bs.module "expo"]
-    [@bs.scope ("FaceDetector", "Constants", "Classifications")]
+    [@bs.module "expo-face-detector"]
+    [@bs.scope ("Constants", "Classifications")]
     external all: t = "";
 
-    [@bs.module "expo"]
-    [@bs.scope ("FaceDetector", "Constants", "Classifications")]
+    [@bs.module "expo-face-detector"]
+    [@bs.scope ("Constants", "Classifications")]
     external none: t = "";
   };
 };
@@ -74,7 +74,7 @@ type detectionOptions = {
   runClassifications: Js.Nullable.t(Constants.Classifications.t),
 };
 
-[@bs.module "expo"] [@bs.scope "FaceDetector"]
+[@bs.module "expo-face-detector"]
 external detectFacesAsync:
   (string, detectionOptions) =>
   Js.Promise.t({

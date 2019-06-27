@@ -1,16 +1,16 @@
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external documentDirectory: string = "documentDirectory";
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external cacheDirectory: string = "cacheDirectory";
 
 module EncodingTypes = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("FileSystem", "EncodingTypes")]
+  [@bs.module "expo-file-system"] [@bs.scope "EncodingTypes"]
   external utf8: t = "UTF8";
 
-  [@bs.module "expo"] [@bs.scope ("FileSystem", "EncodingTypes")]
+  [@bs.module "expo-file-system"] [@bs.scope "EncodingTypes"]
   external base64: t = "Base64";
 };
 
@@ -37,7 +37,7 @@ type getInfoAsyncOptions = {
   size: bool,
 };
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external getInfoAsync: (string, getInfoAsyncOptions) => Js.Promise.t(fileInfo) =
   "getInfoAsync";
 
@@ -48,7 +48,7 @@ type readAsStringAsyncOptions = {
   position: int,
 };
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external readAsStringAsync:
   (string, readAsStringAsyncOptions) => Js.Promise.t(string) =
   "readAsStringAsync";
@@ -56,7 +56,7 @@ external readAsStringAsync:
 [@bs.deriving abstract]
 type writeAsStringAsyncOptions = {encoding: EncodingTypes.t};
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external writeAsStringAsync: (string, string) => Js.Promise.t(unit) =
   "writeAsStringAsync";
 
@@ -66,7 +66,7 @@ type deleteAsyncOptions = {
   idempotent: bool,
 };
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external deleteAsync: (string, deleteAsyncOptions) => Js.Promise.t(unit) =
   "deleteAsync";
 
@@ -77,7 +77,7 @@ type moveAsyncOptions = {
   to_: string,
 };
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external moveAsync: (string, moveAsyncOptions) => Js.Promise.t(unit) =
   "moveAsync";
 
@@ -88,19 +88,19 @@ type copyAsyncOptions = {
   to_: string,
 };
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external copyAsync: (string, copyAsyncOptions) => Js.Promise.t(unit) =
   "copyAsync";
 
 [@bs.deriving abstract]
 type makeDirectoryAsyncOptions = {intermediates: bool};
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external makeDirectoryAsync:
   (string, makeDirectoryAsyncOptions) => Js.Promise.t(unit) =
   "makeDirectoryAsync";
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external readDirectoryAsync: string => Js.Promise.t(array(string)) =
   "readDirectoryAsync";
 
@@ -115,7 +115,7 @@ type downloadAsyncResult('headersType) = {
   md5: string,
 };
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external downloadAsync:
   (string, string, downloadAsyncOptions) =>
   Js.Promise.t(downloadAsyncResult('headersType)) =
@@ -196,7 +196,7 @@ type createDownloadResumableResult('headersType) = {
   md5: string,
 };
 
-[@bs.module "expo"] [@bs.scope "FileSystem"]
+[@bs.module "expo-file-system"]
 external createDownloadResumable:
   (
     string,

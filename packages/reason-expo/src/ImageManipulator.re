@@ -40,6 +40,6 @@ type manipulateResult = {
   base64: string,
 };
 
-[@bs.module "expo"] [@bs.scope "ImageManipulator"]
+[@bs.module "expo-image-manipulator"]
 external manipulate: (string, array(action), saveOptions) => manipulateResult =
   "manipulate";

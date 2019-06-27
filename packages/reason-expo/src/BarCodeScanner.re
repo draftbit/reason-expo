@@ -6,7 +6,8 @@ type torchMode =
   | On
   | Off;
 
-[@bs.module "expo"] external js: ReasonReact.reactClass = "BarCodeScanner";
+[@bs.module "expo-barcode-scanner"]
+external js: ReasonReact.reactClass = "BarCodeScanner";
 
 [@bs.deriving abstract]
 type onBarCodeScannedResult = {
