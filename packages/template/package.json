@@ -1,22 +1,14 @@
 {
-  "private": true,
-  "homepage": "https://github.com/fiberjw/reason-expo.git",
-  "author": "Juwan Wheatley",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fiberjw/reason-expo.git"
-  },
-  "bugs": "https://github.com/fiberjw/reason-expo/issues",
-  "main": "__generated__/AppEntry.js",
-  "version": "33.0.0",
+  "name": "expo-template-reason",
+  "main": "node_modules/expo/AppEntry.js",
+  "version": "33.1.0",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
     "build": "bsb -make-world -clean-world",
-    "watch": "bsb -make-world -clean-world -w",
-    "postinstall": "expo-yarn-workspaces postinstall && yarn build"
+    "watch": "bsb -make-world -clean-world -w"
   },
   "dependencies": {
     "bs-platform": "^5.0.4",
@@ -29,7 +21,6 @@
     "reason-react": "^0.7.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
-    "expo-yarn-workspaces": "^1.2.0"
+    "babel-preset-expo": "^5.0.0"
   }
 }

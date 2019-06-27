@@ -26,14 +26,49 @@ Use the Expo CLI to bootstrap a project with the ReasonExpo template.
 expo init <PROJECT_NAME> --template expo-template-reason
 ```
 
-Already have an existing Expo Project?
+Already have an existing Expo Project? Go into your project root & then install the requirements:
 
-Follow [this guide](https://medium.com/@peterpme/your-first-reasonml-pr-into-an-existing-react-native-codebase-a490b4a79649) by [Peter Piekarczyk](https://twitter.com/peterpme) on getting ReasonML set up in an existing React Native app.
+```bash
+yarn add bs-platform --dev
+yarn add reason-react reason-react-native reason-expo
+```
 
-Once completed, `yarn add reason-expo`, and add `"reason-expo"` to your `bs-dependencies` array in `bsconfig.json`. Now get coding!
+Next, create a file named bsconfig.json at the same level at your package.json with the following content:
+
+```json
+{
+  "name": "my-reason-expo-app",
+  "reason": {
+    "react-jsx": 2
+  },
+  "bsc-flags": ["-bs-super-errors"],
+  "bs-dependencies": ["bs-react-native", "reason-react", "reason-expo"],
+  "sources": [
+    {
+      "dir": "src"
+    }
+  ],
+  "suffix": ".bs.js",
+  "refmt": 3,
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  }
+}
+```
+
+Next, add these scripts to your package.json:
+
+```json
+  "build-reason": "bsb -make-world",
+  "watch-reason": "bsb -make-world -w",
+  "build-reason-clean": "bsb -clean-world -make-world",
+```
+
+Finally, make a folder named `src` and start writing your ReasonML code in there. `yarn build-reason` will compile the ReasonML code in that folder for you to import and use in your Expo app's JS/TS code.
 
 ## Contributing
 
-Fork this repo, clone it onto your machine, install dev dependencies with `yarn install::dev`, start the compiler with `yarn start`, and start hacking away!
+Fork this repo, clone it onto your machine, install run `yarn` in the root directory. Start the compiler and Expo test app with `yarn dev` in the root directory, and start hacking away at the files in `packages/reason-expo` and `packages/test`!
 
 _Credit: This project is based on the work started in [`bs-expo`](https://github.com/fxfactorial/bs-expo/)._
