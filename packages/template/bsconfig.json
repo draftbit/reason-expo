@@ -1,0 +1,19 @@
+{
+  "name": "my-reason-expo-app",
+  "reason": {
+    "react-jsx": 2
+  },
+  "bsc-flags": ["-bs-super-errors"],
+  "bs-dependencies": ["bs-react-native", "reason-react", "reason-expo"],
+  "sources": [
+    {
+      "dir": "src"
+    }
+  ],
+  "suffix": ".bs.js",
+  "refmt": 3,
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  }
+}

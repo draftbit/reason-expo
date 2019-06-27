@@ -1,0 +1,2 @@
+*.re linguist-language=OCaml
+*.rei linguist-language=OCaml
