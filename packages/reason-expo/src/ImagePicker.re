@@ -1,9 +1,9 @@
 module MediaTypeOptions = {
-  [@bs.module "expo"] [@bs.scope ("ImagePicker", "MediaTypeOptions")]
+  [@bs.module "expo-image-picker"] [@bs.scope "MediaTypeOptions"]
   external images: string = "Images";
-  [@bs.module "expo"] [@bs.scope ("ImagePicker", "MediaTypeOptions")]
+  [@bs.module "expo-image-picker"] [@bs.scope "MediaTypeOptions"]
   external videos: string = "Videos";
-  [@bs.module "expo"] [@bs.scope ("ImagePicker", "MediaTypeOptions")]
+  [@bs.module "expo-image-picker"] [@bs.scope "MediaTypeOptions"]
   external all: string = "all";
 };
 
@@ -36,7 +36,7 @@ type launchImageLibraryAsyncResult = {
   exif: string,
 };
 
-[@bs.module "expo"] [@bs.scope "ImagePicker"]
+[@bs.module "expo-image-picker"]
 external launchImageLibraryAsync:
   launchImageLibraryAsyncOptions => launchImageLibraryAsyncResult =
   "launchImageLibraryAsync";
@@ -67,6 +67,6 @@ type launchCameraAsyncResult = {
   exif: string,
 };
 
-[@bs.module "expo"] [@bs.scope "ImagePicker"]
+[@bs.module "expo-image-picker"]
 external launchCameraAsync: launchCameraAsyncOptions => launchCameraAsyncResult =
   "launchCameraAsync";

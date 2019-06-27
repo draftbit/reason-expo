@@ -3,41 +3,40 @@ type eventSubscription;
 
 [@bs.send] external remove: (eventSubscription, unit) => unit = "remove";
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external hasServicesEnabledAsync: unit => Js.Promise.t(bool) = "";
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external requestPermissionsAsync: unit => Js.Promise.t(unit) = "";
 
 module Accuracy = {
   type t = int;
-  [@bs.module "expo"] [@bs.scope ("Location", "Accuracy")]
+  [@bs.module "expo-location"] [@bs.scope "Accuracy"]
   external lowest: t = "Lowest";
-  [@bs.module "expo"] [@bs.scope ("Location", "Accuracy")]
-  external low: t = "Low";
-  [@bs.module "expo"] [@bs.scope ("Location", "Accuracy")]
+  [@bs.module "expo-location"] [@bs.scope "Accuracy"] external low: t = "Low";
+  [@bs.module "expo-location"] [@bs.scope "Accuracy"]
   external balanced: t = "Balanced";
-  [@bs.module "expo"] [@bs.scope ("Location", "Accuracy")]
+  [@bs.module "expo-location"] [@bs.scope "Accuracy"]
   external high: t = "High";
-  [@bs.module "expo"] [@bs.scope ("Location", "Accuracy")]
+  [@bs.module "expo-location"] [@bs.scope "Accuracy"]
   external highest: t = "Highest";
-  [@bs.module "expo"] [@bs.scope ("Location", "Accuracy")]
+  [@bs.module "expo-location"] [@bs.scope "Accuracy"]
   external bestForNavigation: t = "BestForNavigation";
 };
 
 module GeofencingEventType = {
   type t = int;
-  [@bs.module "expo"] [@bs.scope ("Location", "GeofencingEventType")]
+  [@bs.module "expo-location"] [@bs.scope "GeofencingEventType"]
   external enter: t = "Enter";
-  [@bs.module "expo"] [@bs.scope ("Location", "GeofencingEventType")]
+  [@bs.module "expo-location"] [@bs.scope "GeofencingEventType"]
   external exit: t = "Exit";
 };
 
 module GeofencingRegionState = {
   type t = int;
-  [@bs.module "expo"] [@bs.scope ("Location", "GeofencingRegionState")]
+  [@bs.module "expo-location"] [@bs.scope "GeofencingRegionState"]
   external inside: t = "Inside";
-  [@bs.module "expo"] [@bs.scope ("Location", "GeofencingRegionState")]
+  [@bs.module "expo-location"] [@bs.scope "GeofencingRegionState"]
   external outside: t = "Outside";
 };
 
@@ -73,7 +72,7 @@ type getCurrentPositionAsyncOptions = {
   maximumAge: int,
 };
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external getCurrentPositionAsync:
   getCurrentPositionAsyncOptions => Js.Promise.t(location) =
   "getCurrentPositionAsync";
@@ -85,7 +84,7 @@ type watchPositionAsyncOptions = {
   distanceInterval: float,
 };
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external watchPositionAsync:
   (watchPositionAsyncOptions, location => unit) =>
   Js.Promise.t(eventSubscription) =
@@ -99,7 +98,7 @@ type getProviderStatusAsyncResult = {
   passiveAvailable: bool,
 };
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external getProviderStatusAsync:
   unit => Js.Promise.t(getProviderStatusAsyncResult) =
   "getProviderStatusAsync";
@@ -111,7 +110,7 @@ type getHeadingAsyncResult = {
   accuracy: int,
 };
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external getHeadingAsync: unit => Js.Promise.t(getHeadingAsyncResult) =
   "getHeadingAsync";
 
@@ -122,7 +121,7 @@ type watchHeadingAsyncResult = {
   accuracy: int,
 };
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external watchHeadingAsync:
   (watchHeadingAsyncResult => unit) => Js.Promise.t(eventSubscription) =
   "watchHeadingAsync";
@@ -135,7 +134,7 @@ type geocodeAsyncResult = {
   accuracy: float,
 };
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external geocodeAsync: string => Js.Promise.t(geocodeAsyncResult) =
   "geocodeAsync";
 
@@ -155,16 +154,15 @@ type reverseGeocodeAsyncResult = {
   name: string,
 };
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external reverseGeocodeAsync:
   reverseGeocodeAsyncOptions =>
   Js.Promise.t(array(reverseGeocodeAsyncResult)) =
   "reverseGeocodeAsync";
 
-[@bs.module "expo"] [@bs.scope "Location"]
-external setApiKey: string => unit = "setApiKey";
+[@bs.module "expo-location"] external setApiKey: string => unit = "setApiKey";
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external installWebGeolocationPolyfill: unit => unit = "";
 
 [@bs.deriving abstract]
@@ -175,15 +173,15 @@ type startLocationUpdatesAsyncOptions = {
   showsBackgroundLocationIndicator: bool,
 };
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external startLocationUpdatesAsync:
   (string, startLocationUpdatesAsyncOptions) => Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external stopLocationUpdatesAsync: string => Js.Promise.t(unit) = "";
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external hasStartedLocationUpdatesAsync: string => Js.Promise.t(bool) = "";
 
 type geofencingRegion = {
@@ -195,12 +193,12 @@ type geofencingRegion = {
   notifyOnExit: bool,
 };
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external startGeofencingAsync:
   (string, array(geofencingRegion)) => Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external stopGeofencingAsync: string => Js.Promise.t(unit) = "";
-[@bs.module "expo"] [@bs.scope "Location"]
+[@bs.module "expo-location"]
 external hasStartedGeofencingAsync: string => Js.Promise.t(bool) = "";

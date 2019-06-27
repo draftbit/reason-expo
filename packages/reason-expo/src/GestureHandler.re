@@ -1,5 +1,5 @@
 module BaseButton = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "BaseButton";
 
   let make =
@@ -21,7 +21,7 @@ module BaseButton = {
 };
 
 module BorderlessButton = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "BorderlessButton";
 
   let make =
@@ -47,7 +47,7 @@ module BorderlessButton = {
 };
 
 module RectButton = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "RectButton";
 
   let make =
@@ -73,7 +73,7 @@ module RectButton = {
 };
 
 module Swipeable = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "Swipeable";
 
   let make =
@@ -121,7 +121,7 @@ module Swipeable = {
 };
 
 module DrawerLayout = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "DrawerLayout";
 
   let make =
@@ -132,7 +132,8 @@ module DrawerLayout = {
         ~statusBarAnimation: string="slide",
         ~overlayColor: string="black",
         ~renderNavigationView:
-           BsReactNative.Animated.Value.t => ReasonReact.reactElement=_ => ReasonReact.null,
+           BsReactNative.Animated.Value.t => ReasonReact.reactElement=_ =>
+                                                                    ReasonReact.null,
         ~style=BsReactNative.Style.style([]),
         children,
       ) =>
@@ -152,7 +153,7 @@ module DrawerLayout = {
 };
 
 module PanGestureHandler = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "PanGestureHandler";
 
   let make =
@@ -207,7 +208,7 @@ module PanGestureHandler = {
 };
 
 module TapGestureHandler = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "TapGestureHandler";
 
   let make =
@@ -262,7 +263,7 @@ module TapGestureHandler = {
 };
 
 module LongPressGestureHandler = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "LongPressGestureHandler";
 
   let make =
@@ -307,7 +308,7 @@ module LongPressGestureHandler = {
 };
 
 module RotationGestureHandler = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "RotationGestureHandler";
 
   let make =
@@ -349,18 +350,22 @@ module RotationGestureHandler = {
 
 module Directions = {
   type t;
-  [@bs.module "expo"] [@bs.scope ("GestureHandler", "Directions")]
+  [@bs.module "react-native-gesture-handler"]
+  [@bs.scope ("GestureHandler", "Directions")]
   external left: t = "LEFT";
-  [@bs.module "expo"] [@bs.scope ("GestureHandler", "Directions")]
+  [@bs.module "react-native-gesture-handler"]
+  [@bs.scope ("GestureHandler", "Directions")]
   external right: t = "RIGHT";
-  [@bs.module "expo"] [@bs.scope ("GestureHandler", "Directions")]
+  [@bs.module "react-native-gesture-handler"]
+  [@bs.scope ("GestureHandler", "Directions")]
   external down: t = "DOWN";
-  [@bs.module "expo"] [@bs.scope ("GestureHandler", "Directions")]
+  [@bs.module "react-native-gesture-handler"]
+  [@bs.scope ("GestureHandler", "Directions")]
   external up: t = "UP";
 };
 
 module FlingGestureHandler = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "FlingGestureHandler";
 
   let make =
@@ -405,7 +410,7 @@ module FlingGestureHandler = {
 };
 
 module PinchGestureHandler = {
-  [@bs.module "expo"] [@bs.scope "GestureHandler"]
+  [@bs.module "react-native-gesture-handler"]
   external js: ReasonReact.reactClass = "PinchGestureHandler";
 
   let make =

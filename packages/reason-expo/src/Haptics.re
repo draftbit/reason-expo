@@ -1,28 +1,28 @@
-[@bs.module "expo"] [@bs.scope ("Haptics", "NotificationFeedbackType")]
+[@bs.module "expo-haptics"] [@bs.scope "NotificationFeedbackType"]
 external _success: string = "Success";
 
-[@bs.module "expo"] [@bs.scope ("Haptics", "NotificationFeedbackType")]
+[@bs.module "expo-haptics"] [@bs.scope "NotificationFeedbackType"]
 external _warning: string = "Warning";
 
-[@bs.module "expo"] [@bs.scope ("Haptics", "NotificationFeedbackType")]
+[@bs.module "expo-haptics"] [@bs.scope "NotificationFeedbackType"]
 external _error: string = "Error";
 
-[@bs.module "expo"] [@bs.scope ("Haptics", "ImpactFeedbackStyle")]
+[@bs.module "expo-haptics"] [@bs.scope "ImpactFeedbackStyle"]
 external _light: string = "Light";
 
-[@bs.module "expo"] [@bs.scope ("Haptics", "ImpactFeedbackStyle")]
+[@bs.module "expo-haptics"] [@bs.scope "ImpactFeedbackStyle"]
 external _medium: string = "Medium";
 
-[@bs.module "expo"] [@bs.scope ("Haptics", "ImpactFeedbackStyle")]
+[@bs.module "expo-haptics"] [@bs.scope "ImpactFeedbackStyle"]
 external _heavy: string = "Heavy";
 
-[@bs.module "expo"] [@bs.scope "Haptics"]
+[@bs.module "expo-haptics"]
 external selectionAsync: unit => unit = "selectionAsync";
 
-[@bs.module "expo"] [@bs.scope "Haptics"]
+[@bs.module "expo-haptics"]
 external _notificationAsync: string => unit = "notificationAsync";
 
-[@bs.module "expo"] [@bs.scope "Haptics"]
+[@bs.module "expo-haptics"]
 external _impactAsync: string => unit = "impactAsync";
 
 type notificationType =

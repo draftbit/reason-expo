@@ -1,4 +1,4 @@
-[@bs.module "expo"] [@bs.scope "Svg"]
+[@bs.module "react-native-svg"]
 external js: ReasonReact.reactClass = "default";
 
 [@bs.deriving abstract]
@@ -15,8 +15,7 @@ let make = (~height, ~width, children) =>
   );
 
 module Rect = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
-  external js: ReasonReact.reactClass = "Rect";
+  [@bs.module "react-native-svg"] external js: ReasonReact.reactClass = "Rect";
 
   [@bs.deriving abstract]
   type props = {
@@ -38,7 +37,7 @@ module Rect = {
 };
 
 module Circle = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "Circle";
 
   [@bs.deriving abstract]
@@ -58,7 +57,7 @@ module Circle = {
 };
 
 module Ellipse = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "Ellipse";
 
   [@bs.deriving abstract]
@@ -81,8 +80,7 @@ module Ellipse = {
 };
 
 module Line = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
-  external js: ReasonReact.reactClass = "Line";
+  [@bs.module "react-native-svg"] external js: ReasonReact.reactClass = "Line";
 
   [@bs.deriving abstract]
   type props = {
@@ -103,7 +101,7 @@ module Line = {
 };
 
 module Polygon = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "Polygon";
 
   [@bs.deriving abstract]
@@ -123,7 +121,7 @@ module Polygon = {
 };
 
 module Polyline = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "Polyline";
 
   [@bs.deriving abstract]
@@ -143,8 +141,7 @@ module Polyline = {
 };
 
 module Path = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
-  external js: ReasonReact.reactClass = "Path";
+  [@bs.module "react-native-svg"] external js: ReasonReact.reactClass = "Path";
 
   [@bs.deriving abstract]
   type props = {
@@ -162,8 +159,7 @@ module Path = {
 };
 
 module Text = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
-  external js: ReasonReact.reactClass = "Text";
+  [@bs.module "react-native-svg"] external js: ReasonReact.reactClass = "Text";
 
   [@bs.deriving abstract]
   type props = {
@@ -207,7 +203,7 @@ module Text = {
 };
 
 module TSpan = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "TSpan";
 
   [@bs.deriving abstract]
@@ -258,7 +254,7 @@ module TSpan = {
 };
 
 module TextPath = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "TextPath";
 
   [@bs.deriving abstract]
@@ -276,8 +272,7 @@ module TextPath = {
 };
 
 module G = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
-  external js: ReasonReact.reactClass = "G";
+  [@bs.module "react-native-svg"] external js: ReasonReact.reactClass = "G";
 
   [@bs.deriving abstract]
   type props = {
@@ -294,8 +289,7 @@ module G = {
 };
 
 module Use = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
-  external js: ReasonReact.reactClass = "Use";
+  [@bs.module "react-native-svg"] external js: ReasonReact.reactClass = "Use";
 
   [@bs.deriving abstract]
   type props = {
@@ -313,7 +307,7 @@ module Use = {
 };
 
 module Symbol = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "Symbol";
 
   [@bs.deriving abstract]
@@ -333,8 +327,7 @@ module Symbol = {
 };
 
 module Defs = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
-  external js: ReasonReact.reactClass = "Defs";
+  [@bs.module "react-native-svg"] external js: ReasonReact.reactClass = "Defs";
 
   let make = children =>
     ReasonReact.wrapJsForReason(
@@ -345,7 +338,7 @@ module Defs = {
 };
 
 module Image = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "Image";
 
   [@bs.deriving abstract]
@@ -390,7 +383,7 @@ module Image = {
 };
 
 module ClipPath = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "ClipPath";
 
   [@bs.deriving abstract]
@@ -401,7 +394,7 @@ module ClipPath = {
 };
 
 module LinearGradient = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "LinearGradient";
 
   [@bs.deriving abstract]
@@ -422,7 +415,7 @@ module LinearGradient = {
 };
 
 module RadialGradient = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "RadialGradient";
 
   [@bs.deriving abstract]
@@ -446,8 +439,7 @@ module RadialGradient = {
 };
 
 module Stop = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
-  external js: ReasonReact.reactClass = "Stop";
+  [@bs.module "react-native-svg"] external js: ReasonReact.reactClass = "Stop";
 
   [@bs.deriving abstract]
   type props = {
@@ -465,8 +457,7 @@ module Stop = {
 };
 
 module Mask = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
-  external js: ReasonReact.reactClass = "Mask";
+  [@bs.module "react-native-svg"] external js: ReasonReact.reactClass = "Mask";
 
   [@bs.deriving abstract]
   type props = {
@@ -487,7 +478,7 @@ module Mask = {
 };
 
 module Pattern = {
-  [@bs.module "expo"] [@bs.scope "Svg"]
+  [@bs.module "react-native-svg"]
   external js: ReasonReact.reactClass = "Pattern";
 
   [@bs.deriving abstract]

@@ -1,13 +1,13 @@
-[@bs.module "expo"] [@bs.scope "TaskManager"]
+[@bs.module "expo-task-manager"]
 external defineTask: (string, 'a => unit) => unit = "";
 
-[@bs.module "expo"] [@bs.scope "TaskManager"]
+[@bs.module "expo-task-manager"]
 external isTaskRegisteredAsync: string => Js.Promise.t(bool) = "";
 
-[@bs.module "expo"] [@bs.scope "TaskManager"]
+[@bs.module "expo-task-manager"]
 external getTaskOptionsAsync: string => Js.Promise.t('a) = "";
 
-[@bs.module "expo"] [@bs.scope "TaskManager"]
+[@bs.module "expo-task-manager"]
 external getTasgetRegisteredTasksAsync:
   unit =>
   Js.Promise.t(
@@ -20,8 +20,8 @@ external getTasgetRegisteredTasksAsync:
   ) =
   "";
 
-[@bs.module "expo"] [@bs.scope "TaskManager"]
+[@bs.module "expo-task-manager"]
 external unregisterTaskAsync: string => Js.Promise.t(unit) = "";
 
-[@bs.module "expo"] [@bs.scope "TaskManager"]
+[@bs.module "expo-task-manager"]
 external unregisterAllTasksAsync: unit => Js.Promise.t(unit) = "";

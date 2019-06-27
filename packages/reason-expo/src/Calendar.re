@@ -1,242 +1,242 @@
 module AttendeeStatus = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external accepted: t = "ACCEPTED";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external declined: t = "DECLINED";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external tentative: t = "TENTATIVE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external delegated: t = "DELEGATED";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external completed: t = "COMPLETED";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external inProcess: t = "IN_PROCESS";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external unknown: t = "UNKNOWN";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external pending: t = "PENDING";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external invited: t = "INVITED";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeStatus"]
   external none: t = "NONE";
 };
 
 module EventStatus = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EventStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "EventStatus"]
   external none: t = "NONE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EventStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "EventStatus"]
   external confirmed: t = "CONFIRMED";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EventStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "EventStatus"]
   external tentative: t = "TENTATIVE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EventStatus")]
+  [@bs.module "expo-calendar"] [@bs.scope "EventStatus"]
   external canceled: t = "CANCELED";
 };
 
 module Frequency = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "Frequency")]
+  [@bs.module "expo-calendar"] [@bs.scope "Frequency"]
   external daily: t = "DAILY";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "Frequency")]
+  [@bs.module "expo-calendar"] [@bs.scope "Frequency"]
   external weekly: t = "WEEKLY";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "Frequency")]
+  [@bs.module "expo-calendar"] [@bs.scope "Frequency"]
   external monthly: t = "MONTHLY";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "Frequency")]
+  [@bs.module "expo-calendar"] [@bs.scope "Frequency"]
   external yearly: t = "YEARLY";
 };
 
 module EventAccessLevel = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EventAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "EventAccessLevel"]
   external confidential: t = "CONFIDENTIAL";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EventAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "EventAccessLevel"]
   external priv: t = "PRIVATE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EventAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "EventAccessLevel"]
   external public: t = "PUBLIC";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EventAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "EventAccessLevel"]
   external default: t = "DEFAULT";
 };
 
 module CalendarAccessLevel = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "CalendarAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "CalendarAccessLevel"]
   external contributor: t = "CONTRIBUTOR";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "CalendarAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "CalendarAccessLevel"]
   external editor: t = "EDITOR";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "CalendarAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "CalendarAccessLevel"]
   external freebusy: t = "FREEBUSY";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "CalendarAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "CalendarAccessLevel"]
   external override: t = "OVERRIDE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "CalendarAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "CalendarAccessLevel"]
   external owner: t = "OWNER";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "CalendarAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "CalendarAccessLevel"]
   external read: t = "READ";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "CalendarAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "CalendarAccessLevel"]
   external respond: t = "RESPOND";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "CalendarAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "CalendarAccessLevel"]
   external root: t = "ROOT";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "CalendarAccessLevel")]
+  [@bs.module "expo-calendar"] [@bs.scope "CalendarAccessLevel"]
   external none: t = "NONE";
 };
 
 module AttendeeType = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeType")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeType"]
   external unknown: t = "UNKNOWN";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeType")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeType"]
   external person: t = "PERSON";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeType")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeType"]
   external room: t = "ROOM";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeType")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeType"]
   external group: t = "GROUP";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeType")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeType"]
   external resource: t = "RESOURCE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeType")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeType"]
   external optional: t = "OPTIONAL";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeType")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeType"]
   external required: t = "REQUIRED";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeType")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeType"]
   external none: t = "NONE";
 };
 
 module AttendeeRole = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeRole")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeRole"]
   external unknown: t = "UNKNOWN";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeRole")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeRole"]
   external required: t = "REQUIRED";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeRole")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeRole"]
   external optional: t = "OPTIONAL";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeRole")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeRole"]
   external nonParticipant: t = "NON_PARTICIPANT";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeRole")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeRole"]
   external attendee: t = "ATTENDEE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeRole")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeRole"]
   external organizer: t = "ORGANIZER";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeRole")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeRole"]
   external performer: t = "PERFORMER";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeRole")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeRole"]
   external speaker: t = "SPEAKER";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AttendeeRole")]
+  [@bs.module "expo-calendar"] [@bs.scope "AttendeeRole"]
   external none: t = "none";
 };
 
 module Availability = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "Availability")]
+  [@bs.module "expo-calendar"] [@bs.scope "Availability"]
   external busy: t = "BUSY";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "Availability")]
+  [@bs.module "expo-calendar"] [@bs.scope "Availability"]
   external free: t = "FREE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "Availability")]
+  [@bs.module "expo-calendar"] [@bs.scope "Availability"]
   external tentative: t = "TENTATIVE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "Availability")]
+  [@bs.module "expo-calendar"] [@bs.scope "Availability"]
   external unavailable: t = "UNAVAILABLE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "Availability")]
+  [@bs.module "expo-calendar"] [@bs.scope "Availability"]
   external notSupported: t = "NOT_SUPPORTED";
 };
 
 module AlarmMethod = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AlarmMethod")]
+  [@bs.module "expo-calendar"] [@bs.scope "AlarmMethod"]
   external alarm: t = "ALARM";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AlarmMethod")]
+  [@bs.module "expo-calendar"] [@bs.scope "AlarmMethod"]
   external alert: t = "ALERT";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AlarmMethod")]
+  [@bs.module "expo-calendar"] [@bs.scope "AlarmMethod"]
   external email: t = "EMAIL";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AlarmMethod")]
+  [@bs.module "expo-calendar"] [@bs.scope "AlarmMethod"]
   external sms: t = "SMS";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "AlarmMethod")]
+  [@bs.module "expo-calendar"] [@bs.scope "AlarmMethod"]
   external default: t = "default";
 };
 
 module EntityType = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EntityTypes")]
+  [@bs.module "expo-calendar"] [@bs.scope "EntityTypes"]
   external event: t = "EVENT";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "EntityTypes")]
+  [@bs.module "expo-calendar"] [@bs.scope "EntityTypes"]
   external reminder: t = "REMINDER";
 };
 
 module SourceType = {
   type t = string;
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "SourceType")]
+  [@bs.module "expo-calendar"] [@bs.scope "SourceType"]
   external local: t = "LOCAL";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "SourceType")]
+  [@bs.module "expo-calendar"] [@bs.scope "SourceType"]
   external exchange: t = "EXCHANGE";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "SourceType")]
+  [@bs.module "expo-calendar"] [@bs.scope "SourceType"]
   external caldav: t = "CALDAV";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "SourceType")]
+  [@bs.module "expo-calendar"] [@bs.scope "SourceType"]
   external mobileme: t = "MOBILEME";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "SourceType")]
+  [@bs.module "expo-calendar"] [@bs.scope "SourceType"]
   external subscribed: t = "SUBSCRIBED";
 
-  [@bs.module "expo"] [@bs.scope ("Calendar", "SourceType")]
+  [@bs.module "expo-calendar"] [@bs.scope "SourceType"]
   external birthdays: t = "BIRTHDAYS";
 };
 
@@ -349,7 +349,7 @@ type reminder = {
   lastModifiedDate: string,
 };
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external getCalendarsAsync: EntityType.t => Js.Promise.t(array(calendar)) =
   "";
 
@@ -383,7 +383,7 @@ type createCalendarAsyncDetails = {
   accessLevel: string,
 };
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external createCalendarAsync:
   createCalendarAsyncDetails => Js.Promise.t(string) =
   "";
@@ -397,17 +397,17 @@ type updateCalendarAsyncDetails = {
   isSynced: Js.Nullable.t(bool),
 };
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external updateCalendarAsync:
   (string, updateCalendarAsyncDetails) => Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external getEventsAsync:
   (array(string), Js.Date.t, Js.Date.t) => Js.Promise.t(array(event)) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external getEventAsync:
   (string, {. instanceStartDate: Js.Date.t}) => Js.Promise.t(event) =
   "";
@@ -433,7 +433,7 @@ type createEventAsyncDetails = {
   guestsCanSeeGuests: bool,
 };
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external createEventAsync:
   (string, createEventAsyncDetails) => Js.Promise.t(string) =
   "";
@@ -459,7 +459,7 @@ type updateEventAsyncDetails = {
   guestsCanSeeGuests: bool,
 };
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external updateEventAsync:
   (
     string,
@@ -473,7 +473,7 @@ external updateEventAsync:
   Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external deleteEventAsync:
   (
     string,
@@ -486,13 +486,13 @@ external deleteEventAsync:
   Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external getAttendeesForEventAsync:
   (string, {. instanceStartDate: Js.Date.t}) =>
   Js.Promise.t(array(attendee)) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external createAttendeeAsync:
   (
     string,
@@ -509,7 +509,7 @@ external createAttendeeAsync:
   Js.Promise.t(string) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external updateAttendeeAsync:
   (
     string,
@@ -526,19 +526,19 @@ external updateAttendeeAsync:
   Js.Promise.t(unit) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external deleteAttendeeAsync: string => Js.Promise.t(unit) = "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external getRemindersAsync:
   (array(string), string, Js.Date.t, Js.Date.t) =>
   Js.Promise.t(array(reminder)) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external getReminderAsync: string => Js.Promise.t(reminder) = "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external createReminderAsync:
   (
     string,
@@ -560,7 +560,7 @@ external createReminderAsync:
   Js.Promise.t(string) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external updateReminderAsync:
   (
     string,
@@ -582,14 +582,13 @@ external updateReminderAsync:
   Js.Promise.t(string) =
   "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external deleteReminderAsync: string => Js.Promise.t(unit) = "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external getSourcesAsync: unit => Js.Promise.t(array(source)) = "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
+[@bs.module "expo-calendar"]
 external getSourceAsync: string => Js.Promise.t(source) = "";
 
-[@bs.module "expo"] [@bs.scope "Calendar"]
-external openEventInCalendar: string => unit = "";
+[@bs.module "expo-calendar"] external openEventInCalendar: string => unit = "";
