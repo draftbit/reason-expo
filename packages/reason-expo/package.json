@@ -1,0 +1,38 @@
+{
+  "name": "reason-expo",
+  "description": "ReasonML bindings for Expo",
+  "version": "33.1.1",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean-build": "bsb -clean-world -make-world",
+    "pub": "npx np --yolo"
+  },
+  "license": "MIT",
+  "keywords": [
+    "reason",
+    "reasonml",
+    "bucklescript",
+    "react-native",
+    "expo"
+  ],
+  "homepage": "https://github.com/fiberjw/reason-expo.git",
+  "author": "Juwan Wheatley",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fiberjw/reason-expo.git"
+  },
+  "devDependencies": {
+    "bs-react-native": "^0.10.0",
+    "expo": "^33.0.0",
+    "expo-linear-gradient": "^5.0.1",
+    "reason-react": "^0.7.0"
+  },
+  "bugs": "https://github.com/fiberjw/reason-expo/issues",
+  "peerDependencies": {
+    "bs-react-native": "^0.10.0",
+    "expo": "^33.0.0",
+    "expo-linear-gradient": "^5.0.1",
+    "reason-react": "^0.7.0"
+  }
+}
