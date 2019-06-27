@@ -4,7 +4,7 @@
   "reason": { "react-jsx": 2 },
   "refmt": 3,
   "bs-dependencies": ["reason-react", "bs-react-native"],
-  "namespace": true,
+  "namespace": "expo",
   "sources": {
     "dir": "src",
     "subdirs": true
