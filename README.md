@@ -18,6 +18,12 @@
 
 </div>
 
+## Versioning
+
+This library doesn't follow conventional semver. The version scheme is shown below, and you should track this library accordingly.
+
+`<ExpoVersion>.<Major>.<Minor/Patch>`
+
 ## Getting started
 
 Use the Expo CLI to bootstrap a project with the ReasonExpo template.
