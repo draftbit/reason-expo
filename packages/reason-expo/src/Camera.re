@@ -196,9 +196,7 @@ type barCodeScannerSettings = {
   useCamera2Api: bool,
 };
 
-[@bs.module "expo-camera"] external js: ReasonReact.reactClass = "Camera";
-
-let make =
+let makeProps =
     (
       ~type_: cameraType,
       ~flashMode: flashMode,
@@ -222,62 +220,60 @@ let make =
          unit,
       ~barCodeScannerSettings=?,
       ~style=?,
-      children,
-    ) =>
-  ReasonReact.wrapJsForReason(
-    ~reactClass=js,
-    ~props={
-      "type":
-        switch (type_) {
-        | Front => Constants.Type.front
-        | Back => Constants.Type.back
-        },
-      "flashMode":
-        switch (flashMode) {
-        | On => Constants.FlashMode.on
-        | Off => Constants.FlashMode.off
-        | Auto => Constants.FlashMode.auto
-        | Torch => Constants.FlashMode.torch
-        },
-      "autoFocus":
-        switch (autoFocus) {
-        | On => Constants.AutoFocus.on
-        | Off => Constants.AutoFocus.off
-        },
-      "zoom": zoom,
-      "whiteBalance":
-        switch (whiteBalance) {
-        | Auto => Constants.WhiteBalance.auto
-        | Sunny => Constants.WhiteBalance.sunny
-        | Cloudy => Constants.WhiteBalance.cloudy
-        | Shadow => Constants.WhiteBalance.shadow
-        | Fluorescent => Constants.WhiteBalance.fluorescent
-        | Incandescent => Constants.WhiteBalance.incandescent
-        },
-      "focusDepth": focusDepth,
-      "ratio": ratio,
-      "onCameraReady": onCameraReady,
-      "onFacesDetected": onFacesDetected,
-      "faceDetectionMode":
-        switch (faceDetectionMode) {
-        | Fast => Constants.FaceDetection.Mode.fast
-        | Accurate => Constants.FaceDetection.Mode.accurate
-        },
-      "faceDetectionLandmarks":
-        switch (faceDetectionLandmarks) {
-        | All => Constants.FaceDetection.Landmarks.all
-        | None => Constants.FaceDetection.Landmarks.none
-        },
-      "faceDetectionClassifications":
-        switch (faceDetectionClassifications) {
-        | All => Constants.FaceDetection.Classifications.all
-        | None => Constants.FaceDetection.Classifications.none
-        },
-      "onMountError": onMountError,
-      "onBarCodeScanned": onBarCodeScanned,
-      "barCodeScannerSettings":
-        Js.Nullable.fromOption(barCodeScannerSettings),
-      "style": Js.Undefined.fromOption(style),
+      ~children,
+    ) => {
+  "type":
+    switch (type_) {
+    | Front => Constants.Type.front
+    | Back => Constants.Type.back
     },
-    children,
-  );
+  "flashMode":
+    switch (flashMode) {
+    | On => Constants.FlashMode.on
+    | Off => Constants.FlashMode.off
+    | Auto => Constants.FlashMode.auto
+    | Torch => Constants.FlashMode.torch
+    },
+  "autoFocus":
+    switch (autoFocus) {
+    | On => Constants.AutoFocus.on
+    | Off => Constants.AutoFocus.off
+    },
+  "zoom": zoom,
+  "whiteBalance":
+    switch (whiteBalance) {
+    | Auto => Constants.WhiteBalance.auto
+    | Sunny => Constants.WhiteBalance.sunny
+    | Cloudy => Constants.WhiteBalance.cloudy
+    | Shadow => Constants.WhiteBalance.shadow
+    | Fluorescent => Constants.WhiteBalance.fluorescent
+    | Incandescent => Constants.WhiteBalance.incandescent
+    },
+  "focusDepth": focusDepth,
+  "ratio": ratio,
+  "onCameraReady": onCameraReady,
+  "onFacesDetected": onFacesDetected,
+  "faceDetectionMode":
+    switch (faceDetectionMode) {
+    | Fast => Constants.FaceDetection.Mode.fast
+    | Accurate => Constants.FaceDetection.Mode.accurate
+    },
+  "faceDetectionLandmarks":
+    switch (faceDetectionLandmarks) {
+    | All => Constants.FaceDetection.Landmarks.all
+    | None => Constants.FaceDetection.Landmarks.none
+    },
+  "faceDetectionClassifications":
+    switch (faceDetectionClassifications) {
+    | All => Constants.FaceDetection.Classifications.all
+    | None => Constants.FaceDetection.Classifications.none
+    },
+  "onMountError": onMountError,
+  "onBarCodeScanned": onBarCodeScanned,
+  "barCodeScannerSettings": Js.Nullable.fromOption(barCodeScannerSettings),
+  "style": Js.Undefined.fromOption(style),
+  "children": children,
+};
+
+[@bs.module "expo-camera"] [@react.component]
+external make: 'a => React.element = "Camera";

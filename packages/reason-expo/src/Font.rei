@@ -1,2 +1,2 @@
 let loadAsync:
-  list((string, BsReactNative.Packager.required)) => Js.Promise.t(unit);
+  list((string, ReactNative.Packager.required)) => Js.Promise.t(unit);

@@ -1,9 +1,9 @@
 {
   "name": "reason-expo",
   "bsc-flags": ["-bs-super-errors"],
-  "reason": { "react-jsx": 2 },
+  "reason": { "react-jsx": 3 },
   "refmt": 3,
-  "bs-dependencies": ["reason-react", "bs-react-native"],
+  "bs-dependencies": ["reason-react", "reason-react-native"],
   "namespace": "expo",
   "sources": {
     "dir": "src",

@@ -32,12 +32,12 @@ external takeSnapshotAsync:
   }) =
   "";
 
-[@bs.module "expo-gl"] external _view: ReasonReact.reactClass = "GLView";
-
-let make =
-    (~onContextCreate: 'a => unit=_ => (), ~msaaSamples: float=4.0, children) =>
-  ReasonReact.wrapJsForReason(
-    ~reactClass=_view,
-    ~props={"onContextCreate": onContextCreate, "msaaSamples": msaaSamples},
-    children,
-  );
+[@bs.module "expo-gl"] [@react.component]
+external make:
+  (
+    ~onContextCreate: 'a => unit=?,
+    ~msaaSamples: float=?,
+    ~children: React.element=?
+  ) =>
+  React.element =
+  "GLView";

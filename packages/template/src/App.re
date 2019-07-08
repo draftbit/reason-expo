@@ -1,22 +1,32 @@
-open BsReactNative;
+open ReactNative;
+open Expo;
 
-let component = ReasonReact.statelessComponent("App");
+let styles =
+  Style.(
+    StyleSheet.create({
+      "container":
+        style(
+          ~flex=1.,
+          ~justifyContent=`center,
+          ~alignItems=`center,
+          ~backgroundColor="#F5FCFF",
+          (),
+        ),
+      "instructions": style(~textAlign=`center, ~color="#ffffff", ()),
+    })
+  );
 
-let make = _children => {
-  ...component,
-  render: _self =>
-    <View
-      style=Style.(
-        style([flex(1.), justifyContent(Center), alignItems(Center)])
-      )>
-      <Expo.LinearGradient
-        colors=[|"#DD4B39", "#C62C19"|]
-        style=Style.(style([padding(Pt(12.)), borderRadius(12.)]))>
-        <Text style=Style.(style([color(String("white"))]))>
-          {ReasonReact.string("To get started, edit App.re")}
-        </Text>
-      </Expo.LinearGradient>
-    </View>,
+[@react.component]
+let app = () => {
+  <View style=styles##container>
+    <LinearGradient
+      colors=[|"#DD4B39", "#C62C19"|]
+      start=[|0.0, 0.0|]
+      _end=[|1.0, 1.0|]
+      style=Style.(style(~padding=dp(12.), ~borderRadius=12., ()))>
+      <Text style=styles##instructions>
+        {React.string("To get started, edit App.re")}
+      </Text>
+    </LinearGradient>
+  </View>;
 };
-
-let default = ReasonReact.wrapReasonForJs(~component, _jsProps => make([||]));

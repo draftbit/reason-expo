@@ -1,5 +1,5 @@
 [@bs.module "expo"]
-external registerRootComponent: ReasonReact.reactClass => unit = "";
+external registerRootComponent: ('a => React.element) => unit = "";
 
 [@bs.deriving abstract]
 type takeSnapshotAsyncOptions = {
@@ -12,5 +12,5 @@ type takeSnapshotAsyncOptions = {
 
 [@bs.module "expo"]
 external takeSnapshotAsync:
-  (ReasonReact.reactRef, takeSnapshotAsyncOptions) => unit =
+  (React.Ref.t(React.element), takeSnapshotAsyncOptions) => unit =
   "";

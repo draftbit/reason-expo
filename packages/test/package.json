@@ -9,7 +9,7 @@
   },
   "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "main": "__generated__/AppEntry.js",
-  "version": "33.0.0",
+  "version": "33.1.0",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -17,20 +17,20 @@
     "eject": "expo eject",
     "build": "bsb -make-world -clean-world",
     "watch": "bsb -make-world -clean-world -w",
-    "postinstall": "expo-yarn-workspaces postinstall && yarn build"
+    "postinstall": "yarn build"
   },
   "dependencies": {
-    "bs-platform": "^5.0.4",
-    "bs-react-native": "^0.10.0",
     "expo": "^33.0.0",
     "expo-linear-gradient": "^5.0.1",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "reason-expo": "^33.1.0",
-    "reason-react": "^0.7.0"
+    "reason-expo": "^33.3.0",
+    "reason-react": "^0.7.0",
+    "reason-react-native": "^0.60.0"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
+    "bs-platform": "^5.0.6",
     "expo-yarn-workspaces": "^1.2.0"
   }
 }

@@ -45,10 +45,10 @@ Next, create a file named bsconfig.json at the same level at your package.json w
 {
   "name": "my-reason-expo-app",
   "reason": {
-    "react-jsx": 2
+    "react-jsx": 3
   },
   "bsc-flags": ["-bs-super-errors"],
-  "bs-dependencies": ["bs-react-native", "reason-react", "reason-expo"],
+  "bs-dependencies": ["reason-react", "reason-react-native", "reason-expo"],
   "sources": [
     {
       "dir": "src"

@@ -1,5 +1,3 @@
-[@bs.module "expo"] external js: ReasonReact.reactClass = "AppLoading";
-
 [@bs.deriving abstract]
 type props = {
   [@bs.optional]
@@ -10,18 +8,19 @@ type props = {
   onFinish: unit => unit,
   [@bs.optional]
   autoHideSplash: bool,
+  [@bs.optional]
+  children: React.element,
 };
 
-let make =
+let makeProps =
     (
       ~startAsync=() => Js.Promise.resolve(),
       ~onError=_error => (),
       ~onFinish=() => (),
       ~autoHideSplash=true,
-      children,
+      ~children,
     ) =>
-  ReasonReact.wrapJsForReason(
-    ~reactClass=js,
-    ~props=props(~startAsync, ~onError, ~onFinish, ~autoHideSplash, ()),
-    children,
-  );
+  props(~startAsync, ~onError, ~onFinish, ~autoHideSplash, ~children);
+
+[@bs.module "expo"] [@react.component]
+external make: props => React.element = "AppLoading";
