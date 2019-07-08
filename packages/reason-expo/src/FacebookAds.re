@@ -42,75 +42,44 @@ module AdSettings = {
 };
 
 [@bs.module "expo-ads-facebook"]
-external withNativeAd: ReasonReact.reactClass => ReasonReact.reactClass = "";
+external withNativeAd: React.element => React.element = "";
 
 module AdMediaView = {
-  [@bs.module "expo-ads-facebook"]
-  external js: ReasonReact.reactClass = "AdMediaView";
-
-  let make = children =>
-    ReasonReact.wrapJsForReason(
-      ~reactClass=js,
-      ~props=Js.Obj.empty(),
-      children,
-    );
+  [@bs.module "expo-ads-facebook"] [@react.component]
+  external make: (~children: React.element=?, ~key: string=?) => React.element =
+    "AdMediaView";
 };
 
 module AdIconView = {
-  [@bs.module "expo-ads-facebook"]
-  external js: ReasonReact.reactClass = "AdIconView";
-
-  let make = children =>
-    ReasonReact.wrapJsForReason(
-      ~reactClass=js,
-      ~props=Js.Obj.empty(),
-      children,
-    );
+  [@bs.module "expo-ads-facebook"] [@react.component]
+  external make: (~children: React.element=?, ~key: string=?) => React.element =
+    "AdIconView";
 };
 
 module AdTriggerView = {
-  [@bs.module "expo-ads-facebook"]
-  external js: ReasonReact.reactClass = "AdTriggerView";
-
-  let make =
-      (
-        ~renderInteractiveComponent: option('a => ReasonReact.reactElement)=?,
-        ~onPress: unit => unit=() => (),
-        children,
-      ) =>
-    ReasonReact.wrapJsForReason(
-      ~reactClass=js,
-      ~props={
-        "renderInteractiveComponent":
-          Js.Undefined.fromOption(renderInteractiveComponent),
-        "onPress": onPress,
-      },
-      children,
-    );
+  [@bs.module "expo-ads-facebook"] [@react.component]
+  external make:
+    (
+      ~renderInteractiveComponent: 'a => React.element=?,
+      ~onPress: unit => unit=?,
+      ~children: React.element=?,
+      ~key: string=?
+    ) =>
+    React.element =
+    "AdTriggerView";
 };
 
 module BannerAd = {
-  [@bs.module "expo-ads-facebook"]
-  external js: ReasonReact.reactClass = "BannerAd";
-
-  let make =
-      (
-        ~placementId: string,
-        ~type_: string,
-        ~onPress: unit => unit=() => (),
-        ~onError: Js.Exn.t => unit=_ => (),
-        ~style=BsReactNative.Style.style([]),
-        children,
-      ) =>
-    ReasonReact.wrapJsForReason(
-      ~reactClass=js,
-      ~props={
-        "placementId": placementId,
-        "type": type_,
-        "onPress": onPress,
-        "onError": onError,
-        "style": style,
-      },
-      children,
-    );
+  [@bs.module "expo-ads-facebook"] [@react.component]
+  external make:
+    (
+      ~placementId: string,
+      ~type_: string,
+      ~onPress: unit => unit=?,
+      ~onError: Js.Exn.t => unit=?,
+      ~style: ReactNative.Style.t=?,
+      ~children: React.element=?
+    ) =>
+    React.element =
+    "BannerAd";
 };

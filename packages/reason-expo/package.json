@@ -1,12 +1,11 @@
 {
   "name": "reason-expo",
   "description": "ReasonML bindings for Expo",
-  "version": "33.2.0",
+  "version": "33.3.0",
   "scripts": {
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
-    "clean-build": "bsb -clean-world -make-world",
-    "pub": "npx np --yolo"
+    "clean-build": "bsb -clean-world -make-world"
   },
   "license": "MIT",
   "keywords": [
@@ -23,14 +22,14 @@
     "url": "https://github.com/fiberjw/reason-expo.git"
   },
   "devDependencies": {
-    "bs-react-native": "^0.10.0",
     "expo": "^33.0.0",
-    "reason-react": "^0.7.0"
+    "reason-react": "^0.7.0",
+    "reason-react-native": "^0.60.0"
   },
   "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "peerDependencies": {
-    "bs-react-native": "^0.10.0",
     "expo": "^33.0.0",
-    "reason-react": "^0.7.0"
+    "reason-react": "^0.7.0",
+    "reason-react-native": "^0.60.0"
   }
 }

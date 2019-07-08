@@ -6,9 +6,6 @@ type torchMode =
   | On
   | Off;
 
-[@bs.module "expo-barcode-scanner"]
-external js: ReasonReact.reactClass = "BarCodeScanner";
-
 [@bs.deriving abstract]
 type onBarCodeScannedResult = {
   [@bs.as "type"]
@@ -30,36 +27,36 @@ type props = {
   torchMode: string,
   [@bs.optional]
   barCodeScannerSettings: Js.Nullable.t(barCodeScannerSettings),
-  style: BsReactNative.Style.t,
+  style: ReactNative.Style.t,
+  [@bs.optional]
+  children: React.element,
 };
 
-let make =
+let makeProps =
     (
       ~onBarCodeScanned,
       ~type_=Back,
       ~torchMode=Off,
       ~barCodeScannerSettings=?,
-      ~style=BsReactNative.Style.style([]),
-      children,
+      ~style=ReactNative.Style.style(),
+      ~children,
     ) =>
-  ReasonReact.wrapJsForReason(
-    ~reactClass=js,
-    ~props=
-      props(
-        ~onBarCodeScanned,
-        ~_type=
-          switch (type_) {
-          | Front => "front"
-          | Back => "back"
-          },
-        ~torchMode=
-          switch (torchMode) {
-          | On => "on"
-          | Off => "off"
-          },
-        ~barCodeScannerSettings=
-          Js.Nullable.fromOption(barCodeScannerSettings),
-        ~style,
-      ),
-    children,
+  props(
+    ~onBarCodeScanned,
+    ~_type=
+      switch (type_) {
+      | Front => "front"
+      | Back => "back"
+      },
+    ~torchMode=
+      switch (torchMode) {
+      | On => "on"
+      | Off => "off"
+      },
+    ~barCodeScannerSettings=Js.Nullable.fromOption(barCodeScannerSettings),
+    ~style,
+    ~children,
   );
+
+[@bs.module "expo-barcode-scanner"] [@react.component]
+external make: props => React.element = "BarCodeScanner";

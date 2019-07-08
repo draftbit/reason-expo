@@ -600,7 +600,7 @@ external getARMatrices: (float, float) => array(arMatrices) = "";
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external startAsync:
-  (ReasonReact.reactRef, TrackingConfiguration.t) => Js.Promise.t(unit) =
+  (React.Ref.t(React.element), TrackingConfiguration.t) => Js.Promise.t(unit) =
   "";
 
 [@bs.module "expo"] [@bs.scope "AR"]

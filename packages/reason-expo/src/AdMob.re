@@ -8,9 +8,6 @@ type bannerSize =
   | SmartBannerLandscape;
 
 module AdMobBanner = {
-  [@bs.module "expo-ads-admob"]
-  external js: ReasonReact.reactClass = "AdMobBanner";
-
   [@bs.deriving abstract]
   type props = {
     [@bs.optional]
@@ -27,9 +24,11 @@ module AdMobBanner = {
     onAdViewDidDismissScreen: unit => unit,
     [@bs.optional]
     onAdViewWillLeaveApplication: unit => unit,
+    [@bs.optional]
+    children: React.element,
   };
 
-  let make =
+  let makeProps =
       (
         ~bannerSize=Banner,
         ~onAdViewDidReceiveAd=() => (),
@@ -38,32 +37,30 @@ module AdMobBanner = {
         ~onAdViewWillDismissScreen=() => (),
         ~onAdViewDidDismissScreen=() => (),
         ~onAdViewWillLeaveApplication=() => (),
-        children,
+        ~children,
       ) =>
-    ReasonReact.wrapJsForReason(
-      ~reactClass=js,
-      ~props=
-        props(
-          ~bannerSize=
-            switch (bannerSize) {
-            | Banner => "banner"
-            | LargeBanner => "largeBanner"
-            | MediumRectangle => "mediumRectangle"
-            | FullBanner => "fullBanner"
-            | Leaderboard => "leaderboard"
-            | SmartBannerPortrait => "smartBannerPortrait"
-            | SmartBannerLandscape => "smartBannerLandscape"
-            },
-          ~onAdViewDidReceiveAd,
-          ~onDidFailToReceiveAdWithError,
-          ~onAdViewWillPresentScreen,
-          ~onAdViewWillDismissScreen,
-          ~onAdViewDidDismissScreen,
-          ~onAdViewWillLeaveApplication,
-          (),
-        ),
-      children,
+    props(
+      ~bannerSize=
+        switch (bannerSize) {
+        | Banner => "banner"
+        | LargeBanner => "largeBanner"
+        | MediumRectangle => "mediumRectangle"
+        | FullBanner => "fullBanner"
+        | Leaderboard => "leaderboard"
+        | SmartBannerPortrait => "smartBannerPortrait"
+        | SmartBannerLandscape => "smartBannerLandscape"
+        },
+      ~onAdViewDidReceiveAd,
+      ~onDidFailToReceiveAdWithError,
+      ~onAdViewWillPresentScreen,
+      ~onAdViewWillDismissScreen,
+      ~onAdViewDidDismissScreen,
+      ~onAdViewWillLeaveApplication,
+      ~children,
     );
+
+  [@bs.module "expo-ads-admob"] [@react.component]
+  external make: props => React.element = "AdMobBanner";
 };
 
 module AdMobInterstitial = {

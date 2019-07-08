@@ -1,13 +1,11 @@
-[@bs.module "expo-av"] external js: ReasonReact.reactClass = "Video";
+[@bs.module "expo-av"] [@bs.scope "Video"]
+external resize_mode_stretch: string = "RESIZE_MODE_STRETCH";
 
 [@bs.module "expo-av"] [@bs.scope "Video"]
-external resize_mode_stretch: ReasonReact.reactClass = "RESIZE_MODE_STRETCH";
+external resize_mode_contain: string = "RESIZE_MODE_CONTAIN";
 
 [@bs.module "expo-av"] [@bs.scope "Video"]
-external resize_mode_contain: ReasonReact.reactClass = "RESIZE_MODE_CONTAIN";
-
-[@bs.module "expo-av"] [@bs.scope "Video"]
-external resize_mode_cover: ReasonReact.reactClass = "RESIZE_MODE_COVER";
+external resize_mode_cover: string = "RESIZE_MODE_COVER";
 
 type resizeMode =
   | COVER
@@ -17,7 +15,7 @@ type resizeMode =
 module Source = {
   type t = [
     | `URI(string)
-    | `Required(BsReactNative.Packager.required)
+    | `Required(ReactNative.Packager.required)
     | `Asset(Asset.t)
     | `NullSource
   ];
@@ -86,7 +84,7 @@ type onFullscreenUpdateParam = {
   status: playbackStatus,
 };
 
-let make =
+let makeProps =
     (
       ~source=`NullSource,
       ~posterSource=`NullSource,
@@ -104,34 +102,33 @@ let make =
       ~onLoadStart: unit => unit=() => (),
       ~onLoad: playbackStatus => unit=_ => (),
       ~onError: string => unit=_ => (),
-      ~style=BsReactNative.Style.style([]),
-      children,
-    ) =>
-  ReasonReact.wrapJsForReason(
-    ~reactClass=js,
-    ~props={
-      "source": Source.encodeSource(source),
-      "posterSource": Source.encodeSource(posterSource),
-      "rate": Js.Nullable.fromOption(rate),
-      "isMuted": isMuted,
-      "useNativeControls": useNativeControls,
-      "usePoster": usePoster,
-      "onPlaybackStatusUpdate": onPlaybackStatusUpdate,
-      "volume": volume,
-      "onReadyForDisplay": onReadyForDisplay,
-      "onFullscreenUpdate": onFullscreenUpdate,
-      "onLoadStart": onLoadStart,
-      "onLoad": onLoad,
-      "onError": onError,
-      "resizeMode":
-        switch (resizeMode) {
-        | COVER => resize_mode_cover
-        | CONTAIN => resize_mode_contain
-        | STRETCH => resize_mode_stretch
-        },
-      "isLooping": isLooping,
-      "shouldPlay": shouldPlay,
-      "style": style,
+      ~style=?,
+      ~children,
+    ) => {
+  "source": Source.encodeSource(source),
+  "posterSource": Source.encodeSource(posterSource),
+  "rate": Js.Nullable.fromOption(rate),
+  "isMuted": isMuted,
+  "useNativeControls": useNativeControls,
+  "usePoster": usePoster,
+  "onPlaybackStatusUpdate": onPlaybackStatusUpdate,
+  "volume": volume,
+  "onReadyForDisplay": onReadyForDisplay,
+  "onFullscreenUpdate": onFullscreenUpdate,
+  "onLoadStart": onLoadStart,
+  "onLoad": onLoad,
+  "onError": onError,
+  "resizeMode":
+    switch (resizeMode) {
+    | COVER => resize_mode_cover
+    | CONTAIN => resize_mode_contain
+    | STRETCH => resize_mode_stretch
     },
-    children,
-  );
+  "isLooping": isLooping,
+  "shouldPlay": shouldPlay,
+  "style": style,
+  "children": children,
+};
+
+[@bs.module "expo-av"] [@react.component]
+external make: 'a => React.element = "Video";
