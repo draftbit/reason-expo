@@ -822,14 +822,6 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-2.0.10.tgz#d28a446352e75754b78509557988359133cdbcca"
   integrity sha512-NrIzyLe0eSbhgMnHl2QdSEhaA7yXh6p9jzMomfUa//hoTXE+xbObGDdiWWSQm2bnXnZJg8XCU3AB9qzvqcuLnA==
 
-"@team-griffin/install-self-peers@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@team-griffin/install-self-peers/-/install-self-peers-1.1.1.tgz#de0fd354be3f44dfd84dd79bc011d8a3af38e354"
-  dependencies:
-    cross-spawn "^5.1.0"
-    minimist "^1.2.0"
-    ramda "^0.23.0"
-
 "@types/fbemitter@^2.0.32":
   version "2.0.32"
   resolved "https://registry.yarnpkg.com/@types/fbemitter/-/fbemitter-2.0.32.tgz#8ed204da0f54e9c8eaec31b1eec91e25132d082c"
@@ -974,16 +966,6 @@ browserslist@^4.6.0, browserslist@^4.6.2:
     electron-to-chromium "^1.3.164"
     node-releases "^1.1.23"
 
-bs-platform@^5.0.4:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/bs-platform/-/bs-platform-5.0.4.tgz#d406ef43c12d1b19d8546884d8b5b4e0fb709372"
-  integrity sha512-rXM+ztN8wYXQ4ojfFGylvPOf8GRLOvM94QJsMMV9VpsLChKCjesWMNybTZvpoyNsESu2nC5q+C9soG+BPhuUFQ==
-
-bs-react-native@^0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/bs-react-native/-/bs-react-native-0.10.0.tgz#4a9167cbe4c858008a9e56a0f745ba723c74101c"
-  integrity sha512-QpSbKwuYbDU1qBrxplmKvO8TZOtK2DpevoOUxDm0NfMNAdF6oacSbJfqMx89n2eGzMm8imZ3JsUeZPl6OT2N4A==
-
 buffer-alloc-unsafe@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/buffer-alloc-unsafe/-/buffer-alloc-unsafe-1.1.0.tgz#bd7dc26ae2972d0eda253be061dba992349c19f0"
@@ -1078,14 +1060,6 @@ core-js@^2.4.0:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
   integrity sha512-HOpZf6eXmnl7la+cUdMnLvUxKNqLUzJvgIziQ0DiF3JwSImNphIqdGqzj6hIKyX04MmV0poclQ7+wjWvxQyR2A==
-
-cross-spawn@^5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
-  dependencies:
-    lru-cache "^4.0.1"
-    shebang-command "^1.2.0"
-    which "^1.2.9"
 
 cross-spawn@^6.0.5:
   version "6.0.5"
@@ -1330,7 +1304,7 @@ expo-keep-awake@~5.0.1:
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-5.0.1.tgz#15aeffd9de673f7eaf145449883e8d83f7d7a799"
   integrity sha512-DPWAqgxbmLyJoCXPbDXbj+1XFjP/ulv4AYzvi1a+jsvZRU2uiFdho0w269Y++DLCQf30vbuu3zs5HiaJGU43fA==
 
-expo-linear-gradient@^5.0.1, expo-linear-gradient@~5.0.1:
+expo-linear-gradient@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-5.0.1.tgz#b4f5450d680b9315f22f4f99fee6a2b90fb49d92"
   integrity sha512-5dKn9JIXmXXHq6itC/Jpqo65Tkgjwacyw1kpD8sekoFTEVfT6ciFd2djqIcciUqIa57FF/5d2q54mUvjoqD/TA==
@@ -1707,9 +1681,9 @@ locate-path@^2.0.0:
     path-exists "^3.0.0"
 
 lodash@^4.16.2, lodash@^4.17.11, lodash@^4.17.4, lodash@^4.5.0, lodash@^4.6.0, lodash@^4.6.1:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-  integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+  version "4.17.14"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
+  integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   version "1.4.0"
@@ -1732,13 +1706,6 @@ lottie-react-native@2.6.1:
     lottie-ios "2.5.0"
     prop-types "^15.5.10"
     react-native-safe-module "^1.1.0"
-
-lru-cache@^4.0.1:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.3.tgz#a1175cf3496dfc8436c156c334b4955992bce69c"
-  dependencies:
-    pseudomap "^1.0.2"
-    yallist "^2.1.2"
 
 marker-clusterer-plus@^2.1.4:
   version "2.1.4"
@@ -1960,10 +1927,6 @@ prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1,
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-pseudomap@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
-
 qs@^6.5.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
@@ -1982,10 +1945,6 @@ querystringify@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
-
-ramda@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.23.0.tgz#ccd13fff73497a93974e3e86327bfd87bd6e8e2b"
 
 react-deep-force-update@^1.0.0:
   version "1.1.2"
@@ -2103,6 +2062,11 @@ react@>=16.8.1:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.13.6"
+
+reason-react-native@^0.60.0:
+  version "0.60.0"
+  resolved "https://registry.yarnpkg.com/reason-react-native/-/reason-react-native-0.60.0.tgz#7adb9837f28d79d9f1e009b5d01ae864aff15d51"
+  integrity sha512-7vq7KIaY1kGb5xnWVewuy8ttBx7/HAgeKfiwDYV3rij6Z89vU6QIheR6rENV8UxaKwRN/Gw168ladWLM042k9A==
 
 reason-react@^0.7.0:
   version "0.7.0"
@@ -2410,7 +2374,3 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
-
-yallist@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
