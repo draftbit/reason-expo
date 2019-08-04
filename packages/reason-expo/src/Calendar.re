@@ -75,9 +75,6 @@ module EventAccessLevel = {
 
   [@bs.module "expo-calendar"] [@bs.scope "EventAccessLevel"]
   external public: t = "PUBLIC";
-
-  [@bs.module "expo-calendar"] [@bs.scope "EventAccessLevel"]
-  external default: t = "DEFAULT";
 };
 
 module CalendarAccessLevel = {
@@ -203,9 +200,6 @@ module AlarmMethod = {
 
   [@bs.module "expo-calendar"] [@bs.scope "AlarmMethod"]
   external sms: t = "SMS";
-
-  [@bs.module "expo-calendar"] [@bs.scope "AlarmMethod"]
-  external default: t = "default";
 };
 
 module EntityType = {
