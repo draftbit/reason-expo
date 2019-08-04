@@ -25,9 +25,17 @@ type authenticateAsyncResult = {
   [@bs.optional]
   error: string,
 };
+[@bs.deriving abstract]
+type authenticateAsyncOptions = {
+  [@bs.optional]
+  promptMessage: string,
+  [@bs.optional]
+  fallbackLabel: string,
+};
 
 [@bs.module "expo-local-authentication"]
-external authenticateAsync: string => Js.Promise.t(authenticateAsyncResult) =
+external authenticateAsync:
+  authenticateAsyncOptions => Js.Promise.t(authenticateAsyncResult) =
   "authenticateAsync";
 
 [@bs.module "expo-local-authentication"]
