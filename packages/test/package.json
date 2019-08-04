@@ -20,16 +20,16 @@
     "postinstall": "yarn build"
   },
   "dependencies": {
-    "expo": "^33.0.0",
+    "expo": "^34.0.3",
     "expo-linear-gradient": "^5.0.1",
     "react": "16.8.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "reason-expo": "^33.3.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
+    "reason-expo": "^34.0.0",
     "reason-react": "^0.7.0",
     "reason-react-native": "^0.60.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
+    "babel-preset-expo": "^6.0.0",
     "bs-platform": "^5.0.6",
     "expo-yarn-workspaces": "^1.2.0"
   }

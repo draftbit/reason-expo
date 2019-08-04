@@ -1,7 +1,7 @@
 {
   "name": "reason-expo",
   "description": "ReasonML bindings for Expo",
-  "version": "33.3.0",
+  "version": "34.0.0",
   "scripts": {
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",
@@ -22,13 +22,13 @@
     "url": "https://github.com/fiberjw/reason-expo.git"
   },
   "devDependencies": {
-    "expo": "^33.0.0",
+    "expo": "^34.0.3",
     "reason-react": "^0.7.0",
     "reason-react-native": "^0.60.0"
   },
   "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "peerDependencies": {
-    "expo": "^33.0.0",
+    "expo": "^34.0.3",
     "reason-react": "^0.7.0",
     "reason-react-native": "^0.60.0"
   }
