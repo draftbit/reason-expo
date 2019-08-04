@@ -12,7 +12,7 @@ type getThumbnailAsyncResult = {
   width: float,
 };
 
-[@bs.module "expo"] [@bs.scope "VideoThumbnails"]
+[@bs.module "expo-video-thumbnails"]
 external getThumbnailAsync:
   (string, getThumbnailAsyncOptions('headers)) =>
   Js.Promise.t(getThumbnailAsyncResult) =
