@@ -1,35 +1,27 @@
-[@bs.module "expo-av"] [@bs.scope "Video"]
-external resize_mode_stretch: string = "RESIZE_MODE_STRETCH";
-
-[@bs.module "expo-av"] [@bs.scope "Video"]
-external resize_mode_contain: string = "RESIZE_MODE_CONTAIN";
-
-[@bs.module "expo-av"] [@bs.scope "Video"]
-external resize_mode_cover: string = "RESIZE_MODE_COVER";
-
-type resizeMode =
-  | COVER
-  | CONTAIN
-  | STRETCH;
-
 module Source = {
-  type t = [
-    | `URI(string)
-    | `Required(ReactNative.Packager.required)
-    | `Asset(Asset.t)
-    | `NullSource
-  ];
+  type t;
 
-  type rawSourceJS;
-  external rawSourceJS: 'a => rawSourceJS = "%identity";
+  [@bs.obj]
+  external make:
+    (
+      ~uri: string,
+      ~headers: Js.t('a)=?,
+      ~overrideFileExtensionAndroid: string=?,
+      unit
+    ) =>
+    t =
+    "";
 
-  let encodeSource = (src: t) =>
-    switch (src) {
-    | `URI(uri) => rawSourceJS({"uri": uri})
-    | `Required(package) => rawSourceJS(package)
-    | `Asset(asset) => rawSourceJS(asset)
-    | `NullSource => rawSourceJS(Js.null)
-    };
+  external fromRequired: ReactNative.Packager.required => t = "%identity";
+  external fromAsset: Asset.t => t = "%identity";
+};
+
+module PosterSource = {
+  type t;
+
+  [@bs.obj] external make: (~uri: string, unit) => t = "";
+
+  external fromRequired: ReactNative.Packager.required => t = "%identity";
 };
 
 [@bs.deriving abstract]
@@ -84,51 +76,36 @@ type onFullscreenUpdateParam = {
   status: playbackStatus,
 };
 
-let makeProps =
-    (
-      ~source=`NullSource,
-      ~posterSource=`NullSource,
-      ~rate: option(float)=?,
-      ~isMuted=false,
-      ~useNativeControls=false,
-      ~usePoster=false,
-      ~resizeMode=COVER,
-      ~isLooping=false,
-      ~shouldPlay=false,
-      ~volume=1.0,
-      ~onPlaybackStatusUpdate: playbackStatus => unit=_ => (),
-      ~onReadyForDisplay: onReadyForDisplayParam => unit=_ => (),
-      ~onFullscreenUpdate: onFullscreenUpdateParam => unit=_ => (),
-      ~onLoadStart: unit => unit=() => (),
-      ~onLoad: playbackStatus => unit=_ => (),
-      ~onError: string => unit=_ => (),
-      ~style=?,
-      ~children,
-    ) => {
-  "source": Source.encodeSource(source),
-  "posterSource": Source.encodeSource(posterSource),
-  "rate": Js.Nullable.fromOption(rate),
-  "isMuted": isMuted,
-  "useNativeControls": useNativeControls,
-  "usePoster": usePoster,
-  "onPlaybackStatusUpdate": onPlaybackStatusUpdate,
-  "volume": volume,
-  "onReadyForDisplay": onReadyForDisplay,
-  "onFullscreenUpdate": onFullscreenUpdate,
-  "onLoadStart": onLoadStart,
-  "onLoad": onLoad,
-  "onError": onError,
-  "resizeMode":
-    switch (resizeMode) {
-    | COVER => resize_mode_cover
-    | CONTAIN => resize_mode_contain
-    | STRETCH => resize_mode_stretch
-    },
-  "isLooping": isLooping,
-  "shouldPlay": shouldPlay,
-  "style": style,
-  "children": children,
-};
-
-[@bs.module "expo-av"] [@react.component]
-external make: 'a => React.element = "Video";
+/**
+ * Usage
+ * <Expo.Video
+ *   style=videoStyle
+ *   source=Expo.Video.Source.make(~uri=item##hosted_video_url, ())
+ *   posterSource=Expo.Video.PosterSource.fromRequired(Packager.required("./some/thing.jpg"))
+ *   resizeMode=`cover
+ *   shouldPlay=true
+ * />
+ */
+[@react.component] [@bs.module "expo-av"]
+external make:
+  (
+    ~source: Source.t=?,
+    ~posterSource: PosterSource.t=?,
+    ~rate: float=?,
+    ~isMuted: bool=?,
+    ~useNativeControls: bool=?,
+    ~usePoster: bool=?,
+    ~resizeMode: [@bs.string] [ | `stretch | `contain | `cover]=?,
+    ~isLooping: bool=?,
+    ~shouldPlay: bool=?,
+    ~volume: float=?,
+    ~onPlaybackStatusUpdate: playbackStatus => unit=?,
+    ~onReadyForDisplay: onReadyForDisplayParam => unit=?,
+    ~onFullscreenUpdate: onFullscreenUpdateParam => unit=?,
+    ~onLoadStart: unit => unit=?,
+    ~onLoad: playbackStatus => unit=?,
+    ~onError: string => unit=?,
+    ~style: ReactNative.Style.t=?
+  ) =>
+  React.element =
+  "Video";
