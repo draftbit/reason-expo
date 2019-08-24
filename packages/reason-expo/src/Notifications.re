@@ -69,16 +69,16 @@ external createCategoryAsync:
     string,
     array({
       .
-      actionId: string,
-      buttonTitle: string,
-      textInput:
+      "actionId": string,
+      "buttonTitle": string,
+      "textInput":
         Js.Undefined.t({
           .
-          submitButtonTitle: string,
-          placeholder: string,
+          "submitButtonTitle": string,
+          "placeholder": string,
         }),
-      isDestructive: bool,
-      isAuthenticationRequired: bool,
+      "isDestructive": bool,
+      "isAuthenticationRequired": bool,
     })
   ) =>
   Js.Promise.t(unit) =
