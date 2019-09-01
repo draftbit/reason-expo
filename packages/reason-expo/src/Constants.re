@@ -1,29 +1,64 @@
-[@bs.module "expo-constants"] external appOwnership: string = "appOwnership";
 
-[@bs.module "expo-constants"] external expoVersion: string = "expoVersion";
+type platforms = array(string);
 
-[@bs.module "expo-constants"]
-external installationId: string = "installationId";
+[@bs.deriving {abstract: light}]
+type ios = {supportsTablet: bool};
 
-[@bs.module "expo-constants"] external deviceId: string = "deviceId";
+[@bs.deriving {abstract: light}]
+type developer = {
+  projectRoot: string,
+  tool: string,
+};
+[@bs.deriving {abstract: light}]
+type packagerOpts = {
+  dev: bool,
+  hostType: string,
+  lanType: string,
+  minify: bool,
+  urlRandomness: string,
+};
 
-[@bs.module "expo-constants"] external linkingUrl: string = "linkingUrl";
+[@bs.deriving {abstract: light}]
+type splash = {
+  backgroundColor: string,
+  image: string,
+  imageUrl: string,
+  resizeMode: string // should problably change to variant once I find docs on options here
+};
 
-[@bs.module "expo-constants"] external deviceName: string = "deviceName";
+[@bs.deriving {abstract: light}]
+type updates = {fallbackToCacheTimeout: int};
 
-[@bs.module "expo-constants"]
-external deviceYearClass: int = "deviceYearClass";
+[@bs.deriving {abstract: light}]
+type manifest = {
+  assetBundlePatterns: array(string),
+  bundleUrl: string,
+  debuggerHost: string,
+  developer: developer,
+  env: Js.t({.}),
+  hostUri: string,
+  icon: string,
+  iconUrl: string,
+  id: string,
+  ios: ios,
+  isVerified: bool,
+  loadedFromCache: bool,
+  logUrl: string,
+  mainModuleName: string,
+  name: string,
+  orientation: string,
+  packagerOpts: packagerOpts,
+  platforms: platforms,
+  privacy: string,
+  sdkVersion: string,
+  slug: string,
+  splash: splash,
+  updates: updates,
+  version: string,
+  xde: bool,
+};
 
-[@bs.module "expo-constants"]
-external getWebViewUserAgentAsync: unit => Js.Promise.t(string) =
-  "getWebViewUserAgentAsync";
-
-[@bs.module "expo-constants"] external isDevice: bool = "isDevice";
-
-[@bs.deriving abstract]
-type platformAndroid = {versionCode: int};
-
-[@bs.deriving abstract]
+[@bs.deriving {abstract: light}]
 type platformIOS = {
   buildNumber: string,
   platform: string,
@@ -32,20 +67,56 @@ type platformIOS = {
   systemVersion: string,
 };
 
-[@bs.deriving abstract]
+[@bs.deriving {abstract: light}]
+type platformAndroid = {versionCode: int};
+
+[@bs.deriving {abstract: light}]
 type platform = {
-  ios: platformIOS,
-  android: platformAndroid,
+   ios: platformIOS,
+   android: platformAndroid,
+ };
+[@bs.deriving {abstract: light}]
+type t = {
+  // "addListener": [Function anonymous],
+  appOwnership: string,
+  debugMode: bool,
+  deviceId: string,
+  deviceName: string,
+  deviceYearClass: int,
+  experienceUrl: string,
+  expoRuntimeVersion: string,
+  expoVersion: string,
+  getWebViewUserAgentAsync: unit => Js.Promise.t(string),
+  installationId: string,
+  isDetached: bool,
+  isDevice: bool,
+  isHeadless: bool,
+  linkingUri: string,
+  linkingUrl: string,
+  manifest: manifest,
+  nativeAppVersion: string,
+  nativeBuildVersion: string,
+  platform: platform,
+  // removeListeners: [Function anonymous],
+  sessionId: string,
+  statusBarHeight: int,
+  supportedExpoSdks: array(string),
+  systemFonts: array(string),
 };
 
-[@bs.module "expo-constants"] external platform: platform = "platform";
-
-[@bs.module "expo-constants"] external sessionId: string = "sessionId";
-
-[@bs.module "expo-constants"]
-external statusBarHeight: int = "statusBarHeight";
-
-[@bs.module "expo-constants"]
-external systemFonts: array(string) = "systemFonts";
-
-[@bs.module "expo-constants"] external manifest: Js.t({..}) = "manifest";
+[@bs.module "expo-constants"] external constants: t = "default";
+// let constants = constants;
+let deviceId = constants->deviceId;
+let deviceName = constants->deviceName;
+let deviceYearClass = constants->deviceYearClass;
+let linkingUrl = constants->linkingUrl;
+let statusBarHeight = constants->statusBarHeight;
+let appOwnership = constants->appOwnership;
+let expoVersion = constants->expoVersion;
+let installationId = constants->installationId;
+let isDevice = constants->isDevice;
+let getWebViewUserAgentAsync = constants->getWebViewUserAgentAsync;
+let systemFonts = constants->systemFonts;
+let platform = constants->platform;
+let sessionId = constants->sessionId;
+let manifest = constants->manifest;
