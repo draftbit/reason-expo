@@ -1,4 +1,3 @@
-
 type platforms = array(string);
 
 [@bs.deriving {abstract: light}]
@@ -9,6 +8,7 @@ type developer = {
   projectRoot: string,
   tool: string,
 };
+
 [@bs.deriving {abstract: light}]
 type packagerOpts = {
   dev: bool,
@@ -23,7 +23,7 @@ type splash = {
   backgroundColor: string,
   image: string,
   imageUrl: string,
-  resizeMode: string // should problably change to variant once I find docs on options here
+  resizeMode: string,
 };
 
 [@bs.deriving {abstract: light}]
@@ -34,26 +34,26 @@ type manifest = {
   assetBundlePatterns: array(string),
   bundleUrl: string,
   debuggerHost: string,
-  developer: developer,
+  developer,
   env: Js.t({.}),
   hostUri: string,
   icon: string,
   iconUrl: string,
   id: string,
-  ios: ios,
+  ios,
   isVerified: bool,
   loadedFromCache: bool,
   logUrl: string,
   mainModuleName: string,
   name: string,
   orientation: string,
-  packagerOpts: packagerOpts,
-  platforms: platforms,
+  packagerOpts,
+  platforms,
   privacy: string,
   sdkVersion: string,
   slug: string,
-  splash: splash,
-  updates: updates,
+  splash,
+  updates,
   version: string,
   xde: bool,
 };
@@ -72,9 +72,10 @@ type platformAndroid = {versionCode: int};
 
 [@bs.deriving {abstract: light}]
 type platform = {
-   ios: platformIOS,
-   android: platformAndroid,
- };
+  ios: platformIOS,
+  android: platformAndroid,
+};
+
 [@bs.deriving {abstract: light}]
 type t = {
   // "addListener": [Function anonymous],
@@ -93,10 +94,10 @@ type t = {
   isHeadless: bool,
   linkingUri: string,
   linkingUrl: string,
-  manifest: manifest,
+  manifest,
   nativeAppVersion: string,
   nativeBuildVersion: string,
-  platform: platform,
+  platform,
   // removeListeners: [Function anonymous],
   sessionId: string,
   statusBarHeight: int,
@@ -105,7 +106,7 @@ type t = {
 };
 
 [@bs.module "expo-constants"] external constants: t = "default";
-// let constants = constants;
+
 let deviceId = constants->deviceId;
 let deviceName = constants->deviceName;
 let deviceYearClass = constants->deviceYearClass;
