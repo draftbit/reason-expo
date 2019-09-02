@@ -78,7 +78,6 @@ type platform = {
 
 [@bs.deriving {abstract: light}]
 type t = {
-  // "addListener": [Function anonymous],
   appOwnership: string,
   debugMode: bool,
   deviceId: string,
@@ -98,7 +97,6 @@ type t = {
   nativeAppVersion: string,
   nativeBuildVersion: string,
   platform,
-  // removeListeners: [Function anonymous],
   sessionId: string,
   statusBarHeight: int,
   supportedExpoSdks: array(string),
