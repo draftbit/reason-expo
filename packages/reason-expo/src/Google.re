@@ -1,20 +1,41 @@
 [@bs.deriving abstract]
-type logInAsyncOptions = {
-  behavior: string,
-  scopes: array(string),
-  androidClientId: string,
+type logInConfig = {
+  [@bs.optional]
   iosClientId: string,
-  androidStandaloneAppClientId: string,
+  [@bs.optional]
+  androidClientId: string,
+  [@bs.optional]
   iosStandaloneAppClientId: string,
-  webClientId: string,
+  [@bs.optional]
+  androidStandaloneAppClientId: string,
+  [@bs.optional]
+  scopes: array(string),
+  [@bs.optional]
+  redirectUrl: string,
+  [@bs.optional]
+  mutable accessToken: string,
 };
 
-type profileInformation('profileInformationType) = 'profileInformationType;
-
-[@bs.deriving abstract]
-type logInAsyncResult('logInAsyncResultType) = 'logInAsyncResultType;
+type logInResult = {
+  .
+  "_type": string,
+  "accessToken": string,
+  "idToken": string,
+  "refreshToken": string,
+  "user": googleUser,
+}
+and googleUser = {
+  .
+  "id": string,
+  "name": string,
+  "givenName": string,
+  "familyName": string,
+  "photoUrl": string,
+  "email": string,
+};
 
 [@bs.module "expo-google-app-auth"]
-external logInAsync:
-  logInAsyncOptions => Js.Promise.t(logInAsyncResult('logInAsyncResultType)) =
-  "";
+external logInAsync: logInConfig => Js.Promise.t(logInResult) = "";
+
+[@bs.module "expo-google-app-auth"]
+external logOutAsync: logInConfig => Js.Promise.t('a) = "";
