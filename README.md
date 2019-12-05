@@ -3,7 +3,7 @@
 </p>
 
 <h3 align="center" style="font-weight:600">
-  reason-expo [DEPRECATED]
+  reason-expo
 </h3>
 
 <p align="center">
@@ -17,12 +17,6 @@
 [![NPM version badge](https://img.shields.io/npm/v/reason-expo.svg)](https://www.npmjs.com/package/reason-expo)
 
 </div>
-
-# Deprecation Warning
-
-**TL;DR: This library is no longer maintained.**
-
-This repo will stay up to serve as an example for how to bind to certain Expo APIs (until BuckleScript changes so much that the code becomes invalid). Sorry for any inconveniences, but thanks for checking this out!
 
 ## Versioning
 
