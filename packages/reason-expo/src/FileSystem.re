@@ -14,27 +14,20 @@ module EncodingTypes = {
   external base64: t = "Base64";
 };
 
-[@bs.deriving abstract]
+
 type fileInfo = {
   exists: bool,
-  [@bs.optional]
-  isDirectory: bool,
-  [@bs.optional]
-  modificationTime: int,
-  [@bs.optional]
-  size: int,
-  [@bs.optional]
-  uri: string,
-  [@bs.optional]
-  md5: string,
+  isDirectory: option(bool),
+  modificationTime: option(int),
+  size: option(int),
+  uri: option(string),
+  md5: option(string),
 };
 
-[@bs.deriving abstract]
+
 type getInfoAsyncOptions = {
-  [@bs.optional]
-  md5: bool,
-  [@bs.optional]
-  size: bool,
+  md5: option(bool),
+  size: option(bool),
 };
 
 [@bs.module "expo-file-system"]
@@ -53,17 +46,17 @@ external readAsStringAsync:
   (string, readAsStringAsyncOptions) => Js.Promise.t(string) =
   "readAsStringAsync";
 
-[@bs.deriving abstract]
+
 type writeAsStringAsyncOptions = {encoding: EncodingTypes.t};
 
 [@bs.module "expo-file-system"]
 external writeAsStringAsync: (string, string) => Js.Promise.t(unit) =
   "writeAsStringAsync";
 
-[@bs.deriving abstract]
+
 type deleteAsyncOptions = {
-  [@bs.optional]
-  idempotent: bool,
+
+  idempotent: option(bool),
 };
 
 [@bs.module "expo-file-system"]
@@ -124,13 +117,11 @@ external downloadAsync:
 module DownloadResumable = {
   type t = {.};
 
-  [@bs.deriving abstract]
   type downloadAsyncResult('headersType) = {
     uri: string,
     status: int,
     headers: 'headersType,
-    [@bs.optional]
-    md5: string,
+    md5: option(string),
   };
 
   [@bs.send]
@@ -138,7 +129,6 @@ module DownloadResumable = {
     (t, unit) => Js.Promise.t(downloadAsyncResult('headersType)) =
     "downloadAsync";
 
-  [@bs.deriving abstract]
   type pauseAsyncResult = {
     uri: string,
     fileUri: string,
@@ -150,13 +140,11 @@ module DownloadResumable = {
   external pauseAsync: (t, unit) => Js.Promise.t(pauseAsyncResult) =
     "pauseAsync";
 
-  [@bs.deriving abstract]
   type resumeAsyncResult('headersType) = {
     uri: string,
     status: int,
     headers: 'headersType,
-    [@bs.optional]
-    md5: string,
+    md5: option(string),
   };
 
   [@bs.send]
@@ -164,7 +152,6 @@ module DownloadResumable = {
     (t, unit) => Js.Promise.t(resumeAsyncResult('headersType)) =
     "resumeAsync";
 
-  [@bs.deriving abstract]
   type savableResult = {
     uri: string,
     fileUri: string,

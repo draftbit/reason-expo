@@ -7,7 +7,6 @@ module MediaTypeOptions = {
   external all: string = "all";
 };
 
-[@bs.deriving abstract]
 type launchImageLibraryAsyncOptions = {
   mediaTypes: string,
   allowsEditing: bool,
@@ -17,23 +16,16 @@ type launchImageLibraryAsyncOptions = {
   exif: bool,
 };
 
-[@bs.deriving abstract]
 type launchImageLibraryAsyncResult = {
   cancelled: bool,
-  [@bs.optional]
-  uri: string,
-  [@bs.optional]
-  width: float,
-  [@bs.optional]
-  height: float,
-  [@bs.optional] [@bs.as "type"]
-  _type: string,
-  [@bs.optional]
-  duration: float,
-  [@bs.optional]
-  base64: string,
-  [@bs.optional]
-  exif: string,
+  uri: option(string),
+  width: option(float),
+  height: option(float),
+  [@bs.as "type"]
+  _type: option(string),
+  duration: option(float),
+  base64: option(string),
+  exif: option(string),
 };
 
 [@bs.module "expo-image-picker"]
@@ -41,7 +33,6 @@ external launchImageLibraryAsync:
   launchImageLibraryAsyncOptions => launchImageLibraryAsyncResult =
   "launchImageLibraryAsync";
 
-[@bs.deriving abstract]
 type launchCameraAsyncOptions = {
   allowsEditing: bool,
   aspect: array(int),
@@ -50,21 +41,14 @@ type launchCameraAsyncOptions = {
   exif: bool,
 };
 
-[@bs.deriving abstract]
 type launchCameraAsyncResult = {
   cancelled: bool,
-  [@bs.optional]
-  uri: string,
-  [@bs.optional]
-  width: float,
-  [@bs.optional]
-  height: float,
-  [@bs.optional]
-  duration: float,
-  [@bs.optional]
-  base64: string,
-  [@bs.optional]
-  exif: string,
+  uri: option(string),
+  width: option(float),
+  height: option(float),
+  duration: option(float),
+  base64: option(string),
+  exif: option(string),
 };
 
 [@bs.module "expo-image-picker"]

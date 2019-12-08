@@ -234,14 +234,14 @@ module SourceType = {
   external birthdays: t = "BIRTHDAYS";
 };
 
-// [@bs.deriving abstract]
+
 type alarm = {
   absoluteDate: Js.Date.t,
   relativeOffset: int,
   method: AlarmMethod.t,
 };
 
-// [@bs.deriving abstract]
+
 type recurrenceRule = {
   frequency: Frequency.t,
   interval: int,
@@ -249,7 +249,7 @@ type recurrenceRule = {
   occurrence: int,
 };
 
-// [@bs.deriving abstract]
+
 type attendee = {
   id: string,
   email: string,
@@ -271,7 +271,7 @@ type attendee = {
       _type: string,
     } */
 
-// [@bs.deriving abstract]
+
 type source = {
   id: string,
   name: string,
@@ -280,7 +280,7 @@ type source = {
   isLocalAccount: bool,
 };
 
-// [@bs.deriving abstract]
+
 type calendar = {
   id: string,
   title: string,
@@ -302,7 +302,7 @@ type calendar = {
   accessLevel: CalendarAccessLevel.t,
 };
 
-// [@bs.deriving abstract]
+
 type event = {
   id: string,
   calendarId: string,
@@ -333,7 +333,7 @@ type event = {
   instanceId: string,
 };
 
-// [@bs.deriving abstract]
+
 type reminder = {
   id: string,
   calendarId: string,
@@ -356,7 +356,7 @@ type reminder = {
 external getCalendarsAsync: EntityType.t => Js.Promise.t(array(calendar)) =
   "getCalendarsAsync";
 
-// [@bs.deriving abstract]
+
 type createCalendarAsyncDetails = {
   title: string,
   color: string,
@@ -370,19 +370,19 @@ type createCalendarAsyncDetails = {
   },
   name: string,
   ownerAccount: string,
-  // [@bs.optional]
+
   timeZone: option(string),
-  // [@bs.optional]
+
   allowedAvailabilities: option(array(Availability.t)),
-  // [@bs.optional]
+
   allowedReminders: option(array(AlarmMethod.t)),
-  // [@bs.optional]
+
   allowedAttendeeTypes: option(array(AttendeeType.t)),
-  // [@bs.optional]
+
   isVisible: option(bool),
-  // [@bs.optional]
+
   isSynced: option(bool),
-  // [@bs.optional]
+
   accessLevel: string,
 };
 
@@ -391,7 +391,7 @@ external createCalendarAsync:
   createCalendarAsyncDetails => Js.Promise.t(string) =
   "createCalendarAsync";
 
-// [@bs.deriving abstract]
+
 type updateCalendarAsyncDetails = {
   title: Js.Nullable.t(string),
   color: Js.Nullable.t(string),
@@ -415,7 +415,7 @@ external getEventAsync:
   (string, {. instanceStartDate: Js.Date.t}) => Js.Promise.t(event) =
   "getEventAsync";
 
-// [@bs.deriving abstract]
+
 type createEventAsyncDetails = {
   title: string,
   startDate: Js.Date.t,
@@ -441,7 +441,7 @@ external createEventAsync:
   (string, createEventAsyncDetails) => Js.Promise.t(string) =
   "createEventAsync";
 
-// [@bs.deriving abstract]
+
 type updateEventAsyncDetails = {
   title: string,
   startDate: Js.Date.t,

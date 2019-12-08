@@ -167,7 +167,7 @@ module CalendarFormats = {
   external islamic: t = "Islamic";
 };
 
-// [@bs.deriving abstract]
+
 type image = {
   uri: string,
   width: int,
@@ -175,7 +175,7 @@ type image = {
   base64: string,
 };
 
-// [@bs.deriving abstract]
+
 type date = {
   day: int,
   month: int,
@@ -185,14 +185,14 @@ type date = {
   label: string,
 };
 
-// [@bs.deriving abstract]
+
 type relationship = {
   name: string,
   id: string,
   label: string,
 };
 
-// [@bs.deriving abstract]
+
 type email = {
   email: string,
   isPrimary: bool,
@@ -200,7 +200,7 @@ type email = {
   label: string,
 };
 
-// [@bs.deriving abstract]
+
 type phoneNumber = {
   number: string,
   isPrimary: bool,
@@ -210,7 +210,7 @@ type phoneNumber = {
   label: string,
 };
 
-// [@bs.deriving abstract]
+
 type address = {
   street: string,
   city: string,
@@ -224,19 +224,19 @@ type address = {
   label: string,
 };
 
-// [@bs.deriving abstract]
+
 type group = {
   id: string,
   name: string,
 };
 
-// [@bs.deriving abstract]
+
 type container = {
   id: string,
   name: string,
 };
 
-// [@bs.deriving abstract]
+
 type socialProfile = {
   service: string,
   username: string,
@@ -247,7 +247,7 @@ type socialProfile = {
   label: string,
 };
 
-// [@bs.deriving abstract]
+
 type instantMessageAddress = {
   service: string,
   username: string,
@@ -256,14 +256,14 @@ type instantMessageAddress = {
   label: string,
 };
 
-// [@bs.deriving abstract]
+
 type urlAddress = {
   url: string,
   id: string,
   label: string,
 };
 
-// [@bs.deriving abstract]
+
 type formOptions = {
   displayedPropertyKeys: array(Fields.t),
   message: string,
@@ -277,7 +277,7 @@ type formOptions = {
   preventAnimation: bool,
 };
 
-// [@bs.deriving abstract]
+
 type contactQuery = {
   fields: array(Fields.t),
   pageSize: int,
@@ -290,21 +290,21 @@ type contactQuery = {
   rawContacts: bool,
 };
 
-// [@bs.deriving abstract]
+
 type groupQuery = {
   groupName: string,
   groupId: string,
   containerId: string,
 };
 
-// [@bs.deriving abstract]
+
 type containerQuery = {
   contactId: string,
   groupId: string,
   containerId: string,
 };
 
-// [@bs.deriving abstract]
+
 type contact = {
   id: string,
   name: string,
@@ -338,7 +338,7 @@ type contact = {
   socialProfiles: array(socialProfile),
 };
 
-// [@bs.deriving abstract]
+
 type contactResponse = {
   data: array(contact),
   hasNextPage: bool,

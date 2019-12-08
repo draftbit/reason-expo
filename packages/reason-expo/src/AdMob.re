@@ -9,21 +9,21 @@ type bannerSize =
 
 module AdMobBanner = {
   type props = {
-    // [@bs.optional]
+
     bannerSize: option(string),
-    // [@bs.optional]
+
     onAdViewDidReceiveAd: option(unit => unit),
-    // [@bs.optional]
+
     onDidFailToReceiveAdWithError: option(string => unit),
-    // [@bs.optional]
+
     onAdViewWillPresentScreen: option(unit => unit),
-    // [@bs.optional]
+
     onAdViewWillDismissScreen: option(unit => unit),
-    // [@bs.optional]
+
     onAdViewDidDismissScreen: option(unit => unit),
-    // [@bs.optional]
+
     onAdViewWillLeaveApplication: option(unit => unit),
-    // [@bs.optional]
+
     children: option(React.element),
   };
 

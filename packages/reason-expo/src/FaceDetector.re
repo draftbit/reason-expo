@@ -32,13 +32,11 @@ module Constants = {
   };
 };
 
-// [@bs.deriving abstract]
 type point = {
   x: int,
   y: int,
 };
 
-// [@bs.deriving abstract]
 type faceFeature = {
   bounds,
   smilingProbability: Js.Nullable.t(float),
@@ -67,7 +65,6 @@ and size = {
   height: int,
 };
 
-// [@bs.deriving abstract]
 type detectionOptions = {
   mode: Js.Nullable.t(Constants.Mode.t),
   detectLandmarks: Js.Nullable.t(Constants.Landmarks.t),

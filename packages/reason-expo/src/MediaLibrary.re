@@ -41,7 +41,7 @@ module SortBy = {
   external duration: t = "duration";
 };
 
-// [@bs.deriving abstract]
+
 type asset('exif) = {
   id: string,
   filename: string,
@@ -65,7 +65,7 @@ and location = {
   longitude: float,
 };
 
-// [@bs.deriving abstract]
+
 type album = {
   id: string,
   title: string,

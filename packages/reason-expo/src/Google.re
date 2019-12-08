@@ -1,18 +1,18 @@
-// [@bs.deriving abstract]
+
 type logInConfig = {
-  // [@bs.optional]
+
   iosClientId: option(string),
-  // [@bs.optional]
+
   androidClientId: option(string),
-  // [@bs.optional]
+
   iosStandaloneAppClientId: option(string),
-  // [@bs.optional]
+
   androidStandaloneAppClientId: option(string),
-  // [@bs.optional]
+
   scopes: option(array(string)),
-  // [@bs.optional]
+
   redirectUrl: option(string),
-  // [@bs.optional]
+
   mutable accessToken: option(string),
 };
 
