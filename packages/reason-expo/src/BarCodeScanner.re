@@ -6,29 +6,24 @@ type torchMode =
   | On
   | Off;
 
-// [@bs.deriving abstract]
 type onBarCodeScannedResult = {
   [@bs.as "type"]
   _type: string,
   data: string,
 };
 
-// [@bs.deriving abstract]
 type barCodeScannerSettings = {
   barCodeTypes: array(string),
   useCamera2Api: bool,
 };
 
-// [@bs.deriving abstract]
 type props = {
   onBarCodeScanned: onBarCodeScannedResult => unit,
   [@bs.as "type"]
   _type: string,
   torchMode: string,
-  // [@bs.optional]
   barCodeScannerSettings: Js.Nullable.t(barCodeScannerSettings),
   style: ReactNative.Style.t,
-  // [@bs.optional]
   children: React.element,
 };
 

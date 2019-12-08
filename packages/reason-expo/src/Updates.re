@@ -10,16 +10,14 @@ type updateFetchResult('manifestType) = {
   manifest: 'manifestType,
 };
 
-[@bs.deriving abstract]
+
 type event('manifestType) = {
   [@bs.as "type"]
   _type: string,
   manifest: 'manifestType,
-  [@bs.optional]
-  message: string,
+  message: option(string),
 };
 
-[@bs.deriving abstract]
 type eventSubscription;
 
 [@bs.send] external remove: (eventSubscription, unit) => unit = "remove";

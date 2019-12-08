@@ -428,13 +428,13 @@ and arFaceTrackingConfiguration = {
 
 
 type arFrameRequest = {
-  // [@bs.optional]
+
   anchors: option(arFrameAnchorRequest),
-  // [@bs.optional]
+
   rawFeaturePoints: option(bool),
-  // [@bs.optional]
+
   lightEstimation: option(bool),
-  // [@bs.optional]
+
   capturedDepthData: option(bool),
 };
 

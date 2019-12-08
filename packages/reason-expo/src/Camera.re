@@ -189,7 +189,6 @@ type faceDetectionClassifications =
   | All
   | None;
 
-// [@bs.deriving abstract]
 type barCodeScannerSettings = {
   barCodeTypes: array(string),
   useCamera2Api: bool,

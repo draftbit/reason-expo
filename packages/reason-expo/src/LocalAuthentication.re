@@ -19,18 +19,14 @@ external supportedAuthenticationTypesAsync:
 [@bs.module "expo-local-authentication"]
 external isEnrolledAsync: unit => Js.Promise.t(bool) = "isEnrolledAsync";
 
-[@bs.deriving abstract]
 type authenticateAsyncResult = {
   success: bool,
-  [@bs.optional]
-  error: string,
+  error: option(string),
 };
-[@bs.deriving abstract]
+
 type authenticateAsyncOptions = {
-  [@bs.optional]
-  promptMessage: string,
-  [@bs.optional]
-  fallbackLabel: string,
+  promptMessage: option(string),
+  fallbackLabel: option(string),
 };
 
 [@bs.module "expo-local-authentication"]
