@@ -11,7 +11,7 @@
     "watch": "bsb -make-world -clean-world -w"
   },
   "dependencies": {
-    "bs-platform": "^5.0.4",
+    "bs-platform": "^7.0.1",
     "reason-react-native": "^0.60.0",
     "expo": "^34.0.3",
     "expo-linear-gradient": "^5.0.1",
