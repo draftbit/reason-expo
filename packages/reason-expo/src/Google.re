@@ -1,41 +1,57 @@
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type logInConfig = {
-  [@bs.optional]
-  iosClientId: string,
-  [@bs.optional]
-  androidClientId: string,
-  [@bs.optional]
-  iosStandaloneAppClientId: string,
-  [@bs.optional]
-  androidStandaloneAppClientId: string,
-  [@bs.optional]
-  scopes: array(string),
-  [@bs.optional]
-  redirectUrl: string,
-  [@bs.optional]
-  mutable accessToken: string,
+  // [@bs.optional]
+  iosClientId: option(string),
+  // [@bs.optional]
+  androidClientId: option(string),
+  // [@bs.optional]
+  iosStandaloneAppClientId: option(string),
+  // [@bs.optional]
+  androidStandaloneAppClientId: option(string),
+  // [@bs.optional]
+  scopes: option(array(string)),
+  // [@bs.optional]
+  redirectUrl: option(string),
+  // [@bs.optional]
+  mutable accessToken: option(string),
 };
 
 type logInResult = {
-  .
-  "_type": string,
-  "accessToken": string,
-  "idToken": string,
-  "refreshToken": string,
-  "user": googleUser,
+  [@bs.as "type"]
+  _type: string,
+  accessToken: string,
+  idToken: string,
+  refreshToken: string,
+  user: googleUser,
 }
 and googleUser = {
-  .
-  "id": string,
-  "name": string,
-  "givenName": string,
-  "familyName": string,
-  "photoUrl": string,
-  "email": string,
+  id: string,
+  name: string,
+  givenName: string,
+  familyName: string,
+  photoUrl: string,
+  email: string,
 };
+// type logInResult = {
+//   .
+//   "_type": string,
+//   "accessToken": string,
+//   "idToken": string,
+//   "refreshToken": string,
+//   "user": googleUser,
+// }
+// and googleUser = {
+//   .
+//   "id": string,
+//   "name": string,
+//   "givenName": string,
+//   "familyName": string,
+//   "photoUrl": string,
+//   "email": string,
+// };
 
 [@bs.module "expo-google-app-auth"]
-external logInAsync: logInConfig => Js.Promise.t(logInResult) = "";
+external logInAsync: logInConfig => Js.Promise.t(logInResult) = "logInAsync";
 
 [@bs.module "expo-google-app-auth"]
-external logOutAsync: logInConfig => Js.Promise.t('a) = "";
+external logOutAsync: logInConfig => Js.Promise.t('a) = "logOutAsync";
