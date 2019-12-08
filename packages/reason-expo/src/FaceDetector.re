@@ -3,20 +3,20 @@ module Constants = {
     type t;
 
     [@bs.module "expo-face-detector"] [@bs.scope ("Constants", "Mode")]
-    external fast: t = "";
+    external fast: t = "fast";
 
     [@bs.module "expo-face-detector"] [@bs.scope ("Constants", "Mode")]
-    external accurate: t = "";
+    external accurate: t = "accurate";
   };
 
   module Landmarks = {
     type t;
 
     [@bs.module "expo-face-detector"] [@bs.scope ("Constants", "Landmarks")]
-    external all: t = "";
+    external all: t = "all";
 
     [@bs.module "expo-face-detector"] [@bs.scope ("Constants", "Landmarks")]
-    external none: t = "";
+    external none: t = "none";
   };
 
   module Classifications = {
@@ -24,31 +24,23 @@ module Constants = {
 
     [@bs.module "expo-face-detector"]
     [@bs.scope ("Constants", "Classifications")]
-    external all: t = "";
+    external all: t = "all";
 
     [@bs.module "expo-face-detector"]
     [@bs.scope ("Constants", "Classifications")]
-    external none: t = "";
+    external none: t = "none";
   };
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type point = {
   x: int,
   y: int,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type faceFeature = {
-  bounds: {
-    .
-    size: {
-      .
-      width: int,
-      height: int,
-    },
-    origin: point,
-  },
+  bounds,
   smilingProbability: Js.Nullable.t(float),
   leftEarPosition: Js.Nullable.t(point),
   rightEarPosition: Js.Nullable.t(point),
@@ -65,27 +57,33 @@ type faceFeature = {
   noseBasePosition: Js.Nullable.t(point),
   yawAngle: Js.Nullable.t(float),
   rollAngle: Js.Nullable.t(float),
+}
+and bounds = {
+  size,
+  origin: point,
+}
+and size = {
+  width: int,
+  height: int,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type detectionOptions = {
   mode: Js.Nullable.t(Constants.Mode.t),
   detectLandmarks: Js.Nullable.t(Constants.Landmarks.t),
   runClassifications: Js.Nullable.t(Constants.Classifications.t),
 };
-
+type detectFacesAsyncResponse = {
+  faces: array(faceFeature),
+  image,
+}
+and image = {
+  uri: string,
+  width: float,
+  height: float,
+  orientation: int,
+};
 [@bs.module "expo-face-detector"]
 external detectFacesAsync:
-  (string, detectionOptions) =>
-  Js.Promise.t({
-    .
-    "faces": array(faceFeature),
-    "image": {
-      .
-      "uri": string,
-      "width": float,
-      "height": float,
-      "orientation": int,
-    },
-  }) =
-  "";
+  (string, detectionOptions) => Js.Promise.t(detectFacesAsyncResponse) =
+  "detectFacesAsync";

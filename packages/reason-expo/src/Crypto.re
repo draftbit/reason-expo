@@ -38,4 +38,4 @@ type cryptoDigestOptions = {encoding: CryptoEncoding.t};
 external digestStringAsync:
   (CryptoDigestAlgorithm.t, string, cryptoDigestOptions) =>
   Js.Promise.t(string) =
-  "";
+  "digestStringAsync";

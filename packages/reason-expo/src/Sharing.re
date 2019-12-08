@@ -1,4 +1,3 @@
-[@bs.deriving abstract]
 type shareAsyncOptions = {
   mimeType: string,
   dialogTitle: string,
@@ -7,4 +6,4 @@ type shareAsyncOptions = {
 };
 
 [@bs.module "expo-sharing"]
-external shareAsync: (string, shareAsyncOptions) => Js.Promise.t(unit) = "";
+external shareAsync: (string, shareAsyncOptions) => Js.Promise.t(unit) = "shareAsync";

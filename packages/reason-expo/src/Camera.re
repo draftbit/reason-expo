@@ -106,76 +106,75 @@ type whiteBalanceType =
   | Incandescent;
 
 type face = {
-  .
   faceID: int,
-  bounds: {
-    .
-    origin: {
-      .
-      x: float,
-      y: float,
-    },
-    size: {
-      .
-      width: float,
-      height: float,
-    },
-    rollAngle: float,
-    yawAngle: float,
-    smilingProbability: Js.nullable(float),
-    leftEarPosition: {
-      .
-      x: float,
-      y: float,
-    },
-    rightEarPosition: {
-      .
-      x: float,
-      y: float,
-    },
-    leftEyePosition: {
-      .
-      x: float,
-      y: float,
-    },
-    leftEyeOpenProbability: Js.nullable(float),
-    rightEyePosition: {
-      .
-      x: float,
-      y: float,
-    },
-    rightEyeOpenProbability: Js.nullable(float),
-    leftCheekPosition: {
-      .
-      x: float,
-      y: float,
-    },
-    rightCheekPosition: {
-      .
-      x: float,
-      y: float,
-    },
-    mouthPosition: {
-      .
-      x: float,
-      y: float,
-    },
-    leftMouthPosition: {
-      .
-      x: float,
-      y: float,
-    },
-    rightMouthPosition: {
-      .
-      x: float,
-      y: float,
-    },
-    noseBasePosition: {
-      .
-      x: float,
-      y: float,
-    },
-  },
+  bounds,
+}
+and bounds = {
+  origin,
+  size,
+  rollAngle: float,
+  yawAngle: float,
+  smilingProbability: Js.nullable(float),
+  leftEarPosition,
+  rightEarPosition,
+  leftEyePosition,
+  leftEyeOpenProbability: Js.nullable(float),
+  rightEyePosition,
+  rightEyeOpenProbability: Js.nullable(float),
+  leftCheekPosition,
+  rightCheekPosition,
+  mouthPosition,
+  leftMouthPosition,
+  rightMouthPosition,
+  noseBasePosition,
+}
+and origin = {
+  x: float,
+  y: float,
+}
+and size = {
+  width: float,
+  height: float,
+}
+and leftEarPosition = {
+  x: float,
+  y: float,
+}
+and rightEarPosition = {
+  x: float,
+  y: float,
+}
+and leftEyePosition = {
+  x: float,
+  y: float,
+}
+and rightEyePosition = {
+  x: float,
+  y: float,
+}
+and leftCheekPosition = {
+  x: float,
+  y: float,
+}
+and rightCheekPosition = {
+  x: float,
+  y: float,
+}
+and mouthPosition = {
+  x: float,
+  y: float,
+}
+and leftMouthPosition = {
+  x: float,
+  y: float,
+}
+and rightMouthPosition = {
+  x: float,
+  y: float,
+}
+and noseBasePosition = {
+  x: float,
+  y: float,
 };
 
 type faceDetectionMode =
@@ -190,13 +189,19 @@ type faceDetectionClassifications =
   | All
   | None;
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type barCodeScannerSettings = {
   barCodeTypes: array(string),
   useCamera2Api: bool,
 };
-
-let makeProps =
+type onBarCodeScanned = {
+  [@bs.as "type"]
+  _type: string,
+  data: string,
+};
+type onFacesDetected = {faces: array(face)};
+type message = string;
+let props =
     (
       ~type_: cameraType,
       ~flashMode: flashMode,
@@ -206,18 +211,12 @@ let makeProps =
       ~focusDepth: float,
       ~ratio: string,
       ~onCameraReady: unit => unit,
-      ~onFacesDetected: {. "faces": array(face)} => unit,
+      ~onFacesDetected: onFacesDetected => unit,
       ~faceDetectionMode: faceDetectionMode,
       ~faceDetectionLandmarks: faceDetectionLandmarks,
       ~faceDetectionClassifications: faceDetectionClassifications,
-      ~onMountError: {. "message": string} => unit,
-      ~onBarCodeScanned:
-         {
-           .
-           "type": string,
-           "data": string,
-         } =>
-         unit,
+      ~onMountError: message => unit,
+      ~onBarCodeScanned: onBarCodeScanned => unit,
       ~barCodeScannerSettings=?,
       ~style=?,
       ~children,
@@ -276,4 +275,4 @@ let makeProps =
 };
 
 [@bs.module "expo-camera"] [@react.component]
-external make: 'a => React.element = "Camera";
+external make: props => React.element = "Camera" /* external make: 'a => React.element = "Camera"*/;

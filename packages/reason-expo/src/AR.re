@@ -345,26 +345,25 @@ module TrackingStateReason = {
   external relocalizing: t = "Relocalizing";
 };
 
-[@bs.deriving abstract]
+
 type size = {
   width: float,
   height: float,
 };
 
-[@bs.deriving abstract]
+
 type vector3 = {
   x: float,
   y: float,
   z: float,
 };
 
-[@bs.deriving abstract]
 type vector2 = {
   x: float,
   y: float,
 };
 
-[@bs.deriving abstract]
+
 type textureCoordinate = {
   u: float,
   v: float,
@@ -372,7 +371,6 @@ type textureCoordinate = {
 
 type matrix = array(float);
 
-[@bs.deriving abstract]
 type faceGeometry = {
   vertexCount: float,
   textureCoordinateCount: float,
@@ -382,33 +380,26 @@ type faceGeometry = {
   triangleIndices: array(float),
 };
 
-[@bs.deriving abstract]
 type anchor = {
   [@bs.as "type"]
   type_: AnchorType.t,
   transform: matrix,
   id: string,
-  [@bs.optional]
-  center: vector3,
-  [@bs.optional]
-  extent: {
-    .
-    width: float,
-    length: float,
-  },
-  [@bs.optional]
-  image: {
-    .
-    name: string,
-    size: size,
-  },
-  [@bs.optional]
-  geometry: faceGeometry,
-  [@bs.optional]
-  blendShapes: Js.Dict.t(float),
+  center: option(vector3),
+  extent: option(extent),
+  image: option(image),
+  geometry: option(faceGeometry),
+  blendShapes: option(Js.Dict.t(float)),
+}
+and image = {
+  name: string,
+  size,
+}
+and extent = {
+  width: float,
+  length: float,
 };
 
-[@bs.deriving abstract]
 type hitTest = {
   [@bs.as "type"]
   type_: float,
@@ -418,50 +409,42 @@ type hitTest = {
   anchor,
 };
 
-[@bs.deriving abstract]
 type hitTestResults = {hitTest};
 
-[@bs.deriving abstract]
 type detectionImage = {
   uri: string,
   width: float,
-  [@bs.optional]
-  name: string,
+  name: option(string),
 };
 
-[@bs.deriving abstract]
 type arFrameAnchorRequest = {
-  [@bs.as "ARFaceTrackingConfiguration"] [@bs.optional]
-  arFaceTrackingConfiguration: {
-    .
-    geometry: bool,
-    blendShapes: array(BlendShape.t),
-  },
+  [@bs.as "ARFaceTrackingConfiguration"]
+  arFaceTrackingConfiguration: option(arFaceTrackingConfiguration),
+}
+and arFaceTrackingConfiguration = {
+  geometry: bool,
+  blendShapes: array(BlendShape.t),
 };
 
-[@bs.deriving abstract]
+
 type arFrameRequest = {
-  [@bs.optional]
-  anchors: arFrameAnchorRequest,
-  [@bs.optional]
-  rawFeaturePoints: bool,
-  [@bs.optional]
-  lightEstimation: bool,
-  [@bs.optional]
-  capturedDepthData: bool,
+  // [@bs.optional]
+  anchors: option(arFrameAnchorRequest),
+  // [@bs.optional]
+  rawFeaturePoints: option(bool),
+  // [@bs.optional]
+  lightEstimation: option(bool),
+  // [@bs.optional]
+  capturedDepthData: option(bool),
 };
 
-[@bs.deriving abstract]
 type lightEstimation = {
   ambientIntensity: float,
   ambientColorTemperature: float,
-  [@bs.optional]
-  primaryLightDirection: vector3,
-  [@bs.optional]
-  primaryLightIntensity: float,
+  primaryLightDirection: option(vector3),
+  primaryLightIntensity: option(float),
 };
 
-[@bs.deriving abstract]
 type rawFeaturePoint = {
   x: float,
   y: float,
@@ -469,7 +452,6 @@ type rawFeaturePoint = {
   id: string,
 };
 
-[@bs.deriving abstract]
 type cameraCalibrationData(
   'lensDistortionLookupTable,
   'inverseLensDistortionLookupTable,
@@ -483,7 +465,6 @@ type cameraCalibrationData(
   lensDistortionCenter: vector3,
 };
 
-[@bs.deriving abstract]
 type capturedDepthData = {
   timestamp: float,
   depthDataQuality: DepthDataQuality.t,
@@ -492,36 +473,28 @@ type capturedDepthData = {
   cameraCalibrationData: cameraCalibrationData(string, string),
 };
 
-[@bs.deriving abstract]
+
 type arFrame = {
   timestamp: float,
-  [@bs.optional]
-  anchors: array(anchor),
-  [@bs.optional]
-  rawFeaturePoints: array(rawFeaturePoint),
-  [@bs.optional]
-  lightEstimation,
-  [@bs.optional]
-  capturedDepthData,
+  anchors: option(array(anchor)),
+  rawFeaturePoints: option(array(rawFeaturePoint)),
+  lightEstimation:option(lightEstimation),
+  capturedDepthData:option(capturedDepthData),
 };
 
-[@bs.deriving abstract]
 type arMatrices = {
   transform: matrix,
   viewMatrix: matrix,
   projectionMatrix: matrix,
 };
 
-[@bs.deriving abstract]
 type arStartResult = {capturedImageTexture: float};
 
-[@bs.deriving abstract]
 type imageResolution = {
   width: float,
   height: float,
 };
 
-[@bs.deriving abstract]
 type videoFormat = {
   [@bs.as "type"]
   type_: string,
@@ -529,18 +502,21 @@ type videoFormat = {
   framesPerSecond: float,
 };
 
-[@bs.module "expo"] [@bs.scope "AR"] external isAvailable: unit => bool = "";
-
-[@bs.module "expo"] [@bs.scope "AR"] external getVersion: unit => string = "";
+[@bs.module "expo"] [@bs.scope "AR"]
+external isAvailable: unit => bool = "isAvailable";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external removeAllListeners: EventType.t => unit = "";
+external getVersion: unit => string = "getVersion";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external onFrameDidUpdate: (unit => unit) => unit = "";
+external removeAllListeners: EventType.t => unit = "removeAllListeners";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external onDidFailWithError: ({. error: string} => unit) => unit = "";
+external onFrameDidUpdate: (unit => unit) => unit = "onFrameDidUpdate";
+
+[@bs.module "expo"] [@bs.scope "AR"]
+external onDidFailWithError: ({. error: string} => unit) => unit =
+  "onDidFailWithError";
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external onAnchorsDidUpdate:
@@ -553,7 +529,7 @@ external onAnchorsDidUpdate:
     unit
   ) =>
   unit =
-  "";
+  "onAnchorsDidUpdate";
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external onCameraDidChangeTrackingState:
@@ -566,13 +542,15 @@ external onCameraDidChangeTrackingState:
     unit
   ) =>
   unit =
-  "";
+  "onCameraDidChangeTrackingState";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external onSessionWasInterrupted: (unit => unit) => unit = "";
+external onSessionWasInterrupted: (unit => unit) => unit =
+  "onSessionWasInterrupted";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external onSessionInterruptionEnded: (unit => unit) => unit = "";
+external onSessionInterruptionEnded: (unit => unit) => unit =
+  "onSessionInterruptionEnded";
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external performHitTest:
@@ -585,83 +563,85 @@ external performHitTest:
     HitTestResultTypes.t
   ) =>
   hitTestResults =
-  "";
+  "performHitTest";
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external setDetectionImagesAsync:
   Js.Dict.t(detectionImage) => Js.Promise.t(unit) =
-  "";
+  "setDetectionImagesAsync";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external getCurrentFrame: arFrameRequest => Js.Nullable.t(arFrame) = "";
+external getCurrentFrame: arFrameRequest => Js.Nullable.t(arFrame) =
+  "getCurrentFrame";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external getARMatrices: (float, float) => array(arMatrices) = "";
+external getARMatrices: (float, float) => array(arMatrices) = "getARMatrices";
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external startAsync:
   (React.Ref.t(React.element), TrackingConfiguration.t) => Js.Promise.t(unit) =
-  "";
+  "startAsync";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external stopAsync: unit => Js.Promise.t(unit) = "";
+external stopAsync: unit => Js.Promise.t(unit) = "stopAsync";
 
-[@bs.module "expo"] [@bs.scope "AR"] external reset: unit => unit = "";
+[@bs.module "expo"] [@bs.scope "AR"] external reset: unit => unit = "reset";
 
-[@bs.module "expo"] [@bs.scope "AR"] external pause: unit => unit = "";
+[@bs.module "expo"] [@bs.scope "AR"] external pause: unit => unit = "pause";
 
-[@bs.module "expo"] [@bs.scope "AR"] external resume: unit => unit = "";
+[@bs.module "expo"] [@bs.scope "AR"] external resume: unit => unit = "resume";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external isConfigurationAvailable: TrackingConfiguration.t => bool = "";
+external isConfigurationAvailable: TrackingConfiguration.t => bool =
+  "isConfigurationAvailable";
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external setConfigurationAsync: TrackingConfiguration.t => Js.Promise.t(unit) =
-  "";
+  "setConfigurationAsync";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external isFrontCameraAvailable: unit => bool = "";
+external isFrontCameraAvailable: unit => bool = "isFrontCameraAvailable";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external isRearCameraAvailable: unit => bool = "";
+external isRearCameraAvailable: unit => bool = "isRearCameraAvailable";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external planeDetection: unit => PlaneDetection.t = "";
+external planeDetection: unit => PlaneDetection.t = "planeDetection";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external setPlaneDetection: PlaneDetection.t => unit = "";
+external setPlaneDetection: PlaneDetection.t => unit = "setPlaneDetection";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external setWorldOriginAsync: matrix => unit = "";
+external setWorldOriginAsync: matrix => unit = "setWorldOriginAsync";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external setLightEstimationEnabled: bool => unit = "";
+external setLightEstimationEnabled: bool => unit = "setLightEstimationEnabled";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external getLightEstimationEnabled: unit => bool = "";
+external getLightEstimationEnabled: unit => bool = "getLightEstimationEnabled";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external setProvidesAudioData: bool => unit = "";
+external setProvidesAudioData: bool => unit = "setProvidesAudioData";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external getProvidesAudioData: unit => bool = "";
+external getProvidesAudioData: unit => bool = "getProvidesAudioData";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external setAutoFocusEnabled: bool => unit = "";
+external setAutoFocusEnabled: bool => unit = "setAutoFocusEnabled";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external getAutoFocusEnabled: unit => bool = "";
+external getAutoFocusEnabled: unit => bool = "getAutoFocusEnabled";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external setWorldAlignment: WorldAlignment.t => unit = "";
+external setWorldAlignment: WorldAlignment.t => unit = "setWorldAlignment";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external getWorldAlignment: unit => WorldAlignment.t = "";
+external getWorldAlignment: unit => WorldAlignment.t = "getWorldAlignment";
 
 [@bs.module "expo"] [@bs.scope "AR"]
-external getCameraTexture: unit => float = "";
+external getCameraTexture: unit => float = "getCameraTexture";
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external getSupportedVideoFormats:
   TrackingConfiguration.t => array(videoFormat) =
-  "";
+  "getSupportedVideoFormats";

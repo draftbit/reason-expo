@@ -2,46 +2,46 @@ module MediaType = {
   type t;
 
   [@bs.module "expo-media-library"] [@bs.scope "MediaType"]
-  external photo: t = "";
+  external photo: t = "photo";
 
   [@bs.module "expo-media-library"] [@bs.scope "MediaType"]
-  external video: t = "";
+  external video: t = "video";
 
   [@bs.module "expo-media-library"] [@bs.scope "MediaType"]
-  external audio: t = "";
+  external audio: t = "audio";
 
   [@bs.module "expo-media-library"] [@bs.scope "MediaType"]
-  external unknown: t = "";
+  external unknown: t = "unknown";
 };
 
 module SortBy = {
   type t;
 
   [@bs.module "expo-media-library"] [@bs.scope "SortBy"]
-  external default: t = "";
+  external default: t = "default";
 
-  [@bs.module "expo-media-library"] [@bs.scope "SortBy"] external id: t = "";
-
-  [@bs.module "expo-media-library"] [@bs.scope "SortBy"]
-  external creationTime: t = "";
+  [@bs.module "expo-media-library"] [@bs.scope "SortBy"] external id: t = "id";
 
   [@bs.module "expo-media-library"] [@bs.scope "SortBy"]
-  external modificationTime: t = "";
+  external creationTime: t = "creationTime";
 
   [@bs.module "expo-media-library"] [@bs.scope "SortBy"]
-  external mediaType: t = "";
+  external modificationTime: t = "modificationTime";
 
   [@bs.module "expo-media-library"] [@bs.scope "SortBy"]
-  external width: t = "";
+  external mediaType: t = "mediaType";
 
   [@bs.module "expo-media-library"] [@bs.scope "SortBy"]
-  external height: t = "";
+  external width: t = "width";
 
   [@bs.module "expo-media-library"] [@bs.scope "SortBy"]
-  external duration: t = "";
+  external height: t = "height";
+
+  [@bs.module "expo-media-library"] [@bs.scope "SortBy"]
+  external duration: t = "duration";
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type asset('exif) = {
   id: string,
   filename: string,
@@ -55,18 +55,17 @@ type asset('exif) = {
   mediaSubtypes: array(string),
   albumId: string,
   localUri: string,
-  location:
-    Js.Nullable.t({
-      .
-      latitude: float,
-      longitude: float,
-    }),
+  location: Js.Nullable.t(location),
   exif: 'exif,
   orientation: float,
   isFavorite: bool,
+}
+and location = {
+  latitude: float,
+  longitude: float,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type album = {
   id: string,
   title: string,
@@ -75,17 +74,17 @@ type album = {
   type_: string,
   startTime: float,
   endTime: float,
-  approximateLocation:
-    Js.Nullable.t({
-      .
-      latitude: float,
-      longitude: float,
-    }),
+  approximateLocation: Js.Nullable.t(approximateLocation),
   locationNames: array(string),
+}
+and approximateLocation = {
+  latitude: float,
+  longitude: float,
 };
 
 [@bs.module "expo-media-library"]
-external createAssetAsync: string => Js.Promise.t(asset('exif)) = "";
+external createAssetAsync: string => Js.Promise.t(asset('exif)) =
+  "createAssetAsync";
 
 module AlbumOption = {
   type t = [ | `ID(string) | `Album(album)];
@@ -99,33 +98,31 @@ module AlbumOption = {
     | `Album(album) => rawSourceJS(album)
     };
 };
-
+type getAssetsAsyncProps = {
+  first: int,
+  after: string,
+  album: AlbumOption.rawSourceJS,
+  sortBy: array(SortBy.t),
+  mediaType: array(MediaType.t),
+};
+type getAssetsAsyncResponse('exif) = {
+  assets: array(asset('exif)),
+  endCursor: string,
+  hasNextPage: bool,
+  totalCount: int,
+};
 [@bs.module "expo-media-library"]
 external _getAssetsAsync:
-  {
-    .
-    "first": int,
-    "after": string,
-    "album": AlbumOption.rawSourceJS,
-    "sortBy": array(SortBy.t),
-    "mediaType": array(MediaType.t),
-  } =>
-  Js.Promise.t({
-    .
-    assets: array(asset('exif)),
-    endCursor: string,
-    hasNextPage: bool,
-    totalCount: int,
-  }) =
+  getAssetsAsyncProps => Js.Promise.t(getAssetsAsyncResponse('exif)) =
   "getAssetsAsync";
 
 let getAssetsAsync = (~first, ~after, ~album, ~sortBy, ~mediaType) =>
   _getAssetsAsync({
-    "first": first,
-    "after": after,
-    "album": AlbumOption.encodeSource(album),
-    "sortBy": sortBy,
-    "mediaType": mediaType,
+    first,
+    after,
+    album: AlbumOption.encodeSource(album),
+    sortBy,
+    mediaType,
   });
 
 module AssetOption = {
@@ -158,10 +155,12 @@ let deleteAssetsAsync = assets =>
   _deleteAssetsAsync(Array.map(a => AssetOption.encodeSource(a), assets));
 
 [@bs.module "expo-media-library"]
-external getAlbumsAsync: unit => Js.Promise.t(array(album)) = "";
+external getAlbumsAsync: unit => Js.Promise.t(array(album)) =
+  "getAlbumsAsync";
 
 [@bs.module "expo-media-library"]
-external getAlbumAsync: string => Js.Promise.t(Js.Nullable.t(album)) = "";
+external getAlbumAsync: string => Js.Promise.t(Js.Nullable.t(album)) =
+  "getAlbumAsync";
 
 [@bs.module "expo-media-library"]
 external _createAlbumAsync:
@@ -208,7 +207,8 @@ let removeAssetsFromAlbumAsync = (assets, albums) =>
   );
 
 [@bs.module "expo-media-library"]
-external getMomentsAsync: unit => Js.Promise.t(array(album)) = "";
+external getMomentsAsync: unit => Js.Promise.t(array(album)) =
+  "getMomentsAsync";
 
 class type eventSubscription =
   [@bs]
@@ -219,7 +219,7 @@ class type eventSubscription =
 [@bs.module "expo-media-library"]
 external addListener:
   ((array(asset('a)), array(asset('a))) => unit) => eventSubscription =
-  "";
+  "addListener";
 
 [@bs.module "expo-media-library"]
-external removeAllListeners: unit => unit = "";
+external removeAllListeners: unit => unit = "removeAllListeners";
