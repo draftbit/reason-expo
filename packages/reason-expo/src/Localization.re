@@ -1,15 +1,15 @@
-[@bs.module "expo-localization"] external locale: string = "";
+[@bs.module "expo-localization"] external locale: string = "locale";
 
-[@bs.module "expo-localization"] external locales: array(string) = "";
+[@bs.module "expo-localization"] external locales: array(string) = "locales";
 
-[@bs.module "expo-localization"] external country: Js.Nullable.t(string) = "";
+[@bs.module "expo-localization"] external country: Js.Nullable.t(string) = "country";
 
 [@bs.module "expo-localization"]
-external isoCurrencyCodes: Js.Nullable.t(array(string)) = "";
+external isoCurrencyCodes: Js.Nullable.t(array(string)) = "isoCurrencyCodes";
 
-[@bs.module "expo-localization"] external timezone: string = "";
+[@bs.module "expo-localization"] external timezone: string = "timezone";
 
-[@bs.module "expo-localization"] external isRTL: bool = "";
+[@bs.module "expo-localization"] external isRTL: bool = "isRTL";
 
 type localization = {
   locale: string,
@@ -21,4 +21,4 @@ type localization = {
 };
 
 [@bs.module "expo-localization"]
-external getLocalizationAsync: unit => Js.Promise.t(localization) = "";
+external getLocalizationAsync: unit => Js.Promise.t(localization) = "getLocalizationAsync";

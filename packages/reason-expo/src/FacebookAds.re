@@ -15,34 +15,34 @@ module NativeAdsManager = {
 
 module InterstitialAdManager = {
   [@bs.module "expo-ads-facebook"] [@bs.scope "InterstitialAdManager"]
-  external showAd: string => Js.Promise.t(unit) = "";
+  external showAd: string => Js.Promise.t(unit) = "showAd";
 };
 
 module AdSettings = {
   [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
-  external currentDeviceHash: string = "";
+  external currentDeviceHash: string = "currentDeviceHash";
 
   [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
-  external addTestDevice: string => unit = "";
+  external addTestDevice: string => unit = "addTestDevice";
 
   [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
-  external clearTestDevices: unit => unit = "";
+  external clearTestDevices: unit => unit = "clearTestDevices";
 
   [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
-  external setLogLevel: string => unit = "";
+  external setLogLevel: string => unit = "setLogLevel";
 
   [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
-  external setIsChildDirected: bool => unit = "";
+  external setIsChildDirected: bool => unit = "setIsChildDirected";
 
   [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
-  external setMediationService: string => unit = "";
+  external setMediationService: string => unit = "setMediationService";
 
   [@bs.module "expo-ads-facebook"] [@bs.scope "AdSettings"]
-  external setUrlPrefix: string => unit = "";
+  external setUrlPrefix: string => unit = "setUrlPrefix";
 };
 
 [@bs.module "expo-ads-facebook"]
-external withNativeAd: React.element => React.element = "";
+external withNativeAd: React.element => React.element = "withNativeAd";
 
 module AdMediaView = {
   [@bs.module "expo-ads-facebook"] [@react.component]

@@ -1,7 +1,6 @@
 [@bs.module "expo"]
-external registerRootComponent: ('a => React.element) => unit = "";
+external registerRootComponent: ('a => React.element) => unit = "registerRootComponent";
 
-[@bs.deriving abstract]
 type takeSnapshotAsyncOptions = {
   format: string,
   quality: float,
@@ -13,4 +12,4 @@ type takeSnapshotAsyncOptions = {
 [@bs.module "expo"]
 external takeSnapshotAsync:
   (React.Ref.t(React.element), takeSnapshotAsyncOptions) => unit =
-  "";
+  "takeSnapshotAsync";

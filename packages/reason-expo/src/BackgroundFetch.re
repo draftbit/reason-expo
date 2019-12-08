@@ -25,13 +25,13 @@ module Result = {
 };
 
 [@bs.module "expo-background-fetch"]
-external getStatusAsync: unit => Js.Promise.t(Status.t) = "";
+external getStatusAsync: unit => Js.Promise.t(Status.t) = "getStatusAsync";
 
 [@bs.module "expo-background-fetch"]
-external registerTaskAsync: string => Js.Promise.t(unit) = "";
+external registerTaskAsync: string => Js.Promise.t(unit) = "registerTaskAsync";
 
 [@bs.module "expo-background-fetch"]
-external unregisterTaskAsync: string => Js.Promise.t(unit) = "";
+external unregisterTaskAsync: string => Js.Promise.t(unit) = "unregisterTaskAsync";
 
 [@bs.module "expo-background-fetch"]
-external setMinimumIntervalAsync: float => Js.Promise.t(unit) = "";
+external setMinimumIntervalAsync: float => Js.Promise.t(unit) = "setMinimumIntervalAsync";
