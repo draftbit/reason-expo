@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "Blank Template",
-    "slug": "test2",
+    "name": "new-template",
+    "description": "A basic ReasonExpo app.",
+    "slug": "new-template",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
@@ -25,6 +26,9 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "packagerOpts": {
+      "config": "./metro.config.js"
     }
   }
 }
