@@ -104,7 +104,10 @@ type whiteBalanceType =
   | Shadow
   | Fluorescent
   | Incandescent;
-
+type position = {
+  x: float,
+  y: float,
+};
 type face = {
   faceID: int,
   bounds,
@@ -115,18 +118,18 @@ and bounds = {
   rollAngle: float,
   yawAngle: float,
   smilingProbability: Js.nullable(float),
-  leftEarPosition,
-  rightEarPosition,
-  leftEyePosition,
+  leftEarPosition: position,
+  rightEarPosition: position,
+  leftEyePosition: position,
   leftEyeOpenProbability: Js.nullable(float),
-  rightEyePosition,
+  rightEyePosition: position,
   rightEyeOpenProbability: Js.nullable(float),
-  leftCheekPosition,
-  rightCheekPosition,
-  mouthPosition,
-  leftMouthPosition,
-  rightMouthPosition,
-  noseBasePosition,
+  leftCheekPosition: position,
+  rightCheekPosition: position,
+  mouthPosition: position,
+  leftMouthPosition: position,
+  rightMouthPosition: position,
+  noseBasePosition: position,
 }
 and origin = {
   x: float,
@@ -135,46 +138,6 @@ and origin = {
 and size = {
   width: float,
   height: float,
-}
-and leftEarPosition = {
-  x: float,
-  y: float,
-}
-and rightEarPosition = {
-  x: float,
-  y: float,
-}
-and leftEyePosition = {
-  x: float,
-  y: float,
-}
-and rightEyePosition = {
-  x: float,
-  y: float,
-}
-and leftCheekPosition = {
-  x: float,
-  y: float,
-}
-and rightCheekPosition = {
-  x: float,
-  y: float,
-}
-and mouthPosition = {
-  x: float,
-  y: float,
-}
-and leftMouthPosition = {
-  x: float,
-  y: float,
-}
-and rightMouthPosition = {
-  x: float,
-  y: float,
-}
-and noseBasePosition = {
-  x: float,
-  y: float,
 };
 
 type faceDetectionMode =
@@ -274,4 +237,5 @@ let props =
 };
 
 [@bs.module "expo-camera"] [@react.component]
-external make: props => React.element = "Camera" /* external make: 'a => React.element = "Camera"*/;
+external make: props => React.element = "Camera";
+/* external make: 'a => React.element = "Camera"*/

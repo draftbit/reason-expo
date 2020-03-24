@@ -1,21 +1,25 @@
+type width = float;
+type height = float;
+type crop = {
+  originX: float,
+  originY: float,
+  width,
+  height,
+};
 type action = {
-  resize:option(resize),
+  resize: option(resize),
   rotate: option(float),
-  flip:option(flip),
+  flip: option(flip),
   crop,
-} and resize = {
-    width: float,
-    height: float,
-  } and flip ={
-
-    vertical: bool,
-    horizontal: bool,
-  }and crop = {
-    originX: float,
-    originY: float,
-    width: float,
-    height: float,
-  };
+}
+and resize = {
+  width,
+  height,
+}
+and flip = {
+  vertical: bool,
+  horizontal: bool,
+};
 
 type saveOptions = {
   compress: float,
@@ -25,8 +29,8 @@ type saveOptions = {
 
 type manipulateResult = {
   uri: string,
-  width: float,
-  height: float,
+  width,
+  height,
   base64: option(string),
 };
 
