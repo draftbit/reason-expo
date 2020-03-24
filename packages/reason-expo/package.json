@@ -23,13 +23,19 @@
   },
   "devDependencies": {
     "expo": "~36.0.0",
+    "react": "~16.9.0",
+    "react-dom": "~16.9.0",
     "reason-react": "^0.7.0",
-    "reason-react-native": "^0.61.1"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "reason-react-native": "^0.61.1",
+    "@babel/core": "^7.0.0",
+    "bs-platform": "^7.2.2"
   },
   "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "peerDependencies": {
     "expo": "~36.0.0",
     "reason-react": "^0.7.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "reason-react-native": "^0.61.1"
   }
 }
