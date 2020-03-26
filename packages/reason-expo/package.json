@@ -1,7 +1,11 @@
 {
   "name": "reason-expo",
   "description": "ReasonML bindings for Expo",
+<<<<<<< HEAD
   "version": "36.0.0",
+=======
+  "version": "34.4.1",
+>>>>>>> master
   "scripts": {
     "build": "bsb -make-world",
     "watch": "bsb -make-world -w",

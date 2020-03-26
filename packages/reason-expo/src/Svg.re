@@ -167,6 +167,7 @@ module G = {
       ~fill: string=?,
       ~stroke: string=?,
       ~strokeWidth: string=?,
+      ~transform: string=?,
       ~children: React.element=?
     ) =>
     React.element =
