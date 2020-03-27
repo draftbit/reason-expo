@@ -24,42 +24,25 @@ module PosterSource = {
   external fromRequired: ReactNative.Packager.required => t = "%identity";
 };
 
-[@bs.deriving abstract]
 type playbackStatus = {
   isLoaded: bool,
-  [@bs.optional]
-  error: string,
-  [@bs.optional]
-  uri: string,
-  [@bs.optional]
-  progressUpdateIntervalMillis: int,
-  [@bs.optional]
-  durationMillis: int,
-  [@bs.optional]
-  positionMillis: int,
-  [@bs.optional]
-  playableDurationMillis: int,
-  [@bs.optional]
-  shouldPlay: bool,
-  [@bs.optional]
-  isPlaying: bool,
-  [@bs.optional]
-  isBuffering: bool,
-  [@bs.optional]
-  rate: float,
-  [@bs.optional]
-  shouldCorrectPitch: bool,
-  [@bs.optional]
-  volume: float,
-  [@bs.optional]
-  isMuted: bool,
-  [@bs.optional]
-  isLooping: bool,
-  [@bs.optional]
-  didJustFinish: bool,
+  error: option(string),
+  uri: option(string),
+  progressUpdateIntervalMillis: option(int),
+  durationMillis: option(int),
+  positionMillis: option(int),
+  playableDurationMillis: option(int),
+  shouldPlay: option(bool),
+  isPlaying: option(bool),
+  isBuffering: option(bool),
+  rate: option(float),
+  shouldCorrectPitch: option(bool),
+  volume: option(float),
+  isMuted: option(bool),
+  isLooping: option(bool),
+  didJustFinish: option(bool),
 };
 
-[@bs.deriving abstract]
 type onReadyForDisplayParam = {
   naturalSize: {
     .
@@ -70,7 +53,6 @@ type onReadyForDisplayParam = {
   status: playbackStatus,
 };
 
-[@bs.deriving abstract]
 type onFullscreenUpdateParam = {
   fullscreenUpdate: int,
   status: playbackStatus,

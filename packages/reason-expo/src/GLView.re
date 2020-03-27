@@ -1,36 +1,32 @@
 [@bs.module "expo-gl"] [@bs.scope "GLView"]
-external createContextAsync: unit => Js.Promise.t('a) = "";
+external createContextAsync: unit => Js.Promise.t('a) = "createContextAsync";
 
 [@bs.module "expo-gl"] [@bs.scope "GLView"]
-external destroyContextAsync: 'a => Js.Promise.t(bool) = "";
-
+external destroyContextAsync: 'a => Js.Promise.t(bool) =
+  "destroyContextAsync";
+type takeSnapshotAsyncProps('a) = {
+  framebuffer: 'a,
+  rect,
+  flip: bool,
+  format: string,
+  compress: float,
+}
+and rect = {
+  x: float,
+  y: float,
+  height: float,
+  width: float,
+};
+type takeSnapshotAsyncResult = {
+  uri: string,
+  localUri: string,
+  width: float,
+  height: float,
+};
 [@bs.module "expo-gl"] [@bs.scope "GLView"]
 external takeSnapshotAsync:
-  (
-    'a,
-    {
-      .
-      framebuffer: 'a,
-      rect: {
-        .
-        x: float,
-        y: float,
-        height: float,
-        width: float,
-      },
-      flip: bool,
-      format: string,
-      compress: float,
-    }
-  ) =>
-  Js.Promise.t({
-    .
-    uri: string,
-    localUri: string,
-    width: float,
-    height: float,
-  }) =
-  "";
+  takeSnapshotAsyncProps('a) => Js.Promise.t(takeSnapshotAsyncResult) =
+  "takeSnapshotAsync";
 
 [@bs.module "expo-gl"] [@react.component]
 external make:

@@ -98,28 +98,25 @@ module WebOrientationLock = {
   external unknown: t = "UNKNOWN";
 };
 
-[@bs.deriving abstract]
 type platformOrientationInfo = {
   screenOrientationConstantAndroid: int,
   screenOrientationArrayIOS: array(Orientation.t),
   screenOrientationLockWebOrientation: WebOrientationLock.t,
 };
 
-[@bs.deriving abstract]
 type orientationInfo = {
   orientation: Orientation.t,
   verticalSizeClass: SizeClassIOS.t,
   horizontalSizeClass: SizeClassIOS.t,
 };
 
-[@bs.deriving abstract]
 type orientationChangeEvent = {
   orientationLock: OrientationLock.t,
   orientationInfo,
 };
 
 module Subscription = {
-  [@bs.deriving abstract]
+
   type t;
 
   [@bs.send] external remove: (t, unit) => unit = "remove";
@@ -128,38 +125,38 @@ module Subscription = {
 type orientationChangeListener = orientationChangeEvent => unit;
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external allowAsync: OrientationLock.t => Js.Promise.t(unit) = "";
+external allowAsync: OrientationLock.t => Js.Promise.t(unit) = "allowAsync";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external lockAsync: OrientationLock.t => Js.Promise.t(unit) = "";
+external lockAsync: OrientationLock.t => Js.Promise.t(unit) = "lockAsync";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external lockPlatformAsync: platformOrientationInfo => Js.Promise.t(unit) =
-  "";
+  "lockPlatformAsync";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external unlockAsync: unit => Js.Promise.t(unit) = "";
+external unlockAsync: unit => Js.Promise.t(unit) = "unlockAsync";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external getOrientationLockAsync: unit => Js.Promise.t(OrientationLock.t) =
-  "";
+  "getOrientationLockAsync";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external getPlatformOrientationLockAsync:
   unit => Js.Promise.t(platformOrientationInfo) =
-  "";
+  "getPlatformOrientationLockAsync";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external supportsOrientationLockAsync: OrientationLock.t => Js.Promise.t(bool) =
-  "";
+  "supportsOrientationLockAsync";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external addOrientationChangeListener:
   orientationChangeListener => Subscription.t =
-  "";
+  "addOrientationChangeListener";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external removeOrientationChangeListeners: unit => unit = "";
+external removeOrientationChangeListeners: unit => unit = "removeOrientationChangeListeners";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external removeOrientationChangeListener: Subscription.t => unit = "";
+external removeOrientationChangeListener: Subscription.t => unit = "removeOrientationChangeListener";

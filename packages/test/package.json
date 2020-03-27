@@ -1,36 +1,31 @@
 {
-  "private": true,
-  "name": "reason-expo-test-app",
-  "homepage": "https://github.com/fiberjw/reason-expo.git",
-  "author": "Juwan Wheatley",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fiberjw/reason-expo.git"
-  },
-  "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "main": "__generated__/AppEntry.js",
-  "version": "33.1.0",
+  "name": "reason-expo-test-app",
+  "version": "36.0.0",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
-    "build": "bsb -make-world -clean-world",
-    "watch": "bsb -make-world -clean-world -w",
-    "postinstall": "yarn build"
+    "build": "bsb -clean-world -make-world",
+    "watch": "bsb -clean-world -make-world -w",
+    "postinstall": "expo-yarn-workspaces postinstall"
   },
   "dependencies": {
-    "expo": "^34.0.3",
-    "expo-linear-gradient": "^5.0.1",
-    "react": "16.8.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
-    "reason-expo": "^34.0.0",
-    "reason-react": "^0.7.0",
-    "reason-react-native": "^0.60.0"
+    "expo": "~36.0.0",
+    "react": "~16.9.0",
+    "react-dom": "~16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "reason-expo": "^36.0.0",
+    "react-native-web": "~0.11.7",
+    "reason-react-native": "^0.61.1",
+    "reason-react": "^0.7.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^6.0.0",
-    "bs-platform": "^5.0.6",
-    "expo-yarn-workspaces": "^1.2.0"
-  }
+    "@babel/core": "^7.0.0",
+    "babel-preset-expo": "~8.0.0",
+    "bs-platform": "^7.2.2",
+    "expo-yarn-workspaces": "^1.2.1"
+  },
+  "private": true
 }

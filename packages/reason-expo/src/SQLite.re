@@ -23,14 +23,12 @@
 module Transaction = {
   type t;
 
-  [@bs.deriving abstract]
   type resultSetRows('row) = {
     length: string,
     item: int => 'row,
     _array: array('row),
   };
 
-  [@bs.deriving abstract]
   type resultSet('row) = {
     insertId: int,
     rowsAffected: int,

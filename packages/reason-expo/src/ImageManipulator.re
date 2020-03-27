@@ -1,43 +1,37 @@
-[@bs.deriving abstract]
+type width = float;
+type height = float;
+type crop = {
+  originX: float,
+  originY: float,
+  width,
+  height,
+};
 type action = {
-  [@bs.optional]
-  resize: {
-    .
-    width: float,
-    height: float,
-  },
-  [@bs.optional]
-  rotate: float,
-  [@bs.optional]
-  flip: {
-    .
-    vertical: bool,
-    horizontal: bool,
-  },
-  [@bs.optional]
-  crop: {
-    .
-    originX: float,
-    originY: float,
-    width: float,
-    height: float,
-  },
+  resize: option(resize),
+  rotate: option(float),
+  flip: option(flip),
+  crop,
+}
+and resize = {
+  width,
+  height,
+}
+and flip = {
+  vertical: bool,
+  horizontal: bool,
 };
 
-[@bs.deriving abstract]
 type saveOptions = {
   compress: float,
   format: string,
   base64: bool,
 };
 
-[@bs.deriving abstract]
 type manipulateResult = {
   uri: string,
-  width: float,
-  height: float,
-  [@bs.optional]
-  base64: string,
+  width,
+  height,
+  base64: option(string),
 };
 
 [@bs.module "expo-image-manipulator"]

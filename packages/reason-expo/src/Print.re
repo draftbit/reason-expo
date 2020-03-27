@@ -8,7 +8,6 @@ module Orientation = {
   external landscape: t = "landscape";
 };
 
-[@bs.deriving abstract]
 type printAsyncOptions = {
   uri: string,
   html: string,
@@ -21,7 +20,6 @@ type printAsyncOptions = {
 [@bs.module "expo-print"]
 external printAsync: printAsyncOptions => Js.Promise.t(unit) = "printAsync";
 
-[@bs.deriving abstract]
 type printToFileAsyncOptions = {
   html: string,
   width: float,
@@ -29,12 +27,11 @@ type printToFileAsyncOptions = {
   base64: bool,
 };
 
-[@bs.deriving abstract]
+
 type printToFileAsyncResult = {
   uri: string,
   numberOfPages: int,
-  [@bs.optional]
-  base64: string,
+  base64: option(string),
 };
 
 [@bs.module "expo-print"]
@@ -42,7 +39,7 @@ external printToFileAsync:
   printToFileAsyncOptions => Js.Promise.t(printToFileAsyncResult) =
   "printToFileAsync";
 
-[@bs.deriving abstract]
+
 type selectPrinterAsyncResult = {
   name: string,
   url: string,

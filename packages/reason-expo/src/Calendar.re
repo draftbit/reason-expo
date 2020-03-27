@@ -234,14 +234,14 @@ module SourceType = {
   external birthdays: t = "BIRTHDAYS";
 };
 
-[@bs.deriving abstract]
+
 type alarm = {
   absoluteDate: Js.Date.t,
   relativeOffset: int,
   method: AlarmMethod.t,
 };
 
-[@bs.deriving abstract]
+
 type recurrenceRule = {
   frequency: Frequency.t,
   interval: int,
@@ -249,7 +249,7 @@ type recurrenceRule = {
   occurrence: int,
 };
 
-[@bs.deriving abstract]
+
 type attendee = {
   id: string,
   email: string,
@@ -258,11 +258,20 @@ type attendee = {
   status: AttendeeStatus.t,
   [@bs.as "type"]
   _type: string,
-  url: string,
-  isCurrentUser: bool,
+  url: option(string),
+  isCurrentUser: option(bool),
 };
+/* {
+      .
+      id: string,
+      email: string,
+      name: string,
+      role: AttendeeRole.t,
+      status: AttendeeStatus.t,
+      _type: string,
+    } */
 
-[@bs.deriving abstract]
+
 type source = {
   id: string,
   name: string,
@@ -271,7 +280,7 @@ type source = {
   isLocalAccount: bool,
 };
 
-[@bs.deriving abstract]
+
 type calendar = {
   id: string,
   title: string,
@@ -293,7 +302,7 @@ type calendar = {
   accessLevel: CalendarAccessLevel.t,
 };
 
-[@bs.deriving abstract]
+
 type event = {
   id: string,
   calendarId: string,
@@ -324,7 +333,7 @@ type event = {
   instanceId: string,
 };
 
-[@bs.deriving abstract]
+
 type reminder = {
   id: string,
   calendarId: string,
@@ -345,9 +354,9 @@ type reminder = {
 
 [@bs.module "expo-calendar"]
 external getCalendarsAsync: EntityType.t => Js.Promise.t(array(calendar)) =
-  "";
+  "getCalendarsAsync";
 
-[@bs.deriving abstract]
+
 type createCalendarAsyncDetails = {
   title: string,
   color: string,
@@ -361,28 +370,28 @@ type createCalendarAsyncDetails = {
   },
   name: string,
   ownerAccount: string,
-  [@bs.optional]
-  timeZone: string,
-  [@bs.optional]
-  allowedAvailabilities: array(Availability.t),
-  [@bs.optional]
-  allowedReminders: array(AlarmMethod.t),
-  [@bs.optional]
-  allowedAttendeeTypes: array(AttendeeType.t),
-  [@bs.optional]
-  isVisible: bool,
-  [@bs.optional]
-  isSynced: bool,
-  [@bs.optional]
+
+  timeZone: option(string),
+
+  allowedAvailabilities: option(array(Availability.t)),
+
+  allowedReminders: option(array(AlarmMethod.t)),
+
+  allowedAttendeeTypes: option(array(AttendeeType.t)),
+
+  isVisible: option(bool),
+
+  isSynced: option(bool),
+
   accessLevel: string,
 };
 
 [@bs.module "expo-calendar"]
 external createCalendarAsync:
   createCalendarAsyncDetails => Js.Promise.t(string) =
-  "";
+  "createCalendarAsync";
 
-[@bs.deriving abstract]
+
 type updateCalendarAsyncDetails = {
   title: Js.Nullable.t(string),
   color: Js.Nullable.t(string),
@@ -394,19 +403,19 @@ type updateCalendarAsyncDetails = {
 [@bs.module "expo-calendar"]
 external updateCalendarAsync:
   (string, updateCalendarAsyncDetails) => Js.Promise.t(unit) =
-  "";
+  "updateCalendarAsync";
 
 [@bs.module "expo-calendar"]
 external getEventsAsync:
   (array(string), Js.Date.t, Js.Date.t) => Js.Promise.t(array(event)) =
-  "";
+  "updateCalendarAsync";
 
 [@bs.module "expo-calendar"]
 external getEventAsync:
   (string, {. instanceStartDate: Js.Date.t}) => Js.Promise.t(event) =
-  "";
+  "getEventAsync";
 
-[@bs.deriving abstract]
+
 type createEventAsyncDetails = {
   title: string,
   startDate: Js.Date.t,
@@ -430,9 +439,9 @@ type createEventAsyncDetails = {
 [@bs.module "expo-calendar"]
 external createEventAsync:
   (string, createEventAsyncDetails) => Js.Promise.t(string) =
-  "";
+  "createEventAsync";
 
-[@bs.deriving abstract]
+
 type updateEventAsyncDetails = {
   title: string,
   startDate: Js.Date.t,
@@ -452,56 +461,43 @@ type updateEventAsyncDetails = {
   guestsCanInviteOthers: bool,
   guestsCanSeeGuests: bool,
 };
+type instanceStartDate = Js.Date.t;
+type futureEvents = {
+  instanceStartDate,
+  futureEvents: bool,
+};
+type updateEventAsyncProps = {
+  string,
+  updateEventAsyncDetails,
+  futureEvents,
+};
+type deleteEventAsyncProps = {
+  string,
+  futureEvents,
+};
 
 [@bs.module "expo-calendar"]
-external updateEventAsync:
-  (
-    string,
-    updateEventAsyncDetails,
-    {
-      .
-      instanceStartDate: Js.Date.t,
-      futureEvents: bool,
-    }
-  ) =>
-  Js.Promise.t(unit) =
-  "";
+external updateEventAsync: updateEventAsyncProps => Js.Promise.t(unit) =
+  "updateEventAsync";
 
 [@bs.module "expo-calendar"]
-external deleteEventAsync:
-  (
-    string,
-    {
-      .
-      instanceStartDate: Js.Date.t,
-      futureEvents: bool,
-    }
-  ) =>
-  Js.Promise.t(unit) =
-  "";
+external deleteEventAsync: deleteEventAsyncProps => Js.Promise.t(unit) =
+  "deleteEventAsync";
 
 [@bs.module "expo-calendar"]
 external getAttendeesForEventAsync:
-  (string, {. instanceStartDate: Js.Date.t}) =>
+  (string, instanceStartDate) =>
   Js.Promise.t(array(attendee)) =
-  "";
+  "getAttendeesForEventAsync";
 
 [@bs.module "expo-calendar"]
 external createAttendeeAsync:
   (
     string,
-    {
-      .
-      id: string,
-      email: string,
-      name: string,
-      role: AttendeeRole.t,
-      status: AttendeeStatus.t,
-      _type: string,
-    }
+    attendee
   ) =>
   Js.Promise.t(string) =
-  "";
+  "createAttendeeAsync";
 
 [@bs.module "expo-calendar"]
 external updateAttendeeAsync:
@@ -518,19 +514,21 @@ external updateAttendeeAsync:
     }
   ) =>
   Js.Promise.t(unit) =
-  "";
+  "updateAttendeeAsync";
 
 [@bs.module "expo-calendar"]
-external deleteAttendeeAsync: string => Js.Promise.t(unit) = "";
+external deleteAttendeeAsync: string => Js.Promise.t(unit) =
+  "deleteAttendeeAsync";
 
 [@bs.module "expo-calendar"]
 external getRemindersAsync:
   (array(string), string, Js.Date.t, Js.Date.t) =>
   Js.Promise.t(array(reminder)) =
-  "";
+  "getRemindersAsync";
 
 [@bs.module "expo-calendar"]
-external getReminderAsync: string => Js.Promise.t(reminder) = "";
+external getReminderAsync: string => Js.Promise.t(reminder) =
+  "getReminderAsync";
 
 [@bs.module "expo-calendar"]
 external createReminderAsync:
@@ -552,7 +550,7 @@ external createReminderAsync:
     }
   ) =>
   Js.Promise.t(string) =
-  "";
+  "createReminderAsync";
 
 [@bs.module "expo-calendar"]
 external updateReminderAsync:
@@ -574,15 +572,18 @@ external updateReminderAsync:
     }
   ) =>
   Js.Promise.t(string) =
-  "";
+  "updateReminderAsync";
 
 [@bs.module "expo-calendar"]
-external deleteReminderAsync: string => Js.Promise.t(unit) = "";
+external deleteReminderAsync: string => Js.Promise.t(unit) =
+  "deleteReminderAsync";
 
 [@bs.module "expo-calendar"]
-external getSourcesAsync: unit => Js.Promise.t(array(source)) = "";
+external getSourcesAsync: unit => Js.Promise.t(array(source)) =
+  "getSourcesAsync";
 
 [@bs.module "expo-calendar"]
-external getSourceAsync: string => Js.Promise.t(source) = "";
+external getSourceAsync: string => Js.Promise.t(source) = "getSourceAsync";
 
-[@bs.module "expo-calendar"] external openEventInCalendar: string => unit = "";
+[@bs.module "expo-calendar"]
+external openEventInCalendar: string => unit = "openEventInCalendar";

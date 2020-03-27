@@ -31,11 +31,10 @@ module CryptoEncoding = {
   external base64: t = "BASE64";
 };
 
-[@bs.deriving abstract]
 type cryptoDigestOptions = {encoding: CryptoEncoding.t};
 
 [@bs.module "expo-crypto"]
 external digestStringAsync:
   (CryptoDigestAlgorithm.t, string, cryptoDigestOptions) =>
   Js.Promise.t(string) =
-  "";
+  "digestStringAsync";

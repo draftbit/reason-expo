@@ -1,5 +1,5 @@
 [@bs.module "expo-av"] [@bs.scope "Audio"]
-external setIsEnabledAsync: bool => Js.Promise.t(unit) = "";
+external setIsEnabledAsync: bool => Js.Promise.t(unit) = "setIsEnabledAsync";
 
 module InterruptionMode = {
   module IOS = {
@@ -26,7 +26,6 @@ module InterruptionMode = {
   };
 };
 
-[@bs.deriving abstract]
 type audioMode = {
   playsInSilentModeIOS: bool,
   allowsRecordingIOS: bool,
@@ -37,7 +36,7 @@ type audioMode = {
 };
 
 [@bs.module "expo-av"] [@bs.scope "Audio"]
-external setAudioModeAsync: audioMode => Js.Promise.t(unit) = "";
+external setAudioModeAsync: audioMode => Js.Promise.t(unit) = "setAudioModeAsync";
 
 module Source = {
   type t = [
@@ -100,7 +99,6 @@ module Sound = {
 };
 
 module Recording = {
-  [@bs.deriving abstract]
   type status = {
     canRecord: bool,
     isDoneRecording: bool,

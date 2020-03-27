@@ -1,4 +1,3 @@
-[@bs.deriving abstract]
 type t = {
   name: string,
   [@bs.as "type"]
