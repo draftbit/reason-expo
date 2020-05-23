@@ -345,12 +345,10 @@ module TrackingStateReason = {
   external relocalizing: t = "Relocalizing";
 };
 
-
 type size = {
   width: float,
   height: float,
 };
-
 
 type vector3 = {
   x: float,
@@ -362,7 +360,6 @@ type vector2 = {
   x: float,
   y: float,
 };
-
 
 type textureCoordinate = {
   u: float,
@@ -426,7 +423,6 @@ and arFaceTrackingConfiguration = {
   blendShapes: array(BlendShape.t),
 };
 
-
 type arFrameRequest = {
   // [@bs.optional]
   anchors: option(arFrameAnchorRequest),
@@ -473,13 +469,12 @@ type capturedDepthData = {
   cameraCalibrationData: cameraCalibrationData(string, string),
 };
 
-
 type arFrame = {
   timestamp: float,
   anchors: option(array(anchor)),
   rawFeaturePoints: option(array(rawFeaturePoint)),
-  lightEstimation:option(lightEstimation),
-  capturedDepthData:option(capturedDepthData),
+  lightEstimation: option(lightEstimation),
+  capturedDepthData: option(capturedDepthData),
 };
 
 type arMatrices = {
@@ -579,7 +574,7 @@ external getARMatrices: (float, float) => array(arMatrices) = "getARMatrices";
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external startAsync:
-  (React.Ref.t(React.element), TrackingConfiguration.t) => Js.Promise.t(unit) =
+  (React.ref(React.element), TrackingConfiguration.t) => Js.Promise.t(unit) =
   "startAsync";
 
 [@bs.module "expo"] [@bs.scope "AR"]

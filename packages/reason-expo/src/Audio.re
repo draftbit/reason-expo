@@ -36,7 +36,8 @@ type audioMode = {
 };
 
 [@bs.module "expo-av"] [@bs.scope "Audio"]
-external setAudioModeAsync: audioMode => Js.Promise.t(unit) = "setAudioModeAsync";
+external setAudioModeAsync: audioMode => Js.Promise.t(unit) =
+  "setAudioModeAsync";
 
 module Source = {
   type t = [

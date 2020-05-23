@@ -4,7 +4,7 @@
     "description": "A basic ReasonExpo app.",
     "slug": "new-template",
     "privacy": "public",
-    "sdkVersion": "34.0.0",
+    "sdkVersion": "37.0.1",
     "platforms": ["ios", "android"],
     "version": "1.0.0",
     "orientation": "portrait",
