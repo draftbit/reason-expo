@@ -9,13 +9,38 @@
     "packages/*"
   ],
   "scripts": {
+    "format:most": "prettier --write \"**/*.{md,json,js,css}\"",
+    "format:re": "find ./packages -iname '*.re' | xargs bsrefmt --in-place && find ./packages -iname '*.rei' | xargs bsrefmt -i true --in-place && find ./test -iname '*.re' | xargs bsrefmt --in-place && find ./template -iname '*.re' | xargs bsrefmt --in-place",
+    "format": "yarn format:most && yarn format:re",
     "watch": "run-p watch:reason-expo watch:test",
     "watch:reason-expo": "cd packages/reason-expo && yarn watch",
     "watch:test": "cd packages/test && yarn watch",
     "start-test-app": "cd packages/test && yarn start",
+    "re:clean-build": "bsb -clean-world -make-world",
+    "test-build": "cd packages/test && bsb -clean-world -make-world",
     "dev": "run-p watch start-test-app"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "husky": "^1.3.1",
+    "lint-staged": "^10.1.1",
+    "prettier": "^1.16.4"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "proseWrap": "always"
+  },
+  "lint-staged": {
+    "*.{md,json,js,css}": [
+      "prettier --write"
+    ],
+    "*.{re,rei}": [
+      "bsrefmt --in-place"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

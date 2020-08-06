@@ -9,8 +9,7 @@ module Source = {
       ~overrideFileExtensionAndroid: string=?,
       unit
     ) =>
-    t =
-    "";
+    t;
 
   external fromRequired: ReactNative.Packager.required => t = "%identity";
   external fromAsset: Asset.t => t = "%identity";
@@ -19,7 +18,7 @@ module Source = {
 module PosterSource = {
   type t;
 
-  [@bs.obj] external make: (~uri: string, unit) => t = "";
+  [@bs.obj] external make: (~uri: string, unit) => t;
 
   external fromRequired: ReactNative.Packager.required => t = "%identity";
 };

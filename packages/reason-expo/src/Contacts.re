@@ -167,7 +167,7 @@ module CalendarFormats = {
   external islamic: t = "Islamic";
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type image = {
   uri: string,
   width: int,
@@ -175,7 +175,7 @@ type image = {
   base64: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type date = {
   day: int,
   month: int,
@@ -185,14 +185,14 @@ type date = {
   label: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type relationship = {
   name: string,
   id: string,
   label: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type email = {
   email: string,
   isPrimary: bool,
@@ -200,7 +200,7 @@ type email = {
   label: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type phoneNumber = {
   number: string,
   isPrimary: bool,
@@ -210,7 +210,7 @@ type phoneNumber = {
   label: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type address = {
   street: string,
   city: string,
@@ -224,19 +224,19 @@ type address = {
   label: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type group = {
   id: string,
   name: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type container = {
   id: string,
   name: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type socialProfile = {
   service: string,
   username: string,
@@ -247,7 +247,7 @@ type socialProfile = {
   label: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type instantMessageAddress = {
   service: string,
   username: string,
@@ -256,14 +256,14 @@ type instantMessageAddress = {
   label: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type urlAddress = {
   url: string,
   id: string,
   label: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type formOptions = {
   displayedPropertyKeys: array(Fields.t),
   message: string,
@@ -277,7 +277,7 @@ type formOptions = {
   preventAnimation: bool,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type contactQuery = {
   fields: array(Fields.t),
   pageSize: int,
@@ -290,21 +290,21 @@ type contactQuery = {
   rawContacts: bool,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type groupQuery = {
   groupName: string,
   groupId: string,
   containerId: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type containerQuery = {
   contactId: string,
   groupId: string,
   containerId: string,
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type contact = {
   id: string,
   name: string,
@@ -338,7 +338,7 @@ type contact = {
   socialProfiles: array(socialProfile),
 };
 
-[@bs.deriving abstract]
+// [@bs.deriving abstract]
 type contactResponse = {
   data: array(contact),
   hasNextPage: bool,
@@ -346,61 +346,69 @@ type contactResponse = {
 };
 
 [@bs.module "expo-contacts"]
-external getContactsAsync: contactQuery => Js.Promise.t(contactResponse) = "";
+external getContactsAsync: contactQuery => Js.Promise.t(contactResponse) =
+  "getContactsAsync";
 
 [@bs.module "expo-contacts"]
 external getContactByIdAsync:
   (string, array(Fields.t)) => Js.Promise.t(contact) =
-  "";
+  "getContactByIdAsync";
 
 [@bs.module "expo-contacts"]
-external addContactAsync: (contact, string) => Js.Promise.t(string) = "";
+external addContactAsync: (contact, string) => Js.Promise.t(string) =
+  "getContactByIdAsync";
 
 [@bs.module "expo-contacts"]
-external updateContactAsync: contact => Js.Promise.t(string) = "";
+external updateContactAsync: contact => Js.Promise.t(string) =
+  "updateContactAsync";
 
 [@bs.module "expo-contacts"]
-external removeContactAsync: string => Js.Promise.t(unit) = "";
+external removeContactAsync: string => Js.Promise.t(unit) =
+  "removeContactAsync";
 
 [@bs.module "expo-contacts"]
-external writeContactToFileAsync: contactQuery => Js.Promise.t(string) = "";
+external writeContactToFileAsync: contactQuery => Js.Promise.t(string) =
+  "writeContactToFileAsync";
 
 [@bs.module "expo-contacts"]
 external presentFormAsync:
   (string, contact, formOptions) => Js.Promise.t(unit) =
-  "";
+  "presentFormAsync";
 
 [@bs.module "expo-contacts"]
 external addExistingGroupToContainerAsync:
   (string, string) => Js.Promise.t(unit) =
-  "";
+  "addExistingGroupToContainerAsync";
 
 [@bs.module "expo-contacts"]
 external createGroupAsync:
   (string, Js.Nullable.t(string)) => Js.Promise.t(string) =
-  "";
+  "createGroupAsync";
 
 [@bs.module "expo-contacts"]
-external updateGroupNameAsync: (string, string) => Js.Promise.t(unit) = "";
+external updateGroupNameAsync: (string, string) => Js.Promise.t(unit) =
+  "updateGroupNameAsync";
 
 [@bs.module "expo-contacts"]
-external removeGroupAsync: string => Js.Promise.t(unit) = "";
+external removeGroupAsync: string => Js.Promise.t(unit) = "removeGroupAsync";
 
 [@bs.module "expo-contacts"]
 external addExistingContactToGroupAsync:
   (string, string) => Js.Promise.t(unit) =
-  "";
+  "addExistingContactToGroupAsync";
 
 [@bs.module "expo-contacts"]
 external removeContactFromGroupAsync: (string, string) => Js.Promise.t(unit) =
-  "";
+  "removeContactFromGroupAsync";
 
 [@bs.module "expo-contacts"]
-external getGroupsAsync: groupQuery => Js.Promise.t(array(group)) = "";
+external getGroupsAsync: groupQuery => Js.Promise.t(array(group)) =
+  "getGroupsAsync";
 
 [@bs.module "expo-contacts"]
-external getDefaultContainerIdAsync: unit => Js.Promise.t(string) = "";
+external getDefaultContainerIdAsync: unit => Js.Promise.t(string) =
+  "getDefaultContainerIdAsync";
 
 [@bs.module "expo-contacts"]
 external getContainersAsync: containerQuery => Js.Promise.t(array(container)) =
-  "";
+  "getContainersAsync";

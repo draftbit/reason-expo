@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "reason-expo-test-app",
   "homepage": "https://github.com/fiberjw/reason-expo.git",
   "author": "Juwan Wheatley",
@@ -9,7 +8,7 @@
   },
   "bugs": "https://github.com/fiberjw/reason-expo/issues",
   "main": "__generated__/AppEntry.js",
-  "version": "33.1.0",
+  "version": "37.0.1",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -20,17 +19,19 @@
     "postinstall": "yarn build"
   },
   "dependencies": {
-    "expo": "^34.0.3",
-    "expo-linear-gradient": "^5.0.1",
-    "react": "16.8.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
-    "reason-expo": "^34.0.0",
-    "reason-react": "^0.7.0",
-    "reason-react-native": "^0.60.0"
+    "expo": "^37.0.0",
+    "expo-linear-gradient": "~8.1.0",
+    "react": "16.9.0",
+    "react-dom": "^16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.1.tar.gz",
+    "react-native-web": "~0.11.7",
+    "reason-react": "^0.8.0",
+    "reason-react-native": "reason-react-native/reason-react-native#698/head"
   },
   "devDependencies": {
-    "babel-preset-expo": "^6.0.0",
-    "bs-platform": "^5.0.6",
+    "babel-preset-expo": "^8.1.0",
+    "bs-platform": "^7.3.2",
     "expo-yarn-workspaces": "^1.2.0"
-  }
+  },
+  "private": true
 }
