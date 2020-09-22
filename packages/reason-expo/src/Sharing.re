@@ -6,4 +6,5 @@ type shareAsyncOptions = {
 };
 
 [@bs.module "expo-sharing"]
-external shareAsync: (string, shareAsyncOptions) => Js.Promise.t(unit) = "shareAsync";
+external shareAsync: (string, shareAsyncOptions) => Js.Promise.t(unit) =
+  "shareAsync";

@@ -13,4 +13,5 @@ class type eventSubscription =
   };
 type steps = {steps: int};
 [@bs.module "expo-sensors"] [@bs.scope "Pedometer"]
-external watchStepCount: (steps => unit) => eventSubscription = "watchStepCount";
+external watchStepCount: (steps => unit) => eventSubscription =
+  "watchStepCount";

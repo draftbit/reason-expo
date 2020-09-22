@@ -262,14 +262,14 @@ type attendee = {
   isCurrentUser: option(bool),
 };
 /* {
-      .
-      id: string,
-      email: string,
-      name: string,
-      role: AttendeeRole.t,
-      status: AttendeeStatus.t,
-      _type: string,
-    } */
+     .
+     id: string,
+     email: string,
+     name: string,
+     role: AttendeeRole.t,
+     status: AttendeeStatus.t,
+     _type: string,
+   } */
 
 // [@bs.deriving abstract]
 type source = {
@@ -486,17 +486,11 @@ external deleteEventAsync: deleteEventAsyncProps => Js.Promise.t(unit) =
 
 [@bs.module "expo-calendar"]
 external getAttendeesForEventAsync:
-  (string, instanceStartDate) =>
-  Js.Promise.t(array(attendee)) =
+  (string, instanceStartDate) => Js.Promise.t(array(attendee)) =
   "getAttendeesForEventAsync";
 
 [@bs.module "expo-calendar"]
-external createAttendeeAsync:
-  (
-    string,
-    attendee
-  ) =>
-  Js.Promise.t(string) =
+external createAttendeeAsync: (string, attendee) => Js.Promise.t(string) =
   "createAttendeeAsync";
 
 [@bs.module "expo-calendar"]

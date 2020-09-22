@@ -94,7 +94,7 @@ external make:
     ~isMuted: bool=?,
     ~useNativeControls: bool=?,
     ~usePoster: bool=?,
-    ~resizeMode: [@bs.string] [ | `stretch | `contain | `cover]=?,
+    ~resizeMode: [ | `stretch | `contain | `cover]=?,
     ~isLooping: bool=?,
     ~shouldPlay: bool=?,
     ~volume: float=?,

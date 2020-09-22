@@ -116,7 +116,6 @@ type orientationChangeEvent = {
 };
 
 module Subscription = {
-
   type t;
 
   [@bs.send] external remove: (t, unit) => unit = "remove";
@@ -156,7 +155,9 @@ external addOrientationChangeListener:
   "addOrientationChangeListener";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external removeOrientationChangeListeners: unit => unit = "removeOrientationChangeListeners";
+external removeOrientationChangeListeners: unit => unit =
+  "removeOrientationChangeListeners";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external removeOrientationChangeListener: Subscription.t => unit = "removeOrientationChangeListener";
+external removeOrientationChangeListener: Subscription.t => unit =
+  "removeOrientationChangeListener";

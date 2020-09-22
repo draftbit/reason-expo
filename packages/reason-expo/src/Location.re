@@ -4,10 +4,12 @@ type eventSubscription;
 [@bs.send] external remove: (eventSubscription, unit) => unit = "remove";
 
 [@bs.module "expo-location"]
-external hasServicesEnabledAsync: unit => Js.Promise.t(bool) = "hasServicesEnabledAsync";
+external hasServicesEnabledAsync: unit => Js.Promise.t(bool) =
+  "hasServicesEnabledAsync";
 
 [@bs.module "expo-location"]
-external requestPermissionsAsync: unit => Js.Promise.t(unit) = "requestPermissionsAsync";
+external requestPermissionsAsync: unit => Js.Promise.t(unit) =
+  "requestPermissionsAsync";
 
 module Accuracy = {
   type t = int;
@@ -163,7 +165,8 @@ external reverseGeocodeAsync:
 [@bs.module "expo-location"] external setApiKey: string => unit = "setApiKey";
 
 [@bs.module "expo-location"]
-external installWebGeolocationPolyfill: unit => unit = "installWebGeolocationPolyfill";
+external installWebGeolocationPolyfill: unit => unit =
+  "installWebGeolocationPolyfill";
 
 [@bs.deriving abstract]
 type startLocationUpdatesAsyncOptions = {
@@ -179,10 +182,12 @@ external startLocationUpdatesAsync:
   "startLocationUpdatesAsync";
 
 [@bs.module "expo-location"]
-external stopLocationUpdatesAsync: string => Js.Promise.t(unit) = "stopLocationUpdatesAsync";
+external stopLocationUpdatesAsync: string => Js.Promise.t(unit) =
+  "stopLocationUpdatesAsync";
 
 [@bs.module "expo-location"]
-external hasStartedLocationUpdatesAsync: string => Js.Promise.t(bool) = "hasStartedLocationUpdatesAsync";
+external hasStartedLocationUpdatesAsync: string => Js.Promise.t(bool) =
+  "hasStartedLocationUpdatesAsync";
 
 type geofencingRegion = {
   identifier: string,
@@ -199,6 +204,8 @@ external startGeofencingAsync:
   "startGeofencingAsync";
 
 [@bs.module "expo-location"]
-external stopGeofencingAsync: string => Js.Promise.t(unit) = "stopGeofencingAsync";
+external stopGeofencingAsync: string => Js.Promise.t(unit) =
+  "stopGeofencingAsync";
 [@bs.module "expo-location"]
-external hasStartedGeofencingAsync: string => Js.Promise.t(bool) = "hasStartedGeofencingAsync";
+external hasStartedGeofencingAsync: string => Js.Promise.t(bool) =
+  "hasStartedGeofencingAsync";

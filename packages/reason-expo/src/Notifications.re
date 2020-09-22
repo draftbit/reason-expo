@@ -55,14 +55,13 @@ external setBadgeNumberAsync: int => Js.Promise.t(unit) =
 
 type gcmSenderId = string;
 type getDevicePushTokenAsyncResponse = {
-    [@bs.as "type"]
-    _type: string,
-    data: string,
-  };
+  [@bs.as "type"]
+  _type: string,
+  data: string,
+};
 [@bs.module "expo"] [@bs.scope "Notifications"]
 external getDevicePushTokenAsync:
-  gcmSenderId =>
-  Js.Promise.t(getDevicePushTokenAsyncResponse) =
+  gcmSenderId => Js.Promise.t(getDevicePushTokenAsyncResponse) =
   "getDevicePushTokenAsync";
 type createCategoryAsyncProps = {
   actionId: string,

@@ -2,7 +2,8 @@
 
 [@bs.module "expo-localization"] external locales: array(string) = "locales";
 
-[@bs.module "expo-localization"] external country: Js.Nullable.t(string) = "country";
+[@bs.module "expo-localization"]
+external country: Js.Nullable.t(string) = "country";
 
 [@bs.module "expo-localization"]
 external isoCurrencyCodes: Js.Nullable.t(array(string)) = "isoCurrencyCodes";
@@ -21,4 +22,5 @@ type localization = {
 };
 
 [@bs.module "expo-localization"]
-external getLocalizationAsync: unit => Js.Promise.t(localization) = "getLocalizationAsync";
+external getLocalizationAsync: unit => Js.Promise.t(localization) =
+  "getLocalizationAsync";
