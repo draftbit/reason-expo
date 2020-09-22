@@ -38,7 +38,8 @@ type launchImageLibraryAsyncResult = {
 
 [@bs.module "expo-image-picker"]
 external launchImageLibraryAsync:
-  launchImageLibraryAsyncOptions => launchImageLibraryAsyncResult =
+  launchImageLibraryAsyncOptions =>
+  Js.Promise.t(launchImageLibraryAsyncResult) =
   "launchImageLibraryAsync";
 
 [@bs.deriving abstract]
