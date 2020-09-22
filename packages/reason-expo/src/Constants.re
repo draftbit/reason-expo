@@ -33,7 +33,8 @@ type updates = {fallbackToCacheTimeout: int};
 type manifest = {
   assetBundlePatterns: array(string),
   bundleUrl: string,
-  debuggerHost: string,
+  releaseChannel: Js.Undefined.t(string),
+  debuggerHost: Js.Undefined.t(string),
   developer,
   env: Js.t({.}),
   hostUri: string,
