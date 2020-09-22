@@ -68,5 +68,6 @@ type launchCameraAsyncResult = {
 };
 
 [@bs.module "expo-image-picker"]
-external launchCameraAsync: launchCameraAsyncOptions => launchCameraAsyncResult =
+external launchCameraAsync:
+  launchCameraAsyncOptions => Js.Promise.t(launchCameraAsyncResult) =
   "launchCameraAsync";
