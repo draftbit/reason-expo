@@ -7,8 +7,13 @@ type eventSubscription;
 external hasServicesEnabledAsync: unit => Js.Promise.t(bool) =
   "hasServicesEnabledAsync";
 
+type requestPermissionResult = {
+  status: [ | `granted | `denied | `undetermined],
+};
+
 [@bs.module "expo-location"]
-external requestPermissionsAsync: unit => Js.Promise.t(unit) =
+external requestPermissionsAsync:
+  unit => Js.Promise.t(requestPermissionResult) =
   "requestPermissionsAsync";
 
 module Accuracy = {
