@@ -50,6 +50,19 @@ module EvilIcons = {
     "EvilIcons";
 };
 
+module Feather = {
+  [@bs.module "@expo/vector-icons"] [@react.component]
+  external make:
+    (
+      ~style: ReactNative.Style.t=?,
+      ~name: string,
+      ~size: int,
+      ~color: string
+    ) =>
+    React.element =
+    "Feather";
+};
+
 module FontAwesome = {
   [@bs.module "@expo/vector-icons"] [@react.component]
   external make:
