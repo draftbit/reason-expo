@@ -94,4 +94,28 @@ type t = {
   systemFonts: array(string),
 };
 
-[@bs.module "expo-constants"] external constants: t = "default";
+[@bs.module "expo-constants"] external _constants: t = "default";
+
+let appOwnership = _constants.appOwnership;
+let debugMode = _constants.debugMode;
+let deviceId = _constants.deviceId;
+let deviceName = _constants.deviceName;
+let deviceYearClass = _constants.deviceYearClass;
+let experienceUrl = _constants.experienceUrl;
+let expoRuntimeVersion = _constants.expoRuntimeVersion;
+let expoVersion = _constants.expoVersion;
+let getWebViewUserAgentAsync = _constants.getWebViewUserAgentAsync;
+let installationId = _constants.installationId;
+let isDetached = _constants.isDetached;
+let isDevice = _constants.isDevice;
+let isHeadless = _constants.isHeadless;
+let linkingUri = _constants.linkingUri;
+let linkingUrl = _constants.linkingUrl;
+let manifest = _constants.manifest;
+let nativeAppVersion = _constants.nativeAppVersion;
+let nativeBuildVersion = _constants.nativeBuildVersion;
+let platform = _constants.platform;
+let sessionId = _constants.sessionId;
+let statusBarHeight = _constants.statusBarHeight;
+let supportedExpoSdks = _constants.supportedExpoSdks;
+let systemFonts = _constants.systemFonts;
