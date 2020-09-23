@@ -1,28 +1,21 @@
-[@bs.deriving abstract]
 type updateCheckResult('manifestType) = {
   isAvailable: bool,
   manifest: 'manifestType,
 };
 
-[@bs.deriving abstract]
 type updateFetchResult('manifestType) = {
   isNew: bool,
   manifest: 'manifestType,
 };
 
-[@bs.deriving abstract]
 type event('manifestType) = {
   [@bs.as "type"]
   _type: string,
   manifest: 'manifestType,
-  [@bs.optional]
-  message: string,
+  message: option(string),
 };
 
-[@bs.deriving abstract]
-type eventSubscription;
-
-[@bs.send] external remove: (eventSubscription, unit) => unit = "remove";
+type eventSubscription = {remove: unit => unit};
 
 [@bs.module "expo"] [@bs.scope "Updates"]
 external reload: unit => unit = "reload";

@@ -1,59 +1,41 @@
-type t =
-  | Notifications
-  | Location
-  | Camera
-  | AudioRecording
-  | Contacts
-  | CameraRoll
-  | UserFacingNotifications
-  | SystemBrightness
-  | Calendar
-  | Reminders;
+// type t =
+//   | Notifications
+//   | Location
+//   | Camera
+//   | AudioRecording
+//   | Contacts
+//   | CameraRoll
+//   | UserFacingNotifications
+//   | SystemBrightness
+//   | Calendar
+//   | Reminders;
 
-[@bs.module "expo-permissions"] external location: string = "LOCATION";
+type t;
 
-[@bs.module "expo-permissions"] external camera: string = "CAMERA";
+[@bs.module "expo-permissions"] external location: t = "LOCATION";
 
-[@bs.module "expo-permissions"]
-external audioRecording: string = "AUDIO_RECORDING";
+[@bs.module "expo-permissions"] external camera: t = "CAMERA";
 
-[@bs.module "expo-permissions"] external contacts: string = "CONTACTS";
+[@bs.module "expo-permissions"] external audioRecording: t = "AUDIO_RECORDING";
 
-[@bs.module "expo-permissions"] external cameraRoll: string = "CAMERA_ROLL";
+[@bs.module "expo-permissions"] external contacts: t = "CONTACTS";
 
-[@bs.module "expo-permissions"] external calendar: string = "CALENDAR";
+[@bs.module "expo-permissions"] external cameraRoll: t = "CAMERA_ROLL";
 
-[@bs.module "expo-permissions"] external reminders: string = "REMINDERS";
+[@bs.module "expo-permissions"] external calendar: t = "CALENDAR";
 
-[@bs.module "expo-permissions"]
-external userFacingNotifications: string = "USER_FACING_NOTIFICATIONS";
+[@bs.module "expo-permissions"] external reminders: t = "REMINDERS";
 
 [@bs.module "expo-permissions"]
-external notification: string = "NOTIFICATIONS";
+external userFacingNotifications: t = "USER_FACING_NOTIFICATIONS";
+
+[@bs.module "expo-permissions"] external notification: t = "NOTIFICATIONS";
 
 [@bs.module "expo-permissions"]
-external systemBrightness: string = "SYSTEM_BRIGHTNESS";
-
-let toString = p =>
-  switch (p) {
-  | Notifications => notification
-  | Location => location
-  | Camera => camera
-  | AudioRecording => audioRecording
-  | UserFacingNotifications => userFacingNotifications
-  | Contacts => contacts
-  | CameraRoll => cameraRoll
-  | SystemBrightness => systemBrightness
-  | Calendar => calendar
-  | Reminders => reminders
-  };
+external systemBrightness: t = "SYSTEM_BRIGHTNESS";
 
 [@bs.module "expo-permissions"]
-external _get: string => Js.Promise.t('b) = "getAsync";
-
-let getAsync = permission => _get(toString(permission));
+external getAsync: t => Js.Promise.t('b) = "getAsync";
 
 [@bs.module "expo-permissions"]
-external _ask: string => Js.Promise.t('b) = "askAsync";
-
-let askAsync = permission => _ask(toString(permission));
+external askAsync: t => Js.Promise.t('b) = "askAsync";

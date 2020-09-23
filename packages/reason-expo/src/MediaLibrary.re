@@ -41,7 +41,6 @@ module SortBy = {
   external duration: t = "duration";
 };
 
-// [@bs.deriving abstract]
 type asset('exif) = {
   id: string,
   filename: string,
@@ -65,7 +64,6 @@ and location = {
   longitude: float,
 };
 
-// [@bs.deriving abstract]
 type album = {
   id: string,
   title: string,
@@ -105,25 +103,18 @@ type getAssetsAsyncProps = {
   sortBy: array(SortBy.t),
   mediaType: array(MediaType.t),
 };
+
 type getAssetsAsyncResponse('exif) = {
   assets: array(asset('exif)),
   endCursor: string,
   hasNextPage: bool,
   totalCount: int,
 };
+
 [@bs.module "expo-media-library"]
 external _getAssetsAsync:
   getAssetsAsyncProps => Js.Promise.t(getAssetsAsyncResponse('exif)) =
   "getAssetsAsync";
-
-let getAssetsAsync = (~first, ~after, ~album, ~sortBy, ~mediaType) =>
-  _getAssetsAsync({
-    first,
-    after,
-    album: AlbumOption.encodeSource(album),
-    sortBy,
-    mediaType,
-  });
 
 module AssetOption = {
   type t = [ | `ID(string) | `Asset(asset({.}))];

@@ -1,15 +1,17 @@
-[@bs.deriving abstract]
-type composeAsyncOptions = {
-  recipients: array(string),
-  ccRecipients: array(string),
-  bccRecipients: array(string),
-  subject: string,
-  body: string,
-  isHtml: bool,
-  attachments: array(string),
-};
+type composeAsyncOptions;
+[@bs.obj]
+external composeAsyncOptions:
+  (
+    ~recipients: array(string),
+    ~ccRecipients: array(string),
+    ~bccRecipients: array(string),
+    ~subject: string,
+    ~body: string,
+    ~isHtml: bool,
+    ~attachments: array(string)
+  ) =>
+  composeAsyncOptions;
 
-[@bs.deriving abstract]
 type composeAsyncResult = {status: string};
 
 [@bs.module "expo-mail-composer"]

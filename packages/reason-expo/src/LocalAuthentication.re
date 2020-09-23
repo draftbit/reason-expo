@@ -1,5 +1,5 @@
 module AuthenticationType = {
-  type t = int;
+  type t;
 
   [@bs.module "expo-local-authentication"] [@bs.scope "AuthenticationType"]
   external fingerprint: t = "FINGERPRINT";
@@ -19,19 +19,15 @@ external supportedAuthenticationTypesAsync:
 [@bs.module "expo-local-authentication"]
 external isEnrolledAsync: unit => Js.Promise.t(bool) = "isEnrolledAsync";
 
-[@bs.deriving abstract]
 type authenticateAsyncResult = {
   success: bool,
-  [@bs.optional]
-  error: string,
+  error: option(string),
 };
-[@bs.deriving abstract]
-type authenticateAsyncOptions = {
-  [@bs.optional]
-  promptMessage: string,
-  [@bs.optional]
-  fallbackLabel: string,
-};
+
+type authenticateAsyncOptions;
+[@bs.obj]
+external authenticateAsyncOptions:
+  (~promptMessage: string, ~fallbackLabel: string) => authenticateAsyncOptions;
 
 [@bs.module "expo-local-authentication"]
 external authenticateAsync:

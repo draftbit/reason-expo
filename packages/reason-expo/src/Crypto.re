@@ -1,5 +1,5 @@
 module CryptoDigestAlgorithm = {
-  type t = string;
+  type t;
   [@bs.module "expo-crypto"] [@bs.scope "CryptoDigestAlgorithm"]
   external sha1: t = "SHA1";
 
@@ -23,7 +23,7 @@ module CryptoDigestAlgorithm = {
 };
 
 module CryptoEncoding = {
-  type t = string;
+  type t;
   [@bs.module "expo-crypto"] [@bs.scope "CryptoEncoding"]
   external hex: t = "HEX";
 

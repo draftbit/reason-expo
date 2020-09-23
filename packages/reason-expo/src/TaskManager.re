@@ -9,18 +9,16 @@ external isTaskRegisteredAsync: string => Js.Promise.t(bool) =
 external getTaskOptionsAsync: string => Js.Promise.t('a) =
   "getTaskOptionsAsync";
 
-type getTasgetRegisteredTasksAsyncResponse('a) = {
+type getRegisteredTasksAsyncResponse('a) = {
   taskName: string,
   taskType: string,
   options: 'a,
 };
+
 [@bs.module "expo-task-manager"]
-external getTasgetRegisteredTasksAsync:
-  unit =>
-  Js.Promise.t(
-    array(getTasgetRegisteredTasksAsyncResponse('a)),
-  ) =
-  "getTasgetRegisteredTasksAsync";
+external getRegisteredTasksAsync:
+  unit => Js.Promise.t(array(getRegisteredTasksAsyncResponse('a))) =
+  "getRegisteredTasksAsync";
 
 [@bs.module "expo-task-manager"]
 external unregisterTaskAsync: string => Js.Promise.t(unit) =

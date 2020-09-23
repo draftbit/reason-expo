@@ -1,16 +1,19 @@
-[@bs.deriving abstract]
-type speakOptions('errorObj) = {
-  language: string,
-  pitch: float,
-  rate: float,
-  onStart: unit => unit,
-  onDone: unit => unit,
-  onStopped: unit => unit,
-  onError: 'errorObj => unit,
-};
+type speakOptions('errorObj);
+[@bs.obj]
+external speakOptions:
+  (
+    ~language: string,
+    ~pitch: float,
+    ~rate: float,
+    ~onStart: unit => unit,
+    ~onDone: unit => unit,
+    ~onStopped: unit => unit,
+    ~onError: 'errorObj => unit
+  ) =>
+  speakOptions('errorObj);
 
 [@bs.module "expo-speech"]
-external speak: (string, speakOptions('a)) => unit = "speak";
+external speak: (string, speakOptions('errorObj)) => unit = "speak";
 
 [@bs.module "expo-speech"] external stop: unit => unit = "stop";
 

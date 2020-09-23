@@ -1,40 +1,40 @@
-[@bs.deriving abstract]
 type openBrowserAsyncResult = {
   [@bs.as "type"]
   _type: string,
 };
 
-[@bs.deriving abstract]
-type openBrowserAsyncOptions = {
-  [@bs.optional]
-  toolbarColor: string,
-  [@bs.optional]
-  collapseToolbar: bool,
-  [@bs.optional]
-  controlsColor: string,
-  [@bs.optional]
-  showTitle: bool,
-  [@bs.optional]
-  package: string,
-};
+type openBrowserAsyncOptions;
+[@bs.obj]
+external openBrowserAsyncOptions:
+  (
+    ~controlsColor: string=?,
+    ~dismissButtonStyle: [ | `close | `cancel]=?,
+    ~enableBarCollapsing: bool=?,
+    ~enableDefaultShare: bool=?,
+    ~package: string=?,
+    ~readerMode: bool=?,
+    ~showInRecents: bool=?,
+    ~showTitle: bool=?,
+    ~toolbarColor: string=?
+  ) =>
+  openBrowserAsyncOptions;
 
 [@bs.module "expo-web-browser"]
-external openBrowserAsync: string => Js.Promise.t(openBrowserAsyncResult) =
+external openBrowserAsync:
+  (~url: string, ~options: openBrowserAsyncOptions=?, unit) =>
+  Js.Promise.t(openBrowserAsyncResult) =
   "openBrowserAsync";
 
-[@bs.deriving abstract]
 type openAuthSessionAsyncResult = {
   [@bs.as "type"]
   _type: string,
 };
 
 [@bs.module "expo-web-browser"]
-external _openAuthSessionAsync:
-  (string, string) => Js.Promise.t(openAuthSessionAsyncResult) =
+external openAuthSessionAsync:
+  (~url: string, ~redirectUrl: string) =>
+  Js.Promise.t(openAuthSessionAsyncResult) =
   "openAuthSessionAsync";
-
-let openAuthSessionAsync = (~url, ~redirectUrl=Constants.linkingUrl, ()) =>
-  _openAuthSessionAsync(url, redirectUrl);
 
 [@bs.deriving abstract]
 type warmUpAsyncResult = {package: string};
@@ -58,7 +58,6 @@ type coolDownAsyncResult = {package: string};
 external coolDownAsync: string => Js.Promise.t(coolDownAsyncResult) =
   "coolDownAsync";
 
-[@bs.deriving abstract]
 type dismissBrowserResult = {
   [@bs.as "type"]
   _type: string,
@@ -68,14 +67,11 @@ type dismissBrowserResult = {
 external dismissBrowser: unit => Js.Promise.t(dismissBrowserResult) =
   "dismissBrowser";
 
-[@bs.deriving abstract]
 type getCustomTabsSupportingBrowsersResult = {
   browserPackages: array(string),
-  [@bs.optional]
-  defaultBrowserPackage: string,
+  defaultBrowserPackage: option(string),
   servicePackages: array(string),
-  [@bs.optional]
-  preferredBrowserPackage: string,
+  preferredBrowserPackage: option(string),
 };
 
 [@bs.module "expo-web-browser"]

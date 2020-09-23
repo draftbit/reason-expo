@@ -1,5 +1,5 @@
 module HitTestResultTypes = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "HitTestResultTypes")]
   external featurePoint: t = "FeaturePoint";
@@ -21,7 +21,7 @@ module HitTestResultTypes = {
 };
 
 module TrackingConfiguration = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "TrackingConfiguration")]
   external world: t = "World";
@@ -34,7 +34,7 @@ module TrackingConfiguration = {
 };
 
 module DepthDataQuality = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "DepthDataQuality")]
   external low: t = "Low";
@@ -44,7 +44,7 @@ module DepthDataQuality = {
 };
 
 module DepthDataAccuracy = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "DepthDataAccuracy")]
   external absolute: t = "Absolute";
@@ -54,7 +54,7 @@ module DepthDataAccuracy = {
 };
 
 module BlendShape = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "BlendShape")]
   external browDownL: t = "BrowDownL";
@@ -211,7 +211,7 @@ module BlendShape = {
 };
 
 module FaceAnchorProp = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "FaceAnchorProp")]
   external geometry: t = "Geometry";
@@ -221,7 +221,7 @@ module FaceAnchorProp = {
 };
 
 module PlaneDetection = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "PlaneDetection")]
   external none: t = "None";
@@ -234,7 +234,7 @@ module PlaneDetection = {
 };
 
 module WorldAlignment = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "WorldAlignment")]
   external gravity: t = "Gravity";
@@ -269,7 +269,7 @@ module EventType = {
 };
 
 module AnchorType = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "AnchorType")]
   external face: t = "Face";
@@ -285,7 +285,7 @@ module AnchorType = {
 };
 
 module AnchorEventType = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "AnchorEventType")]
   external add: t = "Add";
@@ -298,7 +298,7 @@ module AnchorEventType = {
 };
 
 module FrameAttribute = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "FrameAttribute")]
   external anchors: t = "Anchors";
@@ -314,7 +314,7 @@ module FrameAttribute = {
 };
 
 module TrackingState = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "TrackingState")]
   external notAvailable: t = "NotAvailable";
@@ -327,7 +327,7 @@ module TrackingState = {
 };
 
 module TrackingStateReason = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("AR", "TrackingStateReason")]
   external none: t = "None";
@@ -424,13 +424,9 @@ and arFaceTrackingConfiguration = {
 };
 
 type arFrameRequest = {
-  // [@bs.optional]
   anchors: option(arFrameAnchorRequest),
-  // [@bs.optional]
   rawFeaturePoints: option(bool),
-  // [@bs.optional]
   lightEstimation: option(bool),
-  // [@bs.optional]
   capturedDepthData: option(bool),
 };
 
@@ -513,30 +509,23 @@ external onFrameDidUpdate: (unit => unit) => unit = "onFrameDidUpdate";
 external onDidFailWithError: ({. error: string} => unit) => unit =
   "onDidFailWithError";
 
+type onAnchorsDidUpdateResult = {
+  anchors: array(anchor),
+  eventType: AnchorEventType.t,
+};
+
 [@bs.module "expo"] [@bs.scope "AR"]
-external onAnchorsDidUpdate:
-  (
-    {
-      .
-      anchors: array(anchor),
-      eventType: AnchorEventType.t,
-    } =>
-    unit
-  ) =>
-  unit =
+external onAnchorsDidUpdate: (onAnchorsDidUpdateResult => unit) => unit =
   "onAnchorsDidUpdate";
+
+type onCameraDidChangeTrackingStateResult = {
+  trackingState: TrackingState.t,
+  trackingStateReason: TrackingStateReason.t,
+};
 
 [@bs.module "expo"] [@bs.scope "AR"]
 external onCameraDidChangeTrackingState:
-  (
-    {
-      .
-      trackingState: TrackingState.t,
-      trackingStateReason: TrackingStateReason.t,
-    } =>
-    unit
-  ) =>
-  unit =
+  (onCameraDidChangeTrackingStateResult => unit) => unit =
   "onCameraDidChangeTrackingState";
 
 [@bs.module "expo"] [@bs.scope "AR"]
@@ -547,17 +536,14 @@ external onSessionWasInterrupted: (unit => unit) => unit =
 external onSessionInterruptionEnded: (unit => unit) => unit =
   "onSessionInterruptionEnded";
 
+type performHitTestPoint = {
+  x: float,
+  y: float,
+};
+
 [@bs.module "expo"] [@bs.scope "AR"]
 external performHitTest:
-  (
-    {
-      .
-      x: float,
-      y: float,
-    },
-    HitTestResultTypes.t
-  ) =>
-  hitTestResults =
+  (performHitTestPoint, HitTestResultTypes.t) => hitTestResults =
   "performHitTest";
 
 [@bs.module "expo"] [@bs.scope "AR"]

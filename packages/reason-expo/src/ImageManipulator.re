@@ -1,43 +1,35 @@
-[@bs.deriving abstract]
-type action = {
-  [@bs.optional]
-  resize: {
-    .
-    width: float,
-    height: float,
-  },
-  [@bs.optional]
-  rotate: float,
-  [@bs.optional]
-  flip: {
-    .
-    vertical: bool,
-    horizontal: bool,
-  },
-  [@bs.optional]
-  crop: {
-    .
-    originX: float,
-    originY: float,
-    width: float,
-    height: float,
-  },
+type crop = {
+  originX: float,
+  originY: float,
+  width: float,
+  height: float,
 };
 
-[@bs.deriving abstract]
-type saveOptions = {
-  compress: float,
-  format: string,
-  base64: bool,
+type flip = {
+  vertical: bool,
+  horizontal: bool,
 };
 
-[@bs.deriving abstract]
+type resize = {
+  width: float,
+  height: float,
+};
+
+type action;
+[@bs.obj]
+external action:
+  (~resize: resize=?, ~rotate: float=?, ~flip: flip=?, ~crop: crop=?) => action;
+
+type saveOptions;
+[@bs.obj]
+external saveOptions:
+  (~compress: float, ~format: string, ~base64: bool) => saveOptions;
+
 type manipulateResult = {
   uri: string,
   width: float,
   height: float,
-  [@bs.optional]
-  base64: string,
+  base64: option(string),
 };
 
 [@bs.module "expo-image-manipulator"]

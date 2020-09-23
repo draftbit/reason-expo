@@ -1,15 +1,12 @@
 type platforms = array(string);
 
-[@bs.deriving {abstract: light}]
 type ios = {supportsTablet: bool};
 
-[@bs.deriving {abstract: light}]
 type developer = {
   projectRoot: string,
   tool: string,
 };
 
-[@bs.deriving {abstract: light}]
 type packagerOpts = {
   dev: bool,
   hostType: string,
@@ -18,7 +15,6 @@ type packagerOpts = {
   urlRandomness: string,
 };
 
-[@bs.deriving {abstract: light}]
 type splash = {
   backgroundColor: string,
   image: string,
@@ -26,14 +22,13 @@ type splash = {
   resizeMode: string,
 };
 
-[@bs.deriving {abstract: light}]
 type updates = {fallbackToCacheTimeout: int};
 
-[@bs.deriving {abstract: light}]
 type manifest = {
   assetBundlePatterns: array(string),
   bundleUrl: string,
-  debuggerHost: string,
+  releaseChannel: option(string),
+  debuggerHost: option(string),
   developer,
   env: Js.t({.}),
   hostUri: string,
@@ -58,7 +53,6 @@ type manifest = {
   xde: bool,
 };
 
-[@bs.deriving {abstract: light}]
 type platformIOS = {
   buildNumber: string,
   platform: string,
@@ -67,16 +61,13 @@ type platformIOS = {
   systemVersion: string,
 };
 
-[@bs.deriving {abstract: light}]
 type platformAndroid = {versionCode: int};
 
-[@bs.deriving {abstract: light}]
 type platform = {
   ios: platformIOS,
   android: platformAndroid,
 };
 
-[@bs.deriving {abstract: light}]
 type t = {
   appOwnership: string,
   debugMode: bool,
@@ -103,19 +94,28 @@ type t = {
   systemFonts: array(string),
 };
 
-[@bs.module "expo-constants"] external constants: t = "default";
+[@bs.module "expo-constants"] external _constants: t = "default";
 
-let deviceId = constants->deviceId;
-let deviceName = constants->deviceName;
-let deviceYearClass = constants->deviceYearClass;
-let linkingUrl = constants->linkingUrl;
-let statusBarHeight = constants->statusBarHeight;
-let appOwnership = constants->appOwnership;
-let expoVersion = constants->expoVersion;
-let installationId = constants->installationId;
-let isDevice = constants->isDevice;
-let getWebViewUserAgentAsync = constants->getWebViewUserAgentAsync;
-let systemFonts = constants->systemFonts;
-let platform = constants->platform;
-let sessionId = constants->sessionId;
-let manifest = constants->manifest;
+let appOwnership = _constants.appOwnership;
+let debugMode = _constants.debugMode;
+let deviceId = _constants.deviceId;
+let deviceName = _constants.deviceName;
+let deviceYearClass = _constants.deviceYearClass;
+let experienceUrl = _constants.experienceUrl;
+let expoRuntimeVersion = _constants.expoRuntimeVersion;
+let expoVersion = _constants.expoVersion;
+let getWebViewUserAgentAsync = _constants.getWebViewUserAgentAsync;
+let installationId = _constants.installationId;
+let isDetached = _constants.isDetached;
+let isDevice = _constants.isDevice;
+let isHeadless = _constants.isHeadless;
+let linkingUri = _constants.linkingUri;
+let linkingUrl = _constants.linkingUrl;
+let manifest = _constants.manifest;
+let nativeAppVersion = _constants.nativeAppVersion;
+let nativeBuildVersion = _constants.nativeBuildVersion;
+let platform = _constants.platform;
+let sessionId = _constants.sessionId;
+let statusBarHeight = _constants.statusBarHeight;
+let supportedExpoSdks = _constants.supportedExpoSdks;
+let systemFonts = _constants.systemFonts;

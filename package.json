@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "format:most": "prettier --write \"**/*.{md,json,js,css}\"",
-    "format:re": "find ./packages -iname '*.re' | xargs bsrefmt --in-place && find ./packages -iname '*.rei' | xargs bsrefmt -i true --in-place && find ./test -iname '*.re' | xargs bsrefmt --in-place && find ./template -iname '*.re' | xargs bsrefmt --in-place",
+    "format:re": "find ./packages -iname '*.re' | xargs bsrefmt --in-place && find ./packages -iname '*.rei' | xargs bsrefmt -i true --in-place && find ./packages/test -iname '*.re' | xargs bsrefmt --in-place && find ./packages/template -iname '*.re' | xargs bsrefmt --in-place",
     "format": "yarn format:most && yarn format:re",
     "watch": "run-p watch:reason-expo watch:test",
     "watch:reason-expo": "cd packages/reason-expo && yarn watch",

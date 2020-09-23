@@ -1,72 +1,68 @@
-module MediaTypeOptions = {
+module MediaType = {
+  type t;
+
   [@bs.module "expo-image-picker"] [@bs.scope "MediaTypeOptions"]
-  external images: string = "Images";
+  external images: t = "Images";
   [@bs.module "expo-image-picker"] [@bs.scope "MediaTypeOptions"]
-  external videos: string = "Videos";
+  external videos: t = "Videos";
   [@bs.module "expo-image-picker"] [@bs.scope "MediaTypeOptions"]
-  external all: string = "all";
+  external all: t = "all";
 };
 
-[@bs.deriving abstract]
-type launchImageLibraryAsyncOptions = {
-  mediaTypes: string,
-  allowsEditing: bool,
-  aspect: array(int),
-  quality: float,
-  base64: bool,
-  exif: bool,
-};
+type launchImageLibraryAsyncOptions;
+[@bs.obj]
+external launchImageLibraryAsyncOptions:
+  (
+    ~mediaTypes: MediaType.t,
+    ~allowsEditing: bool,
+    ~aspect: array(int),
+    ~quality: float,
+    ~base64: bool,
+    ~exif: bool
+  ) =>
+  launchImageLibraryAsyncOptions;
 
-[@bs.deriving abstract]
 type launchImageLibraryAsyncResult = {
   cancelled: bool,
-  [@bs.optional]
-  uri: string,
-  [@bs.optional]
-  width: float,
-  [@bs.optional]
-  height: float,
-  [@bs.optional] [@bs.as "type"]
-  _type: string,
-  [@bs.optional]
-  duration: float,
-  [@bs.optional]
-  base64: string,
-  [@bs.optional]
-  exif: string,
+  uri: option(string),
+  width: option(float),
+  height: option(float),
+  [@bs.as "type"]
+  _type: option(string),
+  duration: option(float),
+  base64: option(string),
+  exif: option(string),
 };
 
 [@bs.module "expo-image-picker"]
 external launchImageLibraryAsync:
-  launchImageLibraryAsyncOptions => launchImageLibraryAsyncResult =
+  launchImageLibraryAsyncOptions =>
+  Js.Promise.t(launchImageLibraryAsyncResult) =
   "launchImageLibraryAsync";
 
-[@bs.deriving abstract]
-type launchCameraAsyncOptions = {
-  allowsEditing: bool,
-  aspect: array(int),
-  quality: float,
-  base64: bool,
-  exif: bool,
-};
+type launchCameraAsyncOptions;
+[@bs.obj]
+external launchCameraAsyncOptions:
+  (
+    ~allowsEditing: bool,
+    ~aspect: array(int),
+    ~quality: float,
+    ~base64: bool,
+    ~exif: bool
+  ) =>
+  launchCameraAsyncOptions;
 
-[@bs.deriving abstract]
 type launchCameraAsyncResult = {
   cancelled: bool,
-  [@bs.optional]
-  uri: string,
-  [@bs.optional]
-  width: float,
-  [@bs.optional]
-  height: float,
-  [@bs.optional]
-  duration: float,
-  [@bs.optional]
-  base64: string,
-  [@bs.optional]
-  exif: string,
+  uri: option(string),
+  width: option(float),
+  height: option(float),
+  duration: option(float),
+  base64: option(string),
+  exif: option(string),
 };
 
 [@bs.module "expo-image-picker"]
-external launchCameraAsync: launchCameraAsyncOptions => launchCameraAsyncResult =
+external launchCameraAsync:
+  launchCameraAsyncOptions => Js.Promise.t(launchCameraAsyncResult) =
   "launchCameraAsync";

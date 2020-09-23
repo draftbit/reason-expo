@@ -1,82 +1,55 @@
-type keychainAccessibilityType;
+type t;
+
+[@bs.module "expo-secure-store"] external whenUnlocked: t = "WHEN_UNLOCKED";
 
 [@bs.module "expo-secure-store"]
-external whenUnlocked: keychainAccessibilityType = "WHEN_UNLOCKED";
+external afterFirstUnlock: t = "AFTER_FIRST_UNLOCK";
+
+[@bs.module "expo-secure-store"] external always: t = "ALWAYS";
 
 [@bs.module "expo-secure-store"]
-external afterFirstUnlock: keychainAccessibilityType = "AFTER_FIRST_UNLOCK";
+external whenUnlockedThisDeviceOnly: t = "WHEN_UNLOCKED_THIS_DEVICE_ONLY";
 
 [@bs.module "expo-secure-store"]
-external always: keychainAccessibilityType = "ALWAYS";
-
-[@bs.module "expo-secure-store"]
-external whenUnlockedThisDeviceOnly: keychainAccessibilityType =
-  "WHEN_UNLOCKED_THIS_DEVICE_ONLY";
-
-[@bs.module "expo-secure-store"]
-external whenPasscodeSetThisDeviceOnly: keychainAccessibilityType =
+external whenPasscodeSetThisDeviceOnly: t =
   "WHEN_PASSCODE_SET_THIS_DEVICE_ONLY";
 
 [@bs.module "expo-secure-store"]
-external afterFirstUnlockThisDeviceOnly: keychainAccessibilityType =
+external afterFirstUnlockThisDeviceOnly: t =
   "AFTER_FIRST_UNLOCK_THIS_DEVICE_ONLY";
 
 [@bs.module "expo-secure-store"]
-external alwaysThisDeviceOnly: keychainAccessibilityType =
-  "ALWAYS_THIS_DEVICE_ONLY";
+external alwaysThisDeviceOnly: t = "ALWAYS_THIS_DEVICE_ONLY";
 
-[@bs.deriving abstract]
-type setItemAsyncOptions = {
-  keychainService: string,
-  keychainAccessible: keychainAccessibilityType,
-};
+type setItemAsyncOptions;
+[@bs.obj]
+external setItemAsyncOptions:
+  (~keychainService: string, ~keychainAccessible: t) => setItemAsyncOptions;
 
 [@bs.module "expo-secure-store"]
-external _setItemAsyncWithOptions:
-  (string, string, setItemAsyncOptions) => Js.Promise.t(unit) =
+external setItemAsync:
+  (~key: string, ~value: string, ~options: setItemAsyncOptions=?, unit) =>
+  Js.Promise.t(unit) =
   "setItemAsync";
 
-[@bs.module "expo-secure-store"]
-external _setItemAsync: (string, string) => Js.Promise.t(unit) =
-  "setItemAsync";
-
-let setItemAsync = (~key, ~value, ~options=?, ()) =>
-  switch (options) {
-  | Some(o) => _setItemAsyncWithOptions(key, value, o)
-  | None => _setItemAsync(key, value)
-  };
-
-[@bs.deriving abstract]
-type getItemAsyncOptions = {keychainService: string};
+type getItemAsyncOptions;
+[@bs.obj]
+external getItemAsyncOptions:
+  (~keychainService: string) => getItemAsyncOptions;
 
 [@bs.module "expo-secure-store"]
-external _getItemAsyncWithOptions:
-  (string, getItemAsyncOptions) => Js.Promise.t(Js.nullable(string)) =
+external getItemAsync:
+  (~key: string, ~options: getItemAsyncOptions=?, unit) =>
+  Js.Promise.t(Js.nullable(string)) =
   "getItemAsync";
 
-[@bs.module "expo-secure-store"]
-external _getItemAsync: string => Js.Promise.t(Js.nullable(string)) =
-  "getItemAsync";
-
-let getItemAsync = (~key, ~options=?, ()) =>
-  switch (options) {
-  | Some(o) => _getItemAsyncWithOptions(key, o)
-  | None => _getItemAsync(key)
-  };
-
-[@bs.deriving abstract]
-type deleteItemAsyncOptions = {keychainService: string};
+type deleteItemAsyncOptions;
+[@bs.obj]
+external deleteItemAsyncOptions:
+  (~keychainService: string) => deleteItemAsyncOptions;
 
 [@bs.module "expo-secure-store"]
-external _deleteItemAsync: string => Js.Promise.t(unit) = "deleteItemAsync";
-
-[@bs.module "expo-secure-store"]
-external _deleteItemAsyncWithOptions:
-  (string, deleteItemAsyncOptions) => Js.Promise.t(unit) =
+external deleteItemAsyncWithOptions:
+  (~key: string, ~options: deleteItemAsyncOptions=?, unit) =>
+  Js.Promise.t(unit) =
   "deleteItemAsync";
-
-let deleteItemAsync = (~key, ~options=?, ()) =>
-  switch (options) {
-  | Some(o) => _deleteItemAsyncWithOptions(key, o)
-  | None => _deleteItemAsync(key)
-  };

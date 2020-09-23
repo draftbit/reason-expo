@@ -4,6 +4,7 @@ external createContextAsync: unit => Js.Promise.t('a) = "createContextAsync";
 [@bs.module "expo-gl"] [@bs.scope "GLView"]
 external destroyContextAsync: 'a => Js.Promise.t(bool) =
   "destroyContextAsync";
+
 type takeSnapshotAsyncProps('a) = {
   framebuffer: 'a,
   rect,
@@ -17,12 +18,14 @@ and rect = {
   height: float,
   width: float,
 };
+
 type takeSnapshotAsyncResult = {
   uri: string,
   localUri: string,
   width: float,
   height: float,
 };
+
 [@bs.module "expo-gl"] [@bs.scope "GLView"]
 external takeSnapshotAsync:
   takeSnapshotAsyncProps('a) => Js.Promise.t(takeSnapshotAsyncResult) =

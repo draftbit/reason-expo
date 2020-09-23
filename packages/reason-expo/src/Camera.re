@@ -1,7 +1,7 @@
 module Constants = {
-  type t;
-
   module Type = {
+    type t;
+
     [@bs.module "expo-camera"] [@bs.scope ("Camera", "Constants", "Type")]
     external front: t = "front";
     [@bs.module "expo-camera"] [@bs.scope ("Camera", "Constants", "Type")]
@@ -9,6 +9,8 @@ module Constants = {
   };
 
   module FlashMode = {
+    type t;
+
     [@bs.module "expo-camera"]
     [@bs.scope ("Camera", "Constants", "FlashMode")]
     external on: t = "on";
@@ -24,6 +26,8 @@ module Constants = {
   };
 
   module AutoFocus = {
+    type t;
+
     [@bs.module "expo-camera"]
     [@bs.scope ("Camera", "Constants", "AutoFocus")]
     external on: t = "on";
@@ -33,6 +37,8 @@ module Constants = {
   };
 
   module WhiteBalance = {
+    type t;
+
     [@bs.module "expo-camera"]
     [@bs.scope ("Camera", "Constants", "WhiteBalance")]
     external auto: t = "auto";
@@ -55,6 +61,8 @@ module Constants = {
 
   module FaceDetection = {
     module Mode = {
+      type t;
+
       [@bs.module "expo-camera"]
       [@bs.scope ("FaceDetector", "Constants", "Mode")]
       external fast: t = "fast";
@@ -64,6 +72,8 @@ module Constants = {
     };
 
     module Landmarks = {
+      type t;
+
       [@bs.module "expo-camera"]
       [@bs.scope ("FaceDetector", "Constants", "Landmarks")]
       external all: t = "all";
@@ -73,6 +83,8 @@ module Constants = {
     };
 
     module Classifications = {
+      type t;
+
       [@bs.module "expo-camera"]
       [@bs.scope ("FaceDetector", "Constants", "Classifications")]
       external all: t = "all";
@@ -83,113 +95,38 @@ module Constants = {
   };
 };
 
-type cameraType =
-  | Front
-  | Back;
-
-type flashMode =
-  | On
-  | Off
-  | Auto
-  | Torch;
-
-type autoFocusType =
-  | On
-  | Off;
-
-type whiteBalanceType =
-  | Auto
-  | Sunny
-  | Cloudy
-  | Shadow
-  | Fluorescent
-  | Incandescent;
-
 type face = {
   faceID: int,
   bounds,
 }
 and bounds = {
-  origin,
+  origin: xy,
   size,
   rollAngle: float,
   yawAngle: float,
   smilingProbability: Js.nullable(float),
-  leftEarPosition,
-  rightEarPosition,
-  leftEyePosition,
+  leftEarPosition: xy,
+  rightEarPosition: xy,
+  leftEyePosition: xy,
   leftEyeOpenProbability: Js.nullable(float),
-  rightEyePosition,
+  rightEyePosition: xy,
   rightEyeOpenProbability: Js.nullable(float),
-  leftCheekPosition,
-  rightCheekPosition,
-  mouthPosition,
-  leftMouthPosition,
-  rightMouthPosition,
-  noseBasePosition,
-}
-and origin = {
-  x: float,
-  y: float,
+  leftCheekPosition: xy,
+  rightCheekPosition: xy,
+  mouthPosition: xy,
+  leftMouthPosition: xy,
+  rightMouthPosition: xy,
+  noseBasePosition: xy,
 }
 and size = {
   width: float,
   height: float,
 }
-and leftEarPosition = {
-  x: float,
-  y: float,
-}
-and rightEarPosition = {
-  x: float,
-  y: float,
-}
-and leftEyePosition = {
-  x: float,
-  y: float,
-}
-and rightEyePosition = {
-  x: float,
-  y: float,
-}
-and leftCheekPosition = {
-  x: float,
-  y: float,
-}
-and rightCheekPosition = {
-  x: float,
-  y: float,
-}
-and mouthPosition = {
-  x: float,
-  y: float,
-}
-and leftMouthPosition = {
-  x: float,
-  y: float,
-}
-and rightMouthPosition = {
-  x: float,
-  y: float,
-}
-and noseBasePosition = {
+and xy = {
   x: float,
   y: float,
 };
 
-type faceDetectionMode =
-  | Fast
-  | Accurate;
-
-type faceDetectionLandmarks =
-  | All
-  | None;
-
-type faceDetectionClassifications =
-  | All
-  | None;
-
-// [@bs.deriving abstract]
 type barCodeScannerSettings = {
   barCodeTypes: array(string),
   useCamera2Api: bool,
@@ -199,80 +136,29 @@ type onBarCodeScanned = {
   _type: string,
   data: string,
 };
+
 type onFacesDetected = {faces: array(face)};
-type message = string;
-let props =
-    (
-      ~type_: cameraType,
-      ~flashMode: flashMode,
-      ~autoFocus: autoFocusType,
-      ~zoom: float,
-      ~whiteBalance: whiteBalanceType,
-      ~focusDepth: float,
-      ~ratio: string,
-      ~onCameraReady: unit => unit,
-      ~onFacesDetected: onFacesDetected => unit,
-      ~faceDetectionMode: faceDetectionMode,
-      ~faceDetectionLandmarks: faceDetectionLandmarks,
-      ~faceDetectionClassifications: faceDetectionClassifications,
-      ~onMountError: message => unit,
-      ~onBarCodeScanned: onBarCodeScanned => unit,
-      ~barCodeScannerSettings=?,
-      ~style=?,
-      ~children,
-    ) => {
-  "type":
-    switch (type_) {
-    | Front => Constants.Type.front
-    | Back => Constants.Type.back
-    },
-  "flashMode":
-    switch (flashMode) {
-    | On => Constants.FlashMode.on
-    | Off => Constants.FlashMode.off
-    | Auto => Constants.FlashMode.auto
-    | Torch => Constants.FlashMode.torch
-    },
-  "autoFocus":
-    switch (autoFocus) {
-    | On => Constants.AutoFocus.on
-    | Off => Constants.AutoFocus.off
-    },
-  "zoom": zoom,
-  "whiteBalance":
-    switch (whiteBalance) {
-    | Auto => Constants.WhiteBalance.auto
-    | Sunny => Constants.WhiteBalance.sunny
-    | Cloudy => Constants.WhiteBalance.cloudy
-    | Shadow => Constants.WhiteBalance.shadow
-    | Fluorescent => Constants.WhiteBalance.fluorescent
-    | Incandescent => Constants.WhiteBalance.incandescent
-    },
-  "focusDepth": focusDepth,
-  "ratio": ratio,
-  "onCameraReady": onCameraReady,
-  "onFacesDetected": onFacesDetected,
-  "faceDetectionMode":
-    switch (faceDetectionMode) {
-    | Fast => Constants.FaceDetection.Mode.fast
-    | Accurate => Constants.FaceDetection.Mode.accurate
-    },
-  "faceDetectionLandmarks":
-    switch (faceDetectionLandmarks) {
-    | All => Constants.FaceDetection.Landmarks.all
-    | None => Constants.FaceDetection.Landmarks.none
-    },
-  "faceDetectionClassifications":
-    switch (faceDetectionClassifications) {
-    | All => Constants.FaceDetection.Classifications.all
-    | None => Constants.FaceDetection.Classifications.none
-    },
-  "onMountError": onMountError,
-  "onBarCodeScanned": onBarCodeScanned,
-  "barCodeScannerSettings": Js.Nullable.fromOption(barCodeScannerSettings),
-  "style": Js.Undefined.fromOption(style),
-  "children": children,
-};
 
 [@bs.module "expo-camera"] [@react.component]
-external make: props => React.element = "Camera" /* external make: 'a => React.element = "Camera"*/;
+external make:
+  (
+    ~type_: Constants.Type.t,
+    ~flashMode: Constants.FlashMode.t,
+    ~autoFocus: Constants.AutoFocus.t,
+    ~zoom: float,
+    ~whiteBalance: Constants.WhiteBalance.t,
+    ~focusDepth: float,
+    ~ratio: string,
+    ~onCameraReady: unit => unit,
+    ~onFacesDetected: onFacesDetected => unit,
+    ~faceDetectionMode: Constants.FaceDetection.Mode.t,
+    ~faceDetectionLandmarks: Constants.FaceDetection.Landmarks.t,
+    ~faceDetectionClassifications: Constants.FaceDetection.Classifications.t,
+    ~onMountError: string => unit,
+    ~onBarCodeScanned: onBarCodeScanned => unit,
+    ~barCodeScannerSettings: barCodeScannerSettings=?,
+    ~style: ReactNative.Style.t=?,
+    ~children: React.element
+  ) =>
+  React.element =
+  "Camera";

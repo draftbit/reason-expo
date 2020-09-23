@@ -1,16 +1,21 @@
-[@bs.deriving abstract]
-type eventSubscription;
-
-[@bs.send] external remove: (eventSubscription, unit) => unit = "remove";
+type eventSubscription = {remove: unit => unit};
 
 [@bs.module "expo-location"]
-external hasServicesEnabledAsync: unit => Js.Promise.t(bool) = "hasServicesEnabledAsync";
+external hasServicesEnabledAsync: unit => Js.Promise.t(bool) =
+  "hasServicesEnabledAsync";
+
+type requestPermissionResult = {
+  status: [ | `granted | `denied | `undetermined],
+};
 
 [@bs.module "expo-location"]
-external requestPermissionsAsync: unit => Js.Promise.t(unit) = "requestPermissionsAsync";
+external requestPermissionsAsync:
+  unit => Js.Promise.t(requestPermissionResult) =
+  "requestPermissionsAsync";
 
 module Accuracy = {
-  type t = int;
+  type t;
+
   [@bs.module "expo-location"] [@bs.scope "Accuracy"]
   external lowest: t = "Lowest";
   [@bs.module "expo-location"] [@bs.scope "Accuracy"] external low: t = "Low";
@@ -25,7 +30,8 @@ module Accuracy = {
 };
 
 module GeofencingEventType = {
-  type t = int;
+  type t;
+
   [@bs.module "expo-location"] [@bs.scope "GeofencingEventType"]
   external enter: t = "Enter";
   [@bs.module "expo-location"] [@bs.scope "GeofencingEventType"]
@@ -33,14 +39,14 @@ module GeofencingEventType = {
 };
 
 module GeofencingRegionState = {
-  type t = int;
+  type t;
+
   [@bs.module "expo-location"] [@bs.scope "GeofencingRegionState"]
   external inside: t = "Inside";
   [@bs.module "expo-location"] [@bs.scope "GeofencingRegionState"]
   external outside: t = "Outside";
 };
 
-[@bs.deriving abstract]
 type region = {
   identifier: string,
   latitude: float,
@@ -49,7 +55,6 @@ type region = {
   state: GeofencingRegionState.t,
 };
 
-[@bs.deriving abstract]
 type coords = {
   latitude: float,
   longitude: float,
@@ -60,29 +65,32 @@ type coords = {
   speed: float,
 };
 
-[@bs.deriving abstract]
 type location = {
   coords,
   timestamp: int,
 };
 
-[@bs.deriving abstract]
-type getCurrentPositionAsyncOptions = {
-  accuracy: Accuracy.t,
-  maximumAge: int,
-};
+type getCurrentPositionAsyncOptions;
+[@bs.obj]
+external getCurrentPositionAsyncOptions:
+  (~maximumAge: int=?, ~accuracy: Accuracy.t=?) =>
+  getCurrentPositionAsyncOptions;
 
 [@bs.module "expo-location"]
 external getCurrentPositionAsync:
   getCurrentPositionAsyncOptions => Js.Promise.t(location) =
   "getCurrentPositionAsync";
 
-[@bs.deriving abstract]
-type watchPositionAsyncOptions = {
-  accuracy: Accuracy.t,
-  timeInterval: int,
-  distanceInterval: float,
-};
+type watchPositionAsyncOptions;
+[@bs.obj]
+external watchPositionAsyncOptions:
+  (
+    ~accuracy: Accuracy.t,
+    ~timeInterval: int,
+    ~distanceInterval: float,
+    ~mayShowUserSettingsDialog: bool=?
+  ) =>
+  watchPositionAsyncOptions;
 
 [@bs.module "expo-location"]
 external watchPositionAsync:
@@ -90,7 +98,6 @@ external watchPositionAsync:
   Js.Promise.t(eventSubscription) =
   "watchPositionAsync";
 
-[@bs.deriving abstract]
 type getProviderStatusAsyncResult = {
   locationServicesEnabled: bool,
   gpsAvailable: bool,
@@ -103,7 +110,6 @@ external getProviderStatusAsync:
   unit => Js.Promise.t(getProviderStatusAsyncResult) =
   "getProviderStatusAsync";
 
-[@bs.deriving abstract]
 type getHeadingAsyncResult = {
   magHeading: float,
   trueHeading: float,
@@ -114,7 +120,6 @@ type getHeadingAsyncResult = {
 external getHeadingAsync: unit => Js.Promise.t(getHeadingAsyncResult) =
   "getHeadingAsync";
 
-[@bs.deriving abstract]
 type watchHeadingAsyncResult = {
   magHeading: float,
   trueHeading: float,
@@ -126,7 +131,6 @@ external watchHeadingAsync:
   (watchHeadingAsyncResult => unit) => Js.Promise.t(eventSubscription) =
   "watchHeadingAsync";
 
-[@bs.deriving abstract]
 type geocodeAsyncResult = {
   latitude: float,
   longitude: float,
@@ -138,13 +142,11 @@ type geocodeAsyncResult = {
 external geocodeAsync: string => Js.Promise.t(geocodeAsyncResult) =
   "geocodeAsync";
 
-[@bs.deriving abstract]
-type reverseGeocodeAsyncOptions = {
-  latitude: float,
-  longitude: float,
-};
+type reverseGeocodeAsyncOptions;
+[@bs.obj]
+external reverseGeocodeAsyncOptions:
+  (~latitude: float, ~longitude: float) => reverseGeocodeAsyncOptions;
 
-[@bs.deriving abstract]
 type reverseGeocodeAsyncResult = {
   city: string,
   street: string,
@@ -163,15 +165,19 @@ external reverseGeocodeAsync:
 [@bs.module "expo-location"] external setApiKey: string => unit = "setApiKey";
 
 [@bs.module "expo-location"]
-external installWebGeolocationPolyfill: unit => unit = "installWebGeolocationPolyfill";
+external installWebGeolocationPolyfill: unit => unit =
+  "installWebGeolocationPolyfill";
 
-[@bs.deriving abstract]
-type startLocationUpdatesAsyncOptions = {
-  accuracy: Accuracy.t,
-  timeInterval: int,
-  distanceInterval: float,
-  showsBackgroundLocationIndicator: bool,
-};
+type startLocationUpdatesAsyncOptions;
+[@bs.obj]
+external startLocationUpdatesAsyncOptions:
+  (
+    ~accuracy: Accuracy.t,
+    ~timeInterval: int,
+    ~distanceInterval: float,
+    ~showsBackgroundLocationIndicator: bool
+  ) =>
+  startLocationUpdatesAsyncOptions;
 
 [@bs.module "expo-location"]
 external startLocationUpdatesAsync:
@@ -179,10 +185,12 @@ external startLocationUpdatesAsync:
   "startLocationUpdatesAsync";
 
 [@bs.module "expo-location"]
-external stopLocationUpdatesAsync: string => Js.Promise.t(unit) = "stopLocationUpdatesAsync";
+external stopLocationUpdatesAsync: string => Js.Promise.t(unit) =
+  "stopLocationUpdatesAsync";
 
 [@bs.module "expo-location"]
-external hasStartedLocationUpdatesAsync: string => Js.Promise.t(bool) = "hasStartedLocationUpdatesAsync";
+external hasStartedLocationUpdatesAsync: string => Js.Promise.t(bool) =
+  "hasStartedLocationUpdatesAsync";
 
 type geofencingRegion = {
   identifier: string,
@@ -199,6 +207,8 @@ external startGeofencingAsync:
   "startGeofencingAsync";
 
 [@bs.module "expo-location"]
-external stopGeofencingAsync: string => Js.Promise.t(unit) = "stopGeofencingAsync";
+external stopGeofencingAsync: string => Js.Promise.t(unit) =
+  "stopGeofencingAsync";
 [@bs.module "expo-location"]
-external hasStartedGeofencingAsync: string => Js.Promise.t(bool) = "hasStartedGeofencingAsync";
+external hasStartedGeofencingAsync: string => Js.Promise.t(bool) =
+  "hasStartedGeofencingAsync";

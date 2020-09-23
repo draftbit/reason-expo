@@ -1,20 +1,12 @@
-[@bs.deriving abstract]
-type options = {
-  [@bs.as "type"]
-  _type: string,
-  copyToCacheDirectory: bool,
-};
+type options;
+external options: (~_type: string, ~copyToCacheDirectory: bool) => options;
 
-[@bs.deriving abstract]
 type result = {
   [@bs.as "type"]
   _type: string,
-  [@bs.optional]
-  uri: string,
-  [@bs.optional]
-  name: string,
-  [@bs.optional]
-  size: int,
+  uri: option(string),
+  name: option(string),
+  size: option(int),
 };
 
 [@bs.module "expo-document-picker"]

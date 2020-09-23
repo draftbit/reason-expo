@@ -1,5 +1,5 @@
 module Status = {
-  type t = int;
+  type t;
 
   [@bs.module "expo-background-fetch"] [@bs.scope "Status"]
   external restricted: t = "Restricted";
@@ -12,7 +12,7 @@ module Status = {
 };
 
 module Result = {
-  type t = int;
+  type t;
 
   [@bs.module "expo-background-fetch"] [@bs.scope "Result"]
   external noData: t = "NoData";
@@ -28,10 +28,13 @@ module Result = {
 external getStatusAsync: unit => Js.Promise.t(Status.t) = "getStatusAsync";
 
 [@bs.module "expo-background-fetch"]
-external registerTaskAsync: string => Js.Promise.t(unit) = "registerTaskAsync";
+external registerTaskAsync: string => Js.Promise.t(unit) =
+  "registerTaskAsync";
 
 [@bs.module "expo-background-fetch"]
-external unregisterTaskAsync: string => Js.Promise.t(unit) = "unregisterTaskAsync";
+external unregisterTaskAsync: string => Js.Promise.t(unit) =
+  "unregisterTaskAsync";
 
 [@bs.module "expo-background-fetch"]
-external setMinimumIntervalAsync: float => Js.Promise.t(unit) = "setMinimumIntervalAsync";
+external setMinimumIntervalAsync: float => Js.Promise.t(unit) =
+  "setMinimumIntervalAsync";
