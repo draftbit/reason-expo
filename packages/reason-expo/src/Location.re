@@ -14,7 +14,8 @@ external requestPermissionsAsync:
   "requestPermissionsAsync";
 
 module Accuracy = {
-  type t = int;
+  type t;
+
   [@bs.module "expo-location"] [@bs.scope "Accuracy"]
   external lowest: t = "Lowest";
   [@bs.module "expo-location"] [@bs.scope "Accuracy"] external low: t = "Low";
@@ -29,7 +30,8 @@ module Accuracy = {
 };
 
 module GeofencingEventType = {
-  type t = int;
+  type t;
+
   [@bs.module "expo-location"] [@bs.scope "GeofencingEventType"]
   external enter: t = "Enter";
   [@bs.module "expo-location"] [@bs.scope "GeofencingEventType"]
@@ -37,7 +39,8 @@ module GeofencingEventType = {
 };
 
 module GeofencingRegionState = {
-  type t = int;
+  type t;
+
   [@bs.module "expo-location"] [@bs.scope "GeofencingRegionState"]
   external inside: t = "Inside";
   [@bs.module "expo-location"] [@bs.scope "GeofencingRegionState"]

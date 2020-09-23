@@ -1,9 +1,5 @@
-[@bs.deriving abstract]
-type eventSubscription;
+type eventSubscription = {remove: unit => unit};
 
-[@bs.send] external remove: (eventSubscription, unit) => unit = "remove";
-
-[@bs.deriving abstract]
 type location = {
   x: int,
   y: int,

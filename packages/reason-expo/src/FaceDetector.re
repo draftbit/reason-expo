@@ -32,13 +32,11 @@ module Constants = {
   };
 };
 
-// [@bs.deriving abstract]
 type point = {
   x: int,
   y: int,
 };
 
-// [@bs.deriving abstract]
 type faceFeature = {
   bounds,
   smilingProbability: Js.Nullable.t(float),
@@ -67,12 +65,12 @@ and size = {
   height: int,
 };
 
-// [@bs.deriving abstract]
 type detectionOptions = {
   mode: Js.Nullable.t(Constants.Mode.t),
   detectLandmarks: Js.Nullable.t(Constants.Landmarks.t),
   runClassifications: Js.Nullable.t(Constants.Classifications.t),
 };
+
 type detectFacesAsyncResponse = {
   faces: array(faceFeature),
   image,
@@ -83,6 +81,7 @@ and image = {
   height: float,
   orientation: int,
 };
+
 [@bs.module "expo-face-detector"]
 external detectFacesAsync:
   (string, detectionOptions) => Js.Promise.t(detectFacesAsyncResponse) =

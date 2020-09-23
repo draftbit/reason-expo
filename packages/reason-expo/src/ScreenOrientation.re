@@ -1,5 +1,5 @@
 module Orientation = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("ScreenOrientation", "Orientation")]
   external unknown: t = "UNKNOWN";
@@ -24,7 +24,7 @@ module Orientation = {
 };
 
 module OrientationLock = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("ScreenOrientation", "OrientationLock")]
   external default: t = "DEFAULT";
@@ -58,7 +58,7 @@ module OrientationLock = {
 };
 
 module SizeClassIOS = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("ScreenOrientation", "SizeClassIOS")]
   external regular: t = "REGULAR";
@@ -71,7 +71,7 @@ module SizeClassIOS = {
 };
 
 module WebOrientationLock = {
-  type t = string;
+  type t;
 
   [@bs.module "expo"] [@bs.scope ("ScreenOrientation", "WebOrientationLock")]
   external portraitPrimary: t = "PORTRAIT_PRIMARY";
@@ -115,13 +115,7 @@ type orientationChangeEvent = {
   orientationInfo,
 };
 
-module Subscription = {
-  type t;
-
-  [@bs.send] external remove: (t, unit) => unit = "remove";
-};
-
-type orientationChangeListener = orientationChangeEvent => unit;
+type eventSubscription = {remove: unit => unit};
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external allowAsync: OrientationLock.t => Js.Promise.t(unit) = "allowAsync";
@@ -151,7 +145,7 @@ external supportsOrientationLockAsync: OrientationLock.t => Js.Promise.t(bool) =
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
 external addOrientationChangeListener:
-  orientationChangeListener => Subscription.t =
+  (orientationChangeEvent => unit) => eventSubscription =
   "addOrientationChangeListener";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
@@ -159,5 +153,5 @@ external removeOrientationChangeListeners: unit => unit =
   "removeOrientationChangeListeners";
 
 [@bs.module "expo"] [@bs.scope "ScreenOrientation"]
-external removeOrientationChangeListener: Subscription.t => unit =
+external removeOrientationChangeListener: eventSubscription => unit =
   "removeOrientationChangeListener";

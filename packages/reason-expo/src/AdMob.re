@@ -1,64 +1,27 @@
-type bannerSize =
-  | Banner
-  | LargeBanner
-  | MediumRectangle
-  | FullBanner
-  | Leaderboard
-  | SmartBannerPortrait
-  | SmartBannerLandscape;
-
 module AdMobBanner = {
-  type props = {
-    // [@bs.optional]
-    bannerSize: option(string),
-    // [@bs.optional]
-    onAdViewDidReceiveAd: option(unit => unit),
-    // [@bs.optional]
-    onDidFailToReceiveAdWithError: option(string => unit),
-    // [@bs.optional]
-    onAdViewWillPresentScreen: option(unit => unit),
-    // [@bs.optional]
-    onAdViewWillDismissScreen: option(unit => unit),
-    // [@bs.optional]
-    onAdViewDidDismissScreen: option(unit => unit),
-    // [@bs.optional]
-    onAdViewWillLeaveApplication: option(unit => unit),
-    // [@bs.optional]
-    children: option(React.element),
-  };
-
-  let props =
-      (
-        ~bannerSize=Banner,
-        ~onAdViewDidReceiveAd=() => (),
-        ~onDidFailToReceiveAdWithError=_e => (),
-        ~onAdViewWillPresentScreen=() => (),
-        ~onAdViewWillDismissScreen=() => (),
-        ~onAdViewDidDismissScreen=() => (),
-        ~onAdViewWillLeaveApplication=() => (),
-        ~children,
-      ) => {
-    bannerSize:
-      switch (bannerSize) {
-      | Banner => Some("banner")
-      | LargeBanner => Some("largeBanner")
-      | MediumRectangle => Some("mediumRectangle")
-      | FullBanner => Some("fullBanner")
-      | Leaderboard => Some("leaderboard")
-      | SmartBannerPortrait => Some("smartBannerPortrait")
-      | SmartBannerLandscape => Some("smartBannerLandscape")
-      },
-    onAdViewDidReceiveAd: Some(onAdViewDidReceiveAd),
-    onDidFailToReceiveAdWithError: Some(onDidFailToReceiveAdWithError),
-    onAdViewWillPresentScreen: Some(onAdViewWillPresentScreen),
-    onAdViewWillDismissScreen: Some(onAdViewWillDismissScreen),
-    onAdViewDidDismissScreen: Some(onAdViewDidDismissScreen),
-    onAdViewWillLeaveApplication: Some(onAdViewWillLeaveApplication),
-    children: Some(children),
-  };
-
   [@bs.module "expo-ads-admob"] [@react.component]
-  external make: props => React.element = "AdMobBanner";
+  external make:
+    (
+      ~bannerSize: [
+                     | `banner
+                     | `largeBanner
+                     | `mediumRectangle
+                     | `fullBanner
+                     | `leaderboard
+                     | `smartBannerPortrait
+                     | `smartBannerLandscape
+                   ]
+                     =?,
+      ~onAdViewDidReceiveAd: unit => unit=?,
+      ~onDidFailToReceiveAdWithError: string => unit=?,
+      ~onAdViewWillPresentScreen: unit => unit=?,
+      ~onAdViewWillDismissScreen: unit => unit=?,
+      ~onAdViewDidDismissScreen: unit => unit=?,
+      ~onAdViewWillLeaveApplication: unit => unit=?,
+      ~children: React.element=?
+    ) =>
+    React.element =
+    "AdMobBanner";
 };
 
 module AdMobInterstitial = {

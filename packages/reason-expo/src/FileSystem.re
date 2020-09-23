@@ -5,7 +5,7 @@ external documentDirectory: string = "documentDirectory";
 external cacheDirectory: string = "cacheDirectory";
 
 module EncodingTypes = {
-  type t = string;
+  type t;
 
   [@bs.module "expo-file-system"] [@bs.scope "EncodingTypes"]
   external utf8: t = "UTF8";
@@ -14,86 +14,72 @@ module EncodingTypes = {
   external base64: t = "Base64";
 };
 
-[@bs.deriving abstract]
 type fileInfo = {
   exists: bool,
-  [@bs.optional]
-  isDirectory: bool,
-  [@bs.optional]
-  modificationTime: int,
-  [@bs.optional]
-  size: int,
-  [@bs.optional]
-  uri: string,
-  [@bs.optional]
-  md5: string,
+  isDirectory: option(bool),
+  modificationTime: option(int),
+  size: option(int),
+  uri: option(string),
+  md5: option(string),
 };
 
-[@bs.deriving abstract]
-type getInfoAsyncOptions = {
-  [@bs.optional]
-  md5: bool,
-  [@bs.optional]
-  size: bool,
-};
+type getInfoAsyncOptions;
+[@bs.obj]
+external getInfoAsyncOptions:
+  (~md5: bool=?, ~size: bool=?) => getInfoAsyncOptions;
 
 [@bs.module "expo-file-system"]
 external getInfoAsync: (string, getInfoAsyncOptions) => Js.Promise.t(fileInfo) =
   "getInfoAsync";
 
-[@bs.deriving abstract]
-type readAsStringAsyncOptions = {
-  encoding: EncodingTypes.t,
-  length: int,
-  position: int,
-};
+type readAsStringAsyncOptions;
+[@bs.obj]
+external readAsStringAsyncOptions:
+  (~encoding: EncodingTypes.t, ~length: int, ~position: int) =>
+  readAsStringAsyncOptions;
 
 [@bs.module "expo-file-system"]
 external readAsStringAsync:
   (string, readAsStringAsyncOptions) => Js.Promise.t(string) =
   "readAsStringAsync";
 
-[@bs.deriving abstract]
-type writeAsStringAsyncOptions = {encoding: EncodingTypes.t};
+type writeAsStringAsyncOptions;
+[@bs.obj]
+external writeAsStringAsyncOptions:
+  (~encoding: EncodingTypes.t) => writeAsStringAsyncOptions;
 
 [@bs.module "expo-file-system"]
 external writeAsStringAsync: (string, string) => Js.Promise.t(unit) =
   "writeAsStringAsync";
 
-[@bs.deriving abstract]
-type deleteAsyncOptions = {
-  [@bs.optional]
-  idempotent: bool,
-};
+type deleteAsyncOptions;
+[@bs.obj]
+external deleteAsyncOptions: (~idempotent: bool) => deleteAsyncOptions;
 
 [@bs.module "expo-file-system"]
 external deleteAsync: (string, deleteAsyncOptions) => Js.Promise.t(unit) =
   "deleteAsync";
 
-[@bs.deriving abstract]
-type moveAsyncOptions = {
-  from: string,
-  [@bs.as "to"]
-  to_: string,
-};
+type moveAsyncOptions;
+[@bs.obj]
+external moveAsyncOptions: (~from: string, ~_to: string) => moveAsyncOptions;
 
 [@bs.module "expo-file-system"]
 external moveAsync: (string, moveAsyncOptions) => Js.Promise.t(unit) =
   "moveAsync";
 
-[@bs.deriving abstract]
-type copyAsyncOptions = {
-  from: string,
-  [@bs.as "to"]
-  to_: string,
-};
+type copyAsyncOptions;
+[@bs.obj]
+external copyAsyncOptions: (~from: string, ~_to: string) => copyAsyncOptions;
 
 [@bs.module "expo-file-system"]
 external copyAsync: (string, copyAsyncOptions) => Js.Promise.t(unit) =
   "copyAsync";
 
-[@bs.deriving abstract]
-type makeDirectoryAsyncOptions = {intermediates: bool};
+type makeDirectoryAsyncOptions;
+[@bs.obj]
+external makeDirectoryAsyncOptions:
+  (~intermediates: bool) => makeDirectoryAsyncOptions;
 
 [@bs.module "expo-file-system"]
 external makeDirectoryAsync:
@@ -104,10 +90,9 @@ external makeDirectoryAsync:
 external readDirectoryAsync: string => Js.Promise.t(array(string)) =
   "readDirectoryAsync";
 
-[@bs.deriving abstract]
-type downloadAsyncOptions = {md5: bool};
+type downloadAsyncOptions;
+[@bs.obj] external downloadAsyncOptions: (~md5: bool) => downloadAsyncOptions;
 
-[@bs.deriving abstract]
 type downloadAsyncResult('headersType) = {
   uri: string,
   status: int,
@@ -122,15 +107,13 @@ external downloadAsync:
   "downloadAsync";
 
 module DownloadResumable = {
-  type t = {.};
+  type t;
 
-  [@bs.deriving abstract]
   type downloadAsyncResult('headersType) = {
     uri: string,
     status: int,
     headers: 'headersType,
-    [@bs.optional]
-    md5: string,
+    md5: option(string),
   };
 
   [@bs.send]
@@ -138,11 +121,12 @@ module DownloadResumable = {
     (t, unit) => Js.Promise.t(downloadAsyncResult('headersType)) =
     "downloadAsync";
 
-  [@bs.deriving abstract]
+  type options = {md5: bool};
+
   type pauseAsyncResult = {
     uri: string,
     fileUri: string,
-    options: {. md5: bool},
+    options,
     resumeData: string,
   };
 
@@ -150,13 +134,11 @@ module DownloadResumable = {
   external pauseAsync: (t, unit) => Js.Promise.t(pauseAsyncResult) =
     "pauseAsync";
 
-  [@bs.deriving abstract]
   type resumeAsyncResult('headersType) = {
     uri: string,
     status: int,
     headers: 'headersType,
-    [@bs.optional]
-    md5: string,
+    md5: option(string),
   };
 
   [@bs.send]
@@ -164,11 +146,10 @@ module DownloadResumable = {
     (t, unit) => Js.Promise.t(resumeAsyncResult('headersType)) =
     "resumeAsync";
 
-  [@bs.deriving abstract]
   type savableResult = {
     uri: string,
     fileUri: string,
-    options: {. md5: bool},
+    options,
     resumeData: string,
   };
 
@@ -176,19 +157,17 @@ module DownloadResumable = {
   external savable: (t, unit) => Js.Promise.t(savableResult) = "savable";
 };
 
-[@bs.deriving abstract]
-type createDownloadResumableOptions('headersType) = {
-  md5: bool,
-  headers: 'headersType,
-};
+type createDownloadResumableOptions('headersType);
+[@bs.obj]
+external createDownloadResumableOptions:
+  (~md5: bool, ~headers: 'headersType) =>
+  createDownloadResumableOptions('headersType);
 
-[@bs.deriving abstract]
 type createDownloadResumableCallbackParam = {
   totalBytesWritten: int,
   totalBytesExpectedToWrite: int,
 };
 
-[@bs.deriving abstract]
 type createDownloadResumableResult('headersType) = {
   uri: string,
   status: int,
@@ -199,11 +178,11 @@ type createDownloadResumableResult('headersType) = {
 [@bs.module "expo-file-system"]
 external createDownloadResumable:
   (
-    string,
-    string,
-    createDownloadResumableOptions('headersType),
-    createDownloadResumableCallbackParam => unit,
-    string
+    ~uri: string,
+    ~fileUri: string,
+    ~options: createDownloadResumableOptions('headersType),
+    ~callback: createDownloadResumableCallbackParam => unit,
+    ~data: string
   ) =>
   DownloadResumable.t =
   "createDownloadResumable";

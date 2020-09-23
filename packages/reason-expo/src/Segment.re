@@ -1,8 +1,7 @@
-[@bs.deriving abstract]
-type initializeOptions = {
-  androidWriteKey: string,
-  iosWriteKey: string,
-};
+type initializeOptions;
+[@bs.obj]
+external initializeOptions:
+  (~androidWriteKey: string, ~iosWriteKey: string) => initializeOptions;
 
 [@bs.module "expo-analytics-segment"]
 external initialize: initializeOptions => unit = "initialize";

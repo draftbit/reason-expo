@@ -1,10 +1,7 @@
-[@bs.deriving abstract]
 type intentResult('extras) = {
   resultCode: int,
-  [@bs.optional]
-  data: string,
-  [@bs.optional]
-  extra: 'extras,
+  data: option(string),
+  extra: option('extras),
 };
 
 [@bs.module "expo-intent-launcher"]

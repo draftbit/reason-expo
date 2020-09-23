@@ -2,13 +2,17 @@
 external registerRootComponent: ('a => React.element) => unit =
   "registerRootComponent";
 
-type takeSnapshotAsyncOptions = {
-  format: string,
-  quality: float,
-  result: string,
-  height: int,
-  width: int,
-};
+type takeSnapshotAsyncOptions;
+[@bs.obj]
+external takeSnapshotAsyncOptions:
+  (
+    ~format: string,
+    ~quality: float,
+    ~result: string,
+    ~height: int,
+    ~width: int
+  ) =>
+  takeSnapshotAsyncOptions;
 
 [@bs.module "expo"]
 external takeSnapshotAsync:

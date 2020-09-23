@@ -1,5 +1,5 @@
 module Status = {
-  type t = int;
+  type t;
 
   [@bs.module "expo-background-fetch"] [@bs.scope "Status"]
   external restricted: t = "Restricted";
@@ -12,7 +12,7 @@ module Status = {
 };
 
 module Result = {
-  type t = int;
+  type t;
 
   [@bs.module "expo-background-fetch"] [@bs.scope "Result"]
   external noData: t = "NoData";

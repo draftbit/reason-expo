@@ -1,15 +1,12 @@
 type platforms = array(string);
 
-[@bs.deriving {abstract: light}]
 type ios = {supportsTablet: bool};
 
-[@bs.deriving {abstract: light}]
 type developer = {
   projectRoot: string,
   tool: string,
 };
 
-[@bs.deriving {abstract: light}]
 type packagerOpts = {
   dev: bool,
   hostType: string,
@@ -18,7 +15,6 @@ type packagerOpts = {
   urlRandomness: string,
 };
 
-[@bs.deriving {abstract: light}]
 type splash = {
   backgroundColor: string,
   image: string,
@@ -26,15 +22,13 @@ type splash = {
   resizeMode: string,
 };
 
-[@bs.deriving {abstract: light}]
 type updates = {fallbackToCacheTimeout: int};
 
-[@bs.deriving {abstract: light}]
 type manifest = {
   assetBundlePatterns: array(string),
   bundleUrl: string,
-  releaseChannel: Js.Undefined.t(string),
-  debuggerHost: Js.Undefined.t(string),
+  releaseChannel: option(string),
+  debuggerHost: option(string),
   developer,
   env: Js.t({.}),
   hostUri: string,
@@ -59,7 +53,6 @@ type manifest = {
   xde: bool,
 };
 
-[@bs.deriving {abstract: light}]
 type platformIOS = {
   buildNumber: string,
   platform: string,
@@ -68,16 +61,13 @@ type platformIOS = {
   systemVersion: string,
 };
 
-[@bs.deriving {abstract: light}]
 type platformAndroid = {versionCode: int};
 
-[@bs.deriving {abstract: light}]
 type platform = {
   ios: platformIOS,
   android: platformAndroid,
 };
 
-[@bs.deriving {abstract: light}]
 type t = {
   appOwnership: string,
   debugMode: bool,
@@ -105,18 +95,3 @@ type t = {
 };
 
 [@bs.module "expo-constants"] external constants: t = "default";
-
-let deviceId = constants->deviceId;
-let deviceName = constants->deviceName;
-let deviceYearClass = constants->deviceYearClass;
-let linkingUrl = constants->linkingUrl;
-let statusBarHeight = constants->statusBarHeight;
-let appOwnership = constants->appOwnership;
-let expoVersion = constants->expoVersion;
-let installationId = constants->installationId;
-let isDevice = constants->isDevice;
-let getWebViewUserAgentAsync = constants->getWebViewUserAgentAsync;
-let systemFonts = constants->systemFonts;
-let platform = constants->platform;
-let sessionId = constants->sessionId;
-let manifest = constants->manifest;
