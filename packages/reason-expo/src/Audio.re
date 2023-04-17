@@ -98,38 +98,3 @@ module Sound = {
       downloadFirst,
     );
 };
-
-module Recording = {
-  [@bs.deriving abstract]
-  type status = {
-    canRecord: bool,
-    isDoneRecording: bool,
-    durationMillis: int,
-  };
-
-  class type _recording =
-    [@bs]
-    {
-      pub getStatusAsync: unit => Js.Promise.t(status);
-      pub setOnRecordingStatusUpdate: (status => unit) => unit;
-      pub setProgressUpdateInterval: int => unit;
-      pub prepareToRecordAsync: Js.t('a) => Js.Promise.t(unit);
-      pub isPreparedToRecord: unit => bool;
-      pub startAsync: unit => Js.Promise.t(status);
-      pub pauseAsync: unit => Js.Promise.t(status);
-      pub stopAndUnloadAsync: unit => Js.Promise.t(status);
-      pub getURI: unit => Js.Nullable.t(string);
-      pub createNewLoadedSound:
-        ('a, 'a => unit) =>
-        Js.Promise.t({
-          .
-          sound: Sound.t,
-          status: 'a,
-        });
-    };
-
-  type t = Js.t(_recording);
-
-  [@bs.new] [@bs.module "expo-av"] [@bs.scope "Audio"]
-  external make: unit => t = "Recording";
-};
